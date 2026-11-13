@@ -130,19 +130,27 @@
     <h2><span class="lf-en">World map: landfilling over time</span><span class="lf-he-t" lang="he">מפת העולם: הטמנה לאורך זמן</span></h2>
     <p class="lf-sub"><span class="lf-en">Press Play to watch each country change year by year, or drag the slider. Click a country to see its trend under the map. A country with no figure for the year shown keeps its latest earlier one (hover to see which year); grey means it has not reported yet.</span><span class="lf-he-t" lang="he">לחצו על "הפעל" כדי לראות כל מדינה משתנה משנה לשנה, או גררו את המחוון. לחצו על מדינה כדי לראות את המגמה שלה מתחת למפה. מדינה שאין לה נתון לשנה המוצגת שומרת על הנתון האחרון שלה משנה קודמת (העבירו את העכבר כדי לראות מאיזו שנה); אפור פירושו שהמדינה טרם דיווחה.</span></p>
     <div class="lf-controls">
-      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Data"><span class="lf-sel-label">Data</span><select class="dash-select" id="map-source" aria-label="Data">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Data</span><span class="lf-he-t" lang="he">נתונים</span></span><select class="dash-select" id="map-source" aria-label="Data">
         <option value="oecd">OECD member countries, year by year (2000–2024)</option>
         <option value="waw">World Bank survey, one snapshot (about 2016)</option>
+        <option value="he:oecd" hidden>מדינות OECD, שנה אחר שנה (2000–2024)</option>
+        <option value="he:waw" hidden>סקר הבנק העולמי, תמונת מצב אחת (סביב 2016)</option>
       </select></label>
-      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Measure"><span class="lf-sel-label">Measure</span><select class="dash-select" id="map-metric" aria-label="Measure">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Measure</span><span class="lf-he-t" lang="he">מדד</span></span><select class="dash-select" id="map-metric" aria-label="Measure">
         <option value="landfill_pct">Share landfilled (%)</option>
         <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
         <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
         <option value="recycling_pct">Share recycled (%)</option>
+        <option value="he:landfill_pct" hidden>שיעור ההטמנה (%)</option>
+        <option value="he:landfill_kg_per_capita" hidden>הטמנה לנפש (ק"ג בשנה)</option>
+        <option value="he:msw_kg_per_capita" hidden>פסולת לנפש (ק"ג בשנה)</option>
+        <option value="he:recycling_pct" hidden>שיעור המיחזור (%)</option>
       </select></label>
-      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Zoom"><span class="lf-sel-label">Zoom</span><select class="dash-select" id="map-zoom" aria-label="Zoom">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Zoom</span><span class="lf-he-t" lang="he">תצוגה</span></span><select class="dash-select" id="map-zoom" aria-label="Zoom">
         <option value="world">Whole world</option>
         <option value="europe">Europe and the Middle East</option>
+        <option value="he:world" hidden>כל העולם</option>
+        <option value="he:europe" hidden>אירופה והמזרח התיכון</option>
       </select></label>
     </div>
     <div class="lf-player">
@@ -257,11 +265,15 @@
     <h2><span class="lf-en">Landfilling over time: Israel against the OECD</span><span class="lf-he-t" lang="he">הטמנה לאורך זמן: ישראל מול OECD</span></h2>
     <p class="lf-sub"><span class="lf-en">Press Play to draw the lines year by year from 2000, or drag the slider to stop at any year. Pick what to measure and which country to compare with.</span><span class="lf-he-t" lang="he">לחצו על "הפעל" כדי לשרטט את הקווים שנה אחר שנה מ-2000, או גררו את המחוון כדי לעצור בכל שנה. בחרו מה למדוד ולאיזו מדינה להשוות.</span></p>
     <div class="lf-controls">
-      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Measure"><span class="lf-sel-label">Measure</span><select class="dash-select" id="trend-metric" aria-label="Measure">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Measure</span><span class="lf-he-t" lang="he">מדד</span></span><select class="dash-select" id="trend-metric" aria-label="Measure">
         <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
         <option value="landfill_pct">Share landfilled (%)</option>
         <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
         <option value="recycling_pct">Share recycled (%)</option>
+        <option value="he:landfill_kg_per_capita" hidden>הטמנה לנפש (ק"ג בשנה)</option>
+        <option value="he:landfill_pct" hidden>שיעור ההטמנה (%)</option>
+        <option value="he:msw_kg_per_capita" hidden>פסולת לנפש (ק"ג בשנה)</option>
+        <option value="he:recycling_pct" hidden>שיעור המיחזור (%)</option>
       </select></label>
       <select class="dash-select" id="trend-compare" data-draw="compare" aria-label="Compare with" data-source="oecd"></select>
     </div>
@@ -298,10 +310,13 @@
     <h2><span class="lf-en">Where Israel ranks among the 38 OECD countries, year by year</span><span class="lf-he-t" lang="he">המקום של ישראל בין 38 מדינות OECD, שנה אחר שנה</span></h2>
     <p class="lf-sub" data-draw="rank-note" data-source="oecd">—</p>
     <div class="lf-controls">
-      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Rank by"><span class="lf-sel-label">Rank by</span><select class="dash-select" id="rank-metric" aria-label="Rank by">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Rank by</span><span class="lf-he-t" lang="he">דירוג לפי</span></span><select class="dash-select" id="rank-metric" aria-label="Rank by">
         <option value="landfill_pct">Share landfilled (%)</option>
         <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
         <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
+        <option value="he:landfill_pct" hidden>שיעור ההטמנה (%)</option>
+        <option value="he:landfill_kg_per_capita" hidden>הטמנה לנפש (ק"ג בשנה)</option>
+        <option value="he:msw_kg_per_capita" hidden>פסולת לנפש (ק"ג בשנה)</option>
       </select></label>
     </div>
     <div class="lf-player">
@@ -473,16 +488,8 @@
   window.lfTranslate = translate;
   window.lfReg = function (name, f) { return dash.draw(name, wrap(f)); };
   // Static selects: option text follows the language.
-  window.lfReg('i18n-sel', (el) => {
-    const he = window.LF_LANG === 'he';
-    const LAB = { 'Data': 'נתונים', 'Measure': 'מדד', 'Zoom': 'תצוגה', 'Rank by': 'דירוג לפי' };
-    const lab = el.querySelector('.lf-sel-label'), sel = el.querySelector('select');
-    if (lab) lab.textContent = he ? (LAB[el.dataset.label] || el.dataset.label) : el.dataset.label;
-    if (sel) for (const o of sel.options) {
-      if (!o.dataset.en) o.dataset.en = o.textContent;
-      o.textContent = he ? (EX[o.dataset.en] || o.dataset.en) : o.dataset.en;
-    }
-  });
+  // Menu value without the Hebrew option prefix.
+  window.lfVal = (s) => String(s.value).replace(/^he:/, '');
 })();
 </script>
 <script>
@@ -687,8 +694,8 @@ dash.calc('region_mix', {
 });
 
 document.querySelectorAll('[data-color]').forEach((e) => { e.style.background = LF.colorOf(e.dataset.color); });
-document.querySelectorAll('#trend-metric').forEach((s) => s.addEventListener('change', () => { LF.st.metric = s.value; dash.draw('trend'); }));
-document.querySelectorAll('#rank-metric').forEach((s) => s.addEventListener('change', () => { LF.st.rank = s.value; dash.draw('rank'); dash.draw('rank-note'); }));
+document.querySelectorAll('#trend-metric').forEach((s) => s.addEventListener('change', () => { LF.st.metric = lfVal(s); dash.draw('trend'); }));
+document.querySelectorAll('#rank-metric').forEach((s) => s.addEventListener('change', () => { LF.st.rank = lfVal(s); dash.draw('rank'); dash.draw('rank-note'); }));
 </script>
 
 <script>
@@ -896,11 +903,11 @@ lfReg('regions', (el) => {
   }));
   q('#map-pause').forEach((b) => b.addEventListener('click', stop));
   q('#map-year').forEach((r) => r.addEventListener('input', () => { stop(); setYear(+r.value); }));
-  q('#map-metric').forEach((s) => s.addEventListener('change', () => { S.mapMetric = s.value; redrawAll(); }));
-  q('#map-zoom').forEach((s) => s.addEventListener('change', () => { S.mapZoom = s.value; dash.draw('map'); }));
+  q('#map-metric').forEach((s) => s.addEventListener('change', () => { S.mapMetric = lfVal(s); redrawAll(); }));
+  q('#map-zoom').forEach((s) => s.addEventListener('change', () => { S.mapZoom = lfVal(s); dash.draw('map'); }));
   q('#map-source').forEach((s) => s.addEventListener('change', () => {
-    S.mapSource = s.value; stop();
-    q('#map-year, #map-play').forEach((x) => { x.disabled = s.value !== 'oecd'; });
+    S.mapSource = lfVal(s); stop();
+    q('#map-year, #map-play').forEach((x) => { x.disabled = lfVal(s) !== 'oecd'; });
     redrawAll();
   }));
 })();
@@ -1883,7 +1890,16 @@ lfReg('gif-ctl', (el) => {
 
 (function () {
   const roots = () => document.querySelectorAll('.lf');
-  const apply = () => roots().forEach((r) => r.classList.toggle('lf-he', window.LF_LANG === 'he'));
+  const apply = () => {
+    const he = window.LF_LANG === 'he';
+    roots().forEach((r) => r.classList.toggle('lf-he', he));
+    document.querySelectorAll('select').forEach((s) => {
+      if (![...s.options].some((o) => o.value.startsWith('he:'))) return;
+      const v = lfVal(s);
+      for (const o of s.options) o.hidden = o.value.startsWith('he:') !== he;
+      s.value = he ? 'he:' + v : v;
+    });
+  };
   apply();
   const drawn = () => [...new Set([...document.querySelectorAll('[data-draw]')].map((e) => e.dataset.draw))];
   document.querySelectorAll('#lf-lang').forEach((b) => b.addEventListener('click', () => {
