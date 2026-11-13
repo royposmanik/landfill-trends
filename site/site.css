@@ -6,8 +6,8 @@
   --cds-font-size-caption: 12.5px; --cds-font-size-body: 15px; --cds-font-size-heading: 20px; --cds-font-size-title: 32px; --cds-font-weight-medium: 600;
   --cds-chart-muted: #bdb9ae; --cds-chart-grid: #ecebe5; --cds-chart-axis: #9b9890; --cds-chart-reference: #8f8c84; --cds-chart-status-critical: #c0392b;
   --cds-text-secondary: #6b6a66; --cds-surface-popover: #ffffff; --cds-border: #dcd9cf; --cds-shadow-popover: 0 4px 14px rgba(0, 0, 0, .12);
-  --font-anthropic-serif: Georgia, 'Times New Roman', serif;
-  --font-anthropic-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-anthropic-serif: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+  --font-anthropic-sans: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {

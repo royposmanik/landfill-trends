@@ -35,6 +35,9 @@ const head = `<!doctype html>
 <meta property="og:title" content="Landfill Trends: the world and Israel">
 <meta property="og:description" content="Municipal waste landfilling worldwide and in Israel, year by year.">
 <meta property="og:image" content="logo/logo-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="site/site.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 <script src="site/runtime.js"></script>
