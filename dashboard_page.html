@@ -1,0 +1,1896 @@
+<meta name="dash-one-writer">
+<style>
+.lf { display: flex; flex-direction: column; gap: var(--cds-gap-xl); }
+.lf-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.lf-eyebrow { text-transform: uppercase; letter-spacing: .07em; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.lf-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+.lf-lede { margin: 0; max-width: 68ch; font-size: var(--cds-font-size-body); line-height: 1.55; }
+.lf-lede b, .lf-num { font-variant-numeric: tabular-nums; font-weight: var(--cds-font-weight-medium); }
+.lf-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: var(--cds-gap-md); }
+.lf-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-xs); min-width: 0; }
+.lf-tile-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lf-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.lf-unit { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); margin-left: .25em; }
+.lf-delta, .lf-cmp { font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; color: var(--color-fg-muted); margin: 0; }
+.lf-good { color: var(--color-ok); }
+.lf-bad { color: var(--color-bad); }
+.lf-section { display: flex; flex-direction: column; gap: var(--cds-gap-sm); min-width: 0; }
+.lf-section h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+.lf-sub { color: var(--color-fg-muted); margin: 0; max-width: 72ch; font-size: var(--cds-font-size-body); line-height: 1.45; }
+.lf-controls { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); align-items: center; }
+.lf-chart { position: relative; min-height: 320px; }
+.lf-chart.lf-short { min-height: 300px; }
+.lf-chart svg { display: block; overflow: visible; }
+.lf-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); list-style: none; margin: 0; padding: 0; }
+.lf-legend li { display: flex; align-items: center; gap: 6px; }
+.lf-sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; background: var(--cds-chart-muted); flex: none; }
+.lf-sw-line { height: 3px; width: 16px; }
+.lf-sw-dash { height: 0; width: 16px; border-top: 2px dashed var(--color-fg-muted); background: none; border-radius: 0; }
+.lf-tick { fill: var(--cds-text-secondary); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.lf-lab { fill: var(--color-fg); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.lf-lab-strong { fill: var(--color-fg); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); font-weight: 600; }
+.lf-axis-title { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.lf-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: 6px 9px; font-size: var(--cds-font-size-caption); z-index: 5; min-width: 140px; max-width: 250px; color: var(--color-fg); }
+.lf-tip-title { display: block; font-weight: 600; margin-bottom: 3px; }
+.lf-tip-row { display: flex; justify-content: space-between; gap: 14px; color: var(--cds-text-secondary); font-variant-numeric: tabular-nums; }
+.lf-tip-row span:first-child { display: flex; align-items: center; gap: 5px; }
+.lf-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: var(--cds-gap-xl); }
+.lf-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; max-width: 78ch; line-height: 1.45; }
+.lf-fail { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; padding-top: var(--cds-pad-lg); }
+.lf-details summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
+.lf-details ul { margin: var(--cds-gap-sm) 0 0; padding-left: 1.2em; max-width: 78ch; line-height: 1.5; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); display: flex; flex-direction: column; gap: 6px; }
+.lf-player { display: flex; align-items: center; gap: var(--cds-gap-sm); flex-wrap: wrap; }
+.lf-player input[type=range] { flex: 1 1 200px; min-width: 0; accent-color: var(--color-fg); }
+.lf-btn { font: inherit; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 6px 14px; cursor: pointer; }
+.lf-btn:hover { border-color: var(--color-fg-muted); }
+.lf-btn:focus-visible, .lf-player input:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.lf-btn:disabled { opacity: .45; cursor: default; }
+.lf-year { font-family: var(--font-anthropic-serif); font-size: 1.6rem; line-height: 1; font-variant-numeric: tabular-nums; min-width: 4ch; }
+.lf-map { min-height: 260px; }
+.lf-map path.lf-country { stroke: var(--color-bg); stroke-width: .5; cursor: pointer; }
+.lf-map path.lf-country.lf-sel { stroke: var(--color-fg); stroke-width: 1.5; }
+.lf-mini { min-height: 200px; }
+.lf-il-grid { align-items: start; }
+.lf-il-map { min-height: 460px; }
+.lf-halo { paint-order: stroke; stroke: var(--color-bg); stroke-width: 3px; stroke-linejoin: round; }
+.lf-place { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-family: var(--font-anthropic-sans); }
+.lf-sea { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); font-style: italic; font-family: var(--font-anthropic-sans); }
+.lf-h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: var(--cds-gap-sm) 0 0; }
+[data-dash-source-state=refreshing] { opacity: .5; }
+.lf-part { display: flex; flex-direction: column; gap: var(--cds-gap-sm); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-lg); }
+.lf-part-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 1.6rem; margin: 0; text-wrap: balance; }
+.lf-table-wrap { overflow-x: auto; }
+.lf-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); line-height: 1.4; }
+.lf-table th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); border-bottom: 1px solid var(--color-border-line); padding: 6px 10px 6px 0; }
+.lf-table td { border-bottom: 1px solid var(--color-border-line); padding: 6px 10px 6px 0; vertical-align: top; }
+.lf-table td:first-child { font-weight: var(--cds-font-weight-medium); white-space: nowrap; }
+.lf-table td:last-child { white-space: nowrap; }
+.lf-gdp-time { min-height: 340px; }
+.lf-gif { display: flex; flex-direction: column; gap: var(--cds-gap-sm); align-items: flex-start; }
+.lf-gif-img { max-width: min(100%, 520px); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.lf-langbar { display: flex; justify-content: flex-end; }
+.lf .lf-he-t { display: none; }
+.lf.lf-he .lf-he-t { display: inline; }
+.lf.lf-he .lf-en { display: none; }
+.lf.lf-he { direction: rtl; }
+.lf.lf-he .lf-chart, .lf.lf-he .lf-player { direction: ltr; }
+.lf.lf-he .lf-tip, .lf.lf-he .lf-fail { direction: rtl; text-align: right; }
+.lf.lf-he .lf-table th { text-align: right; }
+.lf.lf-he .lf-table th, .lf.lf-he .lf-table td { padding: 6px 0 6px 10px; }
+.lf.lf-he .lf-details ul { padding-left: 0; padding-right: 1.2em; }
+.lf-brand { display: flex; align-items: center; gap: var(--cds-gap-md); }
+.lf-logo { flex: none; width: 52px; height: 52px; }
+.lf-titles { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lf-course { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); }
+.lf-gif-ctl { display: contents; }
+.lf-gif { flex-basis: 100%; }
+.lf.lf-he .lf-gif { direction: rtl; }
+.lf-selwrap { display: inline-flex; align-items: center; gap: 6px; }
+.lf-sel-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+</style>
+
+<div class="lf">
+  <header class="lf-head" id="overview">
+    <div class="lf-langbar"><button type="button" class="lf-btn" id="lf-lang" title="Switch language · החלפת שפה"><span class="lf-en" lang="he">עברית</span><span class="lf-he-t">English</span></button></div>
+    <p class="lf-eyebrow"><span class="lf-en">Municipal solid waste · OECD and World Bank data</span><span class="lf-he-t" lang="he">פסולת עירונית מוצקה · נתוני OECD והבנק העולמי</span></p>
+    <div class="lf-brand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="lf-logo" width="52" height="52" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="lt-globe"><circle cx="256" cy="262" r="176"/></clipPath>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="#17332E"/>
+  <g clip-path="url(#lt-globe)">
+    <rect x="60" y="70" width="392" height="392" fill="#EAF1EA"/>
+    <g fill="none" stroke="#B9CDBF" stroke-width="7">
+      <ellipse cx="256" cy="262" rx="70" ry="176"/>
+      <ellipse cx="256" cy="262" rx="140" ry="176"/>
+      <line x1="256" y1="80" x2="256" y2="440"/>
+      <line x1="70" y1="190" x2="442" y2="190"/>
+    </g>
+    <path d="M60 300 C 140 236, 210 214, 262 216 C 318 218, 380 244, 452 296 L452 462 L60 462 Z" fill="#F2B544"/>
+    <path d="M60 336 C 150 282, 220 266, 266 268 C 320 270, 384 292, 452 334 L452 462 L60 462 Z" fill="#D9822B"/>
+    <path d="M60 374 C 150 330, 226 318, 270 320 C 324 322, 388 340, 452 372 L452 462 L60 462 Z" fill="#A4521F"/>
+    <path d="M60 410 C 160 378, 230 370, 272 372 C 326 374, 390 388, 452 408 L452 462 L60 462 Z" fill="#6B3418"/>
+  </g>
+  <circle cx="256" cy="262" r="176" fill="none" stroke="#EAF1EA" stroke-width="12"/>
+  <g fill="#EAF1EA" stroke="#17332E" stroke-width="7">
+    <circle cx="292" cy="182" r="17"/>
+    <circle cx="324" cy="142" r="12"/>
+    <circle cx="304" cy="110" r="8"/>
+  </g>
+</svg><div class="lf-titles"><h1><span class="lf-en">Landfill trends: the world and Israel</span><span class="lf-he-t" lang="he">מגמות הטמנת פסולת: העולם וישראל</span></h1><p class="lf-course"><span class="lf-en">Technion · Solid Waste Management (0160338) · 2026-7</span><span class="lf-he-t" lang="he">הטכניון · ניהול פסולת מוצקה (0160338) · 2026-7</span></p></div></div>
+    <p class="lf-lede"><span class="lf-en">The first part looks at landfilling around the world: how it has changed over time, how regions differ and how it relates to income. The second part zooms in on Israel, which buries far more of its waste than most rich countries, and on where in Israel that waste ends up.</span><span class="lf-he-t" lang="he">החלק הראשון עוסק בהטמנת פסולת ברחבי העולם: איך היא השתנתה לאורך השנים, במה האזורים נבדלים זה מזה ומה הקשר שלה להכנסה. החלק השני מתמקד בישראל, שמטמינה הרבה יותר מהפסולת שלה מרוב המדינות העשירות, ובשאלה איפה בישראל הפסולת הזו נקברת.</span></p>
+  </header>
+
+  <div class="lf-part" id="part-world">
+    <p class="lf-eyebrow"><span class="lf-en">Part 1</span><span class="lf-he-t" lang="he">חלק 1</span></p>
+    <h2 class="lf-part-title"><span class="lf-en">The world</span><span class="lf-he-t" lang="he">העולם</span></h2>
+  </div>
+
+  <section class="lf-section" id="map">
+    <h2><span class="lf-en">World map: landfilling over time</span><span class="lf-he-t" lang="he">מפת העולם: הטמנה לאורך זמן</span></h2>
+    <p class="lf-sub"><span class="lf-en">Press Play to watch each country change year by year, or drag the slider. Click a country to see its trend under the map. A country with no figure for the year shown keeps its latest earlier one (hover to see which year); grey means it has not reported yet.</span><span class="lf-he-t" lang="he">לחצו על "הפעל" כדי לראות כל מדינה משתנה משנה לשנה, או גררו את המחוון. לחצו על מדינה כדי לראות את המגמה שלה מתחת למפה. מדינה שאין לה נתון לשנה המוצגת שומרת על הנתון האחרון שלה משנה קודמת (העבירו את העכבר כדי לראות מאיזו שנה); אפור פירושו שהמדינה טרם דיווחה.</span></p>
+    <div class="lf-controls">
+      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Data"><span class="lf-sel-label">Data</span><select class="dash-select" id="map-source" aria-label="Data">
+        <option value="oecd">OECD member countries, year by year (2000–2024)</option>
+        <option value="waw">World Bank survey, one snapshot (about 2016)</option>
+      </select></label>
+      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Measure"><span class="lf-sel-label">Measure</span><select class="dash-select" id="map-metric" aria-label="Measure">
+        <option value="landfill_pct">Share landfilled (%)</option>
+        <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
+        <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
+        <option value="recycling_pct">Share recycled (%)</option>
+      </select></label>
+      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Zoom"><span class="lf-sel-label">Zoom</span><select class="dash-select" id="map-zoom" aria-label="Zoom">
+        <option value="world">Whole world</option>
+        <option value="europe">Europe and the Middle East</option>
+      </select></label>
+    </div>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="map-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="map-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="map"></div>
+      <input type="range" id="map-year" min="2000" max="2024" step="1" value="2024" aria-label="Year">
+      <span class="lf-year" data-draw="map-year">—</span>
+    </div>
+    <div class="lf-chart lf-map" id="map-chart" data-draw="map" data-source="oecd waw"></div>
+    <h3 class="lf-h3"><span class="lf-en">Over time: <span data-draw="map-sel">—</span> against the OECD total</span><span class="lf-he-t" lang="he">לאורך זמן: <span data-draw="map-sel">—</span> מול סך OECD</span></h3>
+    <div class="lf-chart lf-mini" id="map-trend" data-draw="map-trend" data-source="oecd"></div>
+    <p class="lf-note"><span class="lf-en">The OECD series covers only the 38 OECD member countries; switch the data menu to the World Bank snapshot to see the rest of the world, where landfilled includes open dumping. Very small countries such as Luxembourg are hard to see at this scale.</span><span class="lf-he-t" lang="he">סדרת ה-OECD כוללת רק את 38 המדינות החברות; כדי לראות את שאר העולם, בחרו בתפריט הנתונים את סקר הבנק העולמי, שבו ההטמנה כוללת גם השלכה פתוחה. מדינות קטנות מאוד, כמו לוקסמבורג, קשות לזיהוי בקנה מידה זה.</span></p>
+  </section>
+
+  <section class="lf-section" id="regions">
+    <h2><span class="lf-en">Worldwide: where municipal waste goes, by region</span><span class="lf-he-t" lang="he">העולם: לאן הולכת הפסולת העירונית, לפי אזור</span></h2>
+    <p class="lf-sub" data-read><span class="lf-en">Across the <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="countries" data-row="0" data-fmt="int">—</span> countries in the World Bank survey that report treatment, <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="msw_billion_tonnes" data-row="0" data-fmt="bn">—</span> billion tonnes of municipal waste are generated a year, <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="kg_per_person_day" data-row="0" data-fmt="p2">—</span> kg per person per day. <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="landfill_pct" data-row="0" data-fmt="p1">—</span>% goes to landfills and another <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="open_dump_pct" data-row="0" data-fmt="p1">—</span>% is dumped in the open.</span><span class="lf-he-t" lang="he">ב-<span class="lf-num" data-draw="kv" data-source="world_summary" data-field="countries" data-row="0" data-fmt="int">—</span> המדינות בסקר הבנק העולמי שמדווחות על טיפול בפסולת נוצרים <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="msw_billion_tonnes" data-row="0" data-fmt="bn">—</span> מיליארד טונות של פסולת עירונית בשנה, <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="kg_per_person_day" data-row="0" data-fmt="p2">—</span> ק"ג לאדם ביום. <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="landfill_pct" data-row="0" data-fmt="p1">—</span>% מוטמנים ועוד <span class="lf-num" data-draw="kv" data-source="world_summary" data-field="open_dump_pct" data-row="0" data-fmt="p1">—</span>% מושלכים בשטח פתוח.</span></p>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw" data-color="3"></span>Landfill</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="3"></span>הטמנה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="critical"></span>Open dump</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="critical"></span>השלכה פתוחה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="4"></span>Recycling</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="4"></span>מיחזור</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="5"></span>Composting</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="5"></span>קומפוסט</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="6"></span>Incineration</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="6"></span>שריפה</span></li>
+      <li><span class="lf-en"><span class="lf-sw"></span>Other or unreported</span><span class="lf-he-t" lang="he"><span class="lf-sw"></span>אחר או לא מדווח</span></li>
+    </ul>
+    <div class="lf-chart" id="regions-chart" data-draw="regions" data-source="region_mix"></div>
+    <p class="lf-note"><span class="lf-en">Shares are weighted by each country's tonnage. Survey years vary by country, mostly 2012 to 2018.</span><span class="lf-he-t" lang="he">השיעורים משוקללים לפי כמות הפסולת של כל מדינה. שנות הסקר משתנות ממדינה למדינה, רובן 2012 עד 2018.</span></p>
+  </section>
+
+  <section class="lf-section" id="gdp">
+    <h2><span class="lf-en">Landfilling and income over time</span><span class="lf-he-t" lang="he">הטמנה והכנסה לאורך זמן</span></h2>
+    <p class="lf-sub"><span class="lf-en">Richer countries generate more waste, but how much of it ends up in the ground depends on policy: landfill taxes, bans and incineration capacity. Press Play to watch the 38 OECD member countries move year by year. Many grow richer while landfilling less; Israel grows richer while still landfilling heavily. The line traces Israel's path; click any country to trace its path as well.</span><span class="lf-he-t" lang="he">מדינות עשירות יותר מייצרות יותר פסולת, אבל כמה ממנה נקבר באדמה תלוי במדיניות: מסי הטמנה, איסורים ויכולת שריפה. לחצו על "הפעל" כדי לראות את 38 מדינות ה-OECD נעות משנה לשנה. רבות מהן מתעשרות ומטמינות פחות; ישראל מתעשרת וממשיכה להטמין הרבה. הקו מסמן את המסלול של ישראל; לחצו על כל מדינה כדי לסמן גם את המסלול שלה.</span></p>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="gdp-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="gdp-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="gdp"></div>
+      <input type="range" id="gdp-year" min="2000" max="2024" step="1" value="2024" aria-label="Year">
+      <span class="lf-year" data-draw="gdp-year-label">—</span>
+    </div>
+    <p class="lf-axis-title"><span class="lf-en">Landfilled kg per person (vertical) by GDP per person, PPP, constant 2021 dollars, log scale (horizontal)</span><span class="lf-he-t" lang="he">ק"ג פסולת מוטמנת לנפש (אנכי) לפי תוצר לנפש, בשווי כוח קנייה, דולרים קבועים של 2021, סקאלה לוגריתמית (אופקי)</span></p>
+    <div class="lf-chart lf-gdp-time" id="gdp-time-chart" data-draw="gdp-time" data-source="oecd"></div>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw" data-color="0"></span><span class="lf-en">Israel</span><span class="lf-he-t" lang="he">ישראל</span></span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="0"></span>ישראל</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="1"></span>Country you clicked</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="1"></span>המדינה שבחרתם</span></li>
+      <li><span class="lf-en"><span class="lf-sw"></span>Other OECD member countries</span><span class="lf-he-t" lang="he"><span class="lf-sw"></span>שאר מדינות OECD</span></li>
+      <li><span class="lf-en"><span class="lf-sw" style="background:none;border:1.5px solid var(--color-fg-muted);border-radius:50%"></span>Latest figure is from an earlier year (up to 3 years)</span><span class="lf-he-t" lang="he"><span class="lf-sw" style="background:none;border:1.5px solid var(--color-fg-muted);border-radius:50%"></span>הנתון העדכני משנה קודמת (עד 3 שנים)</span></li>
+    </ul>
+    <p class="lf-note"><span class="lf-en">Israel's series starts in 2004. Before 2013 Israel reported only total disposal, so those years count all its municipal waste as landfilled.</span><span class="lf-he-t" lang="he">הסדרה של ישראל מתחילה ב-2004. עד 2013 ישראל דיווחה רק על סך הפסולת שסולקה, ולכן בשנים אלה כל הפסולת העירונית שלה נספרת כמוטמנת.</span></p>
+    <h3 class="lf-h3" id="gdp-world"><span class="lf-en">Worldwide, year by year</span><span class="lf-he-t" lang="he">העולם, שנה אחר שנה</span></h3>
+    <p class="lf-sub"><span class="lf-en">The same view for about 120 countries, adding the waste questionnaires that non-OECD countries send to the UN Statistics Division. Dots are coloured by region; click a country to trace its path.</span><span class="lf-he-t" lang="he">אותה תצוגה לכ-120 מדינות, בתוספת שאלוני הפסולת שמדינות שאינן חברות ב-OECD שולחות לחטיבה הסטטיסטית של האו"ם. הנקודות צבועות לפי אזור; לחצו על מדינה כדי לסמן את המסלול שלה.</span></p>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="world-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="world-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="world"></div>
+      <input type="range" id="world-year" min="2000" max="2023" step="1" value="2022" aria-label="Year">
+      <span class="lf-year" data-draw="world-year-label">—</span>
+    </div>
+    <p class="lf-axis-title"><span class="lf-en">Landfilled kg per person (vertical) by GDP per person, PPP, constant 2021 dollars, log scale (horizontal)</span><span class="lf-he-t" lang="he">ק"ג פסולת מוטמנת לנפש (אנכי) לפי תוצר לנפש, בשווי כוח קנייה, דולרים קבועים של 2021, סקאלה לוגריתמית (אופקי)</span></p>
+    <div class="lf-chart lf-gdp-time" id="world-time-chart" data-draw="world-time" data-source="world_trends"></div>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw" data-color="0"></span>East Asia &amp; Pacific</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="0"></span>מזרח אסיה והאוקיינוס השקט</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="1"></span>Europe &amp; Central Asia</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="1"></span>אירופה ומרכז אסיה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="2"></span>Latin America &amp; Caribbean</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="2"></span>אמריקה הלטינית והקריביים</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="3"></span>Middle East &amp; North Africa</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="3"></span>המזרח התיכון וצפון אפריקה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="4"></span>North America</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="4"></span>צפון אמריקה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="5"></span>South Asia</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="5"></span>דרום אסיה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="6"></span>Sub-Saharan Africa</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="6"></span>אפריקה שמדרום לסהרה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" style="background:none;border:1.5px solid var(--color-fg-muted);border-radius:50%"></span>Figure from an earlier year (up to 3 years)</span><span class="lf-he-t" lang="he"><span class="lf-sw" style="background:none;border:1.5px solid var(--color-fg-muted);border-radius:50%"></span>נתון משנה קודמת (עד 3 שנים)</span></li>
+    </ul>
+    <p class="lf-note"><span class="lf-en">Figures are what each country reports, so definitions vary: some count only waste collected in cities, and many low-income countries report rarely or not at all, so Africa and South Asia are thin. Open dumping is not included. Israel is outlined in black.</span><span class="lf-he-t" lang="he">הנתונים הם מה שכל מדינה מדווחת, ולכן ההגדרות משתנות: חלק מהמדינות סופרות רק פסולת שנאספת בערים, ומדינות רבות בעלות הכנסה נמוכה מדווחות לעתים רחוקות או בכלל לא, כך שאפריקה ודרום אסיה מיוצגות חלקית. השלכה פתוחה אינה כלולה. ישראל מסומנת בקו מתאר שחור.</span></p>
+  </section>
+
+  <div class="lf-part" id="part-israel">
+    <p class="lf-eyebrow"><span class="lf-en">Part 2</span><span class="lf-he-t" lang="he">חלק 2</span></p>
+    <h2 class="lf-part-title"><span class="lf-en">Israel</span><span class="lf-he-t" lang="he">ישראל</span></h2>
+    <p class="lf-lede" data-read><span class="lf-en">In <span class="lf-num" data-draw="kv" data-source="israel_kpis" data-field="year" data-row="0" data-fmt="year">—</span>, Israel landfilled <b data-draw="kv" data-source="israel_kpis" data-field="landfill_pct" data-row="0" data-fmt="p1">—</b>% of its municipal waste, about <b data-draw="kv" data-source="israel_kpis" data-field="landfill_kg" data-row="0" data-fmt="int">—</b> kg per person, against <b data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_pct" data-row="0" data-fmt="p1">—</b>% for the OECD as a whole. Per person, Israelis send <b data-draw="kv" data-source="israel_kpis" data-field="landfill_kg_ratio" data-row="0" data-fmt="x1">—</b> times as much waste to landfill as the OECD average.</span><span class="lf-he-t" lang="he">ב-<span class="lf-num" data-draw="kv" data-source="israel_kpis" data-field="year" data-row="0" data-fmt="year">—</span> ישראל הטמינה <b data-draw="kv" data-source="israel_kpis" data-field="landfill_pct" data-row="0" data-fmt="p1">—</b>% מהפסולת העירונית שלה, כ-<b data-draw="kv" data-source="israel_kpis" data-field="landfill_kg" data-row="0" data-fmt="int">—</b> ק"ג לנפש, לעומת <b data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_pct" data-row="0" data-fmt="p1">—</b>% ב-OECD כולו. לנפש, ישראלים שולחים להטמנה פי <b data-draw="kv" data-source="israel_kpis" data-field="landfill_kg_ratio" data-row="0" data-fmt="x1">—</b> יותר פסולת מהממוצע ב-OECD.</span></p>
+  </div>
+
+  <section class="lf-section" id="israel">
+    <h2><span class="lf-en">Israel at a glance</span><span class="lf-he-t" lang="he">ישראל במבט מהיר</span></h2>
+    <div class="lf-tiles">
+      <div class="lf-tile" id="tile-msw">
+        <span class="lf-tile-label"><span class="lf-en">Municipal waste generated per person</span><span class="lf-he-t" lang="he">פסולת עירונית לנפש</span></span>
+        <span><span class="lf-big" data-draw="kv" data-source="israel_kpis" data-field="msw" data-row="0" data-fmt="int">—</span><span class="lf-unit"><span class="lf-en">kg/yr</span><span class="lf-he-t" lang="he">ק"ג בשנה</span></span></span>
+        <p class="lf-delta"><span class="lf-en"><span data-draw="kv" data-source="israel_kpis" data-field="msw_change" data-row="0" data-fmt="sint" data-good="down">—</span> kg since <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span><span class="lf-he-t" lang="he"><span data-draw="kv" data-source="israel_kpis" data-field="msw_change" data-row="0" data-fmt="sint" data-good="down">—</span> ק"ג מאז <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span></p>
+        <p class="lf-cmp"><span class="lf-en">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_msw" data-row="0" data-fmt="int">—</span> kg</span><span class="lf-he-t" lang="he">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_msw" data-row="0" data-fmt="int">—</span> ק"ג</span></p>
+      </div>
+      <div class="lf-tile" id="tile-share">
+        <span class="lf-tile-label"><span class="lf-en">Share of municipal waste landfilled</span><span class="lf-he-t" lang="he">שיעור הפסולת העירונית המוטמנת</span></span>
+        <span><span class="lf-big" data-draw="kv" data-source="israel_kpis" data-field="landfill_pct" data-row="0" data-fmt="p1">—</span><span class="lf-unit">%</span></span>
+        <p class="lf-delta"><span class="lf-en"><span data-draw="kv" data-source="israel_kpis" data-field="landfill_pct_change" data-row="0" data-fmt="sp1" data-good="down">—</span> points since <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span><span class="lf-he-t" lang="he"><span data-draw="kv" data-source="israel_kpis" data-field="landfill_pct_change" data-row="0" data-fmt="sp1" data-good="down">—</span> נקודות מאז <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span></p>
+        <p class="lf-cmp"><span class="lf-en">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_pct" data-row="0" data-fmt="p1">—</span>%</span><span class="lf-he-t" lang="he">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_pct" data-row="0" data-fmt="p1">—</span>%</span></p>
+      </div>
+      <div class="lf-tile" id="tile-kg">
+        <span class="lf-tile-label"><span class="lf-en">Waste landfilled per person</span><span class="lf-he-t" lang="he">פסולת מוטמנת לנפש</span></span>
+        <span><span class="lf-big" data-draw="kv" data-source="israel_kpis" data-field="landfill_kg" data-row="0" data-fmt="int">—</span><span class="lf-unit"><span class="lf-en">kg/yr</span><span class="lf-he-t" lang="he">ק"ג בשנה</span></span></span>
+        <p class="lf-delta"><span class="lf-en"><span data-draw="kv" data-source="israel_kpis" data-field="landfill_kg_change" data-row="0" data-fmt="sint" data-good="down">—</span> kg since <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span><span class="lf-he-t" lang="he"><span data-draw="kv" data-source="israel_kpis" data-field="landfill_kg_change" data-row="0" data-fmt="sint" data-good="down">—</span> ק"ג מאז <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span></p>
+        <p class="lf-cmp"><span class="lf-en">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_kg" data-row="0" data-fmt="int">—</span> kg</span><span class="lf-he-t" lang="he">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_landfill_kg" data-row="0" data-fmt="int">—</span> ק"ג</span></p>
+      </div>
+      <div class="lf-tile" id="tile-recov">
+        <span class="lf-tile-label"><span class="lf-en">Recycled or composted</span><span class="lf-he-t" lang="he">מומחזר או מקומפסט</span></span>
+        <span><span class="lf-big" data-draw="kv" data-source="israel_kpis" data-field="recov_pct" data-row="0" data-fmt="p1">—</span><span class="lf-unit">%</span></span>
+        <p class="lf-delta"><span class="lf-en"><span data-draw="kv" data-source="israel_kpis" data-field="recov_pct_change" data-row="0" data-fmt="sp1" data-good="up">—</span> points since <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span><span class="lf-he-t" lang="he"><span data-draw="kv" data-source="israel_kpis" data-field="recov_pct_change" data-row="0" data-fmt="sp1" data-good="up">—</span> נקודות מאז <span data-draw="kv" data-source="israel_kpis" data-field="base_year" data-row="0" data-fmt="year">—</span></span></p>
+        <p class="lf-cmp"><span class="lf-en">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_recov_pct" data-row="0" data-fmt="p1">—</span>%</span><span class="lf-he-t" lang="he">OECD: <span data-draw="kv" data-source="israel_kpis" data-field="oecd_recov_pct" data-row="0" data-fmt="p1">—</span>%</span></p>
+      </div>
+    </div>
+    <p class="lf-note"><span class="lf-en">Latest year reported to the OECD, compared with 2014, the second year Israel reported a full breakdown by treatment. GDP per person in Israel that year: $<span data-draw="kv" data-source="israel_kpis" data-field="gdp" data-row="0" data-fmt="int">—</span> (PPP, constant 2021 international dollars).</span><span class="lf-he-t" lang="he">השנה האחרונה שדווחה ל-OECD, בהשוואה ל-2014, השנה השנייה שבה ישראל דיווחה על פילוח מלא לפי אופן הטיפול. התוצר לנפש בישראל באותה שנה: $<span data-draw="kv" data-source="israel_kpis" data-field="gdp" data-row="0" data-fmt="int">—</span> (בשווי כוח קנייה, דולרים בינלאומיים קבועים של 2021).</span></p>
+  </section>
+
+  <section class="lf-section" id="trend">
+    <h2><span class="lf-en">Landfilling over time: Israel against the OECD</span><span class="lf-he-t" lang="he">הטמנה לאורך זמן: ישראל מול OECD</span></h2>
+    <p class="lf-sub"><span class="lf-en">Press Play to draw the lines year by year from 2000, or drag the slider to stop at any year. Pick what to measure and which country to compare with.</span><span class="lf-he-t" lang="he">לחצו על "הפעל" כדי לשרטט את הקווים שנה אחר שנה מ-2000, או גררו את המחוון כדי לעצור בכל שנה. בחרו מה למדוד ולאיזו מדינה להשוות.</span></p>
+    <div class="lf-controls">
+      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Measure"><span class="lf-sel-label">Measure</span><select class="dash-select" id="trend-metric" aria-label="Measure">
+        <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
+        <option value="landfill_pct">Share landfilled (%)</option>
+        <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
+        <option value="recycling_pct">Share recycled (%)</option>
+      </select></label>
+      <select class="dash-select" id="trend-compare" data-draw="compare" aria-label="Compare with" data-source="oecd"></select>
+    </div>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="trend-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="trend-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="trend"></div>
+      <input type="range" id="trend-year" min="2000" max="2024" step="1" value="2024" aria-label="Year">
+      <span class="lf-year" data-draw="trend-year-label">—</span>
+    </div>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-sw lf-sw-line" data-color="0"></span><span class="lf-en">Israel</span><span class="lf-he-t" lang="he">ישראל</span></li>
+      <li><span class="lf-en"><span class="lf-sw lf-sw-line" data-color="1"></span>OECD total</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-sw-line" data-color="1"></span>סך OECD</span></li>
+      <li><span class="lf-en"><span class="lf-sw lf-sw-line" data-color="2"></span>Comparison (pick above)</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-sw-line" data-color="2"></span>מדינה להשוואה (בחרו למעלה)</span></li>
+      <li><span class="lf-en"><span class="lf-sw lf-sw-dash"></span>Israel before 2013: no treatment breakdown, all waste counted as landfilled</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-sw-dash"></span>ישראל לפני 2013: אין פילוח לפי טיפול, כל הפסולת נספרת כמוטמנת</span></li>
+    </ul>
+    <div class="lf-chart" id="trend-chart" data-draw="trend" data-source="oecd"></div>
+  </section>
+
+  <section class="lf-section" id="mix">
+    <h2><span class="lf-en">What happens to Israel's municipal waste</span><span class="lf-he-t" lang="he">מה קורה לפסולת העירונית של ישראל</span></h2>
+    <p class="lf-sub"><span class="lf-en">Share of treated municipal waste by treatment, each year since Israel began reporting a breakdown, with the latest OECD total for comparison.</span><span class="lf-he-t" lang="he">חלוקת הפסולת העירונית שטופלה לפי אופן הטיפול, בכל שנה מאז שישראל החלה לדווח על פילוח, לצד סך OECD העדכני להשוואה.</span></p>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw" data-color="3"></span>Landfill</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="3"></span>הטמנה</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="4"></span>Recycling</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="4"></span>מיחזור</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="5"></span>Composting</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="5"></span>קומפוסט</span></li>
+      <li><span class="lf-en"><span class="lf-sw" data-color="6"></span>Incineration</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="6"></span>שריפה</span></li>
+      <li><span class="lf-en"><span class="lf-sw"></span>Other or unreported</span><span class="lf-he-t" lang="he"><span class="lf-sw"></span>אחר או לא מדווח</span></li>
+    </ul>
+    <div class="lf-chart lf-short" id="mix-chart" data-draw="mix" data-source="oecd"></div>
+  </section>
+
+  <section class="lf-section" id="rank">
+    <h2><span class="lf-en">Where Israel ranks among the 38 OECD countries, year by year</span><span class="lf-he-t" lang="he">המקום של ישראל בין 38 מדינות OECD, שנה אחר שנה</span></h2>
+    <p class="lf-sub" data-draw="rank-note" data-source="oecd">—</p>
+    <div class="lf-controls">
+      <label class="lf-selwrap" data-draw="i18n-sel" data-label="Rank by"><span class="lf-sel-label">Rank by</span><select class="dash-select" id="rank-metric" aria-label="Rank by">
+        <option value="landfill_pct">Share landfilled (%)</option>
+        <option value="landfill_kg_per_capita">Landfilled per person (kg/yr)</option>
+        <option value="msw_kg_per_capita">Waste generated per person (kg/yr)</option>
+      </select></label>
+    </div>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="rank-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="rank-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="rank"></div>
+      <input type="range" id="rank-year" min="2000" max="2024" step="1" value="2024" aria-label="Year">
+      <span class="lf-year" data-draw="rank-year-label">—</span>
+    </div>
+    <div class="lf-chart" id="rank-chart" data-draw="rank" data-source="oecd"></div>
+  </section>
+
+  <section class="lf-section" id="il-map">
+    <h2><span class="lf-en">Israel: where the waste is buried</span><span class="lf-he-t" lang="he">ישראל: איפה הפסולת נקברת</span></h2>
+    <p class="lf-sub" data-read><span class="lf-en">Israel doesn't publish yearly tonnage for each landfill, so this map uses the methane each landfill reports to the national Pollutant Release and Transfer Register. Methane comes from organic waste rotting in the ground, so a bigger circle means more waste buried there. The figures are tonnes of methane (CH₄) each landfill released into the air during the year, as estimated by its operator. For scale, one tonne of methane warms the climate about as much as 28 tonnes of CO₂ over a century. In <span class="lf-num" data-draw="kv" data-source="il_summary" data-field="year" data-row="0" data-fmt="year">—</span>, <b data-draw="kv" data-source="il_summary" data-field="top_site" data-row="0" data-fmt="text">—</b> alone accounted for <b data-draw="kv" data-source="il_summary" data-field="top_share_pct" data-row="0" data-fmt="p1">—</b>% of reported landfill methane, and sites in the Southern District for <b data-draw="kv" data-source="il_summary" data-field="south_share_pct" data-row="0" data-fmt="p1">—</b>%, up from <b data-draw="kv" data-source="il_summary" data-field="south_share_first" data-row="0" data-fmt="p1">—</b>% in <span class="lf-num" data-draw="kv" data-source="il_summary" data-field="first_year" data-row="0" data-fmt="year">—</span>.</span><span class="lf-he-t" lang="he">ישראל אינה מפרסמת כמויות שנתיות לכל אתר הטמנה, ולכן המפה משתמשת במתאן שכל אתר מדווח למרשם הלאומי לפליטות ולהעברות של מזהמים (מפל"ס). מתאן נוצר מפסולת אורגנית שנרקבת באדמה, כך שעיגול גדול יותר פירושו יותר פסולת קבורה באתר. המספרים הם טונות של מתאן (CH₄) שכל אתר פלט לאוויר במהלך השנה, לפי הערכת המפעיל. לשם השוואה, טון מתאן מחמם את האקלים בערך כמו 28 טונות CO₂ לאורך מאה שנה. ב-<span class="lf-num" data-draw="kv" data-source="il_summary" data-field="year" data-row="0" data-fmt="year">—</span>, <b data-draw="kv" data-source="il_summary" data-field="top_site" data-row="0" data-fmt="text">—</b> לבדו היה אחראי ל-<b data-draw="kv" data-source="il_summary" data-field="top_share_pct" data-row="0" data-fmt="p1">—</b>% ממתאן ההטמנה המדווח, ואתרים במחוז הדרום ל-<b data-draw="kv" data-source="il_summary" data-field="south_share_pct" data-row="0" data-fmt="p1">—</b>%, לעומת <b data-draw="kv" data-source="il_summary" data-field="south_share_first" data-row="0" data-fmt="p1">—</b>% ב-<span class="lf-num" data-draw="kv" data-source="il_summary" data-field="first_year" data-row="0" data-fmt="year">—</span>.</span></p>
+    <div class="lf-player">
+      <button type="button" class="lf-btn" id="il-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="il-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="il"></div>
+      <input type="range" id="il-year" min="2012" max="2025" step="1" value="2025" aria-label="Year">
+      <span class="lf-year" data-draw="il-year-label">—</span>
+    </div>
+    <div class="lf-grid2 lf-il-grid">
+      <div class="lf-chart lf-il-map" id="il-map-chart" data-draw="il-map" data-source="il_methane il_capacity"></div>
+      <div class="lf-section" id="il-rank">
+        <h3 class="lf-h3"><span class="lf-en">Largest landfills that year: methane released, in tonnes per year, and share of the national landfill total</span><span class="lf-he-t" lang="he">אתרי ההטמנה הגדולים באותה שנה: מתאן שנפלט, בטונות לשנה, וחלקו מסך ההטמנה הארצי</span></h3>
+        <div class="lf-chart lf-short" data-draw="il-rank" data-source="il_methane"></div>
+      </div>
+    </div>
+    <h3 class="lf-h3" id="il-share"><span class="lf-en">Share of all reported landfill methane, five largest sites, 2012–2025</span><span class="lf-he-t" lang="he">חלקו של כל אתר מכלל מתאן ההטמנה המדווח, חמשת האתרים הגדולים, 2012–2025</span></h3>
+    <p class="lf-sub"><span class="lf-en">Each line is one landfill's share, in percent, of all the methane Israel's landfills reported that year. Efeh's line climbing from about a tenth in 2012 to half in 2025 shows landfilling concentrating there; the dashed line marks the year shown on the map.</span><span class="lf-he-t" lang="he">כל קו הוא החלק, באחוזים, של אתר הטמנה אחד מכל המתאן שדיווחו אתרי ההטמנה בישראל באותה שנה. הקו של אפעה, שעולה מכעשירית ב-2012 למחצית ב-2025, מראה שההטמנה מתרכזת שם; הקו המקווקו מסמן את השנה המוצגת במפה.</span></p>
+    <div class="lf-chart lf-short" data-draw="il-share" data-source="il_methane"></div>
+    <p class="lf-note"><span class="lf-en">Reported landfill methane roughly tripled in 2023, most likely because operators changed how they estimate it rather than because three times more waste arrived, so compare sites within a year rather than totals across years. Methane also lags: a landfill keeps releasing it for years after it closes. A hollow ring is a site that reported methane below the reporting threshold. Dudaim combines the old site with the new cells opened in 2021 and 2025. Site names are English renderings of the register's Hebrew names.</span><span class="lf-he-t" lang="he">המתאן המדווח מאתרי הטמנה גדל בערך פי שלושה ב-2023, ככל הנראה משום שהמפעילים שינו את שיטת ההערכה ולא משום שהגיעה פי שלושה פסולת, ולכן כדאי להשוות בין אתרים באותה שנה ולא סכומים בין שנים. מתאן גם מגיע באיחור: אתר ממשיך לפלוט אותו שנים אחרי שנסגר. טבעת חלולה היא אתר שדיווח על מתאן מתחת לסף הדיווח. דודאים כולל את האתר הישן ואת התאים החדשים שנפתחו ב-2021 וב-2025.</span></p>
+  </section>
+
+  <section class="lf-section" id="il-space">
+    <h2><span class="lf-en">How much landfill space is left</span><span class="lf-he-t" lang="he">כמה מקום נשאר באתרי ההטמנה</span></h2>
+    <p class="lf-sub" data-read><span class="lf-en">Israel doesn't publish each landfill's total permitted volume, so how full a site is can't be given as a share of its total size. The State Comptroller did publish how much space each landfill had left. At the end of 2020 the 11 main landfills had room for <b data-draw="kv" data-source="il_space_summary" data-field="left_2020_mt" data-row="0" data-fmt="p2">—</b> million tonnes of waste. By the start of 2025 that was down to an estimated <b data-draw="kv" data-source="il_space_summary" data-field="left_2025_mt" data-row="0" data-fmt="p2">—</b> million tonnes, so <b data-draw="kv" data-source="il_space_summary" data-field="used_pct" data-row="0" data-fmt="p1">—</b>% of the 2020 space was used up or closed off in four years. What was left would last about <b data-draw="kv" data-source="il_space_summary" data-field="years_left" data-row="0" data-fmt="p1">—</b> years at the 2023 rate of <b data-draw="kv" data-source="il_space_summary" data-field="intake_2023_mt" data-row="0" data-fmt="p2">—</b> million tonnes a year.</span><span class="lf-he-t" lang="he">ישראל אינה מפרסמת את הנפח המאושר הכולל של כל אתר, ולכן אי אפשר לומר כמה אחוזים מכל אתר כבר מלאים. מבקר המדינה כן פרסם כמה מקום נותר בכל אתר. בסוף 2020 היה ב-11 אתרי ההטמנה העיקריים מקום ל-<b data-draw="kv" data-source="il_space_summary" data-field="left_2020_mt" data-row="0" data-fmt="p2">—</b> מיליון טונות פסולת. בתחילת 2025 ירד הנפח להערכה של <b data-draw="kv" data-source="il_space_summary" data-field="left_2025_mt" data-row="0" data-fmt="p2">—</b> מיליון טונות, כלומר <b data-draw="kv" data-source="il_space_summary" data-field="used_pct" data-row="0" data-fmt="p1">—</b>% מהמקום של 2020 נוצלו או נסגרו בתוך ארבע שנים. מה שנותר יספיק לכ-<b data-draw="kv" data-source="il_space_summary" data-field="years_left" data-row="0" data-fmt="p1">—</b> שנים בקצב של 2023, <b data-draw="kv" data-source="il_space_summary" data-field="intake_2023_mt" data-row="0" data-fmt="p2">—</b> מיליון טונות בשנה.</span></p>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw" data-color="3"></span>Space used since the end of 2020</span><span class="lf-he-t" lang="he"><span class="lf-sw" data-color="3"></span>מקום שנוצל מאז סוף 2020</span></li>
+      <li><span class="lf-en"><span class="lf-sw"></span>Space still available</span><span class="lf-he-t" lang="he"><span class="lf-sw"></span>מקום שעדיין פנוי</span></li>
+    </ul>
+    <div class="lf-chart lf-short" id="il-space-chart" data-draw="il-space" data-source="il_capacity"></div>
+    <h3 class="lf-h3" id="il-expansion"><span class="lf-en">Planned expansions, as of January 2026</span><span class="lf-he-t" lang="he">הרחבות מתוכננות, נכון לינואר 2026</span></h3>
+    <div class="lf-table-wrap" data-draw="il-expansion" data-source="il_capacity"></div>
+    <p class="lf-note"><span class="lf-en">Space is in tonnes; the Comptroller treats one tonne of waste as roughly one cubic metre. Bars compare each site's remaining space with what it had at the end of 2020. Avlaim, Hagal and Ganei Hadas have no estimate for 2025, so their bars stop at the end of 2023. Landfills re-measure their remaining space every year and buried waste settles as it breaks down, so Haruvit and Tovlan reported more space in 2023 than in 2020 without being expanded. Years left assume each site keeps taking what it took in 2023. These figures predate the expansions in the table above. Avlaim and Tovlan don't report to the pollutant register, so they don't appear on the map. Sources: State Comptroller, follow-up audit on municipal waste disposal, July 2025 (table 3); Knesset Research and Information Center, January 2026 (table 1).</span><span class="lf-he-t" lang="he">המקום נמדד בטונות; המבקר מתייחס לטון פסולת כשווה בקירוב למטר מעוקב. כל עמודה משווה את המקום שנותר באתר למה שהיה בו בסוף 2020. לאבליים, חגל וגני הדס אין הערכה ל-2025, ולכן העמודות שלהם נעצרות בסוף 2023. אתרי ההטמנה מודדים מחדש את המקום הפנוי בכל שנה, והפסולת הקבורה שוקעת כשהיא מתפרקת, ולכן חרובית וטובלן דיווחו על יותר מקום ב-2023 מאשר ב-2020 בלי שהורחבו. השנים שנותרו מניחות שכל אתר ממשיך לקלוט כמו ב-2023. הנתונים קודמים להרחבות שבטבלה. אבליים וטובלן אינם מדווחים למפל"ס, ולכן אינם מופיעים במפה. מקורות: מבקר המדינה, ביקורת מעקב על פינוי פסולת ברשויות המקומיות והטמנתה, יולי 2025 (לוח 3); מרכז המחקר והמידע של הכנסת, ינואר 2026 (טבלה 1).</span></p>
+  </section>
+
+  <details class="lf-details" id="notes">
+    <summary><span class="lf-en">Definitions and caveats</span><span class="lf-he-t" lang="he">הגדרות והסתייגויות</span></summary>
+    <ul>
+      <li><span class="lf-en">Municipal waste (OECD): waste collected by or for municipalities, mostly from households plus similar waste from shops, offices and institutions. It excludes construction, industrial and agricultural waste.</span><span class="lf-he-t" lang="he">פסולת עירונית (OECD): פסולת שנאספת על ידי הרשויות המקומיות או עבורן, בעיקר ממשקי בית וכן פסולת דומה מחנויות, משרדים ומוסדות. היא אינה כוללת פסולת בניין, פסולת תעשייתית ופסולת חקלאית.</span></li>
+      <li><span class="lf-en">OECD charts show only the 38 OECD member countries (Australia, Austria, Belgium, Canada, Chile, Colombia, Costa Rica, Czechia, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, South Korea, Latvia, Lithuania, Luxembourg, Mexico, the Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden, Switzerland, Türkiye, the United Kingdom and the United States), plus the OECD total. Partner countries appear only in the worldwide charts. Canada reports no per-person figure to the OECD and only every second year to 2018, so its waste per person is its treated tonnage divided by its population.</span><span class="lf-he-t" lang="he">גרפי ה-OECD מציגים רק את 38 המדינות החברות (אוסטרליה, אוסטריה, איטליה, איסלנד, אירלנד, אסטוניה, ארצות הברית, בלגיה, בריטניה, גרמניה, דנמרק, דרום קוריאה, הולנד, הונגריה, טורקיה, יוון, יפן, ישראל, לטביה, ליטא, לוקסמבורג, מקסיקו, נורווגיה, ניו זילנד, סלובניה, סלובקיה, ספרד, פולין, פורטוגל, פינלנד, צ'כיה, צ'ילה, צרפת, קולומביה, קוסטה ריקה, קנדה, שוודיה ושווייץ), וכן את סך OECD. מדינות שותפות מופיעות רק בגרפים העולמיים. קנדה אינה מדווחת ל-OECD על נתון לנפש, ומדווחת רק אחת לשנתיים עד 2018, ולכן הפסולת לנפש שלה היא כמות הפסולת המטופלת חלקי האוכלוסייה.</span></li>
+      <li><span class="lf-en">Treatment shares are percentages of municipal waste treated. Landfilled per person is waste generated per person times the landfilled share.</span><span class="lf-he-t" lang="he">שיעורי הטיפול הם אחוזים מהפסולת העירונית שטופלה. הטמנה לנפש היא הפסולת לנפש כפול שיעור ההטמנה.</span></li>
+      <li><span class="lf-en">Israel reported only total disposal to the OECD before 2013, so those years show 100% landfilled. The true share was likely a little lower.</span><span class="lf-he-t" lang="he">עד 2013 ישראל דיווחה ל-OECD רק על סך הפסולת שסולקה, ולכן בשנים אלה מוצגת הטמנה של 100%. השיעור האמיתי היה כנראה מעט נמוך יותר.</span></li>
+      <li><span class="lf-en">What a Waste 2.0 (World Bank, 2018) gathers each country's latest available figures. "Landfill" combines sanitary, controlled and unspecified landfills. Many countries don't report recycling, so recycling shares there are understated and the remainder shows as other or unreported.</span><span class="lf-he-t" lang="he">What a Waste 2.0 (הבנק העולמי, 2018) מרכז את הנתונים העדכניים של כל מדינה. "הטמנה" כוללת אתרים תקניים, מבוקרים ולא מסווגים. מדינות רבות אינן מדווחות על מיחזור, ולכן שיעורי המיחזור שלהן מוערכים בחסר והיתרה מוצגת כאחר או לא מדווח.</span></li>
+      <li><span class="lf-en">Landfill space (Israel): remaining space at each landfill from the State Comptroller's July 2025 follow-up audit, with planned expansions from the Knesset Research and Information Center (January 2026). Israel does not publish each site's total permitted volume.</span><span class="lf-he-t" lang="he">מקום בהטמנה (ישראל): המקום שנותר בכל אתר לפי ביקורת המעקב של מבקר המדינה מיולי 2025, וההרחבות המתוכננות לפי מרכז המחקר והמידע של הכנסת (ינואר 2026). ישראל אינה מפרסמת את הנפח המאושר הכולל של כל אתר.</span></li>
+      <li><span class="lf-en">GDP per person: World Bank, PPP in constant 2021 international dollars (via Our World in Data) for the OECD charts. The world chart uses the GDP figure published in the What a Waste dataset.</span><span class="lf-he-t" lang="he">תוצר לנפש: הבנק העולמי, בשווי כוח קנייה בדולרים בינלאומיים קבועים של 2021 (דרך Our World in Data) בגרפי ה-OECD. הגרף העולמי משתמש בנתון התוצר שפורסם במאגר What a Waste.</span></li>
+    </ul>
+  </details>
+</div>
+
+<script>// Language support: English is written in the code; Hebrew is applied to drawn text through lfTr / lfTranslate.
+(function () {
+  let lang = 'en';
+  try { const v = localStorage.getItem('lf-lang'); if (v === 'he' || v === 'en') lang = v; } catch (e) { /* storage unavailable */ }
+  window.LF_LANG = lang;
+  const ISO2 = {"AFG":"AF","AGO":"AO","AIA":"AI","ALB":"AL","AND":"AD","ARE":"AE","ARG":"AR","ARM":"AM","ATF":"TF","ATG":"AG","AUS":"AU","AUT":"AT","AZE":"AZ","BDI":"BI","BEL":"BE","BEN":"BJ","BFA":"BF","BGD":"BD","BGR":"BG","BHR":"BH","BHS":"BS","BIH":"BA","BLR":"BY","BLZ":"BZ","BMU":"BM","BOL":"BO","BRA":"BR","BRB":"BB","BRN":"BN","BTN":"BT","BWA":"BW","CAF":"CF","CAN":"CA","CHE":"CH","CHL":"CL","CHN":"CN","CIV":"CI","CMR":"CM","COD":"CD","COG":"CG","COL":"CO","CPV":"CV","CRI":"CR","CUB":"CU","CUW":"CW","CYP":"CY","CZE":"CZ","DEU":"DE","DJI":"DJ","DMA":"DM","DNK":"DK","DOM":"DO","DZA":"DZ","ECU":"EC","EGY":"EG","ERI":"ER","ESH":"EH","ESP":"ES","EST":"EE","ETH":"ET","FIN":"FI","FJI":"FJ","FLK":"FK","FRA":"FR","GAB":"GA","GBR":"GB","GEO":"GE","GHA":"GH","GIN":"GN","GLP":"GP","GMB":"GM","GNB":"GW","GNQ":"GQ","GRC":"GR","GRD":"GD","GRL":"GL","GTM":"GT","GUF":"GF","GUM":"GU","GUY":"GY","HKG":"HK","HND":"HN","HRV":"HR","HTI":"HT","HUN":"HU","IDN":"ID","IMN":"IM","IND":"IN","IRL":"IE","IRN":"IR","IRQ":"IQ","ISL":"IS","ISR":"IL","ITA":"IT","JAM":"JM","JOR":"JO","JPN":"JP","KAZ":"KZ","KEN":"KE","KGZ":"KG","KHM":"KH","KNA":"KN","KOR":"KR","KWT":"KW","LAO":"LA","LBN":"LB","LBR":"LR","LBY":"LY","LCA":"LC","LIE":"LI","LKA":"LK","LSO":"LS","LTU":"LT","LUX":"LU","LVA":"LV","MAC":"MO","MAR":"MA","MCO":"MC","MDA":"MD","MDG":"MG","MEX":"MX","MHL":"MH","MKD":"MK","MLI":"ML","MLT":"MT","MMR":"MM","MNE":"ME","MNG":"MN","MOZ":"MZ","MRT":"MR","MSR":"MS","MTQ":"MQ","MUS":"MU","MWI":"MW","MYS":"MY","NAM":"NA","NCL":"NC","NER":"NE","NGA":"NG","NIC":"NI","NLD":"NL","NOR":"NO","NPL":"NP","NZL":"NZ","OMN":"OM","PAK":"PK","PAN":"PA","PER":"PE","PHL":"PH","PNG":"PG","POL":"PL","PRI":"PR","PRK":"KP","PRT":"PT","PRY":"PY","PSE":"PS","PYF":"PF","QAT":"QA","REU":"RE","ROU":"RO","RUS":"RU","RWA":"RW","SAU":"SA","SDN":"SD","SEN":"SN","SGP":"SG","SLB":"SB","SLE":"SL","SLV":"SV","SOM":"SO","SRB":"RS","SSD":"SS","SUR":"SR","SVK":"SK","SVN":"SI","SWE":"SE","SWZ":"SZ","SYC":"SC","SYR":"SY","TCD":"TD","TGO":"TG","THA":"TH","TJK":"TJ","TKM":"TM","TLS":"TL","TON":"TO","TTO":"TT","TUN":"TN","TUR":"TR","TUV":"TV","TWN":"TW","TZA":"TZ","UGA":"UG","UKR":"UA","URY":"UY","USA":"US","UZB":"UZ","VCT":"VC","VEN":"VE","VGB":"VG","VNM":"VN","VUT":"VU","WSM":"WS","YEM":"YE","ZAF":"ZA","ZMB":"ZM","ZWE":"ZW","XKX":"XK"};
+  const EX = {"OECD member countries, year by year (2000–2024)":"מדינות OECD, שנה אחר שנה (2000–2024)","World Bank survey, one snapshot (about 2016)":"סקר הבנק העולמי, תמונת מצב אחת (סביב 2016)","Share landfilled (%)":"שיעור ההטמנה (%)","Landfilled per person (kg/yr)":"הטמנה לנפש (ק\"ג בשנה)","Waste generated per person (kg/yr)":"פסולת לנפש (ק\"ג בשנה)","Share recycled (%)":"שיעור המיחזור (%)","Whole world":"כל העולם","Europe and the Middle East":"אירופה והמזרח התיכון","Share landfilled":"שיעור ההטמנה","share landfilled":"שיעור ההטמנה","Landfilled per person":"הטמנה לנפש","landfilled per person":"הטמנה לנפש","Waste generated per person":"פסולת לנפש","waste generated per person":"פסולת לנפש","Share recycled":"שיעור המיחזור","share recycled":"שיעור המיחזור","Landfilled or dumped":"מוטמן או מושלך","Landfilled or dumped per person":"מוטמן או מושלך לנפש","Generated per person":"נוצר לנפש","Generated":"נוצר","Landfill":"הטמנה","Open dump":"השלכה פתוחה","Recycling":"מיחזור","Composting":"קומפוסט","Incineration":"שריפה","Other or unreported":"אחר או לא מדווח","East Asia & Pacific":"מזרח אסיה והאוקיינוס השקט","Europe & Central Asia":"אירופה ומרכז אסיה","Latin America & Caribbean":"אמריקה הלטינית והקריביים","Middle East & North Africa":"המזרח התיכון וצפון אפריקה","North America":"צפון אמריקה","South Asia":"דרום אסיה","Sub-Saharan Africa":"אפריקה שמדרום לסהרה","World (survey countries)":"העולם (מדינות הסקר)","No data":"אין נתונים","Year":"שנה","Survey figure":"נתון מהסקר","Survey":"סקר","Click to see the trend":"לחצו כדי לראות את המגמה","No yearly OECD figures for this country. Hover it on the World Bank snapshot for a single value.":"אין נתוני OECD שנתיים למדינה זו. העבירו עליה את העכבר בתמונת המצב של הבנק העולמי כדי לראות נתון יחיד.","Mediterranean Sea":"הים התיכון","Methane released":"מתאן שנפלט","below the reporting threshold":"מתחת לסף הדיווח","Climate effect, CO₂ equivalent":"השפעה אקלימית, שווה ערך CO₂","Share of all landfills":"חלק מכלל אתרי ההטמנה","District":"מחוז","Waste type":"סוג פסולת","Mixed waste":"פסולת מעורבת","Used since end of 2020":"נוצל מאז סוף 2020","Circle size: tonnes of methane released per year":"גודל העיגול: טונות מתאן שנפלטו בשנה","below threshold":"מתחת לסף","All other sites":"כל שאר האתרים","No data this year":"אין נתונים בשנה זו","Failed to load":"הטעינה נכשלה","Region":"אזור","GDP per person":"תוצר לנפש","Figure from":"נתון משנת","Source":"מקור","UN (UNSD/UNEP)":"האו\"ם (UNSD/UNEP)","Always traced":"המסלול מסומן תמיד","Click to stop tracing":"לחצו כדי להסתיר את המסלול","Click to trace its path":"לחצו כדי לסמן את המסלול","more space than in 2020 (re-measured)":"יותר מקום מב-2020 (נמדד מחדש)","no comparable figure":"אין נתון להשוואה","Being expanded":"בהרחבה","Closed":"סגור","Expected to close in 2025":"צפוי להיסגר ב-2025","Planned expansion":"הרחבה מתוכננת","Timing":"מועד","Expansion under way; volume not stated":"הרחבה בביצוע; הנפח לא צוין","Expansion of 0.96 million t under review; the ministry won't back raising the site more than 5 m":"נבחנת הרחבה של 0.96 מיליון טון; המשרד אינו תומך בהגבהה של יותר מ-5 מטרים","Hagal +2 million t (due April 2026); Talia +4.8 million t pending land approval":"חגל: תוספת 2 מיליון טון (צפויה באפריל 2026); טליה: תוספת 4.8 מיליון טון בכפוף לאישור רשות מקרקעי ישראל","Limited expansion plan approved; site closed":"אושרה תוכנית הרחבה מצומצמת; האתר סגור","Expansion under review; volume not stated":"נבחנת הרחבה; הנפח לא צוין","Closed; to reopen for a few months to use up what's left. New Ganei Hadas triangle site +3.8 million t at impact-assessment stage":"סגור; ייפתח לכמה חודשים כדי לנצל את הנפח שנותר. אתר חדש במשולש גני הדס, 3.8 מיליון טון, בשלב תסקיר השפעה על הסביבה","Expansion at Bnei Shimon under review":"נבחנת הרחבה בבני שמעון","Raising cells 1–6 +2 million t; cells 7A/7C 1.6 million t; cell 7B 2.8 million t; cell 8 10 million t; Mishor Rotem cells 9–12 60 million t by 2040":"הגבהת תאים 1–6: תוספת 2 מיליון טון; תאים 7א ו-7ג: 1.6 מיליון טון; תא 7ב: 2.8 מיליון טון; תא 8: 10 מיליון טון; מישור רותם, תאים 9–12: 60 מיליון טון עד 2040","Expansion of 4.5 million t approved":"אושרה הרחבה של 4.5 מיליון טון","Closed; expected to reopen in 2027; volume not stated":"סגור; צפוי להיפתח מחדש ב-2027; הנפח לא צוין","Expansion planned; volume not stated":"מתוכננת הרחבה; הנפח לא צוין","Preparing download…":"מכין הורדה…","GIF saved.":"ה-GIF נשמר.","Download cancelled.":"ההורדה בוטלה.","If the download didn't start, right-click the animation below and choose Save image as.":"אם ההורדה לא התחילה, לחצו לחיצה ימנית על האנימציה למטה ובחרו \"שמירת תמונה בשם\".","Close":"סגירה","Switch the data menu to the OECD year-by-year series to make a GIF.":"כדי ליצור GIF, בחרו בתפריט הנתונים את סדרת ה-OECD השנתית.","GIF export is not available in this view.":"יצירת GIF אינה זמינה בתצוגה זו.","Israel: landfill methane by site":"ישראל: מתאן מאתרי הטמנה לפי אתר","Landfilled kg per person by GDP per person, OECD member countries":"ק\"ג פסולת מוטמנת לנפש לפי תוצר לנפש, מדינות OECD","Landfilled kg per person by GDP per person, worldwide":"ק\"ג פסולת מוטמנת לנפש לפי תוצר לנפש, העולם","Landfill site":"אתר הטמנה"};
+  const SITES = {
+    'Efeh': 'אפעה', 'Dudaim': 'דודאים', 'Ganei Hadas': 'גני הדס', 'Evron': 'עברון', 'Talia': 'טליה', 'Haruvit': 'חרובית', 'Nimra': 'נימרה',
+    'Zohar': 'זוהר', 'Dia': 'דיה', 'Daya': 'דיה', 'Avlaim': 'אבליים', 'Tovlan': 'טובלן', 'Hagal (Talia)': 'חגל (טליה)', 'Naser Recycling': 'נאסר מיחזור',
+    'Tel Adashim': 'תל עדשים', 'Tut (Shfeya)': 'תות (שפיה)', 'Avivit': 'אביבית', 'Eichut Yeruka': 'איכות ירוקה', 'Gush Halav quarry': 'מחצבת גוש חלב',
+    'Neot Hovav (Talor Karadi)': 'נאות חובב (טלאור כראדי)', "Tur'an": 'טורעאן', 'Green Recycling': 'גרין מיחזור', 'Mitzpe Ramon': 'מצפה רמון',
+    'Yeruham': 'ירוחם', 'Ashalim': 'אשלים', 'Bareket': 'ברקת', 'Dimona': 'דימונה', 'Yarka': 'ירכא', "Te'enim": 'תאנים', "Lohamei HaGeta'ot": 'לוחמי הגטאות',
+    'Haifa': 'חיפה', 'Tel Aviv': 'תל אביב', 'Jerusalem': 'ירושלים', 'Beersheba': 'באר שבע', 'Eilat': 'אילת',
+    'North': 'צפון', 'South': 'דרום', 'Central': 'מרכז', 'Judea and Samaria': 'יהודה ושומרון',
+    'OECD total': 'סך OECD', 'EU-27': 'האיחוד האירופי', 'Israel': 'ישראל'
+  };
+  const WHEN = { 'end of 2020': 'סוף 2020', 'end of 2023': 'סוף 2023', 'start of 2025': 'תחילת 2025' };
+  // Country names: English names seen in the data, mapped to Hebrew through the browser's region names.
+  let names = null, namesSize = -1, sortedNames = [];
+  let dn = null; try { dn = new Intl.DisplayNames(['he'], { type: 'region' }); } catch (e) { dn = null; }
+  function buildNames() {
+    const pairs = [];
+    for (const id of ['oecd', 'world_trends', 'waw']) {
+      try { const d = dash.data(id); if (d && d.status === 'ok') for (const r of d.data) pairs.push([r.country, r.iso3]); } catch (e) { /* not loaded */ }
+    }
+    try { if (window.LF && LF.map && LF.map.features) for (const f of LF.map.features()) pairs.push([f.name, f.iso3]); } catch (e) { /* no map */ }
+    if (pairs.length === namesSize) return;
+    namesSize = pairs.length;
+    names = Object.assign({}, SITES);
+    for (const [en, iso] of pairs) {
+      if (!en || names[en] || !iso) continue;
+      const a2 = ISO2[iso]; let he = null;
+      try { he = a2 && dn ? dn.of(a2) : null; } catch (e) { he = null; }
+      if (he && he !== a2) names[en] = he;
+    }
+    sortedNames = Object.keys(names).sort((a, b) => b.length - a.length);
+  }
+  const PH = [
+    ['tonnes/year', 'טון לשנה'], ['kg/person/day', 'ק"ג לאדם ביום'], ['Mt/yr', 'מיליון טון בשנה'], ['M t', ' מיליון טון'], ['k t', ' אלף טון'],
+    [' million', ' מיליון'], ['tonnes', 'טון'], [' kg', ' ק"ג'], ['share of landfill methane', 'חלק ממתאן ההטמנה'],
+    ['being expanded', 'בהרחבה'], ['expected to close in 2025', 'צפוי להיסגר ב-2025'], ['closed', 'סגור']
+  ];
+  const PAT = [
+    [/^Compare with: (.+)$/, (m) => 'השוואה עם: ' + nm(m[1])],
+    [/^All other sites \((\d+)\)$/, (m) => 'כל שאר האתרים (' + m[1] + ')'],
+    [/^All (\d+) sites$/, (m) => 'כל ' + m[1] + ' האתרים'],
+    [/^In (\d{4}), Israel ranks (\d+)( \(tied\))? of (\d+) countries, counting from the highest\. A year in brackets marks the latest earlier figure, up to three years old\.(.*)$/,
+      (m) => 'ב-' + m[1] + ' ישראל במקום ' + m[2] + (m[3] ? ' (בתיקו)' : '') + ' מתוך ' + m[4] + ' מדינות, מהגבוה לנמוך. שנה בסוגריים מציינת נתון משנה קודמת, עד שלוש שנים אחורה.' + (m[5] ? ' עד 2013 ישראל דיווחה רק על סך הפסולת שסולקה, ולכן כל הפסולת שלה נספרת כמוטמנת.' : '')],
+    [/^No figure for Israel within three years of (\d{4})\.$/, (m) => 'אין נתון לישראל בטווח של שלוש שנים מ-' + m[1] + '.'],
+    [/^Making GIF: frame (\d+) of (\d+)$/, (m) => 'מכין GIF: תמונה ' + m[1] + ' מתוך ' + m[2]],
+    [/^Download (.+\.gif)$/, (m) => 'הורדת ' + m[1]],
+    [/^Couldn't make the GIF: (.*)$/, (m) => 'לא ניתן היה ליצור את ה-GIF: ' + m[1]],
+    [/^Space left, (.+)$/, (m) => 'מקום פנוי, ' + (WHEN[m[1]] || m[1])],
+    [/^(\d+)% \(to (.+)\)$/, (m) => m[1] + '% (עד ' + (WHEN[m[2]] || m[2]) + ')'],
+    [/^Taken in, (\d{4})$/, (m) => 'נקלט ב-' + m[1]],
+    [/^Status, (\d{4})$/, (m) => 'סטטוס, ' + m[1]],
+    [/^Rank in (\d{4})$/, (m) => 'דירוג ב-' + m[1]],
+    [/^(\d+) of (\d+)$/, (m) => m[1] + ' מתוך ' + m[2]],
+    [/^([\d,.]+) t$/, (m) => m[1] + ' טון'],
+    [/^(\d{4}) figure$/, (m) => 'נתון מ-' + m[1]],
+    [/^for (\d{4})$/, (m) => 'ב-' + m[1]],
+    [/^(\d+)% used · (.+) left( · (under 1|[\d.]+) yr)?( \(end 2023\))?$/,
+      (m) => m[1] + '% נוצלו · נותרו ' + ph(m[2]) + (m[3] ? ' · ' + (m[4] === 'under 1' ? 'פחות משנה' : m[4] + ' שנים') : '') + (m[5] ? ' (סוף 2023)' : '')],
+    [/^World map: (.*)$/, (m) => 'מפת העולם: ' + m[1]],
+    [/^Israel against the OECD: (.*)$/, (m) => 'ישראל מול OECD: ' + (EX[m[1]] || m[1])],
+    [/^Ranking by (.*)$/, (m) => 'דירוג לפי ' + (EX[m[1]] || m[1])],
+    [/^(\d{4}) · (.+)$/, (m) => m[1] + ' · ' + (EX[m[2]] || ph(m[2]))],
+    [/^(.+) · (\d{4})$/, (m) => nm(m[1]) + ' · ' + m[2]],
+    [/^(.+) · (.+)$/, (m) => nm(m[1]) + ' · ' + (EX[m[2]] || ph(m[2]))]
+  ];
+  function nm(s) { buildNames(); return names[s] || EX[s] || ph(s); }
+  function ph(s) {
+    buildNames();
+    let out = s;
+    for (const k of sortedNames) if (out.includes(k)) out = out.split(k).join(names[k]);
+    for (const [a, b] of PH) if (out.includes(a)) out = out.split(a).join(b);
+    return out;
+  }
+  function tr(s) {
+    if (window.LF_LANG !== 'he' || s == null) return s;
+    const t = String(s).trim();
+    if (!t || /^[\d\s.,%$+−\-–·≈()]*$/.test(t)) return s;
+    if (EX[t]) return EX[t];
+    buildNames();
+    if (names[t]) return names[t];
+    for (const [re, f] of PAT) { const m = t.match(re); if (m) return f(m); }
+    return ph(t);
+  }
+  function translate(root) {
+    if (window.LF_LANG !== 'he' || !root) return;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    const nodes = []; let n;
+    while ((n = w.nextNode())) nodes.push(n);
+    for (const t of nodes) { const v = tr(t.nodeValue); if (v !== t.nodeValue) t.nodeValue = v; }
+  }
+  function wrap(f) {
+    if (typeof f === 'function') return function (el) { const r = f.apply(this, arguments); translate(el); return r; };
+    if (f && typeof f.update === 'function') {
+      const o = Object.assign({}, f);
+      o.update = function (el) { const r = f.update.apply(this, arguments); translate(el); return r; };
+      return o;
+    }
+    return f;
+  }
+  window.lfTr = tr;
+  window.lfTranslate = translate;
+  window.lfReg = function (name, f) { return dash.draw(name, wrap(f)); };
+  // Static selects: option text follows the language.
+  window.lfReg('i18n-sel', (el) => {
+    const he = window.LF_LANG === 'he';
+    const LAB = { 'Data': 'נתונים', 'Measure': 'מדד', 'Zoom': 'תצוגה', 'Rank by': 'דירוג לפי' };
+    const lab = el.querySelector('.lf-sel-label'), sel = el.querySelector('select');
+    if (lab) lab.textContent = he ? (LAB[el.dataset.label] || el.dataset.label) : el.dataset.label;
+    if (sel) for (const o of sel.options) {
+      if (!o.dataset.en) o.dataset.en = o.textContent;
+      o.textContent = he ? (EX[o.dataset.en] || o.dataset.en) : o.dataset.en;
+    }
+  });
+})();
+</script>
+<script>
+window.LF = (function () {
+  const num = (v) => (v === '' || v == null || isNaN(+v)) ? null : +v;
+  const C = (i) => dash.colors[((i % dash.colors.length) + dash.colors.length) % dash.colors.length];
+  const colorOf = (key) => key === 'critical' ? 'var(--cds-chart-status-critical)' : key == null || key === '' ? 'var(--cds-chart-muted)' : C(+key);
+  const st = { metric: 'landfill_kg_per_capita', compare: 'DEU', rank: 'landfill_pct' };
+  const METRICS = {
+    landfill_kg_per_capita: { label: 'Landfilled per person', unit: ' kg', fmt: d3.format(',.0f') },
+    landfill_pct: { label: 'Share landfilled', unit: '%', fmt: d3.format('.1f') },
+    msw_kg_per_capita: { label: 'Waste generated per person', unit: ' kg', fmt: d3.format(',.0f') },
+    recycling_pct: { label: 'Share recycled', unit: '%', fmt: d3.format('.1f') }
+  };
+  const MIX = [
+    { k: 'landfill_pct', name: 'Landfill', color: '3' },
+    { k: 'recycling_pct', name: 'Recycling', color: '4' },
+    { k: 'composting_pct', name: 'Composting', color: '5' },
+    { k: 'incineration_pct', name: 'Incineration', color: '6' }
+  ];
+  const REGIONS = ['East Asia & Pacific', 'Europe & Central Asia', 'Latin America & Caribbean', 'Middle East & North Africa', 'North America', 'South Asia', 'Sub-Saharan Africa'];
+  const FMT = {
+    int: d3.format(',.0f'), p1: d3.format('.1f'), p2: d3.format('.2f'), x1: d3.format('.1f'), bn: d3.format('.2f'),
+    sint: d3.format('+,.0f'), sp1: d3.format('+.1f'), year: (v) => String(v)
+  };
+  function ready(el, ids) {
+    const sts = ids.map((id) => dash.data(id).status);
+    if (sts.every((s) => s === 'ok')) { el.classList.remove('dash-skeleton'); return 'ok'; }
+    if (sts.some((s) => s === 'loading')) { el.replaceChildren(); el.classList.add('dash-skeleton'); return 'loading'; }
+    el.classList.remove('dash-skeleton');
+    if (sts.some((s) => s === 'error' || s === 'missing')) {
+      const p = document.createElement('p'); p.className = 'lf-fail'; p.textContent = 'Failed to load';
+      el.replaceChildren(p); return 'error';
+    }
+    el.replaceChildren(); return 'wait';
+  }
+  function textW(svg, strs, cls) {
+    const t = svg.append('text').attr('class', cls || 'lf-tick');
+    let m = 0;
+    for (const s of strs) { t.text(s); m = Math.max(m, t.node().getComputedTextLength()); }
+    t.remove(); return m;
+  }
+  function tooltip(el) {
+    const t = document.createElement('div'); t.className = 'lf-tip'; t.hidden = true; el.appendChild(t);
+    return {
+      show(title, rows, x, y) {
+        const head = document.createElement('span'); head.className = 'lf-tip-title'; head.textContent = title;
+        const kids = [head];
+        for (const [k, v, color] of rows) {
+          const d = document.createElement('div'); d.className = 'lf-tip-row';
+          const a = document.createElement('span');
+          if (color) { const sw = document.createElement('span'); sw.className = 'lf-sw'; sw.style.background = color; a.appendChild(sw); }
+          a.appendChild(document.createTextNode(k));
+          const b = document.createElement('span'); b.textContent = v;
+          d.append(a, b); kids.push(d);
+        }
+        t.replaceChildren(...kids); if (window.lfTranslate) window.lfTranslate(t); t.hidden = false;
+        const w = t.offsetWidth, h = t.offsetHeight, W = el.clientWidth;
+        let left = x + 14; if (left + w > W) left = Math.max(0, x - 14 - w);
+        let top = y - h - 10; if (top < 0) top = y + 14;
+        t.style.left = left + 'px'; t.style.top = top + 'px';
+      },
+      hide() { t.hidden = true; }
+    };
+  }
+  function scatter(el, pts, o) {
+    el.replaceChildren();
+    const W = Math.max(260, el.clientWidth), H = 300;
+    const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img').attr('aria-label', o.aria);
+    const xs = pts.map((p) => p.x), ys = pts.map((p) => p.y);
+    const y = d3.scaleLinear().domain([0, d3.max(ys) * 1.05]).nice();
+    const yt = y.ticks(5);
+    const ml = textW(svg, yt.map(d3.format(',.0f'))) + 10, mr = 12, mt = 12, mb = 24;
+    y.range([H - mb, mt]);
+    let x, xt;
+    const money = (v) => '$' + d3.format('~s')(v).replace('G', 'B');
+    if (o.xLog) {
+      x = d3.scaleLog().domain([d3.min(xs) * 0.85, d3.max(xs) * 1.15]).range([ml, W - mr]);
+      xt = [500, 1000, 2000, 5000, 10000, 20000, 50000, 100000].filter((v) => v >= x.domain()[0] && v <= x.domain()[1]);
+      if (W < 420) xt = xt.filter((v) => String(v)[0] === '1' || v === 5000 || v === 50000);
+    } else {
+      x = d3.scaleLinear().domain([0, d3.max(xs) * 1.05]).nice().range([ml, W - mr]);
+      xt = x.ticks(W < 420 ? 4 : 6);
+    }
+    svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text(d3.format(',.0f'));
+    svg.append('g').selectAll('text').data(xt).join('text').attr('class', 'lf-tick').attr('x', x).attr('y', H - 6).attr('text-anchor', 'middle').text(money);
+    svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', H - mb).attr('y2', H - mb).style('stroke', 'var(--cds-chart-axis)');
+    const order = pts.slice().sort((a, b) => (a.hi ? 1 : 0) - (b.hi ? 1 : 0));
+    svg.append('g').selectAll('circle').data(order).join('circle')
+      .attr('cx', (p) => x(p.x)).attr('cy', (p) => y(p.y)).attr('r', (p) => p.hi ? 6 : 4)
+      .style('fill', (p) => p.color).style('fill-opacity', (p) => p.hi ? 1 : 0.7)
+      .style('stroke', (p) => p.hi ? 'var(--color-fg)' : 'none').style('stroke-width', 1.5);
+    for (const p of pts.filter((q) => q.label)) {
+      const lx = x(p.x), right = lx > W - 90;
+      svg.append('text').attr('class', p.hi ? 'lf-lab-strong' : 'lf-lab').attr('x', right ? lx - 9 : lx + 9).attr('y', y(p.y)).attr('dy', '0.32em')
+        .attr('text-anchor', right ? 'end' : 'start').text(p.name);
+    }
+    const tip = tooltip(el);
+    const del = d3.Delaunay.from(pts, (p) => x(p.x), (p) => y(p.y));
+    const ring = svg.append('circle').attr('r', 8).style('fill', 'none').style('stroke', 'var(--color-fg)').style('stroke-width', 1.5).attr('visibility', 'hidden');
+    svg.append('rect').attr('x', ml).attr('y', mt).attr('width', W - ml - mr).attr('height', H - mt - mb).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [mx, my] = d3.pointer(ev, svg.node());
+        const i = del.find(mx, my), p = pts[i];
+        if (!p || Math.hypot(x(p.x) - mx, y(p.y) - my) > 30) { tip.hide(); ring.attr('visibility', 'hidden'); return; }
+        ring.attr('cx', x(p.x)).attr('cy', y(p.y)).attr('visibility', 'visible');
+        tip.show(p.name, p.rows, x(p.x), y(p.y));
+      })
+      .on('pointerleave', () => { tip.hide(); ring.attr('visibility', 'hidden'); });
+  }
+  return { num, C, colorOf, st, METRICS, MIX, REGIONS, FMT, ready, textW, tooltip, scatter };
+})();
+</script>
+
+<script>
+dash.calc('israel_kpis', {
+  inputs: ['oecd'],
+  title: 'Israel vs OECD, latest year',
+  description: 'Israel\'s latest reported year, its change since 2014, and the OECD total for the same year.',
+  fn: (oecd) => {
+    const n = (v) => (v === '' || v == null) ? null : +v;
+    const r0 = (v) => v == null ? null : Math.round(v);
+    const r1 = (v) => v == null ? null : Math.round(v * 10) / 10;
+    const isr = oecd.filter((r) => r.iso3 === 'ISR').sort((a, b) => a.year - b.year);
+    const last = isr[isr.length - 1];
+    const base = isr.find((r) => r.year === '2014');
+    if (!last || !base) return [];
+    const total = oecd.find((r) => r.iso3 === 'OECD' && r.year === last.year) || {};
+    const recov = (r) => (n(r.recycling_pct) || 0) + (n(r.composting_pct) || 0);
+    return [{
+      year: +last.year,
+      base_year: +base.year,
+      msw: r0(n(last.msw_kg_per_capita)),
+      msw_change: r0(n(last.msw_kg_per_capita) - n(base.msw_kg_per_capita)),
+      landfill_pct: r1(n(last.landfill_pct)),
+      landfill_pct_change: r1(n(last.landfill_pct) - n(base.landfill_pct)),
+      landfill_kg: r0(n(last.landfill_kg_per_capita)),
+      landfill_kg_change: r0(n(last.landfill_kg_per_capita) - n(base.landfill_kg_per_capita)),
+      recov_pct: r1(recov(last)),
+      recov_pct_change: r1(recov(last) - recov(base)),
+      oecd_msw: r0(n(total.msw_kg_per_capita)),
+      oecd_landfill_pct: r1(n(total.landfill_pct)),
+      oecd_landfill_kg: r0(n(total.landfill_kg_per_capita)),
+      oecd_recov_pct: total.iso3 ? r1(recov(total)) : null,
+      landfill_kg_ratio: total.iso3 ? r1(n(last.landfill_kg_per_capita) / n(total.landfill_kg_per_capita)) : null,
+      gdp: r0(n(last.gdp_pc_ppp))
+    }];
+  }
+});
+
+dash.calc('world_summary', {
+  inputs: ['waw'],
+  title: 'World totals, What a Waste 2.0',
+  description: 'Tonnage-weighted totals across the countries in the World Bank survey that report how waste is treated.',
+  fn: (waw) => {
+    const n = (v) => (v === '' || v == null) ? 0 : +v;
+    let t = 0, pop = 0, lf = 0, dump = 0;
+    for (const r of waw) {
+      const m = n(r.msw_tonnes_per_year);
+      t += m; pop += n(r.population);
+      lf += m * n(r.landfill_pct) / 100; dump += m * n(r.open_dump_pct) / 100;
+    }
+    if (!t) return [];
+    return [{
+      countries: waw.length,
+      msw_billion_tonnes: Math.round(t / 1e7) / 100,
+      kg_per_person_day: Math.round(t * 1000 / pop / 365 * 100) / 100,
+      landfill_pct: Math.round(lf / t * 1000) / 10,
+      open_dump_pct: Math.round(dump / t * 1000) / 10
+    }];
+  }
+});
+
+dash.calc('region_mix', {
+  inputs: ['waw'],
+  title: 'Treatment mix by region',
+  description: 'Share of municipal waste by treatment in each World Bank region, weighted by tonnes, with waste per person per day.',
+  fn: (waw) => {
+    const n = (v) => (v === '' || v == null) ? 0 : +v;
+    const groups = new Map([['World (survey countries)', []]]);
+    for (const r of waw) {
+      groups.get('World (survey countries)').push(r);
+      if (!groups.has(r.region)) groups.set(r.region, []);
+      groups.get(r.region).push(r);
+    }
+    const keys = ['landfill_pct', 'open_dump_pct', 'recycling_pct', 'composting_pct', 'incineration_pct'];
+    const out = [];
+    for (const [region, rows] of groups) {
+      let t = 0, pop = 0; const acc = Object.fromEntries(keys.map((k) => [k, 0]));
+      for (const r of rows) {
+        const m = n(r.msw_tonnes_per_year); t += m; pop += n(r.population);
+        for (const k of keys) acc[k] += m * n(r[k]) / 100;
+      }
+      const row = { region, countries: rows.length, msw_million_tonnes: Math.round(t / 1e5) / 10, kg_per_person_day: Math.round(t * 1000 / pop / 365 * 100) / 100 };
+      for (const k of keys) row[k] = Math.round(acc[k] / t * 1000) / 10;
+      row.other_pct = Math.max(0, Math.round((100 - keys.reduce((s, k) => s + row[k], 0)) * 10) / 10);
+      out.push(row);
+    }
+    return out;
+  }
+});
+
+document.querySelectorAll('[data-color]').forEach((e) => { e.style.background = LF.colorOf(e.dataset.color); });
+document.querySelectorAll('#trend-metric').forEach((s) => s.addEventListener('change', () => { LF.st.metric = s.value; dash.draw('trend'); }));
+document.querySelectorAll('#rank-metric').forEach((s) => s.addEventListener('change', () => { LF.st.rank = s.value; dash.draw('rank'); dash.draw('rank-note'); }));
+</script>
+
+<script>
+lfReg('kv', (el) => {
+  const d = dash.data(el.dataset.source);
+  if (d.status === 'loading') { el.textContent = '—'; el.classList.add('dash-skeleton'); return; }
+  el.classList.remove('dash-skeleton');
+  const r = d.status === 'ok' && Array.isArray(d.data) ? d.data[+(el.dataset.row || 0)] : null;
+  if (el.dataset.fmt === 'text') { el.textContent = r && r[el.dataset.field] != null ? String(r[el.dataset.field]) : '—'; return; }
+  const v = r ? LF.num(r[el.dataset.field]) : null;
+  el.classList.remove('lf-good', 'lf-bad');
+  if (v == null) { el.textContent = '—'; return; }
+  el.textContent = (LF.FMT[el.dataset.fmt] || LF.FMT.int)(v);
+  const g = el.dataset.good;
+  if (g && v !== 0) el.classList.add((g === 'down') === (v < 0) ? 'lf-good' : 'lf-bad');
+});
+
+lfReg('compare', (sel) => {
+  const d = dash.data('oecd');
+  const rows = d.status === 'ok' ? d.data : [];
+  const counts = new Map(), names = new Map();
+  for (const r of rows) {
+    if (r.iso3 === 'ISR' || r.iso3 === 'OECD' || r.landfill_pct === '') continue;
+    counts.set(r.iso3, (counts.get(r.iso3) || 0) + 1); names.set(r.iso3, r.country);
+  }
+  const opts = [...counts].filter(([, c]) => c >= 5).map(([k]) => [k, names.get(k)]).sort((a, b) => a[1].localeCompare(b[1]));
+  sel.replaceChildren(...opts.map(([k, nm]) => new Option('Compare with: ' + nm, k)));
+  if (opts.some(([k]) => k === LF.st.compare)) sel.value = LF.st.compare;
+  sel.onchange = () => { LF.st.compare = sel.value; dash.draw('trend'); };
+});
+
+lfReg('mix', (el) => {
+  if (LF.ready(el, ['oecd']) !== 'ok') return;
+  const rows = dash.data('oecd').data;
+  const isr = rows.filter((r) => r.iso3 === 'ISR' && +r.year >= 2013).sort((a, b) => a.year - b.year);
+  el.replaceChildren();
+  if (!isr.length) return;
+  const lastY = isr[isr.length - 1].year;
+  const total = rows.find((r) => r.iso3 === 'OECD' && r.year === lastY);
+  const bars = isr.map((r) => ({ label: r.year, title: 'Israel ' + r.year, r }));
+  if (total) bars.push({ label: 'OECD', title: 'OECD total ' + lastY, r: total });
+  const cats = LF.MIX.concat([{ k: '_other', name: 'Other or unreported', color: '' }]);
+  for (const b of bars) {
+    let acc = 0; b.segs = [];
+    const vals = LF.MIX.map((c) => LF.num(b.r[c.k]) || 0);
+    vals.push(Math.max(0, 100 - vals.reduce((s, v) => s + v, 0)));
+    cats.forEach((c, i) => { b.segs.push({ c, v: vals[i], y0: acc, y1: acc + vals[i] }); acc += vals[i]; });
+  }
+  const W = Math.max(280, el.clientWidth), H = 300, mt = 8, mb = 24;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', 'Israel municipal waste by treatment, ' + bars[0].label + ' to ' + lastY + ', with the OECD total');
+  const ml = LF.textW(svg, ['100%']) + 10, mr = 4;
+  const x = d3.scaleBand().domain(bars.map((b) => b.label)).range([ml, W - mr]).paddingInner(0.18);
+  const y = d3.scaleLinear().domain([0, 100]).range([H - mb, mt]);
+  svg.append('g').selectAll('text').data([0, 25, 50, 75, 100]).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d + '%');
+  const short = W < 520;
+  svg.append('g').selectAll('text').data(bars).join('text').attr('class', (b) => b.label === 'OECD' ? 'lf-lab-strong' : 'lf-tick')
+    .attr('x', (b) => x(b.label) + x.bandwidth() / 2).attr('y', H - 6).attr('text-anchor', 'middle')
+    .text((b) => b.label === 'OECD' || !short ? b.label : "'" + b.label.slice(2));
+  const g = svg.append('g').selectAll('g').data(bars).join('g');
+  g.selectAll('rect').data((b) => b.segs.map((s) => ({ ...s, b }))).join('rect')
+    .attr('x', (s) => x(s.b.label)).attr('width', x.bandwidth())
+    .attr('y', (s) => y(s.y1)).attr('height', (s) => Math.max(0, y(s.y0) - y(s.y1)))
+    .style('fill', (s) => LF.colorOf(s.c.color));
+  if (x.bandwidth() >= 26) {
+    svg.append('g').selectAll('text').data(bars).join('text').attr('class', 'lf-lab-strong')
+      .attr('x', (b) => x(b.label) + x.bandwidth() / 2).attr('y', (b) => y(b.segs[0].y1) + 14).attr('text-anchor', 'middle')
+      .style('fill', 'var(--color-bg)').text((b) => Math.round(b.segs[0].v) + '%');
+  }
+  const tip = LF.tooltip(el);
+  svg.append('g').selectAll('rect').data(bars).join('rect')
+    .attr('x', (b) => x(b.label)).attr('width', x.bandwidth()).attr('y', mt).attr('height', H - mt - mb).style('fill', 'transparent')
+    .on('pointermove', (ev, b) => {
+      const [mx, my] = d3.pointer(ev, el);
+      tip.show(b.title, b.segs.map((s) => [s.c.name, d3.format('.1f')(s.v) + '%', LF.colorOf(s.c.color)]), mx, my);
+    })
+    .on('pointerleave', () => tip.hide());
+});
+
+lfReg('regions', (el) => {
+  if (LF.ready(el, ['region_mix']) !== 'ok') return;
+  const data = dash.data('region_mix').data;
+  el.replaceChildren();
+  if (!data.length) return;
+  const cats = [
+    { k: 'landfill_pct', name: 'Landfill', color: '3' },
+    { k: 'open_dump_pct', name: 'Open dump', color: 'critical' },
+    { k: 'recycling_pct', name: 'Recycling', color: '4' },
+    { k: 'composting_pct', name: 'Composting', color: '5' },
+    { k: 'incineration_pct', name: 'Incineration', color: '6' },
+    { k: 'other_pct', name: 'Other or unreported', color: '' }
+  ];
+  const rowH = 46, W = Math.max(280, el.clientWidth), H = data.length * rowH;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', 'Share of municipal waste by treatment for each world region');
+  const x = d3.scaleLinear().domain([0, 100]).range([0, W]);
+  const tip = LF.tooltip(el);
+  const f1 = d3.format('.1f');
+  data.forEach((r, i) => {
+    const g = svg.append('g').attr('transform', 'translate(0,' + i * rowH + ')');
+    const first = i === 0;
+    g.append('text').attr('class', first ? 'lf-lab-strong' : 'lf-lab').attr('x', 0).attr('y', 12).text(r.region);
+    g.append('text').attr('class', 'lf-tick').attr('x', W).attr('y', 12).attr('text-anchor', 'end').text(d3.format('.2f')(r.kg_per_person_day) + ' kg/person/day');
+    let acc = 0;
+    for (const c of cats) {
+      const v = +r[c.k] || 0;
+      g.append('rect').attr('x', x(acc)).attr('y', 18).attr('width', Math.max(0, x(acc + v) - x(acc))).attr('height', 18).style('fill', LF.colorOf(c.color));
+      if (c.k === 'landfill_pct' && x(acc + v) - x(acc) > 34) {
+        g.append('text').attr('class', 'lf-lab-strong').style('fill', 'var(--color-bg)').attr('x', x(acc) + 5).attr('y', 27).attr('dy', '0.32em').text(Math.round(v) + '%');
+      }
+      if (c.k === 'open_dump_pct' && x(acc + v) - x(acc) > 34) {
+        g.append('text').attr('class', 'lf-lab-strong').style('fill', 'var(--color-bg)').attr('x', x(acc) + 5).attr('y', 27).attr('dy', '0.32em').text(Math.round(v) + '%');
+      }
+      acc += v;
+    }
+    g.append('rect').attr('x', 0).attr('y', 0).attr('width', W).attr('height', rowH).style('fill', 'transparent')
+      .on('pointermove', (ev) => {
+        const [mx, my] = d3.pointer(ev, el);
+        tip.show(r.region + ' · ' + r.countries + ' countries', cats.map((c) => [c.name, f1(+r[c.k] || 0) + '%', LF.colorOf(c.color)])
+          .concat([['Generated', d3.format(',.0f')(r.msw_million_tonnes) + ' Mt/yr', null]]), mx, my);
+      })
+      .on('pointerleave', () => tip.hide());
+  });
+});
+</script>
+
+<script src="world.js"></script>
+
+<script>
+(function () {
+  const S = LF.st;
+  S.mapSource = 'oecd'; S.mapMetric = 'landfill_pct'; S.mapZoom = 'world'; S.mapYear = 2024; S.mapSel = 'ISR';
+  const MAP_MIN = 2000, MAP_MAX = 2024, CARRY = Infinity;
+  const META = {
+    landfill_pct: { label: 'Share landfilled', wawLabel: 'Landfilled or dumped', unit: '%', fmt: d3.format('.1f'), pct: true, ramp: d3.interpolateYlOrBr },
+    landfill_kg_per_capita: { label: 'Landfilled per person', wawLabel: 'Landfilled or dumped per person', unit: ' kg', fmt: d3.format(',.0f'), ramp: d3.interpolateYlOrBr },
+    msw_kg_per_capita: { label: 'Waste generated per person', wawLabel: 'Waste generated per person', unit: ' kg', fmt: d3.format(',.0f'), ramp: d3.interpolatePuBu },
+    recycling_pct: { label: 'Share recycled', wawLabel: 'Share recycled', unit: '%', fmt: d3.format('.1f'), pct: true, ramp: d3.interpolateYlGn }
+  };
+  const wawValue = (r, m) => {
+    const n = LF.num;
+    if (m === 'landfill_pct') { const a = n(r.landfill_pct), b = n(r.open_dump_pct); return a == null && b == null ? null : (a || 0) + (b || 0); }
+    if (m === 'landfill_kg_per_capita') return n(r.landfill_dump_kg_per_capita);
+    return n(r[m]);
+  };
+  let featCache = null;
+  function features() {
+    if (featCache) return featCache;
+    const W = window.LF_WORLD;
+    if (!W) return [];
+    const topo = W.topo, tf = topo.transform;
+    const arcs = topo.arcs.map((a) => { let x = 0, y = 0; return a.map((p) => { if (!tf) return p.slice(); x += p[0]; y += p[1]; return [x * tf.scale[0] + tf.translate[0], y * tf.scale[1] + tf.translate[1]]; }); });
+    const arc = (i) => i < 0 ? arcs[~i].slice().reverse() : arcs[i];
+    const ring = (ids) => { const out = []; ids.forEach((i, k) => { const a = arc(i); out.push(...(k ? a.slice(1) : a)); }); return out; };
+    const poly = (rs) => rs.map(ring);
+    featCache = topo.objects.countries.geometries.map((g) => ({
+      type: 'Feature', id: g.id, iso3: W.iso[g.id] || null, name: (g.properties || {}).name || '',
+      geometry: g.type === 'Polygon' ? { type: 'Polygon', coordinates: poly(g.arcs) } : g.type === 'MultiPolygon' ? { type: 'MultiPolygon', coordinates: g.arcs.map(poly) } : null
+    })).filter((f) => f.geometry);
+    return featCache;
+  }
+  const idxCache = new WeakMap();
+  function oecdIndex(rows) {
+    if (idxCache.has(rows)) return idxCache.get(rows);
+    const m = new Map();
+    for (const r of rows) { if (!m.has(r.iso3)) m.set(r.iso3, []); m.get(r.iso3).push(r); }
+    for (const a of m.values()) a.sort((x, y) => x.year - y.year);
+    idxCache.set(rows, m); return m;
+  }
+  function values() {
+    const m = S.mapMetric, out = new Map();
+    if (S.mapSource === 'waw') {
+      const d = dash.data('waw'); if (d.status !== 'ok') return { status: d.status, out, all: [] };
+      const all = [];
+      for (const r of d.data) { const v = wawValue(r, m); if (v == null) continue; all.push(v); out.set(r.iso3, { v, name: r.country, note: 'Survey figure' }); }
+      return { status: 'ok', out, all };
+    }
+    const d = dash.data('oecd'); if (d.status !== 'ok') return { status: d.status, out, all: [] };
+    const idx = oecdIndex(d.data), all = [];
+    for (const [iso, rows] of idx) {
+      if (iso === 'OECD' || iso === 'EU27_2020') continue;
+      let best = null;
+      for (const r of rows) { const v = LF.num(r[m]); if (v == null) continue; all.push(v); if (+r.year <= S.mapYear && +r.year >= S.mapYear - CARRY) best = r; }
+      if (best) out.set(iso, { v: +best[m], name: best.country, year: +best.year, note: +best.year === S.mapYear ? null : best.year + ' figure' });
+    }
+    return { status: 'ok', out, all };
+  }
+  function scaleFor(all) {
+    const M = META[S.mapMetric];
+    const hi = M.pct ? 100 : (d3.quantile(all.slice().sort(d3.ascending), 0.98) || 1);
+    return { hi, color: (v) => M.ramp(0.08 + 0.92 * Math.max(0, Math.min(1, v / hi))) };
+  }
+  window.LF.map = { META, features, values, scaleFor, MAP_MIN, MAP_MAX };
+
+  function redrawAll() { dash.draw('map'); dash.draw('map-year'); dash.draw('map-trend'); dash.draw('map-sel'); }
+  let timer = null;
+  const q = (s) => Array.from(document.querySelectorAll(s));
+  function setYear(y) { S.mapYear = y; q('#map-year').forEach((r) => { r.value = String(y); }); redrawAll(); }
+  function stop() { if (timer) clearInterval(timer); timer = null; q('#map-play').forEach((b) => { b.hidden = false; }); q('#map-pause').forEach((b) => { b.hidden = true; }); }
+  q('#map-play').forEach((b) => b.addEventListener('click', () => {
+    if (S.mapSource !== 'oecd') return;
+    setYear(S.mapYear >= MAP_MAX ? MAP_MIN : S.mapYear);
+    q('#map-play').forEach((x) => { x.hidden = true; }); q('#map-pause').forEach((x) => { x.hidden = false; });
+    timer = setInterval(() => { if (S.mapYear >= MAP_MAX) { stop(); return; } setYear(S.mapYear + 1); }, 750);
+  }));
+  q('#map-pause').forEach((b) => b.addEventListener('click', stop));
+  q('#map-year').forEach((r) => r.addEventListener('input', () => { stop(); setYear(+r.value); }));
+  q('#map-metric').forEach((s) => s.addEventListener('change', () => { S.mapMetric = s.value; redrawAll(); }));
+  q('#map-zoom').forEach((s) => s.addEventListener('change', () => { S.mapZoom = s.value; dash.draw('map'); }));
+  q('#map-source').forEach((s) => s.addEventListener('change', () => {
+    S.mapSource = s.value; stop();
+    q('#map-year, #map-play').forEach((x) => { x.disabled = s.value !== 'oecd'; });
+    redrawAll();
+  }));
+})();
+
+lfReg('map-year', (el) => { el.textContent = LF.st.mapSource === 'oecd' ? String(LF.st.mapYear) : 'Survey'; });
+
+lfReg('map-sel', (el) => {
+  const d = dash.data('oecd');
+  const r = d.status === 'ok' ? d.data.find((x) => x.iso3 === LF.st.mapSel) : null;
+  const f = LF.map.features().find((x) => x.iso3 === LF.st.mapSel);
+  el.textContent = r ? r.country : f ? f.name : '—';
+});
+
+lfReg('map', {
+  mount(el) {
+    const svg = d3.select(el).append('svg').attr('role', 'img');
+    const grad = svg.append('defs').append('linearGradient').attr('id', 'lf-map-grad');
+    const paths = svg.append('g').selectAll('path').data(LF.map.features()).join('path').attr('class', 'lf-country');
+    const gMark = svg.append('g');
+    const gLeg = svg.append('g');
+    const fail = document.createElement('p'); fail.className = 'lf-fail'; fail.textContent = 'Failed to load'; fail.hidden = true; el.appendChild(fail);
+    const tip = LF.tooltip(el);
+    return { svg, grad, paths, gMark, gLeg, tip, fail, key: '' };
+  },
+  update(el, k) {
+    const S = LF.st, M = LF.map.META[S.mapMetric], label = S.mapSource === 'waw' ? M.wawLabel : M.label;
+    const vals = LF.map.values();
+    k.fail.hidden = !(vals.status === 'error' || vals.status === 'missing');
+    const W = Math.max(280, el.clientWidth);
+    const H = Math.round(Math.min(560, S.mapZoom === 'world' ? W * 0.5 : W * 0.62));
+    const key = W + '|' + S.mapZoom + '|' + window.LF_LANG;
+    if (key !== k.key) {
+      const proj = d3.geoNaturalEarth1();
+      if (S.mapZoom === 'world') proj.fitExtent([[2, 2], [W - 2, H - 34]], { type: 'FeatureCollection', features: LF.map.features() });
+      else proj.fitExtent([[2, 2], [W - 2, H - 34]], { type: 'MultiPoint', coordinates: [[-12, 34], [50, 34], [-12, 70], [50, 70], [20, 71], [20, 29], [36, 29]] });
+      k.path = d3.geoPath(proj); k.key = key;
+      k.svg.attr('width', W).attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H).style('overflow', 'hidden');
+      k.paths.attr('d', k.path);
+    }
+    k.svg.attr('aria-label', 'World map of ' + label.toLowerCase() + (S.mapSource === 'oecd' ? ' in ' + S.mapYear : ' from the World Bank survey'));
+    const sc = LF.map.scaleFor(vals.all.length ? vals.all : [1]);
+    const has = (f) => !!(f.iso3 && vals.out.get(f.iso3));
+    const fill = (f) => has(f) ? sc.color(vals.out.get(f.iso3).v) : 'var(--cds-chart-muted)';
+    const anim = !window.LF_NOANIM && window.matchMedia('(prefers-reduced-motion: no-preference)').matches && S.mapSource === 'oecd';
+    (anim ? k.paths.transition().duration(450) : k.paths).style('fill', fill).style('fill-opacity', (f) => has(f) ? 1 : 0.35);
+    k.paths.classed('lf-sel', (f) => f.iso3 === S.mapSel);
+    k.paths.filter((f) => f.iso3 === S.mapSel).raise();
+
+    const showTip = (ev, f) => {
+      const [mx, my] = d3.pointer(ev, el);
+      const v = f.iso3 && vals.out.get(f.iso3);
+      const rows = v ? [[label, M.fmt(v.v) + M.unit, sc.color(v.v)]] : [['No data', S.mapSource === 'oecd' ? 'for ' + S.mapYear : '', null]];
+      if (v && v.note) rows.push(['Year', v.note, null]);
+      rows.push(['Click to see the trend', '', null]);
+      k.tip.show((v && v.name) || f.name, rows, mx, my);
+    };
+    const pick = (ev, f) => { if (!f.iso3) return; S.mapSel = f.iso3; dash.draw('map'); dash.draw('map-trend'); dash.draw('map-sel'); };
+    k.paths.on('pointermove', showTip).on('pointerleave', () => k.tip.hide()).on('click', pick);
+
+    const isr = LF.map.features().find((f) => f.iso3 === 'ISR');
+    const c = isr ? k.path.centroid(isr) : null;
+    k.gMark.selectAll('*').remove();
+    if (c && isFinite(c[0])) {
+      const v = vals.out.get('ISR');
+      k.gMark.append('circle').attr('cx', c[0]).attr('cy', c[1]).attr('r', 6).style('fill', v ? sc.color(v.v) : 'var(--cds-chart-muted)')
+        .style('stroke', 'var(--color-fg)').style('stroke-width', 1.5).style('cursor', 'pointer')
+        .on('pointermove', (ev) => showTip(ev, isr)).on('pointerleave', () => k.tip.hide()).on('click', (ev) => pick(ev, isr));
+      k.gMark.append('text').attr('class', 'lf-lab-strong').attr('x', c[0] + 10).attr('y', c[1]).attr('dy', '0.32em')
+        .text('Israel' + (v ? ' ' + M.fmt(v.v) + M.unit : ''));
+    }
+
+    k.grad.selectAll('stop').data(d3.range(0, 1.0001, 0.1)).join('stop').attr('offset', (t) => t * 100 + '%').attr('stop-color', (t) => sc.color(t * sc.hi));
+    k.gLeg.selectAll('*').remove();
+    const lw = Math.min(200, W * 0.45), ly = H - 22;
+    k.gLeg.append('rect').attr('x', 4).attr('y', ly).attr('width', lw).attr('height', 8).attr('rx', 2).style('fill', 'url(#lf-map-grad)');
+    [0, sc.hi / 2, sc.hi].forEach((t, i) => {
+      k.gLeg.append('text').attr('class', 'lf-tick').attr('x', 4 + lw * (t / sc.hi)).attr('y', ly + 20)
+        .attr('text-anchor', i === 0 ? 'start' : i === 2 ? 'end' : 'middle').text(M.fmt(t) + (i === 2 && !M.pct ? '+' : '') + M.unit);
+    });
+    k.gLeg.append('rect').attr('x', lw + 18).attr('y', ly).attr('width', 12).attr('height', 8).attr('rx', 2).style('fill', 'var(--cds-chart-muted)').style('fill-opacity', 0.35);
+    k.gLeg.append('text').attr('class', 'lf-tick').attr('x', lw + 34).attr('y', ly + 4).attr('dy', '0.32em').text('No data');
+  },
+  unmount(el, k) { if (k && k.tip) k.tip.hide(); }
+});
+
+lfReg('map-trend', (el) => {
+  if (LF.ready(el, ['oecd']) !== 'ok') return;
+  const S = LF.st, m = S.mapMetric, M = LF.map.META[m];
+  const rows = dash.data('oecd').data;
+  const ser = [S.mapSel, 'OECD'].filter((c, i, a) => a.indexOf(c) === i).map((c) => ({
+    code: c, color: c === 'ISR' ? LF.C(0) : c === 'OECD' ? LF.C(1) : LF.C(2),
+    name: (rows.find((r) => r.iso3 === c) || {}).country || c,
+    pts: rows.filter((r) => r.iso3 === c && LF.num(r[m]) != null).map((r) => ({ year: +r.year, v: +r[m] })).sort((a, b) => a.year - b.year)
+  }));
+  el.replaceChildren();
+  if (!ser[0].pts.length) {
+    const p = document.createElement('p'); p.className = 'lf-fail';
+    p.textContent = 'No yearly OECD figures for this country. Hover it on the World Bank snapshot for a single value.';
+    el.appendChild(p); return;
+  }
+  const W = Math.max(280, el.clientWidth), H = 200, mt = 8, mb = 22;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', M.label + ' by year for ' + ser.map((s) => s.name).join(' and '));
+  const y = d3.scaleLinear().domain([0, (d3.max(ser, (s) => d3.max(s.pts, (p) => p.v) || 0) * 1.05) || 1]).nice();
+  const yt = y.ticks(4);
+  const ml = LF.textW(svg, yt.map(M.fmt)) + 10;
+  const mr = Math.min(W * 0.3, LF.textW(svg, ser.map((s) => s.name), 'lf-lab-strong') + 16);
+  const x = d3.scaleLinear().domain([LF.map.MAP_MIN, LF.map.MAP_MAX]).range([ml, W - mr]);
+  y.range([H - mb, mt]);
+  svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text(M.fmt);
+  svg.append('g').selectAll('text').data(x.ticks(W < 480 ? 4 : 8).filter(Number.isInteger)).join('text').attr('class', 'lf-tick').attr('x', x).attr('y', H - 5).attr('text-anchor', 'middle').text((d) => d);
+  if (S.mapSource === 'oecd') {
+    svg.append('line').attr('x1', x(S.mapYear)).attr('x2', x(S.mapYear)).attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--cds-chart-reference)').style('stroke-dasharray', '3 3');
+  }
+  const line = d3.line().x((p) => x(p.year)).y((p) => y(p.v));
+  const labs = [];
+  for (const s of ser) {
+    if (!s.pts.length) continue;
+    svg.append('path').attr('d', line(s.pts)).style('fill', 'none').style('stroke', s.color).style('stroke-width', s.code === S.mapSel ? 2.75 : 2);
+    const cur = s.pts.filter((p) => p.year <= S.mapYear).pop() || s.pts[0];
+    svg.append('circle').attr('cx', x(cur.year)).attr('cy', y(cur.v)).attr('r', 4).style('fill', s.color);
+    labs.push({ s, ly: y(s.pts[s.pts.length - 1].v) });
+  }
+  labs.sort((a, b) => a.ly - b.ly);
+  for (let i = 1; i < labs.length; i++) if (labs[i].ly - labs[i - 1].ly < 15) labs[i].ly = labs[i - 1].ly + 15;
+  labs.forEach((l) => svg.append('text').attr('class', l.s.code === S.mapSel ? 'lf-lab-strong' : 'lf-lab').attr('x', W - mr + 8).attr('y', Math.min(H - mb, l.ly)).attr('dy', '0.32em').text(l.s.name));
+  const tip = LF.tooltip(el);
+  svg.append('rect').attr('x', ml).attr('y', mt).attr('width', Math.max(0, W - ml - mr)).attr('height', H - mt - mb).style('fill', 'transparent')
+    .on('pointermove', (ev) => {
+      const [mx, my] = d3.pointer(ev, el);
+      const yr = Math.round(x.invert(mx));
+      tip.show(String(yr) + ' · ' + M.label, ser.map((s) => { const p = s.pts.find((q) => q.year === yr); return [s.name, p ? M.fmt(p.v) + M.unit : '—', s.color]; }), mx, my);
+    })
+    .on('pointerleave', () => tip.hide());
+});
+</script>
+
+<script src="il.js"></script>
+<script src="gifenc.js"></script>
+
+<script>
+dash.calc('il_summary', {
+  inputs: ['il_methane'],
+  title: 'Israel landfill methane, headline figures',
+  description: 'Largest landfill and the Southern District\'s share of reported landfill methane in the latest year, against the first year.',
+  fn: (sites) => {
+    const n = (v) => (v === '' || v == null) ? null : +v;
+    const r1 = (v) => Math.round(v * 10) / 10;
+    const years = [...new Set(sites.map((r) => +r.year))].sort((a, b) => a - b);
+    if (!years.length) return [];
+    const first = years[0], last = years[years.length - 1];
+    const agg = (y) => {
+      const by = new Map(); let tot = 0, south = 0;
+      for (const r of sites) {
+        if (+r.year !== y) continue;
+        const v = n(r.methane_t); if (v == null) continue;
+        tot += v; if (r.district === 'South') south += v;
+        by.set(r.complex, (by.get(r.complex) || 0) + v);
+      }
+      return { tot, south, by };
+    };
+    const L = agg(last), F = agg(first);
+    const top = [...L.by].sort((a, b) => b[1] - a[1])[0];
+    if (!top || !L.tot || !F.tot) return [];
+    return [{
+      year: last, first_year: first, top_site: top[0], top_methane_t: Math.round(top[1]),
+      top_share_pct: r1(top[1] / L.tot * 100),
+      south_share_pct: r1(L.south / L.tot * 100),
+      south_share_first: r1(F.south / F.tot * 100)
+    }];
+  }
+});
+
+(function () {
+  const S = LF.st, MIN = 2012, MAX = 2025;
+  S.ilYear = MAX;
+  // Combine rows for one year into one entry per landfill complex.
+  const cache = new WeakMap();
+  function byComplex(rows) {
+    if (cache.has(rows)) return cache.get(rows);
+    const out = new Map(); // year -> Map(complex -> entry)
+    const maxv = { v: 0 }; const totals = new Map();
+    for (const r of rows) {
+      const y = +r.year, v = LF.num(r.methane_t);
+      if (!out.has(y)) out.set(y, new Map());
+      const m = out.get(y);
+      if (!m.has(r.complex)) m.set(r.complex, { complex: r.complex, v: 0, any: false, lat: +r.lat, lon: +r.lon, district: r.district, types: new Set(), he: new Set() });
+      const e = m.get(r.complex);
+      if (v != null) { e.v += v; e.any = true; }
+      e.types.add(r.type); e.he.add(r.site_he);
+    }
+    for (const [y, m] of out) {
+      let t = 0;
+      for (const e of m.values()) { t += e.v; maxv.v = Math.max(maxv.v, e.v); }
+      totals.set(y, t);
+    }
+    const res = { out, max: maxv.v, totals };
+    cache.set(rows, res); return res;
+  }
+  LF.il = { byComplex, MIN, MAX };
+
+  let timer = null;
+  const q = (s) => Array.from(document.querySelectorAll(s));
+  const redraw = () => { dash.draw('il-map'); dash.draw('il-rank'); dash.draw('il-share'); dash.draw('il-year-label'); };
+  function setYear(y) { S.ilYear = y; q('#il-year').forEach((r) => { r.value = String(y); }); redraw(); }
+  function stop() { if (timer) clearInterval(timer); timer = null; q('#il-play').forEach((b) => { b.hidden = false; }); q('#il-pause').forEach((b) => { b.hidden = true; }); }
+  q('#il-play').forEach((b) => b.addEventListener('click', () => {
+    setYear(S.ilYear >= MAX ? MIN : S.ilYear);
+    q('#il-play').forEach((x) => { x.hidden = true; }); q('#il-pause').forEach((x) => { x.hidden = false; });
+    timer = setInterval(() => { if (S.ilYear >= MAX) { stop(); return; } setYear(S.ilYear + 1); }, 900);
+  }));
+  q('#il-pause').forEach((b) => b.addEventListener('click', stop));
+  q('#il-year').forEach((r) => r.addEventListener('input', () => { stop(); setYear(+r.value); }));
+})();
+
+lfReg('il-year-label', (el) => { el.textContent = String(LF.st.ilYear); });
+
+lfReg('il-map', {
+  mount(el) {
+    const svg = d3.select(el).append('svg').attr('role', 'img');
+    const gBase = svg.append('g'), gPlaces = svg.append('g'), gDots = svg.append('g'), gLabels = svg.append('g'), gLeg = svg.append('g');
+    const fail = document.createElement('p'); fail.className = 'lf-fail'; fail.textContent = 'Failed to load'; fail.hidden = true; el.appendChild(fail);
+    return { svg, gBase, gPlaces, gDots, gLabels, gLeg, fail, tip: LF.tooltip(el), key: '' };
+  },
+  update(el, k) {
+    const d = dash.data('il_methane');
+    k.fail.hidden = !(d.status === 'error' || d.status === 'missing');
+    const geo = window.LF_IL;
+    if (!geo) return;
+    const W = Math.max(260, el.clientWidth);
+    const H = Math.round(Math.min(640, Math.max(440, W * 1.55)));
+    if (k.key !== W + '|' + window.LF_LANG) {
+      const core = { type: 'FeatureCollection', features: geo.features.filter((f) => f.properties.iso3 === 'ISR' || f.properties.iso3 === 'PSE') };
+      const proj = d3.geoMercator().fitExtent([[10, 10], [W - 10, H - 50]], core);
+      k.proj = proj; k.key = W + '|' + window.LF_LANG;
+      const path = d3.geoPath(proj);
+      k.svg.attr('width', W).attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H).style('overflow', 'hidden')
+        .attr('aria-label', 'Map of Israel with a circle for each landfill sized by the methane it reported');
+      k.gBase.selectAll('path').data(geo.features).join('path').attr('d', path)
+        .style('fill', (f) => f.properties.iso3 === 'ISR' ? 'var(--color-panel)' : 'var(--cds-chart-muted)')
+        .style('fill-opacity', (f) => f.properties.iso3 === 'ISR' ? 1 : f.properties.iso3 === 'PSE' ? 0.3 : 0.15)
+        .style('stroke', (f) => f.properties.iso3 === 'ISR' ? 'var(--color-fg-muted)' : 'var(--color-border-line)')
+        .style('stroke-width', (f) => f.properties.iso3 === 'ISR' ? 1 : 0.75)
+        .style('stroke-dasharray', (f) => f.properties.iso3 === 'PSE' ? '3 2' : null);
+      const places = [['Haifa', 32.794, 34.990], ['Tel Aviv', 32.085, 34.782], ['Jerusalem', 31.768, 35.214], ['Beersheba', 31.252, 34.792], ['Eilat', 29.558, 34.952]];
+      k.gPlaces.selectAll('*').remove();
+      for (const [nm, la, lo] of places) {
+        const [px, py] = proj([lo, la]);
+        k.gPlaces.append('rect').attr('x', px - 2.5).attr('y', py - 2.5).attr('width', 5).attr('height', 5).style('fill', 'var(--color-fg-muted)');
+        k.gPlaces.append('text').attr('class', 'lf-place lf-halo').attr('x', px - 7).attr('y', py).attr('dy', '0.32em').attr('text-anchor', 'end').text(nm);
+      }
+      const [sx, sy] = proj([34.25, 32.35]);
+      k.gPlaces.append('text').attr('class', 'lf-sea').attr('x', sx).attr('y', sy).attr('text-anchor', 'end').text('Mediterranean Sea');
+    }
+    if (d.status !== 'ok') { k.gDots.selectAll('*').remove(); k.gLabels.selectAll('*').remove(); k.gLeg.selectAll('*').remove(); return; }
+    const bc = LF.il.byComplex(d.data);
+    const y = LF.st.ilYear;
+    const ents = [...(bc.out.get(y) || new Map()).values()].sort((a, b) => b.v - a.v);
+    const tot = bc.totals.get(y) || 0;
+    const maxR = Math.min(40, W * 0.085);
+    const r = d3.scaleSqrt().domain([0, bc.max || 1]).range([0, maxR]);
+    const rad = (e) => e.any && e.v > 0 ? Math.max(3, r(e.v)) : 3.5;
+    const anim = !window.LF_NOANIM && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+    const fmt0 = d3.format(',.0f'), f1 = d3.format('.1f');
+    const color = LF.C(3);
+    const dots = k.gDots.selectAll('circle').data(ents, (e) => e.complex).join(
+      (enter) => enter.append('circle').attr('r', 0),
+      (update) => update,
+      (exit) => exit.remove()
+    );
+    dots.attr('cx', (e) => k.proj([e.lon, e.lat])[0]).attr('cy', (e) => k.proj([e.lon, e.lat])[1])
+      .style('fill', (e) => e.any ? color : 'none').style('fill-opacity', 0.55)
+      .style('stroke', (e) => e.any ? color : 'var(--color-fg-muted)').style('stroke-width', 1.5).style('cursor', 'default');
+    (anim ? dots.transition().duration(600) : dots).attr('r', rad);
+    dots.on('pointermove', (ev, e) => {
+      const [mx, my] = d3.pointer(ev, el);
+      const rows = e.any
+        ? [['Methane released', fmt0(e.v) + ' tonnes/year', color], ['Climate effect, CO₂ equivalent', '≈ ' + (e.v * 28 >= 1e6 ? d3.format('.1f')(e.v * 28 / 1e6) + ' million' : fmt0(e.v * 28)) + ' tonnes', null], ['Share of all landfills', f1(tot ? e.v / tot * 100 : 0) + '%', null], ['Rank in ' + y, String(ents.indexOf(e) + 1) + ' of ' + ents.filter((x) => x.any).length, null]]
+        : [['Methane released', 'below the reporting threshold', null]];
+      rows.push(['District', e.district, null], ['Waste type', [...e.types].join(', '), null]);
+      const cap = dash.data('il_capacity');
+      const cr = cap.status === 'ok' ? cap.data.find((c) => c.map_site === e.complex) : null;
+      if (cr) {
+        const sp = LF.space(cr);
+        if (sp.basis != null) rows.push(['Space left, ' + sp.when, d3.format(',.0f')(sp.basis) + 'k t', null]);
+        if (sp.used != null && sp.used >= 0) rows.push(['Used since end of 2020', d3.format('.0f')(sp.used) + '%', null]);
+        if (cr.status_2025) rows.push(['Status, 2025', cr.status_2025, null]);
+      }
+      k.tip.show(e.complex + ' · ' + y, rows, mx, my);
+    }).on('pointerleave', () => k.tip.hide());
+
+    const top = ents.filter((e) => e.any).slice(0, 4);
+    k.gLabels.selectAll('text').data(top, (e) => e.complex).join('text')
+      .attr('class', 'lf-lab-strong lf-halo')
+      .attr('x', (e) => k.proj([e.lon, e.lat])[0] + rad(e) + 4)
+      .attr('y', (e, i) => k.proj([e.lon, e.lat])[1] + (i % 2 ? 8 : -6))
+      .attr('dy', '0.32em').text((e) => e.complex + ' ' + f1(tot ? e.v / tot * 100 : 0) + '%');
+
+    k.gLeg.selectAll('*').remove();
+    const legVals = [5000, 25000, 75000].filter((v) => v <= bc.max);
+    let lx = 14; const ly = H - 14;
+    for (const v of legVals) {
+      const rr = r(v);
+      k.gLeg.append('circle').attr('cx', lx + rr).attr('cy', ly - rr).attr('r', rr).style('fill', 'none').style('stroke', 'var(--color-fg-muted)');
+      k.gLeg.append('text').attr('class', 'lf-tick').attr('x', lx + rr).attr('y', ly - 2 * rr - 4).attr('text-anchor', 'middle').text(d3.format(',')(v) + ' t');
+      lx += 2 * rr + 18;
+    }
+    if (legVals.length) k.gLeg.append('text').attr('class', 'lf-tick').attr('x', 14).attr('y', ly - 2 * r(legVals[legVals.length - 1]) - 30).text('Circle size: tonnes of methane released per year');
+    k.gLeg.append('circle').attr('cx', lx + 4).attr('cy', ly - 4).attr('r', 3.5).style('fill', 'none').style('stroke', 'var(--color-fg-muted)').style('stroke-width', 1.5);
+    k.gLeg.append('text').attr('class', 'lf-tick').attr('x', lx + 12).attr('y', ly - 4).attr('dy', '0.32em').text('below threshold');
+  },
+  unmount(el, k) { if (k && k.tip) k.tip.hide(); }
+});
+
+lfReg('il-rank', (el) => {
+  if (LF.ready(el, ['il_methane']) !== 'ok') return;
+  const bc = LF.il.byComplex(dash.data('il_methane').data);
+  const y = LF.st.ilYear, tot = bc.totals.get(y) || 0;
+  const all = [...(bc.out.get(y) || new Map()).values()].filter((e) => e.any && e.v > 0).sort((a, b) => b.v - a.v);
+  el.replaceChildren();
+  if (!all.length || !tot) return;
+  const rows = all.slice(0, 8).map((e) => ({ name: e.complex, v: e.v, e }));
+  const rest = all.slice(8).reduce((s, e) => s + e.v, 0);
+  if (rest > 0) rows.push({ name: 'All other sites (' + (all.length - 8) + ')', v: rest, other: true });
+  const W = Math.max(260, el.clientWidth), rowH = 24, H = rows.length * rowH + 4;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img').attr('aria-label', 'Landfills ranked by methane reported in ' + y);
+  const fmt0 = d3.format(',.0f'), f1 = d3.format('.1f');
+  const lab = (d) => fmt0(d.v) + ' tonnes · ' + f1(d.v / tot * 100) + '%';
+  const ml = Math.min(W * 0.42, LF.textW(svg, rows.map((d) => d.name), 'lf-lab') + 10);
+  const mr = LF.textW(svg, rows.map(lab)) + 8;
+  const x = d3.scaleLinear().domain([0, d3.max(rows, (d) => d.v)]).range([ml, Math.max(ml + 20, W - mr)]);
+  const g = svg.append('g').selectAll('g').data(rows).join('g').attr('transform', (d, i) => 'translate(0,' + (2 + i * rowH) + ')');
+  g.append('rect').attr('x', ml).attr('y', 4).attr('height', rowH - 8).attr('width', (d) => Math.max(1, x(d.v) - ml))
+    .style('fill', (d) => d.other ? 'var(--cds-chart-muted)' : LF.C(3));
+  g.append('text').attr('class', (d, i) => i === 0 ? 'lf-lab-strong' : 'lf-lab').attr('x', ml - 6).attr('y', rowH / 2).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d.name);
+  g.append('text').attr('class', 'lf-tick').attr('x', (d) => x(d.v) + 5).attr('y', rowH / 2).attr('dy', '0.32em').text(lab);
+});
+
+dash.calc('il_space_summary', {
+  inputs: ['il_capacity'],
+  title: 'Israel landfill space, national totals',
+  description: 'Remaining landfill space across Israel\'s main landfills at the end of 2020 and the start of 2025, and how long it lasts at the 2023 intake.',
+  fn: (rows) => {
+    const n = (v) => (v === '' || v == null || isNaN(+v)) ? 0 : +v;
+    const s = (k) => rows.reduce((a, r) => a + n(r[k]), 0);
+    const l20 = s('left_end2020_kt'), l25 = s('left_start2025_kt'), in23 = s('intake_2023_kt');
+    if (!l20 || !in23) return [];
+    const r = (v, d) => Math.round(v * Math.pow(10, d)) / Math.pow(10, d);
+    return [{ sites: rows.length, left_2020_mt: r(l20 / 1000, 2), left_2025_mt: r(l25 / 1000, 2), used_pct: r((1 - l25 / l20) * 100, 1), intake_2023_mt: r(in23 / 1000, 2), years_left: r(l25 / in23, 1) }];
+  }
+});
+
+LF.space = function (r) {
+  const n = LF.num;
+  const l20 = n(r.left_end2020_kt), l23 = n(r.left_end2023_kt), l25 = n(r.left_start2025_kt), in23 = n(r.intake_2023_kt);
+  const basis = l25 != null ? l25 : l23;
+  const when = l25 != null ? 'start of 2025' : 'end of 2023';
+  const used = (l20 && basis != null) ? (1 - basis / l20) * 100 : null;
+  const years = (basis != null && in23) ? basis / in23 : null;
+  return { l20, l23, l25, in23, basis, when, used, years };
+};
+
+lfReg('il-space', (el) => {
+  if (LF.ready(el, ['il_capacity']) !== 'ok') return;
+  const rows = dash.data('il_capacity').data.map((r) => Object.assign({ r }, LF.space(r)));
+  el.replaceChildren();
+  if (!rows.length) return;
+  const n = LF.num;
+  const sum = (k) => rows.reduce((a, d) => a + (n(d.r[k]) || 0), 0);
+  const tot = { l20: sum('left_end2020_kt'), basis: sum('left_start2025_kt'), in23: sum('intake_2023_kt'), when: 'start of 2025', all: true };
+  tot.used = (1 - tot.basis / tot.l20) * 100; tot.years = tot.basis / tot.in23;
+  tot.r = { site: 'All ' + rows.length + ' sites', district: 'Israel', intake_2020_kt: sum('intake_2020_kt'), intake_2023_kt: tot.in23, left_end2020_kt: tot.l20, left_end2023_kt: sum('left_end2023_kt'), left_start2025_kt: tot.basis, status_2025: '' };
+  const good = (d) => d.used != null && d.used >= 0;
+  const ok = rows.filter(good).sort((a, b) => b.used - a.used);
+  const odd = rows.filter((d) => !good(d));
+  const list = [tot].concat(ok, odd);
+  const fk = (v) => v >= 1000 ? d3.format('.2f')(v / 1000) + 'M t' : d3.format(',.0f')(v) + 'k t';
+  const status = (d) => d.r.status_2025 || '';
+  const detail = (d) => {
+    if (d.used == null) return 'no comparable figure';
+    if (d.used < 0) return 'more space than in 2020 (re-measured)';
+    let s = d3.format('.0f')(d.used) + '% used · ' + fk(d.basis) + ' left';
+    if (d.years != null && !status(d).startsWith('Closed')) s += ' · ' + (d.years < 1 ? 'under 1' : d3.format('.1f')(d.years)) + ' yr';
+    if (d.when === 'end of 2023') s += ' (end 2023)';
+    return s;
+  };
+  const W = Math.max(260, el.clientWidth), rowH = 40, H = list.length * rowH + 4;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', 'Share of each landfill\'s end-2020 remaining space that had been used by the start of 2025');
+  const x = d3.scaleLinear().domain([0, 100]).range([0, W]);
+  const g = svg.append('g').selectAll('g').data(list).join('g').attr('transform', (d, i) => 'translate(0,' + (i * rowH) + ')');
+  const nameT = g.append('text').attr('class', (d) => d.all ? 'lf-lab-strong' : 'lf-lab').attr('x', 0).attr('y', 12)
+    .text((d) => d.r.site + (status(d) && !d.all ? ' · ' + status(d).toLowerCase() : ''));
+  const detT = g.append('text').attr('class', 'lf-tick').attr('x', W).attr('y', 12).attr('text-anchor', 'end').text(detail);
+  // On narrow screens drop the status from the name if the two labels would collide.
+  nameT.each(function (d, i) {
+    const other = detT.nodes()[i];
+    if (this.getComputedTextLength() + other.getComputedTextLength() + 12 > W) this.textContent = d.r.site;
+  });
+  g.append('rect').attr('x', 0).attr('y', 19).attr('height', 12).attr('width', W).attr('rx', 2).style('fill', 'var(--cds-chart-muted)').style('fill-opacity', 0.45);
+  g.append('rect').attr('x', 0).attr('y', 19).attr('height', 12).attr('rx', 2)
+    .attr('width', (d) => good(d) ? x(Math.min(100, d.used)) : 0).style('fill', LF.C(3));
+  const tip = LF.tooltip(el);
+  const fv = (v) => v == null ? '—' : d3.format(',.0f')(v) + 'k t';
+  g.append('rect').attr('x', 0).attr('y', 0).attr('width', W).attr('height', rowH).style('fill', 'transparent')
+    .on('pointermove', (ev, d) => {
+      const [mx, my] = d3.pointer(ev, el);
+      const t = [
+        ['Space left, end of 2020', fv(n(d.r.left_end2020_kt)), null],
+        ['Space left, end of 2023', fv(n(d.r.left_end2023_kt)), null],
+        ['Space left, start of 2025', fv(n(d.r.left_start2025_kt)), null],
+        ['Taken in, 2020', fv(n(d.r.intake_2020_kt)), null],
+        ['Taken in, 2023', fv(n(d.r.intake_2023_kt)), null]
+      ];
+      if (good(d)) t.push(['Used since end of 2020', d3.format('.0f')(d.used) + '% (to ' + d.when + ')', LF.C(3)]);
+      if (status(d)) t.push(['Status, 2025', status(d), null]);
+      tip.show(d.r.site + (d.all ? '' : ' · ' + d.r.district), t, mx, my);
+    })
+    .on('pointerleave', () => tip.hide());
+});
+
+lfReg('il-expansion', (el) => {
+  if (LF.ready(el, ['il_capacity']) !== 'ok') return;
+  const rows = dash.data('il_capacity').data.filter((r) => r.expansion_jan2026);
+  const tb = document.createElement('table'); tb.className = 'lf-table';
+  const th = document.createElement('thead'); const hr = document.createElement('tr');
+  for (const h of ['Landfill site', 'District', 'Planned expansion', 'Timing']) { const c = document.createElement('th'); c.scope = 'col'; c.textContent = h; hr.appendChild(c); }
+  th.appendChild(hr); tb.appendChild(th);
+  const bd = document.createElement('tbody');
+  for (const r of rows) {
+    const tr = document.createElement('tr');
+    for (const v of [r.site, r.district, r.expansion_jan2026, r.expansion_when || '—']) { const c = document.createElement('td'); c.textContent = v; tr.appendChild(c); }
+    bd.appendChild(tr);
+  }
+  tb.appendChild(bd); el.replaceChildren(tb);
+});
+
+// Year players for the trend and ranking charts (same pattern as the other players).
+LF.player = function (id, min, max, key, draws, ms) {
+  const S = LF.st; let timer = null;
+  const q = (s) => Array.from(document.querySelectorAll(s));
+  const redraw = () => draws.forEach((n) => dash.draw(n));
+  function setYear(y) { S[key] = y; q('#' + id + '-year').forEach((r) => { r.value = String(y); }); redraw(); }
+  function stop() { if (timer) clearInterval(timer); timer = null; q('#' + id + '-play').forEach((b) => { b.hidden = false; }); q('#' + id + '-pause').forEach((b) => { b.hidden = true; }); }
+  q('#' + id + '-play').forEach((b) => b.addEventListener('click', () => {
+    setYear(S[key] >= max ? min : S[key]);
+    q('#' + id + '-play').forEach((x) => { x.hidden = true; }); q('#' + id + '-pause').forEach((x) => { x.hidden = false; });
+    timer = setInterval(() => { if (S[key] >= max) { stop(); return; } setYear(S[key] + 1); }, ms);
+  }));
+  q('#' + id + '-pause').forEach((b) => b.addEventListener('click', stop));
+  q('#' + id + '-year').forEach((r) => r.addEventListener('input', () => { stop(); setYear(+r.value); }));
+};
+LF.st.trendYear = 2024; LF.st.rankYear = 2024;
+LF.player('trend', 2000, 2024, 'trendYear', ['trend', 'trend-year-label'], 700);
+LF.player('rank', 2000, 2024, 'rankYear', ['rank', 'rank-year-label', 'rank-note'], 1100);
+lfReg('trend-year-label', (el) => { el.textContent = String(LF.st.trendYear); });
+lfReg('rank-year-label', (el) => { el.textContent = String(LF.st.rankYear); });
+
+lfReg('trend', (el) => {
+  if (LF.ready(el, ['oecd']) !== 'ok') return;
+  const rows = dash.data('oecd').data, m = LF.st.metric, M = LF.METRICS[m], Y = LF.st.trendYear;
+  const codes = ['ISR', 'OECD', LF.st.compare].filter((c, i, a) => c && a.indexOf(c) === i);
+  const series = codes.map((c, i) => ({
+    code: c, color: LF.C(i),
+    name: (rows.find((r) => r.iso3 === c) || {}).country || c,
+    all: rows.filter((r) => r.iso3 === c && LF.num(r[m]) != null).map((r) => ({ year: +r.year, v: +r[m] })).sort((a, b) => a.year - b.year)
+  })).filter((s) => s.all.length);
+  el.replaceChildren();
+  if (!series.length) return;
+  for (const s of series) s.pts = s.all.filter((p) => p.year <= Y);
+  const W = Math.max(280, el.clientWidth), H = 320;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', M.label + ' by year for ' + series.map((s) => s.name).join(', ') + ', up to ' + Y);
+  // Axes cover the whole period so they stay still while the lines grow.
+  const y = d3.scaleLinear().domain([0, d3.max(series, (s) => d3.max(s.all, (p) => p.v)) * 1.05]).nice();
+  const yt = y.ticks(5);
+  const ml = LF.textW(svg, yt.map(M.fmt)) + 10;
+  const headTxt = (s) => s.name + ' ' + (s.pts.length ? M.fmt(s.pts[s.pts.length - 1].v) + M.unit : '');
+  const mr = Math.min(W * 0.36, LF.textW(svg, series.map((s) => s.name + ' 000.0 kg'), 'lf-lab-strong') + 16);
+  const mt = 10, mb = 24;
+  const x0 = d3.min(series, (s) => s.all[0].year), x1 = d3.max(series, (s) => s.all[s.all.length - 1].year);
+  const x = d3.scaleLinear().domain([x0, x1]).range([ml, W - mr]);
+  y.range([H - mb, mt]);
+  svg.append('text').attr('x', ml + 8).attr('y', mt + (W < 480 ? 30 : 46)).style('font-family', 'var(--font-anthropic-serif)')
+    .style('font-size', W < 480 ? '36px' : '56px').style('fill', 'var(--color-fg-muted)').style('fill-opacity', 0.18).text(String(Y));
+  svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+  svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text(M.fmt);
+  const xt = x.ticks(W < 480 ? 4 : 8).filter(Number.isInteger);
+  svg.append('g').selectAll('text').data(xt).join('text').attr('class', 'lf-tick').attr('x', x).attr('y', H - 6).attr('text-anchor', 'middle').text((d) => d);
+  svg.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', H - mb).attr('y2', H - mb).style('stroke', 'var(--cds-chart-axis)');
+  if (Y < x1) svg.append('line').attr('x1', x(Y)).attr('x2', x(Y)).attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--color-fg-muted)').style('stroke-dasharray', '3 3');
+  const line = d3.line().x((p) => x(p.year)).y((p) => y(p.v));
+  const drawn = series.filter((s) => s.pts.length);
+  for (const s of drawn) {
+    const split = s.code === 'ISR' && m !== 'msw_kg_per_capita';
+    const pre = split ? s.pts.filter((p) => p.year <= 2013) : [];
+    const post = split ? s.pts.filter((p) => p.year >= 2013) : s.pts;
+    if (pre.length > 1) svg.append('path').attr('d', line(pre)).style('fill', 'none').style('stroke', s.color).style('stroke-width', 2).style('stroke-dasharray', '4 4');
+    if (post.length > 1) svg.append('path').attr('d', line(post)).style('fill', 'none').style('stroke', s.color).style('stroke-width', s.code === 'ISR' ? 3 : 2);
+    const last = s.pts[s.pts.length - 1];
+    svg.append('circle').attr('cx', x(last.year)).attr('cy', y(last.v)).attr('r', 4).style('fill', s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5);
+    s.ly = y(last.v);
+  }
+  const lab = drawn.slice().sort((a, b) => a.ly - b.ly);
+  for (let i = 1; i < lab.length; i++) if (lab[i].ly - lab[i - 1].ly < 15) lab[i].ly = lab[i - 1].ly + 15;
+  const over = lab.length ? lab[lab.length - 1].ly - (H - mb) : 0;
+  if (over > 0) lab.forEach((l) => { l.ly -= over; });
+  svg.append('g').selectAll('text').data(lab).join('text').attr('class', (d) => d.code === 'ISR' ? 'lf-lab-strong' : 'lf-lab')
+    .attr('x', W - mr + 8).attr('y', (d) => d.ly).attr('dy', '0.32em').text(headTxt);
+  const tip = LF.tooltip(el);
+  const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--cds-chart-reference)').attr('visibility', 'hidden');
+  const dots = svg.append('g');
+  svg.append('rect').attr('x', ml).attr('y', mt).attr('width', Math.max(0, W - ml - mr)).attr('height', H - mt - mb).style('fill', 'transparent')
+    .on('pointermove', (ev) => {
+      const [mx] = d3.pointer(ev, svg.node());
+      const yr = Math.max(x0, Math.min(Y, x1, Math.round(x.invert(mx))));
+      const hits = drawn.map((s) => ({ s, p: s.pts.find((p) => p.year === yr) })).filter((h) => h.p);
+      rule.attr('x1', x(yr)).attr('x2', x(yr)).attr('visibility', 'visible');
+      dots.selectAll('circle').data(hits).join('circle').attr('cx', x(yr)).attr('cy', (h) => y(h.p.v)).attr('r', 4.5)
+        .style('fill', (h) => h.s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5);
+      const rowsT = hits.map((h) => [h.s.name, M.fmt(h.p.v) + M.unit, h.s.color]);
+      if (!rowsT.length) rowsT.push(['No data this year', '', null]);
+      tip.show(String(yr) + ' · ' + M.label, rowsT, x(yr), d3.min(hits, (h) => y(h.p.v)) ?? mt + 40);
+    })
+    .on('pointerleave', () => { tip.hide(); rule.attr('visibility', 'hidden'); dots.selectAll('circle').remove(); });
+});
+
+// Ranking for one year: each country's figure that year, or its latest one up to 3 years earlier.
+LF.rankRows = function (Y, m) {
+  const d = dash.data('oecd');
+  if (d.status !== 'ok') return [];
+  const best = new Map();
+  for (const r of d.data) {
+    if (r.type === 'aggregate' && r.iso3 !== 'OECD') continue;
+    const v = LF.num(r[m]), yr = +r.year;
+    if (v == null || yr > Y || yr < Y - 3) continue;
+    const b = best.get(r.iso3);
+    if (!b || yr > b.year) best.set(r.iso3, {
+      iso3: r.iso3, country: r.country, year: yr, v,
+      landfill_pct: LF.num(r.landfill_pct), landfill_kg_per_capita: LF.num(r.landfill_kg_per_capita),
+      msw_kg_per_capita: LF.num(r.msw_kg_per_capita), recycling_pct: LF.num(r.recycling_pct)
+    });
+  }
+  return [...best.values()].sort((a, b) => b.v - a.v || a.country.localeCompare(b.country));
+};
+
+lfReg('rank-note', (el) => {
+  const m = LF.st.rank, Y = LF.st.rankYear;
+  const rows = LF.rankRows(Y, m);
+  const countries = rows.filter((r) => r.iso3 !== 'OECD');
+  const isr = countries.find((r) => r.iso3 === 'ISR');
+  if (!isr) { el.textContent = 'No figure for Israel within three years of ' + Y + '.'; return; }
+  const rank = countries.filter((r) => r.v > isr.v).length + 1;
+  const tied = countries.filter((r) => r.v === isr.v).length > 1;
+  const pre = isr.year < 2013 && m !== 'msw_kg_per_capita' ? ' Before 2013 Israel reported only total disposal, so all its waste counts as landfilled.' : '';
+  el.textContent = 'In ' + Y + ', Israel ranks ' + rank + (tied ? ' (tied)' : '') + ' of ' + countries.length + ' countries, counting from the highest. A year in brackets marks the latest earlier figure, up to three years old.' + pre;
+});
+
+lfReg('rank', {
+  mount(el) {
+    const svg = d3.select(el).append('svg').attr('role', 'img');
+    const g = svg.append('g');
+    const fail = document.createElement('p'); fail.className = 'lf-fail'; fail.textContent = 'Failed to load'; fail.hidden = true; el.appendChild(fail);
+    return { svg, g, fail, tip: LF.tooltip(el), m: null };
+  },
+  update(el, k) {
+    const d = dash.data('oecd');
+    k.fail.hidden = !(d.status === 'error' || d.status === 'missing');
+    if (d.status !== 'ok') { k.g.selectAll('*').remove(); return; }
+    const m = LF.st.rank, M = LF.METRICS[m], Y = LF.st.rankYear;
+    const data = LF.rankRows(Y, m);
+    const label = (r) => r.country + (r.year < Y ? ' (' + r.year + ')' : '');
+    const rowH = 19, mt = 2, W = Math.max(280, el.clientWidth);
+    // Keep the height steady across years so the page doesn't jump while playing.
+    const maxRows = Math.max(data.length, 58);
+    const H = maxRows * rowH + mt * 2;
+    k.svg.attr('width', W).attr('height', H).attr('aria-label', 'Countries ranked by ' + M.label.toLowerCase() + ' in ' + Y);
+    // Fixed scale per measure so bars move rather than rescale each year.
+    const all = d.data.filter((r) => !(r.type === 'aggregate' && r.iso3 !== 'OECD')).map((r) => LF.num(r[m])).filter((v) => v != null);
+    const vmax = m.endsWith('_pct') ? 100 : d3.max(all);
+    const ml = Math.min(W * 0.46, LF.textW(k.svg, ['North Macedonia (2020)'], 'lf-lab-strong') + 10);
+    const mr = LF.textW(k.svg, [M.fmt(vmax) + M.unit]) + 8;
+    const x = d3.scaleLinear().domain([0, vmax]).range([ml, W - mr]);
+    const yy = (i) => mt + i * rowH;
+    const color = (r) => r.iso3 === 'ISR' ? LF.C(0) : r.iso3 === 'OECD' ? LF.C(1) : 'var(--cds-chart-muted)';
+    const strong = (r) => r.iso3 === 'ISR' || r.iso3 === 'OECD';
+    const anim = !window.LF_NOANIM && window.matchMedia('(prefers-reduced-motion: no-preference)').matches && k.m === m;
+    k.m = m;
+    const T = (s) => anim ? s.transition().duration(800).ease(d3.easeCubicInOut) : s;
+    const rows = k.g.selectAll('g.row').data(data, (r) => r.iso3).join(
+      (enter) => {
+        const g = enter.append('g').attr('class', 'row').attr('transform', (r, i) => 'translate(0,' + yy(i) + ')').style('opacity', 0);
+        g.append('rect').attr('class', 'bar').attr('x', ml).attr('y', 3).attr('height', rowH - 6).attr('width', 1);
+        g.append('text').attr('class', 'name').attr('x', ml - 6).attr('y', rowH / 2).attr('dy', '0.32em').attr('text-anchor', 'end');
+        g.append('text').attr('class', 'val').attr('y', rowH / 2).attr('dy', '0.32em').attr('x', ml + 5);
+        g.append('rect').attr('class', 'hit').attr('x', 0).attr('height', rowH).style('fill', 'transparent');
+        return g;
+      },
+      (update) => update,
+      (exit) => exit.remove()
+    );
+    T(rows).attr('transform', (r, i) => 'translate(0,' + yy(i) + ')').style('opacity', 1);
+    T(rows.select('rect.bar')).attr('width', (r) => Math.max(1, x(r.v) - ml)).style('fill', color);
+    rows.select('text.name').attr('class', (r) => 'name ' + (strong(r) ? 'lf-lab-strong' : 'lf-lab')).text(label);
+    rows.select('text.val').attr('class', (r) => 'val ' + (strong(r) ? 'lf-lab-strong' : 'lf-tick')).text((r) => M.fmt(r.v) + M.unit);
+    T(rows.select('text.val')).attr('x', (r) => x(r.v) + 5);
+    rows.select('rect.hit').attr('width', W);
+    rows.filter(strong).raise();
+    const f0 = d3.format(',.0f'), f1 = d3.format('.1f');
+    rows.select('rect.hit').on('pointermove', (ev, r) => {
+      const [mx, my] = d3.pointer(ev, el);
+      k.tip.show(r.country + ' · ' + r.year, [
+        ['Share landfilled', r.landfill_pct == null ? '—' : f1(r.landfill_pct) + '%'],
+        ['Landfilled per person', r.landfill_kg_per_capita == null ? '—' : f0(r.landfill_kg_per_capita) + ' kg'],
+        ['Generated per person', r.msw_kg_per_capita == null ? '—' : f0(r.msw_kg_per_capita) + ' kg'],
+        ['Share recycled', r.recycling_pct == null ? '—' : f1(r.recycling_pct) + '%']
+      ], mx, my);
+    }).on('pointerleave', () => k.tip.hide());
+  },
+  unmount(el, k) { if (k && k.tip) k.tip.hide(); }
+});
+
+// Each large landfill's share of all reported landfill methane, one line per site.
+lfReg('il-share', (el) => {
+  if (LF.ready(el, ['il_methane']) !== 'ok') return;
+  const bc = LF.il.byComplex(dash.data('il_methane').data);
+  const years = [...bc.out.keys()].sort((a, b) => a - b);
+  el.replaceChildren();
+  if (!years.length) return;
+  const sum = new Map();
+  for (const m of bc.out.values()) for (const e of m.values()) sum.set(e.complex, (sum.get(e.complex) || 0) + e.v);
+  const keys = [...sum].sort((a, b) => b[1] - a[1]).slice(0, 5).map((d) => d[0]);
+  const series = keys.map((k2, i) => ({
+    name: k2, color: LF.C(i),
+    pts: years.map((y) => { const m = bc.out.get(y), t = bc.totals.get(y) || 0, e = m.get(k2); return { year: y, v: t && e ? e.v / t * 100 : 0 }; })
+  }));
+  const W = Math.max(260, el.clientWidth), H = 300;
+  const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
+    .attr('aria-label', 'Share of all reported landfill methane for the five largest landfills, ' + years[0] + ' to ' + years[years.length - 1]);
+  const f0 = d3.format('.0f');
+  const mt = 10, mb = 22, ml = LF.textW(svg, ['100%']) + 10;
+  const mr = Math.min(W * 0.34, LF.textW(svg, series.map((s) => s.name + ' 100%'), 'lf-lab-strong') + 14);
+  const x = d3.scaleLinear().domain([years[0], years[years.length - 1]]).range([ml, W - mr]);
+  const yS = d3.scaleLinear().domain([0, Math.max(60, d3.max(series, (s) => d3.max(s.pts, (p) => p.v)))]).nice().range([H - mb, mt]);
+  const yt = yS.ticks(5);
+  svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', yS).attr('y2', yS).style('stroke', 'var(--cds-chart-grid)');
+  svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', yS).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d + '%');
+  svg.append('g').selectAll('text').data(x.ticks(W < 480 ? 4 : 7).filter(Number.isInteger)).join('text').attr('class', 'lf-tick').attr('x', x).attr('y', H - 5).attr('text-anchor', 'middle').text((d) => d);
+  const sy = LF.st.ilYear;
+  svg.append('line').attr('x1', x(sy)).attr('x2', x(sy)).attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--color-fg-muted)').style('stroke-dasharray', '3 3');
+  const line = d3.line().x((p) => x(p.year)).y((p) => yS(p.v));
+  for (const s of series) {
+    svg.append('path').attr('d', line(s.pts)).style('fill', 'none').style('stroke', s.color).style('stroke-width', s === series[0] ? 3 : 2);
+    const p = s.pts.find((q) => q.year === sy);
+    if (p) svg.append('circle').attr('cx', x(sy)).attr('cy', yS(p.v)).attr('r', 3.5).style('fill', s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5);
+    s.ly = yS(s.pts[s.pts.length - 1].v);
+  }
+  // Direct labels at the right end, nudged apart.
+  const lab = series.slice().sort((a, b) => a.ly - b.ly);
+  for (let i = 1; i < lab.length; i++) if (lab[i].ly - lab[i - 1].ly < 15) lab[i].ly = lab[i - 1].ly + 15;
+  const over = lab.length ? lab[lab.length - 1].ly - (H - mb) : 0;
+  if (over > 0) lab.forEach((l) => { l.ly -= over; });
+  svg.append('g').selectAll('text').data(lab).join('text').attr('class', (s) => s === series[0] ? 'lf-lab-strong' : 'lf-lab')
+    .attr('x', W - mr + 8).attr('y', (s) => s.ly).attr('dy', '0.32em').style('fill', (s) => s.color)
+    .text((s) => s.name + ' ' + f0(s.pts[s.pts.length - 1].v) + '%');
+  const tip = LF.tooltip(el);
+  const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--cds-chart-reference)').attr('visibility', 'hidden');
+  svg.append('rect').attr('x', ml).attr('y', mt).attr('width', Math.max(0, W - ml - mr)).attr('height', H - mt - mb).style('fill', 'transparent')
+    .on('pointermove', (ev) => {
+      const [mx] = d3.pointer(ev, svg.node());
+      const yr = Math.max(years[0], Math.min(years[years.length - 1], Math.round(x.invert(mx))));
+      rule.attr('x1', x(yr)).attr('x2', x(yr)).attr('visibility', 'visible');
+      const rows = series.map((s) => [s.name, f0(s.pts.find((p) => p.year === yr).v) + '%', s.color]).sort((a, b) => parseFloat(b[1]) - parseFloat(a[1]));
+      const t = bc.totals.get(yr) || 0, top = series.reduce((a, s) => a + s.pts.find((p) => p.year === yr).v, 0);
+      rows.push(['All other sites', f0(Math.max(0, 100 - top)) + '%', null]);
+      tip.show(yr + ' · share of landfill methane', rows, x(yr), mt + 30);
+    })
+    .on('pointerleave', () => { tip.hide(); rule.attr('visibility', 'hidden'); });
+});
+
+
+// Animated scatter of landfilled kg per person against GDP per person, one dot per country per year.
+LF.timeScatter = function (o) {
+  const cache = new WeakMap();
+  function series(rows) {
+    if (cache.has(rows)) return cache.get(rows);
+    const by = new Map(); let xmin = Infinity, xmax = 0, ymax = 0;
+    for (const r of rows) {
+      if (o.keep && !o.keep(r)) continue;
+      const x = LF.num(r.gdp_pc_ppp), y = LF.num(r.landfill_kg_per_capita);
+      if (x == null || y == null || x <= 0) continue;
+      if (!by.has(r.iso3)) by.set(r.iso3, { iso3: r.iso3, name: r.country, region: r.region || '', pts: [] });
+      by.get(r.iso3).pts.push({ year: +r.year, x, y, pct: LF.num(r.landfill_pct), src: r.source || '' });
+      xmin = Math.min(xmin, x); xmax = Math.max(xmax, x); ymax = Math.max(ymax, y);
+    }
+    for (const s of by.values()) s.pts.sort((a, b) => a.year - b.year);
+    const res = { by, xmin, xmax, ymax };
+    cache.set(rows, res); return res;
+  }
+  return {
+    mount(el) {
+      const svg = d3.select(el).append('svg').attr('role', 'img');
+      const g = {};
+      for (const k of ['grid', 'yr', 'trail', 'dots', 'labels', 'hit']) g[k] = svg.append('g');
+      const fail = document.createElement('p'); fail.className = 'lf-fail'; fail.textContent = 'Failed to load'; fail.hidden = true; el.appendChild(fail);
+      return { svg, g, fail, tip: LF.tooltip(el), key: '' };
+    },
+    update(el, k) {
+      const d = dash.data(o.source);
+      k.fail.hidden = !(d.status === 'error' || d.status === 'missing');
+      if (d.status !== 'ok') { for (const g of Object.values(k.g)) g.selectAll('*').remove(); return; }
+      const S = LF.st, Y = S[o.yearKey], CARRY = 3;
+      const ser = series(d.data);
+      const W = Math.max(260, el.clientWidth), H = W < 480 ? 340 : 400;
+      const ml = 44, mr = 14, mt = 12, mb = 24;
+      const x = d3.scaleLog().domain([ser.xmin * 0.92, ser.xmax * 1.08]).range([ml, W - mr]);
+      const y = d3.scaleLinear().domain([0, ser.ymax * 1.05]).nice().range([H - mb, mt]);
+      const money = (v) => '$' + d3.format('~s')(v);
+      if (k.key !== W + 'x' + H + window.LF_LANG) {
+        k.key = W + 'x' + H + window.LF_LANG;
+        k.svg.attr('width', W).attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H).attr('aria-label', o.aria);
+        const gr = k.g.grid; gr.selectAll('*').remove();
+        const yt = y.ticks(5);
+        let xt = [1000, 2000, 5000, 10000, 20000, 30000, 50000, 70000, 100000].filter((v) => v >= x.domain()[0] && v <= x.domain()[1]);
+        if (W < 420) xt = xt.filter((v) => [1000, 5000, 10000, 50000, 100000].includes(v));
+        gr.selectAll('line.h').data(yt).join('line').attr('class', 'h').attr('x1', ml).attr('x2', W - mr).attr('y1', y).attr('y2', y).style('stroke', 'var(--cds-chart-grid)');
+        gr.selectAll('text.yt').data(yt).join('text').attr('class', 'lf-tick yt').attr('x', ml - 6).attr('y', y).attr('dy', '0.32em').attr('text-anchor', 'end').text(d3.format(',.0f'));
+        gr.selectAll('text.xt').data(xt).join('text').attr('class', 'lf-tick xt').attr('x', x).attr('y', H - 6).attr('text-anchor', 'middle').text(money);
+        gr.append('line').attr('x1', ml).attr('x2', W - mr).attr('y1', H - mb).attr('y2', H - mb).style('stroke', 'var(--cds-chart-axis)');
+      }
+      k.g.yr.selectAll('text').data([Y]).join('text')
+        .attr('x', W - mr - 4).attr('y', mt + (W < 480 ? 34 : 52)).attr('text-anchor', 'end')
+        .style('font-family', 'var(--font-anthropic-serif)').style('font-size', W < 480 ? '40px' : '64px')
+        .style('fill', 'var(--color-fg-muted)').style('fill-opacity', 0.18).text(String(Y));
+
+      const cur = [];
+      for (const s of ser.by.values()) {
+        let p = null;
+        for (const t of s.pts) { if (t.year <= Y && t.year >= Y - CARRY) p = t; }
+        if (p) cur.push({ iso3: s.iso3, name: s.name, region: s.region, p, stale: p.year !== Y });
+      }
+      const sel = S[o.selKey] && S[o.selKey] !== 'ISR' ? S[o.selKey] : null;
+      const hi = (c) => c.iso3 === 'ISR' || c.iso3 === sel;
+      const colorOf = (c) => o.color(c, sel);
+      cur.sort((a, b) => (hi(a) ? 1 : 0) - (hi(b) ? 1 : 0));
+      const anim = !window.LF_NOANIM && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+      const trails = ['ISR'].concat(sel ? [sel] : []).map((iso) => ser.by.get(iso)).filter(Boolean)
+        .map((s) => ({ iso3: s.iso3, name: s.name, region: s.region, pts: s.pts.filter((t) => t.year <= Y) })).filter((s) => s.pts.length);
+      const line = d3.line().x((t) => x(t.x)).y((t) => y(t.y));
+      const trailColor = (s) => s.iso3 === 'ISR' ? o.israelColor : o.selColor(s);
+      k.g.trail.selectAll('path').data(trails, (s) => s.iso3).join('path')
+        .attr('d', (s) => line(s.pts)).style('fill', 'none').style('stroke', trailColor).style('stroke-width', 1.5).style('stroke-opacity', 0.75);
+      k.g.trail.selectAll('g.yrs').data(trails, (s) => s.iso3).join('g').attr('class', 'yrs').each(function (s) {
+        const g = d3.select(this);
+        g.selectAll('circle').data(s.pts).join('circle').attr('cx', (t) => x(t.x)).attr('cy', (t) => y(t.y)).attr('r', 2).style('fill', trailColor(s));
+        g.selectAll('text').data(s.pts.length > 1 ? [s.pts[0]] : []).join('text').attr('class', 'lf-tick lf-halo')
+          .attr('x', (t) => x(t.x)).attr('y', (t) => y(t.y) + 13).attr('text-anchor', 'middle').text((t) => String(t.year));
+      });
+
+      k.g.dots.selectAll('circle').interrupt();
+      const dots = k.g.dots.selectAll('circle').data(cur, (c) => c.iso3).join(
+        (enter) => enter.append('circle').attr('cx', (c) => x(c.p.x)).attr('cy', (c) => y(c.p.y)).attr('r', 0),
+        (update) => update,
+        (exit) => exit.remove()
+      );
+      dots.style('fill', (c) => c.stale ? 'none' : colorOf(c)).style('fill-opacity', (c) => hi(c) ? 1 : 0.75)
+        .style('stroke', (c) => c.stale ? colorOf(c) : hi(c) ? 'var(--color-fg)' : 'none').style('stroke-width', (c) => hi(c) ? 2 : 1.5);
+      k.g.dots.selectAll('circle').sort((a, b) => (hi(a) ? 1 : 0) - (hi(b) ? 1 : 0));
+      (anim ? dots.transition().duration(650).ease(d3.easeCubicInOut) : dots)
+        .attr('cx', (c) => x(c.p.x)).attr('cy', (c) => y(c.p.y)).attr('r', (c) => hi(c) ? 6 : 4.5);
+
+      k.g.labels.selectAll('text').interrupt();
+      const labs = cur.filter((c) => hi(c) || (o.labels && o.labels.has(c.iso3)));
+      const lt = k.g.labels.selectAll('text').data(labs, (c) => c.iso3).join('text').attr('class', (c) => hi(c) ? 'lf-lab-strong lf-halo' : 'lf-lab lf-halo')
+        .attr('dy', '0.32em').attr('text-anchor', (c) => x(c.p.x) > W - 110 ? 'end' : 'start').text((c) => c.name);
+      (anim ? lt.transition().duration(650).ease(d3.easeCubicInOut) : lt)
+        .attr('x', (c) => x(c.p.x) > W - 110 ? x(c.p.x) - 10 : x(c.p.x) + 10).attr('y', (c) => y(c.p.y));
+
+      const f0 = d3.format(',.0f'), f1 = d3.format('.1f');
+      const del = d3.Delaunay.from(cur, (c) => x(c.p.x), (c) => y(c.p.y));
+      const pick = (ev) => {
+        const [mx, my] = d3.pointer(ev, k.svg.node());
+        const c = cur[del.find(mx, my)];
+        return c && Math.hypot(x(c.p.x) - mx, y(c.p.y) - my) <= 30 ? c : null;
+      };
+      k.g.hit.selectAll('rect').data([0]).join('rect').attr('x', ml).attr('y', mt).attr('width', Math.max(0, W - ml - mr)).attr('height', H - mt - mb)
+        .style('fill', 'transparent').style('cursor', 'pointer')
+        .on('pointermove', (ev) => {
+          const c = pick(ev);
+          if (!c) { k.tip.hide(); return; }
+          const rows = [];
+          if (c.region) rows.push(['Region', c.region]);
+          rows.push(['GDP per person', '$' + f0(c.p.x)], ['Landfilled per person', f0(c.p.y) + ' kg']);
+          if (c.p.pct != null) rows.push(['Share landfilled', f1(c.p.pct) + '%']);
+          if (c.stale) rows.push(['Figure from', String(c.p.year)]);
+          if (c.p.src) rows.push(['Source', c.p.src === 'UNSD' ? 'UN (UNSD/UNEP)' : 'OECD']);
+          rows.push([c.iso3 === 'ISR' ? 'Always traced' : c.iso3 === sel ? 'Click to stop tracing' : 'Click to trace its path', '']);
+          k.tip.show(c.name + ' · ' + Y, rows, x(c.p.x), y(c.p.y));
+        })
+        .on('pointerleave', () => k.tip.hide())
+        .on('click', (ev) => {
+          const c = pick(ev);
+          if (!c || c.iso3 === 'ISR') return;
+          S[o.selKey] = S[o.selKey] === c.iso3 ? null : c.iso3;
+          dash.draw(o.name);
+        });
+    },
+    unmount(el, k) { if (k && k.tip) k.tip.hide(); }
+  };
+};
+
+LF.st.gdpYear = 2024; LF.st.gdpSel = null; LF.st.worldYear = 2022; LF.st.worldSel = null;
+LF.player('gdp', 2000, 2024, 'gdpYear', ['gdp-time', 'gdp-year-label'], 800);
+LF.player('world', 2000, 2023, 'worldYear', ['world-time', 'world-year-label'], 800);
+lfReg('gdp-year-label', (el) => { el.textContent = String(LF.st.gdpYear); });
+lfReg('world-year-label', (el) => { el.textContent = String(LF.st.worldYear); });
+
+lfReg('gdp-time', LF.timeScatter({
+  name: 'gdp-time', source: 'oecd', yearKey: 'gdpYear', selKey: 'gdpSel',
+  keep: (r) => r.type === 'country',
+  israelColor: LF.C(0), selColor: () => LF.C(1),
+  color: (c, sel) => c.iso3 === 'ISR' ? LF.C(0) : c.iso3 === sel ? LF.C(1) : 'var(--cds-chart-muted)',
+  aria: 'Animated scatter of waste landfilled per person against GDP per person for OECD member countries, by year; Israel highlighted with its path over time'
+}));
+
+lfReg('world-time', LF.timeScatter({
+  name: 'world-time', source: 'world_trends', yearKey: 'worldYear', selKey: 'worldSel',
+  labels: new Set(['USA', 'CHN', 'IND', 'BRA', 'DEU', 'JOR']),
+  israelColor: 'var(--color-fg)', selColor: () => 'var(--color-fg-muted)',
+  color: (c) => { const i = LF.REGIONS.indexOf(c.region); return i < 0 ? 'var(--cds-chart-muted)' : LF.C(i); },
+  aria: 'Animated scatter of waste landfilled per person against GDP per person for countries worldwide, by year, coloured by region; Israel highlighted with its path over time'
+}));
+
+
+// GIF export: steps a chart through its years, snapshots each frame and encodes an animated GIF.
+LF.st.gifs = {};
+LF.GIF = {
+  map: { chart: '#map-chart', key: 'mapYear', min: 2000, max: 2024, draws: ['map'], labels: ['map-year', 'map-trend', 'map-sel'], range: '#map-year',
+    title: () => 'World map: ' + (document.querySelector('#map-metric') || {}).selectedOptions?.[0]?.textContent, ok: () => LF.st.mapSource === 'oecd' ? '' : 'Switch the data menu to the OECD year-by-year series to make a GIF.' },
+  il: { chart: '#il-map-chart', key: 'ilYear', min: 2012, max: 2025, draws: ['il-map'], labels: ['il-year-label', 'il-rank', 'il-share'], range: '#il-year', title: () => 'Israel: landfill methane by site' },
+  trend: { chart: '#trend-chart', key: 'trendYear', min: 2000, max: 2024, draws: ['trend'], labels: ['trend-year-label'], range: '#trend-year', title: () => 'Israel against the OECD: ' + LF.METRICS[LF.st.metric].label.toLowerCase() },
+  rank: { chart: '#rank-chart', key: 'rankYear', min: 2000, max: 2024, draws: ['rank'], labels: ['rank-year-label', 'rank-note'], range: '#rank-year', title: () => 'Ranking by ' + LF.METRICS[LF.st.rank].label.toLowerCase(), maxH: 1200 },
+  gdp: { chart: '#gdp-time-chart', key: 'gdpYear', min: 2000, max: 2024, draws: ['gdp-time'], labels: ['gdp-year-label'], range: '#gdp-year', title: () => 'Landfilled kg per person by GDP per person, OECD member countries' },
+  world: { chart: '#world-time-chart', key: 'worldYear', min: 2000, max: 2023, draws: ['world-time'], labels: ['world-year-label'], range: '#world-year', title: () => 'Landfilled kg per person by GDP per person, worldwide' }
+};
+
+(function () {
+  const STYLE_PROPS = ['fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity', 'stroke-dasharray', 'stroke-linejoin', 'opacity', 'font-family', 'font-size', 'font-weight', 'font-style', 'text-anchor', 'paint-order', 'visibility', 'display'];
+  const nextFrame = () => new Promise((r) => setTimeout(r, 0));
+  function snapshot(svg, bg) {
+    const clone = svg.cloneNode(true);
+    const src = [svg, ...svg.querySelectorAll('*')], dst = [clone, ...clone.querySelectorAll('*')];
+    src.forEach((n, i) => {
+      const cs = getComputedStyle(n);
+      dst[i].setAttribute('style', STYLE_PROPS.map((p) => p + ':' + cs.getPropertyValue(p)).join(';'));
+      dst[i].removeAttribute('class');
+    });
+    const w = svg.width.baseVal.value || svg.getBoundingClientRect().width, h = svg.height.baseVal.value || svg.getBoundingClientRect().height;
+    clone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    clone.setAttribute('width', w); clone.setAttribute('height', h);
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('width', '100%'); rect.setAttribute('height', '100%'); rect.setAttribute('fill', bg);
+    clone.insertBefore(rect, clone.firstChild);
+    return { xml: new XMLSerializer().serializeToString(clone), w, h };
+  }
+  function loadImg(xml) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.onload = () => res(img); img.onerror = () => rej(new Error('Could not draw a frame'));
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(xml);
+    });
+  }
+  async function offerSave(blob, filename) {
+    try {
+      if (window.claude && window.claude.use) {
+        const dl = await Promise.race([window.claude.use('downloads'), new Promise((r) => setTimeout(() => r(null), 1500))]);
+        if (dl) { await dl.save({ filename, data: blob }); return 'saved'; }
+      }
+    } catch (e) { if (e && e.code === 'declined') return 'declined'; }
+    try {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob); a.download = filename; a.click();
+      return 'link';
+    } catch (e) { return 'failed'; }
+  }
+  async function make(id) {
+    const c = LF.GIF[id], S = LF.st;
+    const why = c.ok ? c.ok() : '';
+    if (why) { S.gifs[id] = { status: 'error', msg: why }; dash.draw('gif-ctl'); return; }
+    const host = document.querySelector(c.chart);
+    if (!host || !window.LF_GIFENC) { S.gifs[id] = { status: 'error', msg: 'GIF export is not available in this view.' }; dash.draw('gif-ctl'); return; }
+    const btns = document.querySelectorAll('[data-gif-btn="' + id + '"]');
+    btns.forEach((b) => { b.disabled = true; });
+    const orig = S[c.key];
+    const css = getComputedStyle(document.body);
+    const bg = css.backgroundColor && css.backgroundColor !== 'rgba(0, 0, 0, 0)' ? css.backgroundColor : '#ffffff';
+    const fg = getComputedStyle(host).color || '#111';
+    const years = d3.range(c.min, c.max + 1);
+    const { GIFEncoder, quantize, applyPalette } = window.LF_GIFENC;
+    const enc = GIFEncoder();
+    window.LF_NOANIM = true;
+    try {
+      for (let i = 0; i < years.length; i++) {
+        S.gifs[id] = { status: 'working', msg: 'Making GIF: frame ' + (i + 1) + ' of ' + years.length };
+        dash.draw('gif-ctl');
+        S[c.key] = years[i];
+        c.draws.forEach((n) => dash.draw(n));
+        await nextFrame();
+        const svg = host.querySelector('svg');
+        if (!svg) throw new Error('Nothing to capture');
+        d3.select(svg).selectAll('*').interrupt();
+        const snap = snapshot(svg, bg);
+        const img = await loadImg(snap.xml);
+        const scale = Math.min(1.25, 900 / snap.w);
+        const head = 44;
+        const cw = Math.round(snap.w * scale), ch = Math.round(Math.min(snap.h, c.maxH || 2000) * scale) + head;
+        const cv = document.createElement('canvas'); cv.width = cw; cv.height = ch;
+        const ctx = cv.getContext('2d');
+        ctx.fillStyle = bg; ctx.fillRect(0, 0, cw, ch);
+        ctx.fillStyle = fg; ctx.font = '600 15px system-ui, sans-serif'; ctx.textBaseline = 'middle';
+        ctx.fillText(window.lfTr ? window.lfTr(c.title()) : c.title(), 12, head / 2, cw - 110);
+        ctx.font = '28px Georgia, serif'; ctx.textAlign = 'right';
+        ctx.fillText(String(years[i]), cw - 12, head / 2);
+        ctx.drawImage(img, 0, 0, snap.w, Math.min(snap.h, c.maxH || 2000), 0, head, cw, ch - head);
+        const { data } = ctx.getImageData(0, 0, cw, ch);
+        const palette = quantize(data, 256);
+        const index = applyPalette(data, palette);
+        enc.writeFrame(index, cw, ch, { palette, delay: i === years.length - 1 ? 2500 : 700 });
+      }
+      enc.finish();
+      const blob = new Blob([enc.bytes()], { type: 'image/gif' });
+      const url = URL.createObjectURL(blob);
+      const filename = 'landfill-' + id + '-' + c.min + '-' + c.max + '.gif';
+      S.gifs[id] = { status: 'ready', url, filename, msg: 'Preparing download…' };
+      dash.draw('gif-ctl');
+      const res = await offerSave(blob, filename);
+      S.gifs[id].msg = res === 'saved' ? 'GIF saved.' : res === 'declined' ? 'Download cancelled.' : 'If the download didn\'t start, right-click the animation below and choose Save image as.';
+    } catch (e) {
+      S.gifs[id] = { status: 'error', msg: 'Couldn\'t make the GIF: ' + (e && e.message ? e.message : e) };
+    } finally {
+      window.LF_NOANIM = false;
+      S[c.key] = orig;
+      document.querySelectorAll(c.range).forEach((r) => { r.value = String(orig); });
+      c.draws.concat(c.labels).forEach((n) => dash.draw(n));
+      btns.forEach((b) => { b.disabled = false; });
+      dash.draw('gif-ctl');
+    }
+  }
+  LF.makeGif = make;
+})();
+
+// GIF button plus its status and preview, drawn together so the control always shows something.
+lfReg('gif-ctl', (el) => {
+  const id = el.dataset.gif, st = LF.st.gifs[id], he = window.LF_LANG === 'he';
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'lf-btn'; b.textContent = '⤓ GIF';
+  b.title = he ? 'הורדת האנימציה כ-GIF' : 'Download this animation as a GIF';
+  b.disabled = !!(st && st.status === 'working');
+  b.addEventListener('click', () => LF.makeGif(id));
+  const kids = [b];
+  if (st) {
+    const box = document.createElement('div'); box.className = 'lf-gif';
+    const p = document.createElement('p'); p.className = 'lf-note'; p.textContent = st.msg || '';
+    box.appendChild(p);
+    if (st.status === 'ready' && st.url) {
+      const img = document.createElement('img'); img.src = st.url; img.alt = he ? 'אנימציית GIF של הגרף' : 'Animated GIF of this chart'; img.className = 'lf-gif-img';
+      const a = document.createElement('a'); a.href = st.url; a.download = st.filename; a.textContent = 'Download ' + st.filename; a.className = 'lf-note';
+      box.append(img, a);
+    }
+    if (st.status !== 'working') {
+      const x = document.createElement('button'); x.type = 'button'; x.className = 'lf-btn'; x.textContent = 'Close';
+      x.addEventListener('click', () => { delete LF.st.gifs[id]; dash.draw('gif-ctl'); });
+      box.appendChild(x);
+    }
+    kids.push(box);
+  }
+  el.replaceChildren(...kids);
+});
+
+(function () {
+  const roots = () => document.querySelectorAll('.lf');
+  const apply = () => roots().forEach((r) => r.classList.toggle('lf-he', window.LF_LANG === 'he'));
+  apply();
+  const drawn = () => [...new Set([...document.querySelectorAll('[data-draw]')].map((e) => e.dataset.draw))];
+  document.querySelectorAll('#lf-lang').forEach((b) => b.addEventListener('click', () => {
+    window.LF_LANG = window.LF_LANG === 'he' ? 'en' : 'he';
+    try { localStorage.setItem('lf-lang', window.LF_LANG); } catch (e) { /* storage unavailable */ }
+    apply();
+    drawn().forEach((n) => dash.draw(n));
+  }));
+})();
+</script>

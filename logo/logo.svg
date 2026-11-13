@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Landfill Trends logo">
+  <title>Landfill Trends</title>
+  <defs>
+    <clipPath id="lt-globe"><circle cx="256" cy="262" r="176"/></clipPath>
+  </defs>
+  <!-- Tile -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="#17332E"/>
+  <!-- Globe: sky half with meridians -->
+  <g clip-path="url(#lt-globe)">
+    <rect x="60" y="70" width="392" height="392" fill="#EAF1EA"/>
+    <g fill="none" stroke="#B9CDBF" stroke-width="7">
+      <ellipse cx="256" cy="262" rx="70" ry="176"/>
+      <ellipse cx="256" cy="262" rx="140" ry="176"/>
+      <line x1="256" y1="80" x2="256" y2="440"/>
+      <line x1="70" y1="190" x2="442" y2="190"/>
+    </g>
+    <!-- Buried layers: a mound of waste strata filling the lower globe -->
+    <path d="M60 300 C 140 236, 210 214, 262 216 C 318 218, 380 244, 452 296 L452 462 L60 462 Z" fill="#F2B544"/>
+    <path d="M60 336 C 150 282, 220 266, 266 268 C 320 270, 384 292, 452 334 L452 462 L60 462 Z" fill="#D9822B"/>
+    <path d="M60 374 C 150 330, 226 318, 270 320 C 324 322, 388 340, 452 372 L452 462 L60 462 Z" fill="#A4521F"/>
+    <path d="M60 410 C 160 378, 230 370, 272 372 C 326 374, 390 388, 452 408 L452 462 L60 462 Z" fill="#6B3418"/>
+  </g>
+  <!-- Globe rim -->
+  <circle cx="256" cy="262" r="176" fill="none" stroke="#EAF1EA" stroke-width="12"/>
+  <!-- Rising methane bubbles -->
+  <g fill="#EAF1EA" stroke="#17332E" stroke-width="7">
+    <circle cx="292" cy="182" r="17"/>
+    <circle cx="324" cy="142" r="12"/>
+    <circle cx="304" cy="110" r="8"/>
+  </g>
+</svg>

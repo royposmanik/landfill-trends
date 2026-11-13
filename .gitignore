@@ -1,0 +1,4 @@
+_tmp/
+.claude/
+node_modules/
+.vercel/

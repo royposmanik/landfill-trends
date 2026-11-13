@@ -1,0 +1,885 @@
+iso3,country,year,msw_kg_per_capita,landfill_pct,recycling_pct,composting_pct,incineration_pct,landfill_kg_per_capita,gdp_pc_ppp,type
+AUS,Australia,2007,607,55.3,22.3,15.5,0.0,336,51663,country
+AUS,Australia,2008,613,53.6,30.6,7.0,2.1,329,52473,country
+AUS,Australia,2009,602,53.7,23.8,16.2,0.0,323,52408,country
+AUS,Australia,2010,608,52.5,25.2,16.0,0.0,319,52739,country
+AUS,Australia,2011,592,49.9,24.3,18.9,0.0,295,53257,country
+AUS,Australia,2012,594,47.9,31.7,11.2,1.8,285,54404,country
+AUS,Australia,2013,589,46.6,30.9,13.1,1.6,275,54895,country
+AUS,Australia,2014,597,44.0,25.2,22.1,0.7,263,55489,country
+AUS,Australia,2015,592,44.4,24.3,22.0,0.8,263,55880,country
+AUS,Australia,2016,550,46.0,23.7,20.0,0.9,253,56530,country
+AUS,Australia,2017,520,50.2,20.9,19.1,0.3,261,56882,country
+AUS,Australia,2018,514,49.2,21.8,19.3,0.2,253,57648,country
+AUS,Australia,2019,507,49.1,22.2,19.9,0.5,249,58049,country
+AUS,Australia,2020,513,49.3,21.1,20.3,0.0,253,57260,country
+AUS,Australia,2021,518,51.3,17.0,23.0,0.0,266,58327,country
+AUS,Australia,2022,516,50.0,17.6,24.6,0.0,258,60029,country
+AUS,Australia,2023,505,48.3,17.5,26.0,0.4,244,60685,country
+AUT,Austria,2000,580,31.0,22.3,35.9,10.3,180,53534,country
+AUT,Austria,2001,576,30.4,22.2,36.6,10.3,175,54032,country
+AUT,Austria,2002,608,29.4,21.7,38.0,10.3,179,54565,country
+AUT,Austria,2003,607,28.1,21.0,38.9,11.2,171,54920,country
+AUT,Austria,2004,573,12.0,24.1,34.0,29.8,69,55980,country
+AUT,Austria,2005,575,11.6,25.6,34.3,28.5,67,56890,country
+AUT,Austria,2006,596,10.0,26.0,34.4,29.6,60,58460,country
+AUT,Austria,2007,597,8.8,27.1,34.2,29.9,52,60471,country
+AUT,Austria,2008,600,7.6,30.2,34.4,27.8,46,61158,country
+AUT,Austria,2009,590,6.3,31.2,32.4,30.1,37,58810,country
+AUT,Austria,2010,562,3.3,27.8,33.2,35.7,19,59730,country
+AUT,Austria,2011,573,5.0,24.7,34.1,36.2,28,61272,country
+AUT,Austria,2012,579,4.4,24.8,35.0,35.9,25,61377,country
+AUT,Austria,2013,578,4.2,25.3,34.3,36.2,24,60863,country
+AUT,Austria,2014,565,4.2,26.3,31.9,37.6,23,60846,country
+AUT,Austria,2015,559,3.0,26.2,32.0,38.8,17,60952,country
+AUT,Austria,2016,564,2.7,26.0,32.8,38.5,15,61573,country
+AUT,Austria,2017,570,2.1,26.2,32.4,39.3,12,62536,country
+AUT,Austria,2018,579,2.2,25.8,32.7,39.2,13,63778,country
+AUT,Austria,2019,588,2.1,26.5,32.6,38.9,12,64609,country
+AUT,Austria,2020,834,1.9,40.6,21.5,36.0,15,60276,country
+AUT,Austria,2021,834,2.0,41.3,20.9,35.7,17,62969,country
+AUT,Austria,2022,801,2.1,41.9,20.5,35.6,17,65694,country
+AUT,Austria,2023,782,1.8,41.0,21.6,35.7,14,64536,country
+AUT,Austria,2024,780,2.6,37.9,22.6,36.9,20,63788,country
+BEL,Belgium,2000,471,18.9,26.4,22.0,32.7,89,50456,country
+BEL,Belgium,2001,467,16.1,29.4,21.8,32.7,75,50835,country
+BEL,Belgium,2002,482,11.7,30.0,22.4,35.9,57,51472,country
+BEL,Belgium,2003,465,10.9,29.2,22.9,36.9,51,51789,country
+BEL,Belgium,2004,485,11.6,29.4,23.7,35.3,56,53407,country
+BEL,Belgium,2005,482,11.0,31.0,22.2,35.7,53,54347,country
+BEL,Belgium,2006,485,9.6,32.7,23.1,34.6,46,55368,country
+BEL,Belgium,2007,493,9.1,31.9,22.7,36.3,45,56983,country
+BEL,Belgium,2008,480,4.1,33.5,21.1,39.8,20,56788,country
+BEL,Belgium,2009,466,3.2,34.9,21.2,39.2,15,55259,country
+BEL,Belgium,2010,455,1.7,34.7,22.0,40.3,8,56240,country
+BEL,Belgium,2011,455,0.9,35.2,21.2,41.4,4,56585,country
+BEL,Belgium,2012,445,0.7,33.4,21.7,42.8,3,56357,country
+BEL,Belgium,2013,436,0.9,32.0,21.4,44.3,4,56263,country
+BEL,Belgium,2014,425,1.0,33.4,20.4,43.7,4,57003,country
+BEL,Belgium,2015,412,0.9,34.1,19.4,44.1,4,57509,country
+BEL,Belgium,2016,419,0.8,33.1,20.3,44.5,3,57901,country
+BEL,Belgium,2017,411,0.9,34.4,19.9,43.2,4,58529,country
+BEL,Belgium,2018,409,1.0,34.4,19.9,43.2,4,59358,country
+BEL,Belgium,2019,416,0.9,34.1,20.6,42.8,4,60480,country
+BEL,Belgium,2020,729,0.2,32.3,18.9,48.5,2,57334,country
+BEL,Belgium,2021,756,0.5,34.8,20.3,44.4,3,60669,country
+BEL,Belgium,2022,692,0.1,34.3,19.9,45.7,1,62603,country
+BEL,Belgium,2023,692,0.1,34.1,21.1,44.7,1,63042,country
+BEL,Belgium,2024,706,0.1,33.7,22.3,43.9,1,63311,country
+CAN,Canada,2000,949,78.2,18.3,3.5,0.0,742,48399,country
+CAN,Canada,2002,974,77.5,18.1,4.4,0.0,755,49695,country
+CAN,Canada,2004,1006,77.1,18.0,4.9,0.0,776,51211,country
+CAN,Canada,2006,1039,76.7,17.5,5.8,0.0,797,53196,country
+CAN,Canada,2008,1024,74.8,18.1,7.1,0.0,765,53712,country
+CAN,Canada,2010,966,74.5,18.5,7.0,0.0,720,52558,country
+CAN,Canada,2012,949,73.5,18.8,7.7,0.0,697,54035,country
+CAN,Canada,2014,950,72.2,19.6,8.2,0.0,685,55723,country
+CAN,Canada,2016,941,71.9,20.3,7.9,0.0,676,55606,country
+CAN,Canada,2018,953,71.9,19.6,8.5,0.0,685,57337,country
+CHE,Switzerland,2000,659,8.3,31.7,13.5,46.5,54,68835,country
+CHE,Switzerland,2001,663,4.2,33.0,13.6,49.2,28,69490,country
+CHE,Switzerland,2002,678,1.6,32.0,14.7,51.7,11,69228,country
+CHE,Switzerland,2003,670,1.4,32.5,15.1,51.1,10,68521,country
+CHE,Switzerland,2004,664,0.0,33.5,15.2,51.3,0,69812,country
+CHE,Switzerland,2005,665,0.0,35.0,15.6,49.4,0,71414,country
+CHE,Switzerland,2006,713,0.0,33.5,16.6,49.9,0,73902,country
+CHE,Switzerland,2007,724,0.0,33.9,17.0,49.0,0,76162,country
+CHE,Switzerland,2008,740,0.0,33.5,16.5,50.1,0,77104,country
+CHE,Switzerland,2009,706,0.0,34.3,17.0,48.7,0,74673,country
+CHE,Switzerland,2010,711,0.0,33.7,16.7,49.5,0,76309,country
+CHE,Switzerland,2011,692,0.0,34.6,15.5,49.9,0,76527,country
+CHE,Switzerland,2012,697,0.0,34.8,15.3,50.0,0,76570,country
+CHE,Switzerland,2013,705,0.0,33.6,17.4,49.0,0,77085,country
+CHE,Switzerland,2014,733,0.0,32.6,20.9,46.5,0,78087,country
+CHE,Switzerland,2015,728,0.0,31.9,20.8,47.3,0,78326,country
+CHE,Switzerland,2016,722,0.0,31.0,21.5,47.5,0,78956,country
+CHE,Switzerland,2017,709,0.0,30.8,21.7,47.5,0,79334,country
+CHE,Switzerland,2018,706,0.0,30.9,21.6,47.5,0,81372,country
+CHE,Switzerland,2019,709,0.0,29.9,23.1,47.0,0,81695,country
+CHE,Switzerland,2020,706,0.0,29.8,23.0,47.2,0,79271,country
+CHE,Switzerland,2021,704,0.0,29.3,22.9,47.7,0,83525,country
+CHE,Switzerland,2022,676,0.0,28.5,23.6,47.8,0,85762,country
+CHE,Switzerland,2023,679,0.0,28.7,23.3,48.0,0,85383,country
+CHE,Switzerland,2024,677,0.0,28.5,23.3,48.2,0,85448,country
+CHL,Chile,2014,381,99.8,0.2,0.0,0.0,381,27512,country
+CHL,Chile,2015,399,99.6,0.3,0.0,0.0,397,27818,country
+CHL,Chile,2016,396,98.5,0.3,0.1,0.0,390,27965,country
+CHL,Chile,2017,438,98.2,1.4,0.0,0.0,430,27900,country
+CHL,Chile,2018,433,99.4,0.4,0.0,0.0,430,28499,country
+CHL,Chile,2019,409,99.2,0.6,0.0,0.0,406,28228,country
+CHL,Chile,2020,408,98.1,1.7,0.0,0.0,400,26258,country
+CHL,Chile,2021,466,99.1,0.8,0.0,0.0,462,29107,country
+CHL,Chile,2022,443,98.8,1.1,0.0,0.0,438,29560,country
+CHL,Chile,2023,440,99.0,0.8,0.0,0.0,436,29600,country
+COL,Colombia,2005,180,72.9,,,,131,11999,country
+COL,Colombia,2006,178,81.2,,,,144,12637,country
+COL,Colombia,2007,212,91.0,,,,193,13318,country
+COL,Colombia,2008,209,92.8,,,,194,13591,country
+COL,Colombia,2009,255,92.5,,,,236,13587,country
+COL,Colombia,2010,201,93.5,,,,187,14037,country
+COL,Colombia,2011,214,94.6,,,,202,14852,country
+COL,Colombia,2012,197,92.1,,,,181,15279,country
+COL,Colombia,2013,198,93.6,,,,185,15912,country
+COL,Colombia,2014,196,93.6,,,,184,16480,country
+COL,Colombia,2015,212,97.8,,,,207,16821,country
+COL,Colombia,2016,240,97.6,,,,235,17003,country
+COL,Colombia,2017,226,96.9,,,,219,16986,country
+COL,Colombia,2018,246,97.9,,,,241,17104,country
+CRI,Costa Rica,2010,331,75.2,,,,249,18670,country
+CRI,Costa Rica,2011,360,75.0,,,,270,19264,country
+CRI,Costa Rica,2012,364,77.1,,,,281,19971,country
+CRI,Costa Rica,2013,371,77.4,,,,288,20242,country
+CRI,Costa Rica,2014,375,77.3,,,0.9,290,20735,country
+CRI,Costa Rica,2015,390,97.0,0.9,,2.1,378,21265,country
+CRI,Costa Rica,2016,250,81.1,3.3,0.0,2.7,203,21936,country
+CRI,Costa Rica,2017,258,82.4,7.9,0.1,0.1,212,22634,country
+CRI,Costa Rica,2018,295,88.6,3.7,0.3,0.2,261,23070,country
+CRI,Costa Rica,2019,269,86.5,3.0,3.8,0.0,233,23497,country
+CRI,Costa Rica,2020,290,83.8,3.1,3.0,0.1,243,22368,country
+CRI,Costa Rica,2021,320,79.2,3.9,2.7,3.0,253,24084,country
+CRI,Costa Rica,2022,318,81.9,4.7,2.8,3.2,261,25290,country
+CRI,Costa Rica,2023,335,78.5,8.3,3.1,3.2,263,26379,country
+CRI,Costa Rica,2024,665,78.3,11.6,0.7,3.7,521,27325,country
+CZE,Czechia,2000,335,89.2,0.6,0.3,9.8,299,29427,country
+CZE,Czechia,2001,273,85.2,0.6,0.3,13.8,233,30400,country
+CZE,Czechia,2002,278,83.1,0.6,0.4,15.9,231,30920,country
+CZE,Czechia,2003,279,82.8,0.6,0.4,16.2,231,31949,country
+CZE,Czechia,2004,277,76.7,5.8,0.7,16.9,212,33452,country
+CZE,Czechia,2005,287,77.5,6.6,0.6,15.3,223,35536,country
+CZE,Czechia,2006,295,76.8,7.5,0.9,14.7,227,37787,country
+CZE,Czechia,2007,293,75.3,9.8,1.1,13.9,220,39629,country
+CZE,Czechia,2008,306,74.6,10.1,1.8,13.4,228,40328,country
+CZE,Czechia,2009,318,73.0,12.2,1.9,12.9,232,38175,country
+CZE,Czechia,2010,319,67.8,14.2,2.4,15.6,216,39097,country
+CZE,Czechia,2011,320,64.8,14.8,2.2,18.2,207,39708,country
+CZE,Czechia,2012,308,56.5,20.6,2.6,20.2,174,39347,country
+CZE,Czechia,2013,307,56.2,21.2,3.0,19.5,173,39318,country
+CZE,Czechia,2014,310,56.0,22.6,2.9,18.5,174,40158,country
+CZE,Czechia,2015,317,52.6,25.5,4.2,17.7,167,42067,country
+CZE,Czechia,2016,340,50.0,26.7,6.8,16.4,170,43069,country
+CZE,Czechia,2017,491,47.6,22.9,10.6,18.3,234,45178,country
+CZE,Czechia,2018,497,48.3,23.0,10.6,17.5,240,46301,country
+CZE,Czechia,2019,506,47.9,22.8,11.7,17.0,242,47764,country
+CZE,Czechia,2020,551,47.2,27.3,12.8,12.5,260,45120,country
+CZE,Czechia,2021,569,45.3,30.1,12.5,11.9,258,47796,country
+CZE,Czechia,2022,549,45.8,26.5,15.3,12.4,251,48391,country
+CZE,Czechia,2023,540,42.3,28.5,15.0,14.2,229,47558,country
+CZE,Czechia,2024,593,42.0,30.9,13.6,13.5,249,47973,country
+DEU,Germany,2000,646,25.9,38.1,14.4,21.6,167,49956,country
+DEU,Germany,2001,636,25.5,37.7,14.6,22.2,162,50688,country
+DEU,Germany,2002,643,21.3,41.7,14.4,22.6,137,50487,country
+DEU,Germany,2003,604,19.2,43.2,14.6,23.0,116,50192,country
+DEU,Germany,2004,590,17.7,40.4,16.0,25.8,104,50786,country
+DEU,Germany,2005,567,8.5,44.5,16.4,30.5,49,51265,country
+DEU,Germany,2006,568,0.7,45.7,16.4,37.2,4,53307,country
+DEU,Germany,2007,589,0.6,47.1,16.1,36.2,4,54921,country
+DEU,Germany,2008,596,0.6,47.0,16.7,35.7,4,55514,country
+DEU,Germany,2009,599,0.4,45.8,17.3,36.5,2,52569,country
+DEU,Germany,2010,609,0.4,45.6,16.9,37.1,3,54826,country
+DEU,Germany,2011,621,0.5,46.1,16.9,36.5,3,57951,country
+DEU,Germany,2012,615,0.2,47.4,17.8,34.6,1,58110,country
+DEU,Germany,2013,612,1.4,46.1,17.0,33.3,8,58182,country
+DEU,Germany,2014,628,1.3,47.0,17.9,31.6,8,59203,country
+DEU,Germany,2015,629,1.2,48.2,17.8,30.6,8,59669,country
+DEU,Germany,2016,630,0.2,48.8,18.3,31.2,1,60505,country
+DEU,Germany,2017,623,0.2,49.0,18.2,31.3,1,61965,country
+DEU,Germany,2018,603,0.2,49.2,17.9,31.5,1,62481,country
+DEU,Germany,2019,606,0.2,48.0,18.7,31.9,1,62950,country
+DEU,Germany,2020,638,0.3,46.7,22.2,29.8,2,60300,country
+DEU,Germany,2021,644,0.9,46.7,22.4,29.1,6,62631,country
+DEU,Germany,2022,602,0.4,47.0,22.1,29.7,2,63778,country
+DEU,Germany,2023,603,0.5,46.1,22.6,29.9,3,63140,country
+DEU,Germany,2024,608,0.0,45.7,23.3,30.1,0,62655,country
+DNK,Denmark,2000,664,10.0,21.3,15.8,52.9,66,57586,country
+DNK,Denmark,2001,657,7.1,22.4,13.7,56.8,47,57925,country
+DNK,Denmark,2002,664,6.1,22.3,15.3,56.3,41,58004,country
+DNK,Denmark,2003,671,5.1,25.6,15.3,54.0,34,58101,country
+DNK,Denmark,2004,695,4.5,24.9,16.2,54.5,31,59560,country
+DNK,Denmark,2005,736,5.2,24.5,16.5,53.8,38,60798,country
+DNK,Denmark,2006,740,5.0,24.3,17.5,53.2,37,62911,country
+DNK,Denmark,2007,790,4.7,26.6,17.6,51.1,37,63251,country
+DNK,Denmark,2008,830,3.8,34.2,13.8,48.2,32,62618,country
+DNK,Denmark,2009,762,3.1,31.1,17.6,48.1,24,59186,country
+DNK,Denmark,2010,758,3.1,31.1,17.6,48.1,23,59856,country
+DNK,Denmark,2011,862,2.6,28.4,14.0,55.0,22,60392,country
+DNK,Denmark,2012,806,2.2,27.0,15.5,55.4,18,60162,country
+DNK,Denmark,2013,813,1.7,27.3,16.0,55.0,14,60746,country
+DNK,Denmark,2014,808,1.4,28.0,17.4,53.2,12,61211,country
+DNK,Denmark,2015,822,1.3,29.0,18.4,51.3,11,62059,country
+DNK,Denmark,2016,830,1.2,29.9,18.5,50.5,10,63469,country
+DNK,Denmark,2017,820,1.0,28.8,18.8,51.4,8,64989,country
+DNK,Denmark,2018,814,1.1,32.4,17.6,48.9,9,65871,country
+DNK,Denmark,2019,844,0.9,33.5,18.0,47.5,8,66759,country
+DNK,Denmark,2020,814,0.9,25.8,19.5,53.8,7,65379,country
+DNK,Denmark,2021,800,1.6,24.9,24.0,49.4,13,69328,country
+DNK,Denmark,2022,759,1.6,26.1,24.0,48.0,12,69089,country
+DNK,Denmark,2023,759,1.8,27.0,19.3,51.3,14,68994,country
+DNK,Denmark,2024,758,2.0,22.0,23.8,51.6,15,71035,country
+ESP,Spain,2000,646,68.1,8.9,15.6,7.3,440,39946,country
+ESP,Spain,2001,645,67.2,13.5,12.5,6.8,434,41224,country
+ESP,Spain,2002,632,61.3,15.9,16.3,6.5,388,41766,country
+ESP,Spain,2003,642,61.2,15.2,16.4,7.1,393,42223,country
+ESP,Spain,2004,595,58.4,16.7,18.9,6.0,348,42793,country
+ESP,Spain,2005,584,55.8,16.3,19.4,8.5,326,43571,country
+ESP,Spain,2006,586,59.7,13.9,17.3,9.1,350,44573,country
+ESP,Spain,2007,575,59.5,13.4,17.2,9.9,342,45301,country
+ESP,Spain,2008,548,51.7,15.4,24.3,8.6,283,44926,country
+ESP,Spain,2009,538,57.9,15.2,18.0,8.9,312,42852,country
+ESP,Spain,2010,508,62.2,17.6,11.6,8.6,316,42696,country
+ESP,Spain,2011,482,63.0,16.7,10.0,10.3,304,42272,country
+ESP,Spain,2012,466,60.6,19.5,10.3,9.6,282,41034,country
+ESP,Spain,2013,452,55.7,15.5,17.0,11.8,252,40595,country
+ESP,Spain,2014,446,57.7,16.9,13.9,11.5,257,41339,country
+ESP,Spain,2015,453,57.3,18.4,11.6,12.7,260,43054,country
+ESP,Spain,2016,461,54.1,18.3,15.6,12.0,249,44275,country
+ESP,Spain,2017,470,51.2,18.3,17.8,12.7,240,45446,country
+ESP,Spain,2018,472,53.6,18.0,16.8,11.6,253,46325,country
+ESP,Spain,2019,469,51.1,19.6,18.3,11.0,240,46896,country
+ESP,Spain,2020,460,49.5,20.2,20.2,10.1,228,41553,country
+ESP,Spain,2021,479,45.7,22.0,21.7,10.6,219,44252,country
+ESP,Spain,2022,484,46.7,21.3,21.8,10.2,226,46733,country
+ESP,Spain,2023,468,46.8,22.3,21.0,9.9,219,47323,country
+ESP,Spain,2024,465,47.3,21.5,21.0,10.2,220,48460,country
+EST,Estonia,2000,453,97.7,2.1,0.2,0.0,442,20527,country
+EST,Estonia,2001,366,93.8,3.6,2.6,0.1,343,21873,country
+EST,Estonia,2002,401,96.5,2.4,1.0,0.1,387,23538,country
+EST,Estonia,2003,413,81.4,16.8,1.7,0.0,337,25485,country
+EST,Estonia,2004,445,71.8,26.7,1.5,0.0,319,27382,country
+EST,Estonia,2005,433,73.5,24.2,2.3,0.0,319,30161,country
+EST,Estonia,2006,398,79.9,15.0,4.9,0.2,318,33301,country
+EST,Estonia,2007,449,73.5,23.0,3.2,0.3,330,35987,country
+EST,Estonia,2008,392,75.8,17.6,6.4,0.2,297,34234,country
+EST,Estonia,2009,339,75.0,13.5,11.3,0.1,254,29282,country
+EST,Estonia,2010,305,78.5,11.9,9.6,0.0,239,30068,country
+EST,Estonia,2011,301,70.4,17.1,10.4,0.0,212,32453,country
+EST,Estonia,2012,281,45.4,18.4,6.6,16.4,127,33765,country
+EST,Estonia,2013,293,14.8,13.7,5.5,60.3,43,34481,country
+EST,Estonia,2014,357,7.1,29.2,5.1,51.9,25,35720,country
+EST,Estonia,2015,359,8.0,27.0,3.8,55.9,29,36353,country
+EST,Estonia,2016,376,11.2,27.5,3.0,53.4,42,37467,country
+EST,Estonia,2017,390,20.0,25.7,3.8,44.1,78,39530,country
+EST,Estonia,2018,405,22.8,25.7,4.0,43.7,92,40850,country
+EST,Estonia,2019,369,18.1,30.3,2.7,48.4,67,42215,country
+EST,Estonia,2020,383,16.9,30.3,3.2,49.6,65,40917,country
+EST,Estonia,2021,394,19.9,27.4,3.4,49.3,79,44247,country
+EST,Estonia,2022,373,14.9,28.8,8.6,47.7,56,43125,country
+EST,Estonia,2023,374,0.7,34.9,11.8,52.6,3,41285,country
+EST,Estonia,2024,378,14.1,26.8,13.0,46.1,53,41186,country
+FIN,Finland,2000,502,58.0,24.8,7.2,9.9,291,46969,country
+FIN,Finland,2001,465,59.0,25.1,7.3,8.6,274,48099,country
+FIN,Finland,2002,458,59.3,24.8,7.2,8.6,272,48792,country
+FIN,Finland,2003,466,57.4,25.1,7.3,10.2,267,49656,country
+FIN,Finland,2004,469,56.2,25.2,7.3,11.2,264,51495,country
+FIN,Finland,2005,478,58.0,25.6,7.5,8.9,277,52744,country
+FIN,Finland,2006,494,57.8,26.0,7.6,8.6,286,54654,country
+FIN,Finland,2007,506,52.7,26.0,9.6,11.6,267,57313,country
+FIN,Finland,2008,521,49.6,25.2,8.3,16.9,259,57495,country
+FIN,Finland,2009,480,46.0,24.0,11.9,18.1,221,52599,country
+FIN,Finland,2010,470,45.1,19.7,13.2,22.1,212,54018,country
+FIN,Finland,2011,505,40.2,21.8,13.1,24.9,203,55053,country
+FIN,Finland,2012,506,32.9,21.5,11.8,33.8,166,53958,country
+FIN,Finland,2013,493,25.1,19.0,13.5,42.4,124,53183,country
+FIN,Finland,2014,482,17.4,18.0,14.5,50.0,84,52711,country
+FIN,Finland,2015,500,11.5,28.1,12.5,47.9,57,52782,country
+FIN,Finland,2016,504,3.1,29.2,12.8,54.7,16,53985,country
+FIN,Finland,2017,510,0.8,27.4,13.1,58.5,4,55637,country
+FIN,Finland,2018,551,0.6,29.1,13.1,57.0,3,56226,country
+FIN,Finland,2019,566,0.8,29.3,14.1,55.6,4,56922,country
+FIN,Finland,2020,609,0.5,29.0,13.1,57.4,3,55425,country
+FIN,Finland,2021,630,0.4,26.7,12.2,60.6,3,56790,country
+FIN,Finland,2022,520,0.4,28.7,14.8,56.1,2,57068,country
+FIN,Finland,2023,466,0.5,28.9,15.8,54.8,2,56052,country
+FIN,Finland,2024,458,0.4,29.8,17.9,51.8,2,55901,country
+FRA,France,2000,525,42.6,13.0,11.6,32.8,224,45922,country
+FRA,France,2001,537,40.7,13.7,12.4,33.2,219,46455,country
+FRA,France,2002,542,38.7,14.4,12.9,34.0,210,46611,country
+FRA,France,2003,517,38.0,15.0,13.0,34.0,197,46731,country
+FRA,France,2004,530,36.3,15.3,13.6,34.8,192,47720,country
+FRA,France,2005,541,36.4,16.6,12.4,34.6,197,48257,country
+FRA,France,2006,547,35.3,17.1,13.6,34.0,193,49223,country
+FRA,France,2007,554,34.3,17.6,14.7,33.4,190,50158,country
+FRA,France,2008,550,32.3,18.5,15.3,33.9,178,50068,country
+FRA,France,2009,546,30.3,19.4,15.9,34.4,165,48405,country
+FRA,France,2010,546,29.1,20.0,16.0,34.8,159,49130,country
+FRA,France,2011,546,28.0,20.6,16.1,35.3,153,50086,country
+FRA,France,2012,538,26.9,21.1,16.6,35.4,145,49936,country
+FRA,France,2013,531,25.8,21.7,17.1,35.5,137,50067,country
+FRA,France,2014,530,24.8,22.2,17.5,35.5,131,50327,country
+FRA,France,2015,529,23.7,22.7,18.0,35.5,126,50683,country
+FRA,France,2016,567,28.7,21.7,17.7,31.8,163,50984,country
+FRA,France,2017,572,28.8,22.0,17.9,31.3,165,51896,country
+FRA,France,2018,571,26.7,21.9,19.5,31.9,153,52561,country
+FRA,France,2019,569,26.7,22.5,19.2,31.6,152,53449,country
+FRA,France,2020,548,25.0,22.7,17.8,34.0,137,49311,country
+FRA,France,2021,579,24.9,23.5,19.2,32.4,144,52517,country
+FRA,France,2022,550,22.9,23.2,18.7,35.1,126,53674,country
+FRA,France,2023,542,22.7,22.6,19.7,35.0,123,54297,country
+FRA,France,2024,518,18.6,22.0,22.8,36.6,96,54799,country
+GBR,United Kingdom,2000,575,81.2,8.4,2.8,7.2,467,43818,country
+GBR,United Kingdom,2001,589,80.0,9.1,3.3,7.3,471,44694,country
+GBR,United Kingdom,2002,597,77.5,10.5,4.0,7.5,463,45265,country
+GBR,United Kingdom,2003,590,74.2,13.3,4.8,7.6,437,46505,country
+GBR,United Kingdom,2004,600,69.3,15.7,6.9,8.0,416,47317,country
+GBR,United Kingdom,2005,580,64.3,18.1,8.6,8.4,373,48305,country
+GBR,United Kingdom,2006,581,60.3,20.1,10.3,9.3,351,49001,country
+GBR,United Kingdom,2007,565,56.9,22.2,11.6,9.4,321,50046,country
+GBR,United Kingdom,2008,539,53.0,23.4,13.3,10.4,285,49629,country
+GBR,United Kingdom,2009,520,49.3,24.3,14.0,11.5,256,46996,country
+GBR,United Kingdom,2010,507,46.0,25.3,15.0,12.9,233,47683,country
+GBR,United Kingdom,2011,489,40.5,26.2,15.8,16.2,198,47714,country
+GBR,United Kingdom,2012,475,37.0,26.8,15.7,18.7,176,48100,country
+GBR,United Kingdom,2013,480,34.0,27.3,15.8,21.0,163,48601,country
+GBR,United Kingdom,2014,480,27.9,27.2,16.2,26.5,134,49763,country
+GBR,United Kingdom,2015,481,22.9,27.1,16.1,31.4,110,50463,country
+GBR,United Kingdom,2016,481,19.0,27.2,16.7,34.5,92,51168,country
+GBR,United Kingdom,2017,466,16.3,26.9,16.8,37.4,76,52429,country
+GBR,United Kingdom,2018,461,14.4,27.1,16.8,39.0,67,52983,country
+GBR,United Kingdom,2019,457,11.2,26.9,17.4,41.3,51,53374,country
+GBR,United Kingdom,2020,460,10.0,25.8,17.0,44.4,46,47931,country
+GBR,United Kingdom,2021,462,10.3,26.0,17.1,43.7,48,51840,country
+GBR,United Kingdom,2022,431,9.2,26.2,16.3,45.4,40,53980,country
+GBR,United Kingdom,2023,435,6.9,25.5,17.6,47.1,30,53423,country
+GBR,United Kingdom,2024,434,6.1,25.9,17.1,47.7,26,53412,country
+GRC,Greece,2000,412,91.2,8.1,0.7,0.0,376,31387,country
+GRC,Greece,2001,420,91.2,8.1,0.7,0.0,383,32676,country
+GRC,Greece,2002,426,91.2,8.1,0.7,0.0,389,34081,country
+GRC,Greece,2003,431,91.9,8.1,0.0,0.0,396,35971,country
+GRC,Greece,2004,437,89.9,10.1,0.0,0.0,393,37811,country
+GRC,Greece,2005,442,88.2,11.2,0.6,0.0,390,38147,country
+GRC,Greece,2006,447,87.2,11.2,1.6,0.0,390,40483,country
+GRC,Greece,2007,453,79.9,18.1,2.0,0.0,362,41796,country
+GRC,Greece,2008,458,82.3,15.7,2.0,0.0,377,41709,country
+GRC,Greece,2009,464,81.1,18.2,0.7,0.0,376,39886,country
+GRC,Greece,2010,532,82.9,14.7,2.4,0.0,441,37567,country
+GRC,Greece,2011,503,82.0,14.9,2.9,0.3,412,33906,country
+GRC,Greece,2012,494,82.5,13.7,3.3,0.5,408,31250,country
+GRC,Greece,2013,482,83.7,12.2,3.5,0.5,403,30762,country
+GRC,Greece,2014,488,84.1,12.3,3.2,0.5,410,31213,country
+GRC,Greece,2015,488,83.9,13.2,2.6,0.3,409,31348,country
+GRC,Greece,2016,498,82.3,13.8,3.4,0.5,410,31469,country
+GRC,Greece,2017,504,80.1,14.7,4.1,1.1,403,31995,country
+GRC,Greece,2018,515,78.4,15.0,5.1,1.5,404,32722,country
+GRC,Greece,2019,524,77.7,16.0,5.0,1.3,407,33503,country
+GRC,Greece,2020,499,80.3,16.5,1.6,1.6,400,30487,country
+GRC,Greece,2021,509,80.6,15.9,1.6,1.6,410,33528,country
+GRC,Greece,2022,521,81.0,15.8,1.4,1.6,422,35828,country
+GRC,Greece,2023,531,80.8,16.0,1.3,1.6,429,36701,country
+GRC,Greece,2024,541,80.7,16.0,1.3,1.6,437,37474,country
+HUN,Hungary,2000,447,89.9,1.4,0.4,8.4,401,22118,country
+HUN,Hungary,2001,453,89.6,1.4,0.4,8.6,406,23069,country
+HUN,Hungary,2002,458,90.5,1.6,1.1,6.8,415,24229,country
+HUN,Hungary,2003,465,90.7,2.7,1.1,5.6,422,25256,country
+HUN,Hungary,2004,455,84.7,11.0,0.9,3.4,386,26568,country
+HUN,Hungary,2005,462,83.8,8.7,0.9,6.6,387,27766,country
+HUN,Hungary,2006,469,81.2,9.2,1.2,8.3,381,28903,country
+HUN,Hungary,2007,458,78.6,11.2,1.5,8.8,360,29044,country
+HUN,Hungary,2008,455,75.5,13.7,1.9,8.9,343,29384,country
+HUN,Hungary,2009,431,75.0,13.4,2.1,9.5,323,27446,country
+HUN,Hungary,2010,404,70.4,15.9,3.7,10.1,284,27802,country
+HUN,Hungary,2011,383,67.3,17.2,4.8,10.7,258,28415,country
+HUN,Hungary,2012,402,65.4,20.9,4.6,9.1,263,28180,country
+HUN,Hungary,2013,378,64.6,21.4,5.0,9.0,244,28891,country
+HUN,Hungary,2014,385,58.7,24.9,6.4,10.0,226,30265,country
+HUN,Hungary,2015,377,53.7,26.0,6.2,14.2,202,31486,country
+HUN,Hungary,2016,379,50.6,26.7,7.9,14.8,192,32379,country
+HUN,Hungary,2017,385,48.6,26.9,8.2,16.2,187,33829,country
+HUN,Hungary,2018,382,49.4,29.0,8.2,13.4,189,35798,country
+HUN,Hungary,2019,387,50.6,26.5,9.3,13.6,196,37663,country
+HUN,Hungary,2020,403,54.0,22.2,9.8,12.0,218,36120,country
+HUN,Hungary,2021,416,51.0,25.5,9.5,12.4,212,38887,country
+HUN,Hungary,2022,404,55.3,24.9,7.9,11.8,223,40611,country
+HUN,Hungary,2023,425,54.2,19.4,14.0,12.3,230,40333,country
+HUN,Hungary,2024,409,53.2,19.5,14.0,13.2,217,40747,country
+IRL,Ireland,2000,599,88.5,10.7,0.7,0.0,531,53583,country
+IRL,Ireland,2001,700,87.1,11.9,0.9,0.0,610,55535,country
+IRL,Ireland,2002,692,79.8,18.8,1.4,0.0,553,57828,country
+IRL,Ireland,2003,731,73.4,25.1,1.5,0.0,536,58608,country
+IRL,Ireland,2004,738,67.3,30.9,1.8,0.0,496,61453,country
+IRL,Ireland,2005,732,66.0,32.3,1.7,0.0,483,63580,country
+IRL,Ireland,2006,793,63.9,34.3,1.8,0.0,507,64975,country
+IRL,Ireland,2007,773,63.5,34.0,2.5,0.0,491,66476,country
+IRL,Ireland,2008,719,62.5,31.5,3.4,2.6,449,62214,country
+IRL,Ireland,2009,651,61.0,31.9,3.1,3.9,397,58447,country
+IRL,Ireland,2010,624,57.1,34.7,4.1,4.2,356,59107,country
+IRL,Ireland,2011,616,52.5,33.7,6.1,7.7,324,59797,country
+IRL,Ireland,2012,585,42.1,34.0,6.4,17.5,247,59303,country
+IRL,Ireland,2013,582,42.1,34.0,6.4,17.5,245,60285,country
+IRL,Ireland,2014,562,20.8,33.5,7.0,34.7,117,65463,country
+IRL,Ireland,2015,557,20.8,33.5,7.0,34.7,116,80816,country
+IRL,Ireland,2016,581,26.1,34.4,7.0,29.8,152,80760,country
+IRL,Ireland,2017,575,22.9,32.0,9.0,32.3,132,87732,country
+IRL,Ireland,2018,598,14.6,29.7,8.6,43.4,87,93116,country
+IRL,Ireland,2019,625,15.5,28.2,9.7,46.5,97,96206,country
+IRL,Ireland,2020,644,16.3,29.9,11.1,42.7,105,101793,country
+IRL,Ireland,2021,629,16.1,25.9,15.4,42.0,102,116703,country
+IRL,Ireland,2022,624,14.7,26.3,15.3,43.5,92,123007,country
+IRL,Ireland,2023,603,14.7,26.4,15.6,43.2,89,117660,country
+IRL,Ireland,2024,592,15.1,26.5,15.8,42.6,89,118833,country
+ISL,Iceland,2000,462,72.6,12.6,2.2,12.6,336,50228,country
+ISL,Iceland,2001,467,75.8,13.6,2.3,8.3,353,51468,country
+ISL,Iceland,2002,476,76.3,14.1,2.2,7.4,363,51288,country
+ISL,Iceland,2003,483,74.5,14.2,2.1,9.2,360,52096,country
+ISL,Iceland,2004,503,63.5,13.8,,9.0,319,55577,country
+ISL,Iceland,2005,515,89.3,,,10.7,460,58549,country
+ISL,Iceland,2006,563,90.0,,,10.0,506,60434,country
+ISL,Iceland,2007,558,87.3,,,12.7,487,64075,country
+ISL,Iceland,2008,655,74.5,17.3,1.9,6.3,488,63964,country
+ISL,Iceland,2009,414,71.2,15.9,4.5,8.3,295,58441,country
+ISL,Iceland,2010,484,71.4,15.6,5.2,7.8,346,57225,country
+ISL,Iceland,2011,495,68.4,20.3,5.1,6.3,338,57838,country
+ISL,Iceland,2012,511,66.7,23.6,4.2,5.5,341,58204,country
+ISL,Iceland,2013,516,66.3,25.3,4.8,3.6,342,59730,country
+ISL,Iceland,2014,534,66.3,21.1,8.6,4.0,354,60199,country
+ISL,Iceland,2015,588,58.0,20.7,7.4,3.5,341,61820,country
+ISL,Iceland,2016,655,57.3,25.5,7.6,3.8,375,64759,country
+ISL,Iceland,2017,656,63.4,19.0,6.7,3.7,416,65463,country
+ISL,Iceland,2018,701,59.7,20.6,7.0,4.7,418,66703,country
+ISL,Iceland,2019,694,52.9,18.9,7.1,6.7,367,65995,country
+ISL,Iceland,2020,614,47.7,17.6,8.8,10.5,293,60617,country
+ISL,Iceland,2021,659,39.9,22.0,4.5,8.3,263,62721,country
+ISL,Iceland,2022,598,33.0,20.7,2.5,15.6,197,66581,country
+ISL,Iceland,2023,577,28.0,29.2,2.5,20.6,161,69268,country
+ISL,Iceland,2024,551,10.4,32.7,11.8,40.4,57,68230,country
+ISR,Israel,2004,601,100.0,,,,601,32666,country
+ISR,Israel,2005,607,100.0,,,,607,33492,country
+ISR,Israel,2006,618,100.0,,,,618,34745,country
+ISR,Israel,2007,618,100.0,,,,618,36288,country
+ISR,Israel,2008,626,100.0,,,,626,36795,country
+ISR,Israel,2009,632,100.0,,,,632,36365,country
+ISR,Israel,2010,630,100.0,,,,630,37686,country
+ISR,Israel,2011,635,100.0,,,,635,39036,country
+ISR,Israel,2012,636,100.0,,,,636,39246,country
+ISR,Israel,2013,627,81.9,7.3,10.8,,514,40095,country
+ISR,Israel,2014,627,81.8,7.7,10.5,,513,40796,country
+ISR,Israel,2015,631,80.9,7.2,11.8,,511,40890,country
+ISR,Israel,2016,641,79.6,7.0,13.2,0.1,510,41915,country
+ISR,Israel,2017,650,77.6,7.2,14.6,0.6,504,42896,country
+ISR,Israel,2018,665,76.2,6.9,15.8,1.2,507,43783,country
+ISR,Israel,2019,665,76.4,6.8,15.1,1.7,509,44492,country
+ISR,Israel,2020,679,77.4,6.6,14.4,1.6,526,42927,country
+ISR,Israel,2021,687,76.6,7.1,14.9,1.3,527,46151,country
+ISR,Israel,2022,680,75.9,7.1,15.6,1.5,516,48132,country
+ISR,Israel,2023,676,74.7,7.5,16.6,1.2,505,47671,country
+ISR,Israel,2024,680,75.6,7.7,15.4,1.3,514,47389,country
+ITA,Italy,2000,506,77.5,10.2,4.4,7.9,392,50353,country
+ITA,Italy,2001,513,72.0,12.7,6.2,9.1,369,51332,country
+ITA,Italy,2002,520,72.5,10.6,6.6,10.3,377,51369,country
+ITA,Italy,2003,520,68.9,12.0,6.9,12.2,358,51126,country
+ITA,Italy,2004,535,66.3,13.2,7.4,13.2,355,51495,country
+ITA,Italy,2005,541,63.8,13.7,8.1,14.3,346,51586,country
+ITA,Italy,2006,553,62.7,13.7,8.7,14.8,347,52304,country
+ITA,Italy,2007,550,58.2,19.0,8.9,13.9,320,52747,country
+ITA,Italy,2008,545,57.0,16.4,11.0,15.5,311,51806,country
+ITA,Italy,2009,536,52.1,20.2,11.7,16.0,279,48774,country
+ITA,Italy,2010,539,49.2,20.0,12.9,17.8,265,49302,country
+ITA,Italy,2011,520,44.1,23.9,13.3,18.7,229,49473,country
+ITA,Italy,2012,496,40.7,25.0,15.1,19.2,202,47796,country
+ITA,Italy,2013,488,38.2,25.7,15.1,20.9,186,46833,country
+ITA,Italy,2014,489,33.9,27.1,17.7,21.3,166,46826,country
+ITA,Italy,2015,487,28.8,28.9,19.1,22.2,140,47312,country
+ITA,Italy,2016,498,27.1,29.6,20.9,21.4,135,47988,country
+ITA,Italy,2017,490,25.7,30.5,21.9,20.9,126,48849,country
+ITA,Italy,2018,500,23.6,31.6,23.0,20.9,118,49356,country
+ITA,Italy,2019,499,22.8,32.8,23.1,21.3,114,49691,country
+ITA,Italy,2020,483,22.1,30.4,26.1,21.3,107,45505,country
+ITA,Italy,2021,490,21.0,30.4,26.3,21.0,103,49825,country
+ITA,Italy,2022,481,19.9,32.1,26.8,20.5,96,52333,country
+ITA,Italy,2023,485,18.4,34.6,24.2,22.1,89,52843,country
+ITA,Italy,2024,497,17.4,35.7,24.8,21.5,86,53285,country
+JPN,Japan,2000,432,5.6,14.3,,73.5,24,39732,country
+JPN,Japan,2001,430,5.0,15.0,,74.2,22,39749,country
+JPN,Japan,2002,425,4.1,15.9,,74.3,17,39690,country
+JPN,Japan,2003,425,3.4,16.8,,74.0,15,40152,country
+JPN,Japan,2004,418,3.3,17.6,,73.3,14,40987,country
+JPN,Japan,2005,412,2.7,19.0,,73.0,11,41740,country
+JPN,Japan,2006,406,2.3,19.6,,73.1,9,42359,country
+JPN,Japan,2007,397,2.3,20.3,,72.9,9,43042,country
+JPN,Japan,2008,375,1.6,19.3,,75.7,6,42519,country
+JPN,Japan,2009,361,1.4,18.9,,76.4,5,40000,country
+JPN,Japan,2010,354,1.3,19.1,,76.2,5,41647,country
+JPN,Japan,2011,355,1.3,20.3,0.3,78.0,5,41641,country
+JPN,Japan,2012,354,1.3,20.3,0.3,78.2,4,42395,country
+JPN,Japan,2013,351,1.3,20.4,0.3,78.0,5,43304,country
+JPN,Japan,2014,348,1.2,20.5,0.4,77.9,4,43754,country
+JPN,Japan,2015,346,1.1,20.4,0.4,78.2,4,44589,country
+JPN,Japan,2016,339,1.0,20.1,0.4,78.5,3,44927,country
+JPN,Japan,2017,338,1.0,19.8,0.4,78.8,3,45693,country
+JPN,Japan,2018,337,1.0,19.6,0.4,79.0,3,46133,country
+JPN,Japan,2019,337,0.9,19.2,0.4,79.5,3,46055,country
+JPN,Japan,2020,330,0.9,19.4,0.4,79.3,3,44213,country
+JPN,Japan,2021,326,0.8,19.4,0.3,79.5,3,45999,country
+JPN,Japan,2023,313,0.8,19.1,0.3,79.8,2,47387,country
+KOR,South Korea,2000,362,47.0,41.3,,11.7,170,26404,country
+KOR,South Korea,2001,376,50.1,49.9,,0.0,188,27441,country
+KOR,South Korea,2002,385,41.5,44.0,,14.5,160,29395,country
+KOR,South Korea,2003,390,40.3,45.2,,14.5,157,30142,country
+KOR,South Korea,2004,383,36.4,49.2,,14.4,139,31580,country
+KOR,South Korea,2005,369,27.7,56.3,,16.0,102,32886,country
+KOR,South Korea,2008,393,20.3,58.4,1.4,19.9,80,37064,country
+KOR,South Korea,2009,383,18.6,59.8,1.3,20.3,71,37176,country
+KOR,South Korea,2010,368,17.9,59.9,0.6,21.6,66,39574,country
+KOR,South Korea,2011,364,17.1,58.3,0.8,23.7,62,40719,country
+KOR,South Korea,2012,361,15.9,58.4,0.7,25.0,57,41538,country
+KOR,South Korea,2013,355,15.6,58.7,0.4,25.3,56,42710,country
+KOR,South Korea,2014,360,15.7,58.1,0.9,25.3,56,43807,country
+KOR,South Korea,2015,367,15.1,58.4,0.8,25.7,55,44849,country
+KOR,South Korea,2016,383,14.7,59.2,0.8,25.3,56,46088,country
+KOR,South Korea,2017,379,13.5,60.6,1.0,24.9,51,47537,country
+KOR,South Korea,2018,396,13.4,61.6,0.4,24.6,53,48834,country
+KOR,South Korea,2019,409,12.7,56.5,3.2,25.7,52,49791,country
+KOR,South Korea,2020,435,11.8,56.5,3.1,25.5,51,49374,country
+KOR,South Korea,2021,438,12.9,53.9,2.8,24.9,56,51718,country
+KOR,South Korea,2022,445,10.2,57.2,2.7,24.0,45,53229,country
+KOR,South Korea,2023,433,10.7,44.6,2.4,36.5,46,54029,country
+LTU,Lithuania,2000,365,100.0,0.0,0.0,0.0,364,15777,country
+LTU,Lithuania,2001,378,100.0,0.0,0.0,0.0,378,16939,country
+LTU,Lithuania,2002,405,100.0,0.0,0.0,0.0,405,18223,country
+LTU,Lithuania,2003,389,100.0,0.0,0.0,0.0,389,20311,country
+LTU,Lithuania,2004,373,98.0,1.2,0.9,0.0,366,21876,country
+LTU,Lithuania,2005,387,97.9,1.2,0.9,0.0,380,23954,country
+LTU,Lithuania,2006,405,97.9,1.2,0.9,0.0,397,26139,country
+LTU,Lithuania,2007,419,92.4,5.9,1.6,0.0,387,29382,country
+LTU,Lithuania,2008,428,91.4,7.4,1.1,0.0,391,30457,country
+LTU,Lithuania,2009,381,91.4,7.2,1.3,0.0,348,26228,country
+LTU,Lithuania,2010,404,94.3,3.8,1.7,0.1,381,26898,country
+LTU,Lithuania,2011,442,79.0,18.7,1.8,0.6,349,29252,country
+LTU,Lithuania,2012,445,75.6,20.4,4.0,0.0,337,30932,country
+LTU,Lithuania,2013,433,64.0,21.0,7.6,7.3,277,32487,country
+LTU,Lithuania,2014,433,59.9,21.5,9.5,9.0,260,33988,country
+LTU,Lithuania,2015,447,54.7,23.2,10.3,11.7,245,35265,country
+LTU,Lithuania,2016,443,31.3,25.8,24.7,18.2,139,36632,country
+LTU,Lithuania,2017,455,33.0,24.4,24.1,18.5,150,38789,country
+LTU,Lithuania,2018,464,27.5,27.0,31.6,13.9,127,41035,country
+LTU,Lithuania,2019,472,24.5,31.3,25.2,16.8,116,43079,country
+LTU,Lithuania,2020,483,18.4,27.5,23.5,29.2,89,43108,country
+LTU,Lithuania,2021,481,16.0,27.5,18.6,36.7,77,45897,country
+LTU,Lithuania,2022,468,13.6,26.1,21.9,37.9,64,46643,country
+LTU,Lithuania,2023,449,7.9,25.1,24.5,41.0,36,46334,country
+LTU,Lithuania,2024,466,5.8,28.7,24.1,39.4,27,47462,country
+LUX,Luxembourg,2000,654,21.0,21.6,14.2,43.2,138,114148,country
+LUX,Luxembourg,2001,646,20.2,23.3,14.1,42.4,131,116265,country
+LUX,Luxembourg,2002,653,19.7,22.8,15.5,41.9,129,118764,country
+LUX,Luxembourg,2003,678,18.6,23.0,19.2,39.2,126,120403,country
+LUX,Luxembourg,2004,678,16.7,23.2,18.2,41.9,113,123726,country
+LUX,Luxembourg,2005,672,18.7,25.6,18.0,37.7,126,124872,country
+LUX,Luxembourg,2006,682,17.4,26.0,17.8,38.8,119,130290,country
+LUX,Luxembourg,2007,694,16.7,25.8,19.2,38.3,116,138683,country
+LUX,Luxembourg,2008,697,15.5,26.1,19.8,38.6,108,135815,country
+LUX,Luxembourg,2009,679,15.1,26.4,19.9,38.6,102,129005,country
+LUX,Luxembourg,2010,678,15.8,26.9,19.5,37.7,107,131434,country
+LUX,Luxembourg,2011,666,14.6,28.3,18.0,39.1,97,129888,country
+LUX,Luxembourg,2012,652,14.3,27.9,19.7,38.2,93,128897,country
+LUX,Luxembourg,2013,616,14.2,28.3,18.1,39.4,88,129947,country
+LUX,Luxembourg,2014,626,14.3,28.5,19.4,37.9,90,130250,country
+LUX,Luxembourg,2015,607,7.4,29.2,18.3,45.1,45,130097,country
+LUX,Luxembourg,2016,812,4.3,28.7,20.5,46.5,35,133662,country
+LUX,Luxembourg,2017,798,4.5,29.7,19.2,46.6,36,132170,country
+LUX,Luxembourg,2018,803,4.4,29.7,19.2,46.7,35,131734,country
+LUX,Luxembourg,2019,791,4.4,29.7,19.2,46.7,35,132725,country
+LUX,Luxembourg,2020,789,3.9,29.3,23.5,43.1,31,129866,country
+LUX,Luxembourg,2021,793,4.0,30.0,25.3,40.8,32,136772,country
+LUX,Luxembourg,2022,720,2.8,32.0,23.8,41.5,20,132571,country
+LUX,Luxembourg,2023,719,2.9,31.7,24.8,40.6,21,130049,country
+LUX,Luxembourg,2024,735,3.0,31.6,24.8,40.6,22,128475,country
+LVA,Latvia,2000,271,100.0,0.0,0.0,0.0,271,14554,country
+LVA,Latvia,2001,305,98.1,0.0,0.5,1.5,299,15696,country
+LVA,Latvia,2002,343,97.7,0.5,0.0,1.9,335,17097,country
+LVA,Latvia,2003,304,95.6,2.3,0.4,1.8,290,18718,country
+LVA,Latvia,2004,318,92.8,3.8,1.2,2.2,295,20574,country
+LVA,Latvia,2005,320,94.2,4.4,0.2,1.2,301,23213,country
+LVA,Latvia,2006,342,94.5,4.1,0.8,0.6,324,26432,country
+LVA,Latvia,2007,391,93.9,4.9,0.7,0.4,367,29424,country
+LVA,Latvia,2008,345,93.2,5.7,0.7,0.4,322,28727,country
+LVA,Latvia,2009,352,92.2,7.4,0.3,0.1,324,24521,country
+LVA,Latvia,2010,324,90.7,8.8,0.6,0.0,294,24120,country
+LVA,Latvia,2011,350,88.3,10.3,1.3,0.0,309,25309,country
+LVA,Latvia,2012,323,83.9,13.6,2.1,0.5,271,27497,country
+LVA,Latvia,2013,350,72.9,19.9,5.6,1.7,255,28375,country
+LVA,Latvia,2014,364,71.4,23.6,3.6,1.5,260,29244,country
+LVA,Latvia,2015,403,66.9,24.6,6.4,2.1,270,30600,country
+LVA,Latvia,2016,409,70.0,16.4,11.0,2.6,287,31669,country
+LVA,Latvia,2017,411,70.2,19.2,7.7,2.9,289,33036,country
+LVA,Latvia,2018,407,68.3,22.2,7.1,2.2,278,34730,country
+LVA,Latvia,2019,439,56.4,35.4,4.9,3.3,248,35208,country
+LVA,Latvia,2020,478,55.5,34.0,7.6,2.8,266,34226,country
+LVA,Latvia,2021,461,52.5,36.1,8.0,3.4,242,36912,country
+LVA,Latvia,2022,463,44.7,34.8,17.4,3.0,207,37719,country
+LVA,Latvia,2023,438,40.6,28.1,24.7,6.6,178,37278,country
+LVA,Latvia,2024,461,35.2,30.9,26.4,7.5,162,37615,country
+MEX,Mexico,2000,312,47.1,2.4,,,147,20470,country
+MEX,Mexico,2001,315,48.4,2.4,,,152,20078,country
+MEX,Mexico,2002,317,48.4,2.4,,,153,19745,country
+MEX,Mexico,2003,320,53.0,2.5,,,169,19701,country
+MEX,Mexico,2004,331,53.7,2.6,,,178,20127,country
+MEX,Mexico,2005,335,53.2,3.2,,,178,20277,country
+MEX,Mexico,2006,337,54.7,3.3,,,184,20966,country
+MEX,Mexico,2007,339,56.5,3.3,,,192,21102,country
+MEX,Mexico,2008,341,58.0,3.6,,,198,20993,country
+MEX,Mexico,2009,342,57.9,3.9,,,198,19386,country
+MEX,Mexico,2010,353,62.2,4.2,,,219,20058,country
+MEX,Mexico,2011,356,63.6,4.8,,,227,20458,country
+MEX,Mexico,2012,360,66.5,5.0,,,240,20899,country
+MEX,Mexico,2016,313,100.0,,,,313,21578,country
+MEX,Mexico,2018,314,100.0,,,,314,21998,country
+MEX,Mexico,2020,307,100.0,,,,307,19728,country
+MEX,Mexico,2022,307,100.0,,,,307,21392,country
+NLD,Netherlands,2000,593,8.1,17.0,20.7,54.2,48,56017,country
+NLD,Netherlands,2001,590,6.9,16.9,20.0,56.2,41,56887,country
+NLD,Netherlands,2002,595,7.0,17.7,20.7,54.6,42,56664,country
+NLD,Netherlands,2003,581,2.3,18.6,20.9,58.2,13,56453,country
+NLD,Netherlands,2004,593,1.4,19.3,21.1,58.1,8,57391,country
+NLD,Netherlands,2005,593,1.5,18.9,21.4,58.2,9,58422,country
+NLD,Netherlands,2006,592,2.1,19.9,20.5,57.6,12,60392,country
+NLD,Netherlands,2007,600,1.7,20.7,20.8,56.7,10,62602,country
+NLD,Netherlands,2008,595,1.6,24.8,23.6,50.0,9,63678,country
+NLD,Netherlands,2009,584,1.6,24.5,24.6,49.4,9,61030,country
+NLD,Netherlands,2010,565,1.5,24.8,24.4,49.3,9,61519,country
+NLD,Netherlands,2011,563,1.6,24.2,24.9,49.3,9,62318,country
+NLD,Netherlands,2012,544,1.5,23.9,25.6,49.1,8,61481,country
+NLD,Netherlands,2013,521,1.5,23.9,25.9,48.7,8,61281,country
+NLD,Netherlands,2014,522,1.4,23.7,27.2,47.7,8,62046,country
+NLD,Netherlands,2015,518,1.4,24.5,27.2,46.8,7,63081,country
+NLD,Netherlands,2016,515,1.4,25.9,27.6,45.1,7,64268,country
+NLD,Netherlands,2017,508,1.4,26.5,28.1,44.0,7,65666,country
+NLD,Netherlands,2018,505,1.4,27.2,28.7,42.7,7,66758,country
+NLD,Netherlands,2019,502,1.4,27.7,29.2,41.7,7,67848,country
+NLD,Netherlands,2020,527,1.4,27.8,29.2,41.7,7,64862,country
+NLD,Netherlands,2021,508,1.3,27.9,29.9,40.9,7,68574,country
+NLD,Netherlands,2022,467,1.4,28.1,29.4,41.0,7,71324,country
+NLD,Netherlands,2023,460,1.4,27.7,30.2,40.6,7,70199,country
+NLD,Netherlands,2024,467,1.5,27.5,30.5,40.6,7,70494,country
+NOR,Norway,2000,613,54.7,22.0,8.6,14.7,336,76776,country
+NOR,Norway,2001,361,25.4,30.5,13.9,29.5,92,78041,country
+NOR,Norway,2002,392,23.8,31.4,13.9,30.5,93,78753,country
+NOR,Norway,2003,402,21.4,31.4,14.4,32.6,86,79150,country
+NOR,Norway,2004,414,19.7,25.0,11.6,30.9,82,82091,country
+NOR,Norway,2005,426,18.0,26.4,13.0,33.3,77,83955,country
+NOR,Norway,2006,459,18.2,26.8,13.5,31.6,84,85653,country
+NOR,Norway,2007,491,18.7,27.8,14.9,37.5,92,87671,country
+NOR,Norway,2008,487,17.9,28.8,14.8,37.6,87,87297,country
+NOR,Norway,2009,470,14.3,27.3,15.7,41.5,67,84813,country
+NOR,Norway,2010,469,6.0,26.5,15.6,50.3,28,84605,country
+NOR,Norway,2011,485,2.3,24.9,15.0,55.8,11,84671,country
+NOR,Norway,2012,477,1.8,25.9,13.9,56.3,9,85926,country
+NOR,Norway,2013,496,2.1,23.4,15.8,57.4,10,85974,country
+NOR,Norway,2014,423,2.8,26.1,16.1,52.8,12,86791,country
+NOR,Norway,2015,421,3.4,26.1,16.7,52.3,14,87688,country
+NOR,Norway,2016,754,4.2,28.0,10.2,53.5,32,88042,country
+NOR,Norway,2017,748,3.5,28.8,10.0,52.9,26,89665,country
+NOR,Norway,2018,739,3.1,31.0,9.7,51.1,23,90064,country
+NOR,Norway,2019,776,3.7,29.9,10.9,49.5,29,90773,country
+NOR,Norway,2020,726,2.3,35.3,9.6,46.5,17,89012,country
+NOR,Norway,2021,799,3.1,28.6,9.7,50.0,25,92206,country
+NOR,Norway,2022,768,3.1,30.8,10.4,51.2,24,95110,country
+NOR,Norway,2023,724,5.4,31.4,10.4,47.0,39,94365,country
+NOR,Norway,2024,716,2.8,35.8,10.8,47.3,20,94804,country
+NZL,New Zealand,2002,765,100.0,,,,765,38072,country
+NZL,New Zealand,2003,764,100.0,,,,764,39092,country
+NZL,New Zealand,2004,780,100.0,,,,780,40091,country
+NZL,New Zealand,2006,755,100.0,,,,755,41597,country
+NZL,New Zealand,2010,690,100.0,,,,690,41395,country
+NZL,New Zealand,2011,687,100.0,,,,687,41962,country
+NZL,New Zealand,2012,648,100.0,,,,648,42693,country
+NZL,New Zealand,2013,682,100.0,,,,682,43453,country
+NZL,New Zealand,2014,719,100.0,,,,719,44370,country
+NZL,New Zealand,2015,780,100.0,,,,780,45097,country
+NZL,New Zealand,2016,796,100.0,,,,796,45746,country
+NZL,New Zealand,2017,790,100.0,,,,790,46286,country
+NZL,New Zealand,2018,799,100.0,,,,799,46975,country
+NZL,New Zealand,2019,745,100.0,,,,745,47392,country
+NZL,New Zealand,2020,710,100.0,,,,710,46326,country
+NZL,New Zealand,2021,767,100.0,,,,767,48202,country
+NZL,New Zealand,2022,781,100.0,,,,781,49843,country
+NZL,New Zealand,2023,751,100.0,,,,751,49593,country
+NZL,New Zealand,2024,642,100.0,,,,642,48325,country
+OECD,OECD total,2000,544,52.6,17.4,6.5,17.5,286,,aggregate
+OECD,OECD total,2001,538,51.9,18.0,6.6,17.5,279,,aggregate
+OECD,OECD total,2002,541,50.9,18.6,6.9,17.8,275,,aggregate
+OECD,OECD total,2003,536,50.1,19.2,7.2,17.8,268,,aggregate
+OECD,OECD total,2004,539,49.4,19.6,7.6,17.7,266,,aggregate
+OECD,OECD total,2005,539,47.9,20.4,7.8,18.1,258,,aggregate
+OECD,OECD total,2006,541,47.2,20.9,8.0,18.4,255,,aggregate
+OECD,OECD total,2007,540,46.5,21.7,8.3,18.3,251,,aggregate
+OECD,OECD total,2008,531,45.5,22.1,8.7,18.5,241,,aggregate
+OECD,OECD total,2009,521,45.3,22.3,8.6,18.4,236,,aggregate
+OECD,OECD total,2010,519,45.1,22.8,8.4,18.7,234,,aggregate
+OECD,OECD total,2011,518,44.2,23.1,8.5,19.1,229,,aggregate
+OECD,OECD total,2012,511,43.5,23.5,8.7,19.3,223,,aggregate
+OECD,OECD total,2013,506,42.9,23.3,9.1,19.7,217,,aggregate
+OECD,OECD total,2014,505,42.2,23.6,9.5,19.7,213,,aggregate
+OECD,OECD total,2015,507,41.8,24.0,9.5,19.8,212,,aggregate
+OECD,OECD total,2016,516,41.3,24.0,10.0,19.9,213,,aggregate
+OECD,OECD total,2017,515,41.0,23.8,10.4,20.1,211,,aggregate
+OECD,OECD total,2018,531,41.1,24.1,10.1,19.9,218,,aggregate
+OECD,OECD total,2019,531,40.8,24.1,10.4,20.1,217,,aggregate
+OECD,OECD total,2020,527,39.9,24.2,10.8,20.4,210,,aggregate
+OECD,OECD total,2021,540,39.7,24.2,11.1,20.1,214,,aggregate
+OECD,OECD total,2022,521,39.9,24.3,11.0,20.0,208,,aggregate
+OECD,OECD total,2023,515,39.9,23.7,11.1,20.5,205,,aggregate
+OECD,OECD total,2024,518,39.4,23.8,11.4,20.6,204,,aggregate
+POL,Poland,2000,320,97.9,0.1,2.0,0.0,313,18566,country
+POL,Poland,2001,290,95.8,1.3,2.8,0.1,278,18801,country
+POL,Poland,2002,275,96.5,1.1,2.0,0.3,265,19167,country
+POL,Poland,2003,260,96.8,1.5,1.3,0.4,252,19856,country
+POL,Poland,2004,256,94.6,2.5,2.4,0.5,242,20879,country
+POL,Poland,2005,319,92.2,3.9,3.4,0.5,294,21569,country
+POL,Poland,2006,321,91.0,4.9,3.6,0.5,292,22921,country
+POL,Poland,2007,323,90.2,5.8,3.6,0.4,291,24484,country
+POL,Poland,2008,321,86.8,8.9,3.8,0.4,279,25554,country
+POL,Poland,2009,317,83.8,14.1,1.6,0.5,266,26204,country
+POL,Poland,2010,316,80.0,17.8,1.8,0.4,253,27112,country
+POL,Poland,2011,317,85.5,11.9,2.1,0.5,271,28522,country
+POL,Poland,2012,316,84.4,13.0,2.1,0.5,267,28953,country
+POL,Poland,2013,295,73.9,15.8,2.2,8.1,218,29169,country
+POL,Poland,2014,270,58.4,21.1,5.4,15.1,158,30335,country
+POL,Poland,2015,284,54.3,26.4,6.1,13.2,154,31700,country
+POL,Poland,2016,305,45.7,27.8,7.0,19.4,139,32675,country
+POL,Poland,2017,313,41.8,26.7,7.1,24.4,131,34355,country
+POL,Poland,2018,326,41.6,26.2,8.1,24.1,136,36500,country
+POL,Poland,2019,334,43.0,25.0,9.0,22.9,144,38182,country
+POL,Poland,2020,344,39.8,26.7,12.0,21.5,137,37853,country
+POL,Poland,2021,359,38.7,26.9,13.3,21.0,139,41060,country
+POL,Poland,2022,350,38.1,26.7,14.2,21.1,133,43405,country
+POL,Poland,2023,347,38.5,20.1,15.0,26.3,134,43673,country
+POL,Poland,2024,367,36.2,22.1,15.4,26.4,133,45153,country
+PRT,Portugal,2000,457,68.5,3.3,7.2,20.9,313,35070,country
+PRT,Portugal,2001,455,67.5,4.0,7.9,20.7,307,35500,country
+PRT,Portugal,2002,441,71.8,4.6,2.9,20.6,317,35579,country
+PRT,Portugal,2003,449,67.7,4.8,6.1,21.4,304,35115,country
+PRT,Portugal,2004,445,65.3,6.9,6.6,21.3,290,35658,country
+PRT,Portugal,2005,452,62.6,8.6,6.6,22.3,283,35870,country
+PRT,Portugal,2006,465,64.2,9.7,6.2,20.0,299,36388,country
+PRT,Portugal,2007,471,63.8,10.6,6.5,19.1,301,37226,country
+PRT,Portugal,2008,518,64.5,10.4,7.0,18.1,334,37292,country
+PRT,Portugal,2009,520,60.8,11.8,7.7,19.7,316,36093,country
+PRT,Portugal,2010,516,62.0,11.3,7.3,19.4,320,36703,country
+PRT,Portugal,2011,490,58.9,11.5,8.6,21.0,289,36127,country
+PRT,Portugal,2012,453,54.4,11.5,14.6,19.5,247,34805,country
+PRT,Portugal,2013,440,50.5,12.9,12.9,23.7,222,34652,country
+PRT,Portugal,2014,453,49.0,16.2,14.1,20.7,222,35097,country
+PRT,Portugal,2015,460,48.4,14.8,16.3,20.5,223,35803,country
+PRT,Portugal,2016,473,46.5,15.2,17.7,20.6,220,36636,country
+PRT,Portugal,2017,485,48.8,12.6,17.9,20.7,237,37943,country
+PRT,Portugal,2018,505,50.5,12.8,17.7,19.0,255,39124,country
+PRT,Portugal,2019,511,49.8,12.8,17.6,19.8,254,40188,country
+PRT,Portugal,2020,509,54.2,12.1,13.3,20.3,276,36852,country
+PRT,Portugal,2021,511,49.5,12.8,15.7,22.0,253,38658,country
+PRT,Portugal,2022,511,52.2,12.4,16.2,19.2,267,41071,country
+PRT,Portugal,2023,512,53.7,12.4,16.6,17.4,275,41768,country
+PRT,Portugal,2024,533,48.5,11.5,19.2,20.9,258,42228,country
+SVK,Slovakia,2000,254,78.6,2.5,2.7,15.6,200,18336,country
+SVK,Slovakia,2001,239,83.0,2.8,2.7,10.5,198,18907,country
+SVK,Slovakia,2002,269,81.5,2.5,2.5,11.4,220,19749,country
+SVK,Slovakia,2003,281,82.1,3.3,2.6,11.4,231,20722,country
+SVK,Slovakia,2004,260,80.2,3.3,2.9,13.1,209,21843,country
+SVK,Slovakia,2005,273,82.8,1.0,1.2,13.2,226,23257,country
+SVK,Slovakia,2006,283,81.2,0.9,3.3,13.2,230,25332,country
+SVK,Slovakia,2007,294,79.5,2.6,4.3,11.8,234,28064,country
+SVK,Slovakia,2008,313,80.1,3.7,4.0,9.9,251,29544,country
+SVK,Slovakia,2009,307,78.3,4.5,4.0,11.3,241,27880,country
+SVK,Slovakia,2010,319,77.5,5.7,3.5,10.7,247,29746,country
+SVK,Slovakia,2011,311,73.9,6.8,4.1,11.0,230,30469,country
+SVK,Slovakia,2012,306,73.1,8.5,4.9,10.1,224,30894,country
+SVK,Slovakia,2013,304,71.2,6.7,4.3,10.7,216,31078,country
+SVK,Slovakia,2014,320,68.0,5.2,5.4,11.2,218,31889,country
+SVK,Slovakia,2015,329,69.0,7.7,7.3,10.8,227,33508,country
+SVK,Slovakia,2016,348,65.9,15.5,7.6,10.5,230,34116,country
+SVK,Slovakia,2017,379,60.6,21.1,8.8,9.6,229,35043,country
+SVK,Slovakia,2018,414,55.4,26.8,9.5,8.3,229,36416,country
+SVK,Slovakia,2019,422,52.2,26.9,11.7,9.2,220,37194,country
+SVK,Slovakia,2020,479,46.6,31.8,13.9,7.6,223,36201,country
+SVK,Slovakia,2021,497,41.3,34.0,15.8,8.3,205,38330,country
+SVK,Slovakia,2022,475,40.4,33.9,17.0,8.0,192,38649,country
+SVK,Slovakia,2023,464,39.6,33.4,18.0,7.9,184,39502,country
+SVK,Slovakia,2024,481,39.0,32.8,19.1,7.4,188,40302,country
+SVN,Slovenia,2000,513,92.9,5.5,1.6,0.0,477,30061,country
+SVN,Slovenia,2001,479,96.5,1.9,1.6,0.0,462,30863,country
+SVN,Slovenia,2002,408,90.1,7.9,1.4,0.6,367,31837,country
+SVN,Slovenia,2003,419,86.3,11.5,1.6,0.6,361,32834,country
+SVN,Slovenia,2004,486,74.6,21.8,1.8,1.8,363,34305,country
+SVN,Slovenia,2005,495,78.1,20.0,1.8,0.2,386,35565,country
+SVN,Slovenia,2006,517,81.8,16.4,1.7,0.1,423,37546,country
+SVN,Slovenia,2007,526,74.7,23.6,1.6,0.1,393,40003,country
+SVN,Slovenia,2008,541,75.7,21.0,1.9,1.5,409,41286,country
+SVN,Slovenia,2009,525,73.8,22.2,2.3,1.7,387,37809,country
+SVN,Slovenia,2010,491,60.3,21.4,2.3,1.0,296,38063,country
+SVN,Slovenia,2011,416,57.4,30.8,5.4,1.4,239,38233,country
+SVN,Slovenia,2012,362,44.3,37.9,5.9,1.4,161,37041,country
+SVN,Slovenia,2013,415,27.0,28.8,7.0,0.5,112,36686,country
+SVN,Slovenia,2014,433,24.0,30.0,7.2,0.2,104,37662,country
+SVN,Slovenia,2015,449,24.1,49.5,8.2,18.2,109,38535,country
+SVN,Slovenia,2016,457,9.9,48.0,18.1,23.8,45,39675,country
+SVN,Slovenia,2017,472,12.8,53.3,19.5,14.3,61,41701,country
+SVN,Slovenia,2018,487,12.2,53.9,20.7,13.2,59,43369,country
+SVN,Slovenia,2019,505,12.4,51.5,20.3,15.8,63,44578,country
+SVN,Slovenia,2020,487,8.5,56.8,18.2,16.5,41,42472,country
+SVN,Slovenia,2021,510,7.7,58.9,17.9,13.8,39,45923,country
+SVN,Slovenia,2022,487,9.4,55.3,19.2,15.2,46,47059,country
+SVN,Slovenia,2023,518,11.4,54.0,18.0,16.2,59,47986,country
+SVN,Slovenia,2024,528,11.7,52.5,18.1,17.7,62,48658,country
+SWE,Sweden,2000,425,22.9,28.9,9.5,38.6,97,47869,country
+SWE,Sweden,2001,439,22.5,29.1,9.9,38.5,99,48390,country
+SWE,Sweden,2002,465,19.9,31.2,8.5,40.4,92,49331,country
+SWE,Sweden,2003,464,13.8,31.6,9.7,44.9,64,50072,country
+SWE,Sweden,2004,461,9.2,33.4,10.5,46.9,42,51961,country
+SWE,Sweden,2005,478,4.9,34.1,10.5,50.5,23,53199,country
+SWE,Sweden,2006,491,5.1,37.2,10.5,47.2,25,55374,country
+SWE,Sweden,2007,488,4.2,35.7,11.0,49.1,20,56737,country
+SWE,Sweden,2008,485,3.1,34.0,11.7,51.2,15,55777,country
+SWE,Sweden,2009,472,1.3,36.5,12.6,49.5,6,52951,country
+SWE,Sweden,2010,441,0.9,34.2,13.6,51.3,4,55520,country
+SWE,Sweden,2011,453,0.8,32.9,14.1,52.3,3,56846,country
+SWE,Sweden,2012,454,0.6,32.5,14.4,52.5,3,56193,country
+SWE,Sweden,2013,455,0.6,33.1,15.2,51.1,3,56353,country
+SWE,Sweden,2014,443,0.6,33.1,16.3,50.0,3,57078,country
+SWE,Sweden,2015,451,0.8,32.1,15.5,51.7,4,58956,country
+SWE,Sweden,2016,447,0.6,32.3,16.1,51.0,3,59460,country
+SWE,Sweden,2017,452,0.5,31.3,15.5,52.7,2,59769,country
+SWE,Sweden,2018,434,0.7,29.9,15.9,53.5,3,60125,country
+SWE,Sweden,2019,449,0.7,32.5,14.2,52.6,3,61071,country
+SWE,Sweden,2020,431,0.4,20.3,18.3,60.6,2,59458,country
+SWE,Sweden,2021,418,0.5,19.9,19.5,59.7,2,62191,country
+SWE,Sweden,2022,395,0.5,20.9,19.0,59.2,2,62545,country
+SWE,Sweden,2023,392,1.0,20.2,19.2,59.0,4,62123,country
+SWE,Sweden,2024,425,0.6,26.6,19.4,53.2,2,62558,country
+TUR,Türkiye,2000,468,96.8,,1.0,0.0,453,14857,country
+TUR,Türkiye,2001,468,97.4,,0.9,0.0,456,13872,country
+TUR,Türkiye,2002,462,96.8,,1.5,0.0,448,14588,country
+TUR,Türkiye,2003,458,96.9,,1.2,0.0,444,15256,country
+TUR,Türkiye,2004,434,97.6,,1.4,0.0,423,16584,country
+TUR,Türkiye,2005,452,97.5,,1.3,0.0,441,17903,country
+TUR,Türkiye,2006,429,97.7,,1.0,0.0,420,18972,country
+TUR,Türkiye,2007,429,97.8,,1.3,0.0,420,19909,country
+TUR,Türkiye,2008,398,97.7,,1.1,0.0,388,19840,country
+TUR,Türkiye,2009,417,98.0,,1.2,0.0,408,18612,country
+TUR,Türkiye,2010,405,98.5,,0.8,0.0,399,19897,country
+TUR,Türkiye,2011,416,98.3,,1.1,0.0,409,21760,country
+TUR,Türkiye,2012,409,98.9,,0.6,0.0,405,22518,country
+TUR,Türkiye,2013,405,98.8,,0.6,0.0,400,24117,country
+TUR,Türkiye,2014,400,99.5,,0.4,0.0,398,24889,country
+TUR,Türkiye,2015,391,99.4,,0.6,0.0,389,25985,country
+TUR,Türkiye,2016,413,90.2,9.3,0.5,0.0,373,26490,country
+TUR,Türkiye,2017,411,90.2,9.3,0.5,0.0,371,28195,country
+TUR,Türkiye,2018,409,87.7,11.9,0.4,0.0,359,28780,country
+TUR,Türkiye,2019,410,87.7,11.9,0.4,0.0,360,28741,country
+TUR,Türkiye,2020,402,86.8,12.8,0.4,0.0,349,28977,country
+TUR,Türkiye,2021,404,86.8,12.8,0.4,0.0,351,32106,country
+USA,United States,2000,785,57.6,21.8,6.8,13.9,452,55046,country
+USA,United States,2001,768,57.1,22.1,6.9,14.0,439,55024,country
+USA,United States,2002,775,57.5,22.1,6.8,13.6,446,55443,country
+USA,United States,2003,771,56.1,22.7,7.7,13.4,432,56505,country
+USA,United States,2004,787,56.7,22.9,8.1,12.4,446,58139,country
+USA,United States,2005,778,56.1,23.3,8.1,12.5,437,59612,country
+USA,United States,2006,781,55.4,24.1,8.1,12.4,433,60684,country
+USA,United States,2007,771,54.5,24.6,8.5,12.5,420,61314,country
+USA,United States,2008,752,54.2,24.5,8.7,12.5,408,60806,country
+USA,United States,2009,721,54.4,25.3,8.5,11.8,392,58722,country
+USA,United States,2010,732,54.3,26.0,8.0,11.7,398,59797,country
+USA,United States,2011,728,52.6,26.5,8.2,12.7,383,60253,country
+USA,United States,2012,722,52.7,26.0,8.5,12.9,380,61142,country
+USA,United States,2013,723,52.7,25.5,8.8,13.0,381,61967,country
+USA,United States,2014,725,52.6,25.6,8.9,12.8,382,63027,country
+USA,United States,2015,729,52.5,25.8,8.9,12.8,383,64368,country
+USA,United States,2016,739,52.3,25.6,9.4,12.7,387,65026,country
+USA,United States,2017,734,52.3,24.9,10.0,12.7,384,66164,country
+USA,United States,2018,792,50.0,23.6,8.5,11.8,396,67728,country

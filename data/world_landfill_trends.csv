@@ -1,0 +1,1799 @@
+iso3,country,region,year,landfill_pct,landfill_kg_per_capita,msw_kg_per_capita,gdp_pc_ppp,source
+AIA,Anguilla,,2001,100,490,490,,UNSD
+AIA,Anguilla,,2002,100,436,436,,UNSD
+AIA,Anguilla,,2003,100,390,390,,UNSD
+AIA,Anguilla,,2004,100,436,436,,UNSD
+AIA,Anguilla,,2005,100,652,652,,UNSD
+AIA,Anguilla,,2006,100,837,837,,UNSD
+AIA,Anguilla,,2007,100,973,973,,UNSD
+AND,Andorra,Europe & Central Asia,2002,33.4,150,449,61189,UNSD
+AND,Andorra,Europe & Central Asia,2003,0,0,700,63656,UNSD
+AND,Andorra,Europe & Central Asia,2004,0,0,660,64353,UNSD
+AND,Andorra,Europe & Central Asia,2005,0,0,640,65115,UNSD
+AND,Andorra,Europe & Central Asia,2006,0,0,193,66390,UNSD
+AND,Andorra,Europe & Central Asia,2007,0,0,476,65534,UNSD
+AND,Andorra,Europe & Central Asia,2008,0,0,474,60692,UNSD
+AND,Andorra,Europe & Central Asia,2009,0,0,409,57204,UNSD
+AND,Andorra,Europe & Central Asia,2010,0,0,475,58285,UNSD
+AND,Andorra,Europe & Central Asia,2011,0,0,317,60470,UNSD
+AND,Andorra,Europe & Central Asia,2012,0,0,292,58172,UNSD
+AND,Andorra,Europe & Central Asia,2013,0,0,382,57332,UNSD
+AND,Andorra,Europe & Central Asia,2014,0,0,392,59929,UNSD
+AND,Andorra,Europe & Central Asia,2015,0,0,409,62105,UNSD
+AND,Andorra,Europe & Central Asia,2016,0,0,417,64403,UNSD
+AND,Andorra,Europe & Central Asia,2017,0,0,453,63240,UNSD
+AND,Andorra,Europe & Central Asia,2018,0,0,515,63049,UNSD
+AND,Andorra,Europe & Central Asia,2019,0,0,497,63216,UNSD
+AND,Andorra,Europe & Central Asia,2020,0,0,471,55488,UNSD
+AND,Andorra,Europe & Central Asia,2021,0,0,458,59332,UNSD
+AND,Andorra,Europe & Central Asia,2022,0,0,482,63913,UNSD
+AND,Andorra,Europe & Central Asia,2023,0,0,455,64631,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2009,91,902,992,71489,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2011,67.9,492,724,73190,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2012,67.6,467,690,73644,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2013,75.7,570,753,74237,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2014,80.8,513,635,74145,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2015,75.4,527,699,75239,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2016,75.8,437,577,75671,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2017,72,416,578,72529,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2018,79.3,550,694,72671,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2019,79.2,564,711,72823,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2020,90.8,439,483,66809,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2021,90.9,423,466,68580,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2022,90.5,408,451,70076,UNSD
+ARE,United Arab Emirates,Middle East & North Africa,2023,75.4,335,444,70240,UNSD
+ARG,Argentina,Latin America & Caribbean,2005,94.2,326,346,23262,OECD
+ARG,Argentina,Latin America & Caribbean,2010,94.2,364,387,28056,OECD
+ARG,Argentina,Latin America & Caribbean,2019,94,394,419,26630,OECD
+ARG,Argentina,Latin America & Caribbean,2020,94,396,421,23877,OECD
+ARG,Argentina,Latin America & Caribbean,2021,94,399,424,26300,OECD
+ARG,Argentina,Latin America & Caribbean,2022,94,400,426,27825,OECD
+ARM,Armenia,Europe & Central Asia,2000,100,67,67,4589,OECD
+ARM,Armenia,Europe & Central Asia,2001,100,76,76,5044,OECD
+ARM,Armenia,Europe & Central Asia,2002,100,93,93,5731,OECD
+ARM,Armenia,Europe & Central Asia,2003,100,121,121,6569,OECD
+ARM,Armenia,Europe & Central Asia,2004,100,125,125,7299,OECD
+ARM,Armenia,Europe & Central Asia,2005,100,125,125,8363,OECD
+ARM,Armenia,Europe & Central Asia,2006,100,127,127,9525,OECD
+ARM,Armenia,Europe & Central Asia,2007,100,132,132,10899,OECD
+ARM,Armenia,Europe & Central Asia,2008,100,130,130,11727,OECD
+ARM,Armenia,Europe & Central Asia,2009,100,140,140,10143,OECD
+ARM,Armenia,Europe & Central Asia,2010,100,132,132,10439,OECD
+ARM,Armenia,Europe & Central Asia,2011,100,135,135,10990,OECD
+ARM,Armenia,Europe & Central Asia,2012,100,140,140,11796,OECD
+ARM,Armenia,Europe & Central Asia,2013,100,177,177,12194,OECD
+ARM,Armenia,Europe & Central Asia,2014,100,177,177,12667,OECD
+ARM,Armenia,Europe & Central Asia,2015,100,169,169,13113,OECD
+ARM,Armenia,Europe & Central Asia,2016,100,171,171,13193,OECD
+ARM,Armenia,Europe & Central Asia,2017,100,169,169,14244,OECD
+ARM,Armenia,Europe & Central Asia,2018,100,161,161,15037,OECD
+ARM,Armenia,Europe & Central Asia,2019,100,163,163,16215,OECD
+ARM,Armenia,Europe & Central Asia,2020,100,198,198,15053,OECD
+ARM,Armenia,Europe & Central Asia,2021,100,170,170,15922,OECD
+ARM,Armenia,Europe & Central Asia,2022,100,185,185,17886,OECD
+ARM,Armenia,Europe & Central Asia,2023,100,147,147,19403,OECD
+AUS,Australia,East Asia & Pacific,2007,55.3,336,607,51663,OECD
+AUS,Australia,East Asia & Pacific,2008,53.6,329,613,52473,OECD
+AUS,Australia,East Asia & Pacific,2009,53.7,323,602,52408,OECD
+AUS,Australia,East Asia & Pacific,2010,52.5,319,608,52739,OECD
+AUS,Australia,East Asia & Pacific,2011,49.9,295,592,53257,OECD
+AUS,Australia,East Asia & Pacific,2012,47.9,285,594,54404,OECD
+AUS,Australia,East Asia & Pacific,2013,46.6,275,589,54895,OECD
+AUS,Australia,East Asia & Pacific,2014,44,263,597,55489,OECD
+AUS,Australia,East Asia & Pacific,2015,44.4,263,592,55880,OECD
+AUS,Australia,East Asia & Pacific,2016,46,253,550,56530,OECD
+AUS,Australia,East Asia & Pacific,2017,50.2,261,520,56882,OECD
+AUS,Australia,East Asia & Pacific,2018,49.2,253,514,57648,OECD
+AUS,Australia,East Asia & Pacific,2019,49.1,249,507,58049,OECD
+AUS,Australia,East Asia & Pacific,2020,49.3,253,513,57260,OECD
+AUS,Australia,East Asia & Pacific,2021,51.3,266,518,58327,OECD
+AUS,Australia,East Asia & Pacific,2022,50,258,516,60029,OECD
+AUS,Australia,East Asia & Pacific,2023,48.3,244,505,60685,OECD
+AUT,Austria,Europe & Central Asia,2000,31,180,580,53534,OECD
+AUT,Austria,Europe & Central Asia,2001,30.4,175,576,54032,OECD
+AUT,Austria,Europe & Central Asia,2002,29.4,179,608,54565,OECD
+AUT,Austria,Europe & Central Asia,2003,28.1,171,607,54920,OECD
+AUT,Austria,Europe & Central Asia,2004,12,69,573,55980,OECD
+AUT,Austria,Europe & Central Asia,2005,11.6,67,575,56890,OECD
+AUT,Austria,Europe & Central Asia,2006,10,60,596,58460,OECD
+AUT,Austria,Europe & Central Asia,2007,8.8,52,597,60471,OECD
+AUT,Austria,Europe & Central Asia,2008,7.6,46,600,61158,OECD
+AUT,Austria,Europe & Central Asia,2009,6.3,37,590,58810,OECD
+AUT,Austria,Europe & Central Asia,2010,3.3,19,562,59730,OECD
+AUT,Austria,Europe & Central Asia,2011,5,28,573,61272,OECD
+AUT,Austria,Europe & Central Asia,2012,4.4,25,579,61377,OECD
+AUT,Austria,Europe & Central Asia,2013,4.2,24,578,60863,OECD
+AUT,Austria,Europe & Central Asia,2014,4.2,23,565,60846,OECD
+AUT,Austria,Europe & Central Asia,2015,3,17,559,60952,OECD
+AUT,Austria,Europe & Central Asia,2016,2.7,15,564,61573,OECD
+AUT,Austria,Europe & Central Asia,2017,2.1,12,570,62536,OECD
+AUT,Austria,Europe & Central Asia,2018,2.2,13,579,63778,OECD
+AUT,Austria,Europe & Central Asia,2019,2.1,12,588,64609,OECD
+AUT,Austria,Europe & Central Asia,2020,1.9,15,834,60276,OECD
+AUT,Austria,Europe & Central Asia,2021,2,17,834,62969,OECD
+AUT,Austria,Europe & Central Asia,2022,2.1,17,801,65694,OECD
+AUT,Austria,Europe & Central Asia,2023,1.8,14,782,64536,OECD
+AUT,Austria,Europe & Central Asia,2024,2.6,20,780,63788,OECD
+AZE,Azerbaijan,Europe & Central Asia,2004,100,210,210,7938,OECD
+AZE,Azerbaijan,Europe & Central Asia,2005,100,204,204,10054,OECD
+AZE,Azerbaijan,Europe & Central Asia,2006,100,181,181,13372,OECD
+AZE,Azerbaijan,Europe & Central Asia,2007,100,185,185,16587,OECD
+AZE,Azerbaijan,Europe & Central Asia,2008,100,165,165,17963,OECD
+AZE,Azerbaijan,Europe & Central Asia,2009,100,177,177,19242,OECD
+AZE,Azerbaijan,Europe & Central Asia,2010,100,176,176,19925,OECD
+AZE,Azerbaijan,Europe & Central Asia,2011,100,192,192,19358,OECD
+AZE,Azerbaijan,Europe & Central Asia,2012,100,176,176,19523,OECD
+AZE,Azerbaijan,Europe & Central Asia,2013,75.9,133,176,20399,OECD
+AZE,Azerbaijan,Europe & Central Asia,2014,64.9,91,141,20709,OECD
+AZE,Azerbaijan,Europe & Central Asia,2015,65,102,157,20679,OECD
+AZE,Azerbaijan,Europe & Central Asia,2016,63,102,161,19822,OECD
+AZE,Azerbaijan,Europe & Central Asia,2017,64.9,103,158,19659,OECD
+AZE,Azerbaijan,Europe & Central Asia,2018,67.4,118,175,19782,OECD
+AZE,Azerbaijan,Europe & Central Asia,2019,72.1,144,200,20101,OECD
+AZE,Azerbaijan,Europe & Central Asia,2020,74.9,174,232,19126,OECD
+AZE,Azerbaijan,Europe & Central Asia,2021,78.6,198,252,20111,OECD
+AZE,Azerbaijan,Europe & Central Asia,2022,78.7,203,258,21051,OECD
+AZE,Azerbaijan,Europe & Central Asia,2023,80.3,212,264,21311,OECD
+BEL,Belgium,Europe & Central Asia,2000,18.9,89,471,50456,OECD
+BEL,Belgium,Europe & Central Asia,2001,16.1,75,467,50835,OECD
+BEL,Belgium,Europe & Central Asia,2002,11.7,57,482,51472,OECD
+BEL,Belgium,Europe & Central Asia,2003,10.9,51,465,51789,OECD
+BEL,Belgium,Europe & Central Asia,2004,11.6,56,485,53407,OECD
+BEL,Belgium,Europe & Central Asia,2005,11,53,482,54347,OECD
+BEL,Belgium,Europe & Central Asia,2006,9.6,46,485,55368,OECD
+BEL,Belgium,Europe & Central Asia,2007,9.1,45,493,56983,OECD
+BEL,Belgium,Europe & Central Asia,2008,4.1,20,480,56788,OECD
+BEL,Belgium,Europe & Central Asia,2009,3.2,15,466,55259,OECD
+BEL,Belgium,Europe & Central Asia,2010,1.7,8,455,56240,OECD
+BEL,Belgium,Europe & Central Asia,2011,0.9,4,455,56585,OECD
+BEL,Belgium,Europe & Central Asia,2012,0.7,3,445,56357,OECD
+BEL,Belgium,Europe & Central Asia,2013,0.9,4,436,56263,OECD
+BEL,Belgium,Europe & Central Asia,2014,1,4,425,57003,OECD
+BEL,Belgium,Europe & Central Asia,2015,0.9,4,412,57509,OECD
+BEL,Belgium,Europe & Central Asia,2016,0.8,3,419,57901,OECD
+BEL,Belgium,Europe & Central Asia,2017,0.9,4,411,58529,OECD
+BEL,Belgium,Europe & Central Asia,2018,1,4,409,59358,OECD
+BEL,Belgium,Europe & Central Asia,2019,0.9,4,416,60480,OECD
+BEL,Belgium,Europe & Central Asia,2020,0.2,2,729,57334,OECD
+BEL,Belgium,Europe & Central Asia,2021,0.5,3,756,60669,OECD
+BEL,Belgium,Europe & Central Asia,2022,0.1,1,692,62603,OECD
+BEL,Belgium,Europe & Central Asia,2023,0.1,1,692,63042,OECD
+BEL,Belgium,Europe & Central Asia,2024,0.1,1,706,63311,OECD
+BEN,Benin,Sub-Saharan Africa,2020,100,8,8,3318,UNSD
+BEN,Benin,Sub-Saharan Africa,2021,100,25,25,3464,UNSD
+BEN,Benin,Sub-Saharan Africa,2022,99.8,29,29,3588,UNSD
+BFA,Burkina Faso,Sub-Saharan Africa,2004,85.6,35,41,1581,UNSD
+BFA,Burkina Faso,Sub-Saharan Africa,2005,88.7,37,42,1665,UNSD
+BGD,Bangladesh,South Asia,2005,85,16,18,3232,UNSD
+BGD,Bangladesh,South Asia,2009,84,21,25,3942,UNSD
+BGD,Bangladesh,South Asia,2014,84.2,26,31,5069,UNSD
+BGD,Bangladesh,South Asia,2019,70.9,34,49,6838,OECD
+BGD,Bangladesh,South Asia,2020,69.6,30,43,7015,OECD
+BGD,Bangladesh,South Asia,2021,70.5,31,44,7441,OECD
+BGR,Bulgaria,Europe & Central Asia,2000,80.8,505,625,12564,OECD
+BGR,Bulgaria,Europe & Central Asia,2001,80.6,485,602,13307,OECD
+BGR,Bulgaria,Europe & Central Asia,2002,80.5,483,600,14397,OECD
+BGR,Bulgaria,Europe & Central Asia,2003,80.5,484,601,15271,OECD
+BGR,Bulgaria,Europe & Central Asia,2004,79.6,474,596,16389,OECD
+BGR,Bulgaria,Europe & Central Asia,2005,79.2,464,585,17678,OECD
+BGR,Bulgaria,Europe & Central Asia,2006,76.6,440,574,19025,OECD
+BGR,Bulgaria,Europe & Central Asia,2007,77.6,427,550,20440,OECD
+BGR,Bulgaria,Europe & Central Asia,2008,79.4,473,595,21846,OECD
+BGR,Bulgaria,Europe & Central Asia,2009,79.4,472,594,21251,OECD
+BGR,Bulgaria,Europe & Central Asia,2010,75.2,414,550,21724,OECD
+BGR,Bulgaria,Europe & Central Asia,2011,72.4,366,506,22321,OECD
+BGR,Bulgaria,Europe & Central Asia,2012,73.4,338,460,22619,OECD
+BGR,Bulgaria,Europe & Central Asia,2013,69.7,301,432,22954,OECD
+BGR,Bulgaria,Europe & Central Asia,2014,73.8,326,442,23455,OECD
+BGR,Bulgaria,Europe & Central Asia,2015,67.4,283,420,24563,OECD
+BGR,Bulgaria,Europe & Central Asia,2016,64.3,260,404,25637,OECD
+BGR,Bulgaria,Europe & Central Asia,2017,62,270,435,26692,OECD
+BGR,Bulgaria,Europe & Central Asia,2018,61.2,249,407,27691,OECD
+BGR,Bulgaria,Europe & Central Asia,2019,62,274,442,29150,OECD
+BGR,Bulgaria,Europe & Central Asia,2020,55.8,227,408,28521,OECD
+BGR,Bulgaria,Europe & Central Asia,2021,46.7,208,445,30959,OECD
+BGR,Bulgaria,Europe & Central Asia,2022,58.1,269,463,32434,OECD
+BGR,Bulgaria,Europe & Central Asia,2023,64.8,301,464,33074,OECD
+BGR,Bulgaria,Europe & Central Asia,2024,54.7,258,472,34221,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2008,100,346,346,11984,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2009,100,351,351,11827,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2010,94.6,317,335,12143,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2011,96.3,336,349,12488,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2012,94.3,335,355,12627,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2013,99.7,329,330,13136,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2014,99.6,373,374,13459,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2015,98.7,351,355,14220,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2016,99.3,356,358,14874,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2017,99.6,359,360,15555,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2022,99.6,368,370,19298,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2023,98.6,367,372,19805,OECD
+BIH,Bosnia and Herzegovina,Europe & Central Asia,2024,98.5,350,355,20579,OECD
+BLR,Belarus,Europe & Central Asia,2004,100,246,246,15052,OECD
+BLR,Belarus,Europe & Central Asia,2005,100,262,262,16580,OECD
+BLR,Belarus,Europe & Central Asia,2006,98.8,281,285,18350,OECD
+BLR,Belarus,Europe & Central Asia,2007,98.5,274,279,20020,OECD
+BLR,Belarus,Europe & Central Asia,2008,94.2,297,315,22138,OECD
+BLR,Belarus,Europe & Central Asia,2009,91.3,317,347,22237,OECD
+BLR,Belarus,Europe & Central Asia,2010,91.1,354,389,24013,OECD
+BLR,Belarus,Europe & Central Asia,2011,91,368,405,25405,OECD
+BLR,Belarus,Europe & Central Asia,2012,90,355,394,25879,OECD
+BLR,Belarus,Europe & Central Asia,2013,88,342,389,26148,OECD
+BLR,Belarus,Europe & Central Asia,2014,85.5,336,393,26564,OECD
+BLR,Belarus,Europe & Central Asia,2015,84.4,332,394,25513,OECD
+BLR,Belarus,Europe & Central Asia,2016,84.2,336,399,24847,OECD
+BLR,Belarus,Europe & Central Asia,2017,82.8,331,400,25504,OECD
+BLR,Belarus,Europe & Central Asia,2018,81.2,325,400,26363,OECD
+BLR,Belarus,Europe & Central Asia,2019,76.9,308,401,26799,OECD
+BLR,Belarus,Europe & Central Asia,2020,75,326,435,26731,OECD
+BLR,Belarus,Europe & Central Asia,2021,68.9,296,429,27611,OECD
+BLR,Belarus,Europe & Central Asia,2022,66.1,288,435,26538,OECD
+BLR,Belarus,Europe & Central Asia,2023,64.5,282,437,27782,OECD
+BMU,Bermuda,North America,2010,11.1,157,1407,105973,UNSD
+BMU,Bermuda,North America,2011,12.3,157,1271,101994,UNSD
+BMU,Bermuda,North America,2012,12.2,157,1289,96715,UNSD
+BMU,Bermuda,North America,2013,11.8,157,1331,96554,UNSD
+BMU,Bermuda,North America,2014,11.7,157,1341,93046,UNSD
+BMU,Bermuda,North America,2015,12,158,1317,93864,UNSD
+BMU,Bermuda,North America,2016,11.1,158,1415,93269,UNSD
+BMU,Bermuda,North America,2017,10.4,157,1505,96441,UNSD
+BMU,Bermuda,North America,2018,10.7,157,1469,95643,UNSD
+BMU,Bermuda,North America,2019,11.6,156,1347,95524,UNSD
+BRA,Brazil,Latin America & Caribbean,2004,98.3,208,211,14911,OECD
+BRA,Brazil,Latin America & Caribbean,2005,98.2,188,191,15221,OECD
+BRA,Brazil,Latin America & Caribbean,2006,98.9,101,102,15657,OECD
+BRA,Brazil,Latin America & Caribbean,2007,98.7,124,126,16441,OECD
+BRA,Brazil,Latin America & Caribbean,2008,91.7,138,151,17113,OECD
+BRA,Brazil,Latin America & Caribbean,2009,86.9,115,133,16939,OECD
+BRA,Brazil,Latin America & Caribbean,2010,51,74,144,18062,OECD
+BRA,Brazil,Latin America & Caribbean,2011,65,93,143,18628,OECD
+BRA,Brazil,Latin America & Caribbean,2012,72.5,116,161,18832,OECD
+BRA,Brazil,Latin America & Caribbean,2013,98.5,171,174,19242,OECD
+BRA,Brazil,Latin America & Caribbean,2014,97.9,180,184,19183,OECD
+BRA,Brazil,Latin America & Caribbean,2015,97.8,165,169,18357,OECD
+BRN,Brunei Darussalam,East Asia & Pacific,2019,86.6,384,443,80228,UNSD
+BTN,Bhutan,South Asia,2012,60,42,70,11144,UNSD
+BTN,Bhutan,South Asia,2017,60,33,55,13482,UNSD
+BWA,Botswana,Sub-Saharan Africa,2013,98.9,60,61,16369,UNSD
+BWA,Botswana,Sub-Saharan Africa,2015,98,38,39,15995,UNSD
+BWA,Botswana,Sub-Saharan Africa,2017,98.9,105,106,17353,UNSD
+CAN,Canada,North America,2000,78.2,742,949,48399,OECD
+CAN,Canada,North America,2002,77.5,755,974,49695,OECD
+CAN,Canada,North America,2004,77.1,776,1006,51211,OECD
+CAN,Canada,North America,2006,76.7,797,1039,53196,OECD
+CAN,Canada,North America,2008,74.8,765,1024,53712,OECD
+CAN,Canada,North America,2010,74.5,720,966,52558,OECD
+CAN,Canada,North America,2012,73.5,697,949,54035,OECD
+CAN,Canada,North America,2014,72.2,685,950,55723,OECD
+CAN,Canada,North America,2016,71.9,676,941,55606,OECD
+CAN,Canada,North America,2018,71.9,685,953,57337,OECD
+CHE,Switzerland,Europe & Central Asia,2000,8.3,54,659,68835,OECD
+CHE,Switzerland,Europe & Central Asia,2001,4.2,28,663,69490,OECD
+CHE,Switzerland,Europe & Central Asia,2002,1.6,11,678,69228,OECD
+CHE,Switzerland,Europe & Central Asia,2003,1.4,10,670,68521,OECD
+CHE,Switzerland,Europe & Central Asia,2004,0,0,664,69812,OECD
+CHE,Switzerland,Europe & Central Asia,2005,0,0,665,71414,OECD
+CHE,Switzerland,Europe & Central Asia,2006,0,0,713,73902,OECD
+CHE,Switzerland,Europe & Central Asia,2007,0,0,724,76162,OECD
+CHE,Switzerland,Europe & Central Asia,2008,0,0,740,77104,OECD
+CHE,Switzerland,Europe & Central Asia,2009,0,0,706,74673,OECD
+CHE,Switzerland,Europe & Central Asia,2010,0,0,711,76309,OECD
+CHE,Switzerland,Europe & Central Asia,2011,0,0,692,76527,OECD
+CHE,Switzerland,Europe & Central Asia,2012,0,0,697,76570,OECD
+CHE,Switzerland,Europe & Central Asia,2013,0,0,705,77085,OECD
+CHE,Switzerland,Europe & Central Asia,2014,0,0,733,78087,OECD
+CHE,Switzerland,Europe & Central Asia,2015,0,0,728,78326,OECD
+CHE,Switzerland,Europe & Central Asia,2016,0,0,722,78956,OECD
+CHE,Switzerland,Europe & Central Asia,2017,0,0,709,79334,OECD
+CHE,Switzerland,Europe & Central Asia,2018,0,0,706,81372,OECD
+CHE,Switzerland,Europe & Central Asia,2019,0,0,709,81695,OECD
+CHE,Switzerland,Europe & Central Asia,2020,0,0,706,79271,OECD
+CHE,Switzerland,Europe & Central Asia,2021,0,0,704,83525,OECD
+CHE,Switzerland,Europe & Central Asia,2022,0,0,676,85762,OECD
+CHE,Switzerland,Europe & Central Asia,2023,0,0,679,85383,OECD
+CHE,Switzerland,Europe & Central Asia,2024,0,0,677,85448,OECD
+CHL,Chile,Latin America & Caribbean,2014,99.8,381,381,27512,OECD
+CHL,Chile,Latin America & Caribbean,2015,99.6,397,399,27818,OECD
+CHL,Chile,Latin America & Caribbean,2016,98.5,390,396,27965,OECD
+CHL,Chile,Latin America & Caribbean,2017,98.2,430,438,27900,OECD
+CHL,Chile,Latin America & Caribbean,2018,99.4,430,433,28499,OECD
+CHL,Chile,Latin America & Caribbean,2019,99.2,406,409,28228,OECD
+CHL,Chile,Latin America & Caribbean,2020,98.1,400,408,26258,OECD
+CHL,Chile,Latin America & Caribbean,2021,99.1,462,466,29107,OECD
+CHL,Chile,Latin America & Caribbean,2022,98.8,438,443,29560,OECD
+CHL,Chile,Latin America & Caribbean,2023,99,436,440,29600,OECD
+CHN,China,East Asia & Pacific,2001,91,96,105,4372,OECD
+CHN,China,East Asia & Pacific,2002,92.7,98,106,4744,OECD
+CHN,China,East Asia & Pacific,2003,89.9,103,115,5192,OECD
+CHN,China,East Asia & Pacific,2004,90.4,108,119,5684,OECD
+CHN,China,East Asia & Pacific,2005,95.2,113,119,6298,OECD
+CHN,China,East Asia & Pacific,2006,95.7,108,113,7057,OECD
+CHN,China,East Asia & Pacific,2007,96.8,111,115,8014,OECD
+CHN,China,East Asia & Pacific,2008,98,113,116,8744,OECD
+CHN,China,East Asia & Pacific,2009,98,115,117,9519,OECD
+CHN,China,East Asia & Pacific,2010,98.2,115,117,10476,OECD
+CHN,China,East Asia & Pacific,2011,95.9,116,121,11405,OECD
+CHN,China,East Asia & Pacific,2012,96.4,120,125,12218,OECD
+CHN,China,East Asia & Pacific,2013,97.5,122,125,13081,OECD
+CHN,China,East Asia & Pacific,2014,97.1,125,129,13969,OECD
+CHN,China,East Asia & Pacific,2015,97,133,137,14857,OECD
+CHN,China,East Asia & Pacific,2016,96.5,140,145,15773,OECD
+CHN,China,East Asia & Pacific,2017,95.8,146,152,16758,OECD
+CHN,China,East Asia & Pacific,2018,94.6,152,161,17807,OECD
+CHN,China,East Asia & Pacific,2019,92.5,157,170,18821,OECD
+CHN,China,East Asia & Pacific,2020,87.9,145,165,19215,OECD
+CHN,China,East Asia & Pacific,2021,76.4,133,174,20843,OECD
+CHN,China,East Asia & Pacific,2022,61.9,106,172,21499,OECD
+CHN,China,East Asia & Pacific,2023,42.6,76,179,22687,OECD
+CMR,Cameroon,Sub-Saharan Africa,2006,99.3,209,210,4242,UNSD
+CMR,Cameroon,Sub-Saharan Africa,2007,98.9,203,205,4303,UNSD
+CMR,Cameroon,Sub-Saharan Africa,2008,99.7,348,349,4300,UNSD
+CMR,Cameroon,Sub-Saharan Africa,2009,99.6,378,379,4287,UNSD
+COL,Colombia,Latin America & Caribbean,2005,72.9,131,180,11999,OECD
+COL,Colombia,Latin America & Caribbean,2006,81.2,144,178,12637,OECD
+COL,Colombia,Latin America & Caribbean,2007,91,193,212,13318,OECD
+COL,Colombia,Latin America & Caribbean,2008,92.8,194,209,13591,OECD
+COL,Colombia,Latin America & Caribbean,2009,92.5,236,255,13587,OECD
+COL,Colombia,Latin America & Caribbean,2010,93.5,187,201,14037,OECD
+COL,Colombia,Latin America & Caribbean,2011,94.6,202,214,14852,OECD
+COL,Colombia,Latin America & Caribbean,2012,92.1,181,197,15279,OECD
+COL,Colombia,Latin America & Caribbean,2013,93.6,185,198,15912,OECD
+COL,Colombia,Latin America & Caribbean,2014,93.6,184,196,16480,OECD
+COL,Colombia,Latin America & Caribbean,2015,97.8,207,212,16821,OECD
+COL,Colombia,Latin America & Caribbean,2016,97.6,235,240,17003,OECD
+COL,Colombia,Latin America & Caribbean,2017,96.9,219,226,16986,OECD
+COL,Colombia,Latin America & Caribbean,2018,97.9,241,246,17104,OECD
+CPV,Cabo Verde,Sub-Saharan Africa,2012,100,289,289,7398,UNSD
+CPV,Cabo Verde,Sub-Saharan Africa,2013,100,283,283,7441,UNSD
+CPV,Cabo Verde,Sub-Saharan Africa,2015,100,285,285,7560,UNSD
+CRI,Costa Rica,Latin America & Caribbean,2010,75.2,249,331,18670,OECD
+CRI,Costa Rica,Latin America & Caribbean,2011,75,270,360,19264,OECD
+CRI,Costa Rica,Latin America & Caribbean,2012,77.1,281,364,19971,OECD
+CRI,Costa Rica,Latin America & Caribbean,2013,77.4,288,371,20242,OECD
+CRI,Costa Rica,Latin America & Caribbean,2014,77.3,290,375,20735,OECD
+CRI,Costa Rica,Latin America & Caribbean,2015,97,378,390,21265,OECD
+CRI,Costa Rica,Latin America & Caribbean,2016,81.1,203,250,21936,OECD
+CRI,Costa Rica,Latin America & Caribbean,2017,82.4,212,258,22634,OECD
+CRI,Costa Rica,Latin America & Caribbean,2018,88.6,261,295,23070,OECD
+CRI,Costa Rica,Latin America & Caribbean,2019,86.5,233,269,23497,OECD
+CRI,Costa Rica,Latin America & Caribbean,2020,83.8,243,290,22368,OECD
+CRI,Costa Rica,Latin America & Caribbean,2021,79.2,253,320,24084,OECD
+CRI,Costa Rica,Latin America & Caribbean,2022,81.9,261,318,25290,OECD
+CRI,Costa Rica,Latin America & Caribbean,2023,78.5,263,335,26379,OECD
+CRI,Costa Rica,Latin America & Caribbean,2024,78.3,521,665,27325,OECD
+CUB,Cuba,Latin America & Caribbean,2002,93,325,349,,UNSD
+CUB,Cuba,Latin America & Caribbean,2003,84,307,365,,UNSD
+CUB,Cuba,Latin America & Caribbean,2004,82.8,304,367,,UNSD
+CUB,Cuba,Latin America & Caribbean,2005,84.2,333,395,,UNSD
+CUB,Cuba,Latin America & Caribbean,2006,82.4,309,375,,UNSD
+CUB,Cuba,Latin America & Caribbean,2007,82.2,317,386,,UNSD
+CUB,Cuba,Latin America & Caribbean,2008,83.4,381,457,,UNSD
+CUB,Cuba,Latin America & Caribbean,2009,88.6,359,405,,UNSD
+CUB,Cuba,Latin America & Caribbean,2010,89,365,410,,UNSD
+CUB,Cuba,Latin America & Caribbean,2011,88.2,330,374,,UNSD
+CUB,Cuba,Latin America & Caribbean,2012,90.7,425,469,,UNSD
+CUB,Cuba,Latin America & Caribbean,2013,90.6,404,446,,UNSD
+CUB,Cuba,Latin America & Caribbean,2014,90.9,389,428,,UNSD
+CUB,Cuba,Latin America & Caribbean,2015,90.9,394,434,,UNSD
+CUB,Cuba,Latin America & Caribbean,2016,87.1,416,477,,UNSD
+CUB,Cuba,Latin America & Caribbean,2017,91.4,481,526,,UNSD
+CUB,Cuba,Latin America & Caribbean,2018,92.4,497,537,,UNSD
+CUB,Cuba,Latin America & Caribbean,2019,94.7,489,516,,UNSD
+CUB,Cuba,Latin America & Caribbean,2020,90.6,405,447,,UNSD
+CUW,Curacao,Latin America & Caribbean,2013,92.4,882,955,31753,UNSD
+CUW,Curacao,Latin America & Caribbean,2016,88.1,933,1059,30210,UNSD
+CUW,Curacao,Latin America & Caribbean,2017,91.8,943,1027,29729,UNSD
+CYP,Cyprus,Europe & Central Asia,2000,97,446,460,36122,OECD
+CYP,Cyprus,Europe & Central Asia,2001,96.9,458,473,37147,OECD
+CYP,Cyprus,Europe & Central Asia,2002,96.9,459,473,38091,OECD
+CYP,Cyprus,Europe & Central Asia,2003,96.9,467,482,38618,OECD
+CYP,Cyprus,Europe & Central Asia,2004,96.7,473,489,40020,OECD
+CYP,Cyprus,Europe & Central Asia,2005,96.3,472,490,41362,OECD
+CYP,Cyprus,Europe & Central Asia,2006,95.7,474,495,42595,OECD
+CYP,Cyprus,Europe & Central Asia,2007,94.9,477,503,43824,OECD
+CYP,Cyprus,Europe & Central Asia,2008,92.5,486,526,44296,OECD
+CYP,Cyprus,Europe & Central Asia,2009,91.6,486,531,42253,OECD
+CYP,Cyprus,Europe & Central Asia,2010,88.4,462,523,42102,OECD
+CYP,Cyprus,Europe & Central Asia,2011,87.9,451,514,41213,OECD
+CYP,Cyprus,Europe & Central Asia,2012,86.2,435,505,39190,OECD
+CYP,Cyprus,Europe & Central Asia,2013,85.1,393,462,36651,OECD
+CYP,Cyprus,Europe & Central Asia,2014,82.8,363,439,36105,OECD
+CYP,Cyprus,Europe & Central Asia,2015,82,363,443,37259,OECD
+CYP,Cyprus,Europe & Central Asia,2016,82.2,367,447,39501,OECD
+CYP,Cyprus,Europe & Central Asia,2017,82,360,440,41418,OECD
+CYP,Cyprus,Europe & Central Asia,2018,79.5,360,453,43510,OECD
+CYP,Cyprus,Europe & Central Asia,2019,78.7,358,455,45454,OECD
+CYP,Cyprus,Europe & Central Asia,2020,78.2,335,428,43402,OECD
+CYP,Cyprus,Europe & Central Asia,2021,79.1,351,444,47633,OECD
+CYP,Cyprus,Europe & Central Asia,2022,77.8,359,462,50841,OECD
+CYP,Cyprus,Europe & Central Asia,2023,77.5,365,471,51675,OECD
+CYP,Cyprus,Europe & Central Asia,2024,78.7,388,493,52862,OECD
+CZE,Czechia,Europe & Central Asia,2000,89.2,299,335,29427,OECD
+CZE,Czechia,Europe & Central Asia,2001,85.2,233,273,30400,OECD
+CZE,Czechia,Europe & Central Asia,2002,83.1,231,278,30920,OECD
+CZE,Czechia,Europe & Central Asia,2003,82.8,231,279,31949,OECD
+CZE,Czechia,Europe & Central Asia,2004,76.7,212,277,33452,OECD
+CZE,Czechia,Europe & Central Asia,2005,77.5,223,287,35536,OECD
+CZE,Czechia,Europe & Central Asia,2006,76.8,227,295,37787,OECD
+CZE,Czechia,Europe & Central Asia,2007,75.3,220,293,39629,OECD
+CZE,Czechia,Europe & Central Asia,2008,74.6,228,306,40328,OECD
+CZE,Czechia,Europe & Central Asia,2009,73,232,318,38175,OECD
+CZE,Czechia,Europe & Central Asia,2010,67.8,216,319,39097,OECD
+CZE,Czechia,Europe & Central Asia,2011,64.8,207,320,39708,OECD
+CZE,Czechia,Europe & Central Asia,2012,56.5,174,308,39347,OECD
+CZE,Czechia,Europe & Central Asia,2013,56.2,173,307,39318,OECD
+CZE,Czechia,Europe & Central Asia,2014,56,174,310,40158,OECD
+CZE,Czechia,Europe & Central Asia,2015,52.6,167,317,42067,OECD
+CZE,Czechia,Europe & Central Asia,2016,50,170,340,43069,OECD
+CZE,Czechia,Europe & Central Asia,2017,47.6,234,491,45178,OECD
+CZE,Czechia,Europe & Central Asia,2018,48.3,240,497,46301,OECD
+CZE,Czechia,Europe & Central Asia,2019,47.9,242,506,47764,OECD
+CZE,Czechia,Europe & Central Asia,2020,47.2,260,551,45120,OECD
+CZE,Czechia,Europe & Central Asia,2021,45.3,258,569,47796,OECD
+CZE,Czechia,Europe & Central Asia,2022,45.8,251,549,48391,OECD
+CZE,Czechia,Europe & Central Asia,2023,42.3,229,540,47558,OECD
+CZE,Czechia,Europe & Central Asia,2024,42,249,593,47973,OECD
+DEU,Germany,Europe & Central Asia,2000,25.9,167,646,49956,OECD
+DEU,Germany,Europe & Central Asia,2001,25.5,162,636,50688,OECD
+DEU,Germany,Europe & Central Asia,2002,21.3,137,643,50487,OECD
+DEU,Germany,Europe & Central Asia,2003,19.2,116,604,50192,OECD
+DEU,Germany,Europe & Central Asia,2004,17.7,104,590,50786,OECD
+DEU,Germany,Europe & Central Asia,2005,8.5,49,567,51265,OECD
+DEU,Germany,Europe & Central Asia,2006,0.7,4,568,53307,OECD
+DEU,Germany,Europe & Central Asia,2007,0.6,4,589,54921,OECD
+DEU,Germany,Europe & Central Asia,2008,0.6,4,596,55514,OECD
+DEU,Germany,Europe & Central Asia,2009,0.4,2,599,52569,OECD
+DEU,Germany,Europe & Central Asia,2010,0.4,3,609,54826,OECD
+DEU,Germany,Europe & Central Asia,2011,0.5,3,621,57951,OECD
+DEU,Germany,Europe & Central Asia,2012,0.2,1,615,58110,OECD
+DEU,Germany,Europe & Central Asia,2013,1.4,8,612,58182,OECD
+DEU,Germany,Europe & Central Asia,2014,1.3,8,628,59203,OECD
+DEU,Germany,Europe & Central Asia,2015,1.2,8,629,59669,OECD
+DEU,Germany,Europe & Central Asia,2016,0.2,1,630,60505,OECD
+DEU,Germany,Europe & Central Asia,2017,0.2,1,623,61965,OECD
+DEU,Germany,Europe & Central Asia,2018,0.2,1,603,62481,OECD
+DEU,Germany,Europe & Central Asia,2019,0.2,1,606,62950,OECD
+DEU,Germany,Europe & Central Asia,2020,0.3,2,638,60300,OECD
+DEU,Germany,Europe & Central Asia,2021,0.9,6,644,62631,OECD
+DEU,Germany,Europe & Central Asia,2022,0.4,2,602,63778,OECD
+DEU,Germany,Europe & Central Asia,2023,0.5,3,603,63140,OECD
+DEU,Germany,Europe & Central Asia,2024,0,0,608,62655,OECD
+DMA,Dominica,Latin America & Caribbean,2000,100,197,197,14055,UNSD
+DMA,Dominica,Latin America & Caribbean,2001,100,198,198,14092,UNSD
+DMA,Dominica,Latin America & Caribbean,2002,100,197,197,13641,UNSD
+DMA,Dominica,Latin America & Caribbean,2003,100,197,197,14398,UNSD
+DMA,Dominica,Latin America & Caribbean,2004,100,197,197,14962,UNSD
+DMA,Dominica,Latin America & Caribbean,2005,100,196,196,15081,UNSD
+DMA,Dominica,Latin America & Caribbean,2006,100,228,228,15728,UNSD
+DMA,Dominica,Latin America & Caribbean,2007,100,228,228,16561,UNSD
+DMA,Dominica,Latin America & Caribbean,2008,100,228,228,17738,UNSD
+DMA,Dominica,Latin America & Caribbean,2009,97.6,265,271,17534,UNSD
+DMA,Dominica,Latin America & Caribbean,2010,96.3,261,272,17517,UNSD
+DMA,Dominica,Latin America & Caribbean,2011,96.3,261,271,17475,UNSD
+DMA,Dominica,Latin America & Caribbean,2012,92.3,260,282,17431,UNSD
+DMA,Dominica,Latin America & Caribbean,2013,97.4,272,280,17283,UNSD
+DMA,Dominica,Latin America & Caribbean,2014,95,270,284,17521,UNSD
+DMA,Dominica,Latin America & Caribbean,2015,95,270,284,16921,UNSD
+DMA,Dominica,Latin America & Caribbean,2016,95,273,287,17364,UNSD
+DNK,Denmark,Europe & Central Asia,2000,10,66,664,57586,OECD
+DNK,Denmark,Europe & Central Asia,2001,7.1,47,657,57925,OECD
+DNK,Denmark,Europe & Central Asia,2002,6.1,41,664,58004,OECD
+DNK,Denmark,Europe & Central Asia,2003,5.1,34,671,58101,OECD
+DNK,Denmark,Europe & Central Asia,2004,4.5,31,695,59560,OECD
+DNK,Denmark,Europe & Central Asia,2005,5.2,38,736,60798,OECD
+DNK,Denmark,Europe & Central Asia,2006,5,37,740,62911,OECD
+DNK,Denmark,Europe & Central Asia,2007,4.7,37,790,63251,OECD
+DNK,Denmark,Europe & Central Asia,2008,3.8,32,830,62618,OECD
+DNK,Denmark,Europe & Central Asia,2009,3.1,24,762,59186,OECD
+DNK,Denmark,Europe & Central Asia,2010,3.1,23,758,59856,OECD
+DNK,Denmark,Europe & Central Asia,2011,2.6,22,862,60392,OECD
+DNK,Denmark,Europe & Central Asia,2012,2.2,18,806,60162,OECD
+DNK,Denmark,Europe & Central Asia,2013,1.7,14,813,60746,OECD
+DNK,Denmark,Europe & Central Asia,2014,1.4,12,808,61211,OECD
+DNK,Denmark,Europe & Central Asia,2015,1.3,11,822,62059,OECD
+DNK,Denmark,Europe & Central Asia,2016,1.2,10,830,63469,OECD
+DNK,Denmark,Europe & Central Asia,2017,1,8,820,64989,OECD
+DNK,Denmark,Europe & Central Asia,2018,1.1,9,814,65871,OECD
+DNK,Denmark,Europe & Central Asia,2019,0.9,8,844,66759,OECD
+DNK,Denmark,Europe & Central Asia,2020,0.9,7,814,65379,OECD
+DNK,Denmark,Europe & Central Asia,2021,1.6,13,800,69328,OECD
+DNK,Denmark,Europe & Central Asia,2022,1.6,12,759,69089,OECD
+DNK,Denmark,Europe & Central Asia,2023,1.8,14,759,68994,OECD
+DNK,Denmark,Europe & Central Asia,2024,2,15,758,71035,OECD
+DZA,Algeria,Middle East & North Africa,2003,99.9,264,264,12835,UNSD
+ECU,Ecuador,Latin America & Caribbean,2011,3.3,9,263,12449,UNSD
+ECU,Ecuador,Latin America & Caribbean,2012,6.7,12,177,12961,UNSD
+EGY,"Egypt, Arab Rep.",Middle East & North Africa,2009,52.8,215,407,12728,UNSD
+EGY,"Egypt, Arab Rep.",Middle East & North Africa,2010,65.4,214,327,13129,UNSD
+EGY,"Egypt, Arab Rep.",Middle East & North Africa,2012,20,204,1018,13077,UNSD
+ESP,Spain,Europe & Central Asia,2000,68.1,440,646,39946,OECD
+ESP,Spain,Europe & Central Asia,2001,67.2,434,645,41224,OECD
+ESP,Spain,Europe & Central Asia,2002,61.3,388,632,41766,OECD
+ESP,Spain,Europe & Central Asia,2003,61.2,393,642,42223,OECD
+ESP,Spain,Europe & Central Asia,2004,58.4,348,595,42793,OECD
+ESP,Spain,Europe & Central Asia,2005,55.8,326,584,43571,OECD
+ESP,Spain,Europe & Central Asia,2006,59.7,350,586,44573,OECD
+ESP,Spain,Europe & Central Asia,2007,59.5,342,575,45301,OECD
+ESP,Spain,Europe & Central Asia,2008,51.7,283,548,44926,OECD
+ESP,Spain,Europe & Central Asia,2009,57.9,312,538,42852,OECD
+ESP,Spain,Europe & Central Asia,2010,62.2,316,508,42696,OECD
+ESP,Spain,Europe & Central Asia,2011,63,304,482,42272,OECD
+ESP,Spain,Europe & Central Asia,2012,60.6,282,466,41034,OECD
+ESP,Spain,Europe & Central Asia,2013,55.7,252,452,40595,OECD
+ESP,Spain,Europe & Central Asia,2014,57.7,257,446,41339,OECD
+ESP,Spain,Europe & Central Asia,2015,57.3,260,453,43054,OECD
+ESP,Spain,Europe & Central Asia,2016,54.1,249,461,44275,OECD
+ESP,Spain,Europe & Central Asia,2017,51.2,240,470,45446,OECD
+ESP,Spain,Europe & Central Asia,2018,53.6,253,472,46325,OECD
+ESP,Spain,Europe & Central Asia,2019,51.1,240,469,46896,OECD
+ESP,Spain,Europe & Central Asia,2020,49.5,228,460,41553,OECD
+ESP,Spain,Europe & Central Asia,2021,45.7,219,479,44252,OECD
+ESP,Spain,Europe & Central Asia,2022,46.7,226,484,46733,OECD
+ESP,Spain,Europe & Central Asia,2023,46.8,219,468,47323,OECD
+ESP,Spain,Europe & Central Asia,2024,47.3,220,465,48460,OECD
+EST,Estonia,Europe & Central Asia,2000,97.7,442,453,20527,OECD
+EST,Estonia,Europe & Central Asia,2001,93.8,343,366,21873,OECD
+EST,Estonia,Europe & Central Asia,2002,96.5,387,401,23538,OECD
+EST,Estonia,Europe & Central Asia,2003,81.4,337,413,25485,OECD
+EST,Estonia,Europe & Central Asia,2004,71.8,319,445,27382,OECD
+EST,Estonia,Europe & Central Asia,2005,73.5,319,433,30161,OECD
+EST,Estonia,Europe & Central Asia,2006,79.9,318,398,33301,OECD
+EST,Estonia,Europe & Central Asia,2007,73.5,330,449,35987,OECD
+EST,Estonia,Europe & Central Asia,2008,75.8,297,392,34234,OECD
+EST,Estonia,Europe & Central Asia,2009,75,254,339,29282,OECD
+EST,Estonia,Europe & Central Asia,2010,78.5,239,305,30068,OECD
+EST,Estonia,Europe & Central Asia,2011,70.4,212,301,32453,OECD
+EST,Estonia,Europe & Central Asia,2012,45.4,127,281,33765,OECD
+EST,Estonia,Europe & Central Asia,2013,14.8,43,293,34481,OECD
+EST,Estonia,Europe & Central Asia,2014,7.1,25,357,35720,OECD
+EST,Estonia,Europe & Central Asia,2015,8,29,359,36353,OECD
+EST,Estonia,Europe & Central Asia,2016,11.2,42,376,37467,OECD
+EST,Estonia,Europe & Central Asia,2017,20,78,390,39530,OECD
+EST,Estonia,Europe & Central Asia,2018,22.8,92,405,40850,OECD
+EST,Estonia,Europe & Central Asia,2019,18.1,67,369,42215,OECD
+EST,Estonia,Europe & Central Asia,2020,16.9,65,383,40917,OECD
+EST,Estonia,Europe & Central Asia,2021,19.9,79,394,44247,OECD
+EST,Estonia,Europe & Central Asia,2022,14.9,56,373,43125,OECD
+EST,Estonia,Europe & Central Asia,2023,0.7,3,374,41285,OECD
+EST,Estonia,Europe & Central Asia,2024,14.1,53,378,41186,OECD
+FIN,Finland,Europe & Central Asia,2000,58,291,502,46969,OECD
+FIN,Finland,Europe & Central Asia,2001,59,274,465,48099,OECD
+FIN,Finland,Europe & Central Asia,2002,59.3,272,458,48792,OECD
+FIN,Finland,Europe & Central Asia,2003,57.4,267,466,49656,OECD
+FIN,Finland,Europe & Central Asia,2004,56.2,264,469,51495,OECD
+FIN,Finland,Europe & Central Asia,2005,58,277,478,52744,OECD
+FIN,Finland,Europe & Central Asia,2006,57.8,286,494,54654,OECD
+FIN,Finland,Europe & Central Asia,2007,52.7,267,506,57313,OECD
+FIN,Finland,Europe & Central Asia,2008,49.6,259,521,57495,OECD
+FIN,Finland,Europe & Central Asia,2009,46,221,480,52599,OECD
+FIN,Finland,Europe & Central Asia,2010,45.1,212,470,54018,OECD
+FIN,Finland,Europe & Central Asia,2011,40.2,203,505,55053,OECD
+FIN,Finland,Europe & Central Asia,2012,32.9,166,506,53958,OECD
+FIN,Finland,Europe & Central Asia,2013,25.1,124,493,53183,OECD
+FIN,Finland,Europe & Central Asia,2014,17.4,84,482,52711,OECD
+FIN,Finland,Europe & Central Asia,2015,11.5,57,500,52782,OECD
+FIN,Finland,Europe & Central Asia,2016,3.1,16,504,53985,OECD
+FIN,Finland,Europe & Central Asia,2017,0.8,4,510,55637,OECD
+FIN,Finland,Europe & Central Asia,2018,0.6,3,551,56226,OECD
+FIN,Finland,Europe & Central Asia,2019,0.8,4,566,56922,OECD
+FIN,Finland,Europe & Central Asia,2020,0.5,3,609,55425,OECD
+FIN,Finland,Europe & Central Asia,2021,0.4,3,630,56790,OECD
+FIN,Finland,Europe & Central Asia,2022,0.4,2,520,57068,OECD
+FIN,Finland,Europe & Central Asia,2023,0.5,2,466,56052,OECD
+FIN,Finland,Europe & Central Asia,2024,0.4,2,458,55901,OECD
+FJI,Fiji,East Asia & Pacific,2006,38.4,63,165,9837,UNSD
+FJI,Fiji,East Asia & Pacific,2007,37.3,63,168,9672,UNSD
+FJI,Fiji,East Asia & Pacific,2008,29.9,53,177,9712,UNSD
+FJI,Fiji,East Asia & Pacific,2009,32.1,56,175,9537,UNSD
+FJI,Fiji,East Asia & Pacific,2010,34.8,60,174,9784,UNSD
+FJI,Fiji,East Asia & Pacific,2011,36.6,63,173,10021,UNSD
+FJI,Fiji,East Asia & Pacific,2012,35.9,64,177,10141,UNSD
+FJI,Fiji,East Asia & Pacific,2013,53.6,91,170,10604,UNSD
+FJI,Fiji,East Asia & Pacific,2014,58.7,99,170,11183,UNSD
+FJI,Fiji,East Asia & Pacific,2015,62.7,109,174,11674,UNSD
+FJI,Fiji,East Asia & Pacific,2016,62.9,110,175,11952,UNSD
+FJI,Fiji,East Asia & Pacific,2017,66.9,120,180,12597,UNSD
+FJI,Fiji,East Asia & Pacific,2018,69.3,130,188,13100,UNSD
+FJI,Fiji,East Asia & Pacific,2019,69.3,131,189,13056,UNSD
+FJI,Fiji,East Asia & Pacific,2020,61.9,113,183,10812,UNSD
+FJI,Fiji,East Asia & Pacific,2021,59.1,108,182,10322,UNSD
+FJI,Fiji,East Asia & Pacific,2022,64.1,117,183,12118,UNSD
+FJI,Fiji,East Asia & Pacific,2023,64.4,119,185,13195,UNSD
+FRA,France,Europe & Central Asia,2000,42.6,224,525,45922,OECD
+FRA,France,Europe & Central Asia,2001,40.7,219,537,46455,OECD
+FRA,France,Europe & Central Asia,2002,38.7,210,542,46611,OECD
+FRA,France,Europe & Central Asia,2003,38,197,517,46731,OECD
+FRA,France,Europe & Central Asia,2004,36.3,192,530,47720,OECD
+FRA,France,Europe & Central Asia,2005,36.4,197,541,48257,OECD
+FRA,France,Europe & Central Asia,2006,35.3,193,547,49223,OECD
+FRA,France,Europe & Central Asia,2007,34.3,190,554,50158,OECD
+FRA,France,Europe & Central Asia,2008,32.3,178,550,50068,OECD
+FRA,France,Europe & Central Asia,2009,30.3,165,546,48405,OECD
+FRA,France,Europe & Central Asia,2010,29.1,159,546,49130,OECD
+FRA,France,Europe & Central Asia,2011,28,153,546,50086,OECD
+FRA,France,Europe & Central Asia,2012,26.9,145,538,49936,OECD
+FRA,France,Europe & Central Asia,2013,25.8,137,531,50067,OECD
+FRA,France,Europe & Central Asia,2014,24.8,131,530,50327,OECD
+FRA,France,Europe & Central Asia,2015,23.7,126,529,50683,OECD
+FRA,France,Europe & Central Asia,2016,28.7,163,567,50984,OECD
+FRA,France,Europe & Central Asia,2017,28.8,165,572,51896,OECD
+FRA,France,Europe & Central Asia,2018,26.7,153,571,52561,OECD
+FRA,France,Europe & Central Asia,2019,26.7,152,569,53449,OECD
+FRA,France,Europe & Central Asia,2020,25,137,548,49311,OECD
+FRA,France,Europe & Central Asia,2021,24.9,144,579,52517,OECD
+FRA,France,Europe & Central Asia,2022,22.9,126,550,53674,OECD
+FRA,France,Europe & Central Asia,2023,22.7,123,542,54297,OECD
+FRA,France,Europe & Central Asia,2024,18.6,96,518,54799,OECD
+GBR,United Kingdom,Europe & Central Asia,2000,81.2,467,575,43818,OECD
+GBR,United Kingdom,Europe & Central Asia,2001,80,471,589,44694,OECD
+GBR,United Kingdom,Europe & Central Asia,2002,77.5,463,597,45265,OECD
+GBR,United Kingdom,Europe & Central Asia,2003,74.2,437,590,46505,OECD
+GBR,United Kingdom,Europe & Central Asia,2004,69.3,416,600,47317,OECD
+GBR,United Kingdom,Europe & Central Asia,2005,64.3,373,580,48305,OECD
+GBR,United Kingdom,Europe & Central Asia,2006,60.3,351,581,49001,OECD
+GBR,United Kingdom,Europe & Central Asia,2007,56.9,321,565,50046,OECD
+GBR,United Kingdom,Europe & Central Asia,2008,53,285,539,49629,OECD
+GBR,United Kingdom,Europe & Central Asia,2009,49.3,256,520,46996,OECD
+GBR,United Kingdom,Europe & Central Asia,2010,46,233,507,47683,OECD
+GBR,United Kingdom,Europe & Central Asia,2011,40.5,198,489,47714,OECD
+GBR,United Kingdom,Europe & Central Asia,2012,37,176,475,48100,OECD
+GBR,United Kingdom,Europe & Central Asia,2013,34,163,480,48601,OECD
+GBR,United Kingdom,Europe & Central Asia,2014,27.9,134,480,49763,OECD
+GBR,United Kingdom,Europe & Central Asia,2015,22.9,110,481,50463,OECD
+GBR,United Kingdom,Europe & Central Asia,2016,19,92,481,51168,OECD
+GBR,United Kingdom,Europe & Central Asia,2017,16.3,76,466,52429,OECD
+GBR,United Kingdom,Europe & Central Asia,2018,14.4,67,461,52983,OECD
+GBR,United Kingdom,Europe & Central Asia,2019,11.2,51,457,53374,OECD
+GBR,United Kingdom,Europe & Central Asia,2020,10,46,460,47931,OECD
+GBR,United Kingdom,Europe & Central Asia,2021,10.3,48,462,51840,OECD
+GBR,United Kingdom,Europe & Central Asia,2022,9.2,40,431,53980,OECD
+GBR,United Kingdom,Europe & Central Asia,2023,6.9,30,435,53423,OECD
+GBR,United Kingdom,Europe & Central Asia,2024,6.1,26,434,53412,OECD
+GEO,Georgia,Europe & Central Asia,2014,100,196,196,14475,OECD
+GEO,Georgia,Europe & Central Asia,2015,100,204,204,14937,OECD
+GEO,Georgia,Europe & Central Asia,2016,100,230,230,15443,OECD
+GEO,Georgia,Europe & Central Asia,2017,100,243,243,16238,OECD
+GEO,Georgia,Europe & Central Asia,2018,100,258,258,17229,OECD
+GEO,Georgia,Europe & Central Asia,2019,100,262,262,18187,OECD
+GEO,Georgia,Europe & Central Asia,2020,100,256,256,17031,OECD
+GEO,Georgia,Europe & Central Asia,2021,100,266,266,18916,OECD
+GEO,Georgia,Europe & Central Asia,2022,100,275,275,20967,OECD
+GEO,Georgia,Europe & Central Asia,2023,100,293,293,22591,OECD
+GHA,Ghana,Sub-Saharan Africa,2000,95.2,80,84,3327,UNSD
+GHA,Ghana,Sub-Saharan Africa,2001,95.3,82,86,3370,UNSD
+GHA,Ghana,Sub-Saharan Africa,2002,94.3,82,87,3426,UNSD
+GHA,Ghana,Sub-Saharan Africa,2003,94.4,82,87,3508,UNSD
+GHA,Ghana,Sub-Saharan Africa,2004,94.5,84,88,3607,UNSD
+GHA,Ghana,Sub-Saharan Africa,2005,94.8,96,101,3721,UNSD
+GHA,Ghana,Sub-Saharan Africa,2006,94.9,98,103,3858,UNSD
+GHA,Ghana,Sub-Saharan Africa,2007,94.8,104,109,3923,UNSD
+GHA,Ghana,Sub-Saharan Africa,2008,94.8,110,116,4175,UNSD
+GHA,Ghana,Sub-Saharan Africa,2009,94.6,114,121,4269,UNSD
+GHA,Ghana,Sub-Saharan Africa,2010,94.9,123,130,4496,UNSD
+GHA,Ghana,Sub-Saharan Africa,2011,92.9,121,130,5005,UNSD
+GHA,Ghana,Sub-Saharan Africa,2012,92.9,121,130,5340,UNSD
+GHA,Ghana,Sub-Saharan Africa,2013,92.3,120,130,5594,UNSD
+GHA,Ghana,Sub-Saharan Africa,2014,92.2,120,130,5619,UNSD
+GHA,Ghana,Sub-Saharan Africa,2015,92.2,126,136,5607,UNSD
+GHA,Ghana,Sub-Saharan Africa,2016,92.1,126,137,5666,UNSD
+GHA,Ghana,Sub-Saharan Africa,2017,95,130,137,5994,UNSD
+GLP,Guadeloupe,,2004,99.1,192,194,,UNSD
+GLP,Guadeloupe,,2005,99.1,129,130,,UNSD
+GLP,Guadeloupe,,2006,98.9,65,66,,UNSD
+GLP,Guadeloupe,,2007,74.9,79,105,,UNSD
+GLP,Guadeloupe,,2008,64,93,145,,UNSD
+GLP,Guadeloupe,,2009,63.1,316,501,,UNSD
+GLP,Guadeloupe,,2010,67.9,367,541,,UNSD
+GLP,Guadeloupe,,2011,72,418,580,,UNSD
+GLP,Guadeloupe,,2012,77.8,476,612,,UNSD
+GLP,Guadeloupe,,2013,83.1,535,644,,UNSD
+GLP,Guadeloupe,,2014,81.5,478,586,,UNSD
+GLP,Guadeloupe,,2015,79.6,421,529,,UNSD
+GLP,Guadeloupe,,2016,76.3,448,587,,UNSD
+GLP,Guadeloupe,,2017,73.6,466,633,,UNSD
+GLP,Guadeloupe,,2018,71.1,434,610,,UNSD
+GLP,Guadeloupe,,2019,68.4,410,599,,UNSD
+GLP,Guadeloupe,,2020,70.3,415,590,,UNSD
+GLP,Guadeloupe,,2021,72.3,427,590,,UNSD
+GRC,Greece,Europe & Central Asia,2000,91.2,376,412,31387,OECD
+GRC,Greece,Europe & Central Asia,2001,91.2,383,420,32676,OECD
+GRC,Greece,Europe & Central Asia,2002,91.2,389,426,34081,OECD
+GRC,Greece,Europe & Central Asia,2003,91.9,396,431,35971,OECD
+GRC,Greece,Europe & Central Asia,2004,89.9,393,437,37811,OECD
+GRC,Greece,Europe & Central Asia,2005,88.2,390,442,38147,OECD
+GRC,Greece,Europe & Central Asia,2006,87.2,390,447,40483,OECD
+GRC,Greece,Europe & Central Asia,2007,79.9,362,453,41796,OECD
+GRC,Greece,Europe & Central Asia,2008,82.3,377,458,41709,OECD
+GRC,Greece,Europe & Central Asia,2009,81.1,376,464,39886,OECD
+GRC,Greece,Europe & Central Asia,2010,82.9,441,532,37567,OECD
+GRC,Greece,Europe & Central Asia,2011,82,412,503,33906,OECD
+GRC,Greece,Europe & Central Asia,2012,82.5,408,494,31250,OECD
+GRC,Greece,Europe & Central Asia,2013,83.7,403,482,30762,OECD
+GRC,Greece,Europe & Central Asia,2014,84.1,410,488,31213,OECD
+GRC,Greece,Europe & Central Asia,2015,83.9,409,488,31348,OECD
+GRC,Greece,Europe & Central Asia,2016,82.3,410,498,31469,OECD
+GRC,Greece,Europe & Central Asia,2017,80.1,403,504,31995,OECD
+GRC,Greece,Europe & Central Asia,2018,78.4,404,515,32722,OECD
+GRC,Greece,Europe & Central Asia,2019,77.7,407,524,33503,OECD
+GRC,Greece,Europe & Central Asia,2020,80.3,400,499,30487,OECD
+GRC,Greece,Europe & Central Asia,2021,80.6,410,509,33528,OECD
+GRC,Greece,Europe & Central Asia,2022,81,422,521,35828,OECD
+GRC,Greece,Europe & Central Asia,2023,80.8,429,531,36701,OECD
+GRC,Greece,Europe & Central Asia,2024,80.7,437,541,37474,OECD
+GUF,French Guiana,,2004,100,355,355,,UNSD
+GUF,French Guiana,,2005,96.7,322,333,,UNSD
+GUF,French Guiana,,2006,93.3,293,314,,UNSD
+GUF,French Guiana,,2007,93,267,287,,UNSD
+GUF,French Guiana,,2008,92.6,244,264,,UNSD
+GUF,French Guiana,,2009,47.4,192,405,,UNSD
+GUF,French Guiana,,2010,71.8,314,437,,UNSD
+GUF,French Guiana,,2011,92.3,430,466,,UNSD
+GUF,French Guiana,,2012,77.3,286,370,,UNSD
+GUF,French Guiana,,2013,53.4,148,277,,UNSD
+GUF,French Guiana,,2014,68.5,238,348,,UNSD
+GUF,French Guiana,,2015,78.1,325,417,,UNSD
+GUF,French Guiana,,2016,81.5,324,398,,UNSD
+GUF,French Guiana,,2017,85,323,380,,UNSD
+GUF,French Guiana,,2018,84.5,320,379,,UNSD
+GUF,French Guiana,,2019,84,318,378,,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2002,63.7,504,791,40258,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2003,59.2,502,849,41571,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2004,59.6,493,828,44836,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2005,56.9,495,871,47939,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2006,54.4,489,899,50982,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2007,54.4,481,884,53813,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2008,51.2,470,918,54630,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2009,50.7,463,913,53172,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2010,48,468,976,56355,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2011,52.1,460,882,58673,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2012,61.1,472,772,59015,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2013,63.4,480,756,60602,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2014,63.5,488,768,61840,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2015,64.6,503,779,62780,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2016,66.4,511,769,63749,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2017,68.2,526,772,65663,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2018,70.1,558,796,66994,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2019,71.1,539,758,65388,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2020,72,528,733,61329,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2021,69.3,554,800,65885,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2022,68,544,800,64036,UNSD
+HKG,"Hong Kong SAR, China",East Asia & Pacific,2023,66.9,534,798,64388,UNSD
+HRV,Croatia,Europe & Central Asia,2006,100,383,383,29036,OECD
+HRV,Croatia,Europe & Central Asia,2007,96.8,385,398,30508,OECD
+HRV,Croatia,Europe & Central Asia,2008,97.2,403,414,31114,OECD
+HRV,Croatia,Europe & Central Asia,2009,97.6,395,404,29025,OECD
+HRV,Croatia,Europe & Central Asia,2010,95.8,363,379,28702,OECD
+HRV,Croatia,Europe & Central Asia,2011,91.6,352,384,28769,OECD
+HRV,Croatia,Europe & Central Asia,2012,84.8,333,392,28259,OECD
+HRV,Croatia,Europe & Central Asia,2013,84.6,343,406,28398,OECD
+HRV,Croatia,Europe & Central Asia,2014,82.8,321,388,28456,OECD
+HRV,Croatia,Europe & Central Asia,2015,81.6,322,395,29466,OECD
+HRV,Croatia,Europe & Central Asia,2016,78.5,319,406,30821,OECD
+HRV,Croatia,Europe & Central Asia,2017,75.4,317,421,32349,OECD
+HRV,Croatia,Europe & Central Asia,2018,72.3,318,439,33730,OECD
+HRV,Croatia,Europe & Central Asia,2019,66.2,301,454,35123,OECD
+HRV,Croatia,Europe & Central Asia,2020,67.1,287,428,32493,OECD
+HRV,Croatia,Europe & Central Asia,2021,64.8,292,450,36930,OECD
+HRV,Croatia,Europe & Central Asia,2022,61.8,292,472,39864,OECD
+HRV,Croatia,Europe & Central Asia,2023,57.9,272,471,41320,OECD
+HRV,Croatia,Europe & Central Asia,2024,57,276,485,42829,OECD
+HUN,Hungary,Europe & Central Asia,2000,89.9,401,447,22118,OECD
+HUN,Hungary,Europe & Central Asia,2001,89.6,406,453,23069,OECD
+HUN,Hungary,Europe & Central Asia,2002,90.5,415,458,24229,OECD
+HUN,Hungary,Europe & Central Asia,2003,90.7,422,465,25256,OECD
+HUN,Hungary,Europe & Central Asia,2004,84.7,386,455,26568,OECD
+HUN,Hungary,Europe & Central Asia,2005,83.8,387,462,27766,OECD
+HUN,Hungary,Europe & Central Asia,2006,81.2,381,469,28903,OECD
+HUN,Hungary,Europe & Central Asia,2007,78.6,360,458,29044,OECD
+HUN,Hungary,Europe & Central Asia,2008,75.5,343,455,29384,OECD
+HUN,Hungary,Europe & Central Asia,2009,75,323,431,27446,OECD
+HUN,Hungary,Europe & Central Asia,2010,70.4,284,404,27802,OECD
+HUN,Hungary,Europe & Central Asia,2011,67.3,258,383,28415,OECD
+HUN,Hungary,Europe & Central Asia,2012,65.4,263,402,28180,OECD
+HUN,Hungary,Europe & Central Asia,2013,64.6,244,378,28891,OECD
+HUN,Hungary,Europe & Central Asia,2014,58.7,226,385,30265,OECD
+HUN,Hungary,Europe & Central Asia,2015,53.7,202,377,31486,OECD
+HUN,Hungary,Europe & Central Asia,2016,50.6,192,379,32379,OECD
+HUN,Hungary,Europe & Central Asia,2017,48.6,187,385,33829,OECD
+HUN,Hungary,Europe & Central Asia,2018,49.4,189,382,35798,OECD
+HUN,Hungary,Europe & Central Asia,2019,50.6,196,387,37663,OECD
+HUN,Hungary,Europe & Central Asia,2020,54,218,403,36120,OECD
+HUN,Hungary,Europe & Central Asia,2021,51,212,416,38887,OECD
+HUN,Hungary,Europe & Central Asia,2022,55.3,223,404,40611,OECD
+HUN,Hungary,Europe & Central Asia,2023,54.2,230,425,40333,OECD
+HUN,Hungary,Europe & Central Asia,2024,53.2,217,409,40747,OECD
+IND,India,South Asia,2016,100,32,32,6741,OECD
+IND,India,South Asia,2018,100,40,40,7493,OECD
+IND,India,South Asia,2020,100,42,42,7187,OECD
+IND,India,South Asia,2021,100,44,44,7819,OECD
+IRL,Ireland,Europe & Central Asia,2000,88.5,531,599,53583,OECD
+IRL,Ireland,Europe & Central Asia,2001,87.1,610,700,55535,OECD
+IRL,Ireland,Europe & Central Asia,2002,79.8,553,692,57828,OECD
+IRL,Ireland,Europe & Central Asia,2003,73.4,536,731,58608,OECD
+IRL,Ireland,Europe & Central Asia,2004,67.3,496,738,61453,OECD
+IRL,Ireland,Europe & Central Asia,2005,66,483,732,63580,OECD
+IRL,Ireland,Europe & Central Asia,2006,63.9,507,793,64975,OECD
+IRL,Ireland,Europe & Central Asia,2007,63.5,491,773,66476,OECD
+IRL,Ireland,Europe & Central Asia,2008,62.5,449,719,62214,OECD
+IRL,Ireland,Europe & Central Asia,2009,61,397,651,58447,OECD
+IRL,Ireland,Europe & Central Asia,2010,57.1,356,624,59107,OECD
+IRL,Ireland,Europe & Central Asia,2011,52.5,324,616,59797,OECD
+IRL,Ireland,Europe & Central Asia,2012,42.1,247,585,59303,OECD
+IRL,Ireland,Europe & Central Asia,2013,42.1,245,582,60285,OECD
+IRL,Ireland,Europe & Central Asia,2014,20.8,117,562,65463,OECD
+IRL,Ireland,Europe & Central Asia,2015,20.8,116,557,80816,OECD
+IRL,Ireland,Europe & Central Asia,2016,26.1,152,581,80760,OECD
+IRL,Ireland,Europe & Central Asia,2017,22.9,132,575,87732,OECD
+IRL,Ireland,Europe & Central Asia,2018,14.6,87,598,93116,OECD
+IRL,Ireland,Europe & Central Asia,2019,15.5,97,625,96206,OECD
+IRL,Ireland,Europe & Central Asia,2020,16.3,105,644,101793,OECD
+IRL,Ireland,Europe & Central Asia,2021,16.1,102,629,116703,OECD
+IRL,Ireland,Europe & Central Asia,2022,14.7,92,624,123007,OECD
+IRL,Ireland,Europe & Central Asia,2023,14.7,89,603,117660,OECD
+IRL,Ireland,Europe & Central Asia,2024,15.1,89,592,118833,OECD
+ISL,Iceland,Europe & Central Asia,2000,72.6,336,462,50228,OECD
+ISL,Iceland,Europe & Central Asia,2001,75.8,353,467,51468,OECD
+ISL,Iceland,Europe & Central Asia,2002,76.3,363,476,51288,OECD
+ISL,Iceland,Europe & Central Asia,2003,74.5,360,483,52096,OECD
+ISL,Iceland,Europe & Central Asia,2004,63.5,319,503,55577,OECD
+ISL,Iceland,Europe & Central Asia,2005,89.3,460,515,58549,OECD
+ISL,Iceland,Europe & Central Asia,2006,90,506,563,60434,OECD
+ISL,Iceland,Europe & Central Asia,2007,87.3,487,558,64075,OECD
+ISL,Iceland,Europe & Central Asia,2008,74.5,488,655,63964,OECD
+ISL,Iceland,Europe & Central Asia,2009,71.2,295,414,58441,OECD
+ISL,Iceland,Europe & Central Asia,2010,71.4,346,484,57225,OECD
+ISL,Iceland,Europe & Central Asia,2011,68.4,338,495,57838,OECD
+ISL,Iceland,Europe & Central Asia,2012,66.7,341,511,58204,OECD
+ISL,Iceland,Europe & Central Asia,2013,66.3,342,516,59730,OECD
+ISL,Iceland,Europe & Central Asia,2014,66.3,354,534,60199,OECD
+ISL,Iceland,Europe & Central Asia,2015,58,341,588,61820,OECD
+ISL,Iceland,Europe & Central Asia,2016,57.3,375,655,64759,OECD
+ISL,Iceland,Europe & Central Asia,2017,63.4,416,656,65463,OECD
+ISL,Iceland,Europe & Central Asia,2018,59.7,418,701,66703,OECD
+ISL,Iceland,Europe & Central Asia,2019,52.9,367,694,65995,OECD
+ISL,Iceland,Europe & Central Asia,2020,47.7,293,614,60617,OECD
+ISL,Iceland,Europe & Central Asia,2021,39.9,263,659,62721,OECD
+ISL,Iceland,Europe & Central Asia,2022,33,197,598,66581,OECD
+ISL,Iceland,Europe & Central Asia,2023,28,161,577,69268,OECD
+ISL,Iceland,Europe & Central Asia,2024,10.4,57,551,68230,OECD
+ISR,Israel,Middle East & North Africa,2004,100,601,601,32666,OECD
+ISR,Israel,Middle East & North Africa,2005,100,607,607,33492,OECD
+ISR,Israel,Middle East & North Africa,2006,100,618,618,34745,OECD
+ISR,Israel,Middle East & North Africa,2007,100,618,618,36288,OECD
+ISR,Israel,Middle East & North Africa,2008,100,626,626,36795,OECD
+ISR,Israel,Middle East & North Africa,2009,100,632,632,36365,OECD
+ISR,Israel,Middle East & North Africa,2010,100,630,630,37686,OECD
+ISR,Israel,Middle East & North Africa,2011,100,635,635,39036,OECD
+ISR,Israel,Middle East & North Africa,2012,100,636,636,39246,OECD
+ISR,Israel,Middle East & North Africa,2013,81.9,514,627,40095,OECD
+ISR,Israel,Middle East & North Africa,2014,81.8,513,627,40796,OECD
+ISR,Israel,Middle East & North Africa,2015,80.9,511,631,40890,OECD
+ISR,Israel,Middle East & North Africa,2016,79.6,510,641,41915,OECD
+ISR,Israel,Middle East & North Africa,2017,77.6,504,650,42896,OECD
+ISR,Israel,Middle East & North Africa,2018,76.2,507,665,43783,OECD
+ISR,Israel,Middle East & North Africa,2019,76.4,509,665,44492,OECD
+ISR,Israel,Middle East & North Africa,2020,77.4,526,679,42927,OECD
+ISR,Israel,Middle East & North Africa,2021,76.6,527,687,46151,OECD
+ISR,Israel,Middle East & North Africa,2022,75.9,516,680,48132,OECD
+ISR,Israel,Middle East & North Africa,2023,74.7,505,676,47671,OECD
+ISR,Israel,Middle East & North Africa,2024,75.6,514,680,47389,OECD
+ITA,Italy,Europe & Central Asia,2000,77.5,392,506,50353,OECD
+ITA,Italy,Europe & Central Asia,2001,72,369,513,51332,OECD
+ITA,Italy,Europe & Central Asia,2002,72.5,377,520,51369,OECD
+ITA,Italy,Europe & Central Asia,2003,68.9,358,520,51126,OECD
+ITA,Italy,Europe & Central Asia,2004,66.3,355,535,51495,OECD
+ITA,Italy,Europe & Central Asia,2005,63.8,346,541,51586,OECD
+ITA,Italy,Europe & Central Asia,2006,62.7,347,553,52304,OECD
+ITA,Italy,Europe & Central Asia,2007,58.2,320,550,52747,OECD
+ITA,Italy,Europe & Central Asia,2008,57,311,545,51806,OECD
+ITA,Italy,Europe & Central Asia,2009,52.1,279,536,48774,OECD
+ITA,Italy,Europe & Central Asia,2010,49.2,265,539,49302,OECD
+ITA,Italy,Europe & Central Asia,2011,44.1,229,520,49473,OECD
+ITA,Italy,Europe & Central Asia,2012,40.7,202,496,47796,OECD
+ITA,Italy,Europe & Central Asia,2013,38.2,186,488,46833,OECD
+ITA,Italy,Europe & Central Asia,2014,33.9,166,489,46826,OECD
+ITA,Italy,Europe & Central Asia,2015,28.8,140,487,47312,OECD
+ITA,Italy,Europe & Central Asia,2016,27.1,135,498,47988,OECD
+ITA,Italy,Europe & Central Asia,2017,25.7,126,490,48849,OECD
+ITA,Italy,Europe & Central Asia,2018,23.6,118,500,49356,OECD
+ITA,Italy,Europe & Central Asia,2019,22.8,114,499,49691,OECD
+ITA,Italy,Europe & Central Asia,2020,22.1,107,483,45505,OECD
+ITA,Italy,Europe & Central Asia,2021,21,103,490,49825,OECD
+ITA,Italy,Europe & Central Asia,2022,19.9,96,481,52333,OECD
+ITA,Italy,Europe & Central Asia,2023,18.4,89,485,52843,OECD
+ITA,Italy,Europe & Central Asia,2024,17.4,86,497,53285,OECD
+JAM,Jamaica,Latin America & Caribbean,2002,100,362,362,9870,UNSD
+JAM,Jamaica,Latin America & Caribbean,2003,100,362,362,10170,UNSD
+JAM,Jamaica,Latin America & Caribbean,2004,100,361,361,10244,UNSD
+JAM,Jamaica,Latin America & Caribbean,2005,100,361,361,10279,UNSD
+JAM,Jamaica,Latin America & Caribbean,2006,100,542,542,10522,UNSD
+JOR,Jordan,Middle East & North Africa,2002,100,396,396,9380,UNSD
+JOR,Jordan,Middle East & North Africa,2005,100,391,391,10685,UNSD
+JOR,Jordan,Middle East & North Africa,2006,100,359,359,10835,UNSD
+JOR,Jordan,Middle East & North Africa,2007,100,323,323,11034,UNSD
+JOR,Jordan,Middle East & North Africa,2008,100,302,302,11556,UNSD
+JOR,Jordan,Middle East & North Africa,2009,100,269,269,11889,UNSD
+JOR,Jordan,Middle East & North Africa,2010,100,284,284,11943,UNSD
+JOR,Jordan,Middle East & North Africa,2011,100,271,271,11988,UNSD
+JOR,Jordan,Middle East & North Africa,2012,100,296,296,12104,UNSD
+JOR,Jordan,Middle East & North Africa,2013,100,321,321,11804,UNSD
+JOR,Jordan,Middle East & North Africa,2014,100,317,317,11087,UNSD
+JOR,Jordan,Middle East & North Africa,2015,100,353,353,10470,UNSD
+JOR,Jordan,Middle East & North Africa,2017,100,333,333,10220,UNSD
+JOR,Jordan,Middle East & North Africa,2018,100,331,331,10183,UNSD
+JOR,Jordan,Middle East & North Africa,2019,100,322,322,10168,UNSD
+JOR,Jordan,Middle East & North Africa,2020,100,328,328,9872,UNSD
+JPN,Japan,East Asia & Pacific,2000,5.6,24,432,39732,OECD
+JPN,Japan,East Asia & Pacific,2001,5,22,430,39749,OECD
+JPN,Japan,East Asia & Pacific,2002,4.1,17,425,39690,OECD
+JPN,Japan,East Asia & Pacific,2003,3.4,15,425,40152,OECD
+JPN,Japan,East Asia & Pacific,2004,3.3,14,418,40987,OECD
+JPN,Japan,East Asia & Pacific,2005,2.7,11,412,41740,OECD
+JPN,Japan,East Asia & Pacific,2006,2.3,9,406,42359,OECD
+JPN,Japan,East Asia & Pacific,2007,2.3,9,397,43042,OECD
+JPN,Japan,East Asia & Pacific,2008,1.6,6,375,42519,OECD
+JPN,Japan,East Asia & Pacific,2009,1.4,5,361,40000,OECD
+JPN,Japan,East Asia & Pacific,2010,1.3,5,354,41647,OECD
+JPN,Japan,East Asia & Pacific,2011,1.3,5,355,41641,OECD
+JPN,Japan,East Asia & Pacific,2012,1.3,4,354,42395,OECD
+JPN,Japan,East Asia & Pacific,2013,1.3,5,351,43304,OECD
+JPN,Japan,East Asia & Pacific,2014,1.2,4,348,43754,OECD
+JPN,Japan,East Asia & Pacific,2015,1.1,4,346,44589,OECD
+JPN,Japan,East Asia & Pacific,2016,1,3,339,44927,OECD
+JPN,Japan,East Asia & Pacific,2017,1,3,338,45693,OECD
+JPN,Japan,East Asia & Pacific,2018,1,3,337,46133,OECD
+JPN,Japan,East Asia & Pacific,2019,0.9,3,337,46055,OECD
+JPN,Japan,East Asia & Pacific,2020,0.9,3,330,44213,OECD
+JPN,Japan,East Asia & Pacific,2021,0.8,3,326,45999,OECD
+JPN,Japan,East Asia & Pacific,2023,0.8,2,313,47387,OECD
+KAZ,Kazakhstan,Europe & Central Asia,2005,82.3,108,131,20566,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2006,80.5,120,149,22574,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2007,74.1,153,206,24351,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2008,76.6,159,208,24896,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2009,66.5,157,236,24901,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2010,89.3,201,225,26375,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2011,90.7,208,230,27946,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2012,74,154,207,28881,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2013,76.9,155,202,30177,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2014,87.8,170,193,30986,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2015,87.1,156,179,30894,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2016,87.8,141,160,30758,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2017,76,139,183,31524,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2018,64.3,125,195,32330,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2019,68.6,131,191,33298,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2020,68,130,190,32012,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2021,64.6,131,203,32946,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2022,68,130,191,33506,UNSD
+KAZ,Kazakhstan,Europe & Central Asia,2023,70,143,204,34703,UNSD
+KEN,Kenya,Sub-Saharan Africa,2014,100,7,7,4559,UNSD
+KEN,Kenya,Sub-Saharan Africa,2015,100,6,6,4680,UNSD
+KEN,Kenya,Sub-Saharan Africa,2016,100,24,24,4770,UNSD
+KEN,Kenya,Sub-Saharan Africa,2017,100,22,22,4847,UNSD
+KEN,Kenya,Sub-Saharan Africa,2018,100,24,24,5018,UNSD
+KEN,Kenya,Sub-Saharan Africa,2019,100,22,22,5172,UNSD
+KEN,Kenya,Sub-Saharan Africa,2020,100,22,22,5057,UNSD
+KEN,Kenya,Sub-Saharan Africa,2021,100,38,38,5339,UNSD
+KEN,Kenya,Sub-Saharan Africa,2022,100,32,32,5492,UNSD
+KEN,Kenya,Sub-Saharan Africa,2023,100,37,37,5692,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2000,100,259,259,3638,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2001,100,271,271,3796,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2002,100,249,249,3761,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2003,100,241,241,3983,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2004,100,308,308,4212,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2005,100,264,264,4157,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2006,100,292,292,4240,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2007,100,312,312,4559,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2008,100,472,472,4895,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2010,100,203,203,4876,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2011,100,210,210,5093,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2012,100,172,172,4993,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2013,100,203,203,5419,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2014,100,169,169,5514,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2015,100,185,185,5600,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2016,100,201,201,5715,UNSD
+KGZ,Kyrgyz Republic,Europe & Central Asia,2017,100,226,226,5861,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2008,100,424,424,25899,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2009,100,422,422,24974,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2010,100,417,417,24998,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2011,100,391,391,25380,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2012,100,350,350,25114,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2020,100,538,538,26737,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2021,100,424,424,26897,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2022,100,463,463,29750,UNSD
+KNA,St. Kitts and Nevis,Latin America & Caribbean,2023,99.8,565,566,30617,UNSD
+KOR,South Korea,East Asia & Pacific,2000,47,170,362,26404,OECD
+KOR,South Korea,East Asia & Pacific,2001,50.1,188,376,27441,OECD
+KOR,South Korea,East Asia & Pacific,2002,41.5,160,385,29395,OECD
+KOR,South Korea,East Asia & Pacific,2003,40.3,157,390,30142,OECD
+KOR,South Korea,East Asia & Pacific,2004,36.4,139,383,31580,OECD
+KOR,South Korea,East Asia & Pacific,2005,27.7,102,369,32886,OECD
+KOR,South Korea,East Asia & Pacific,2008,20.3,80,393,37064,OECD
+KOR,South Korea,East Asia & Pacific,2009,18.6,71,383,37176,OECD
+KOR,South Korea,East Asia & Pacific,2010,17.9,66,368,39574,OECD
+KOR,South Korea,East Asia & Pacific,2011,17.1,62,364,40719,OECD
+KOR,South Korea,East Asia & Pacific,2012,15.9,57,361,41538,OECD
+KOR,South Korea,East Asia & Pacific,2013,15.6,56,355,42710,OECD
+KOR,South Korea,East Asia & Pacific,2014,15.7,56,360,43807,OECD
+KOR,South Korea,East Asia & Pacific,2015,15.1,55,367,44849,OECD
+KOR,South Korea,East Asia & Pacific,2016,14.7,56,383,46088,OECD
+KOR,South Korea,East Asia & Pacific,2017,13.5,51,379,47537,OECD
+KOR,South Korea,East Asia & Pacific,2018,13.4,53,396,48834,OECD
+KOR,South Korea,East Asia & Pacific,2019,12.7,52,409,49791,OECD
+KOR,South Korea,East Asia & Pacific,2020,11.8,51,435,49374,OECD
+KOR,South Korea,East Asia & Pacific,2021,12.9,56,438,51718,OECD
+KOR,South Korea,East Asia & Pacific,2022,10.2,45,445,53229,OECD
+KOR,South Korea,East Asia & Pacific,2023,10.7,46,433,54029,OECD
+LBN,Lebanon,Middle East & North Africa,2001,89,291,327,11818,UNSD
+LBN,Lebanon,Middle East & North Africa,2004,80.2,275,344,12882,UNSD
+LBN,Lebanon,Middle East & North Africa,2009,78.3,270,345,16264,UNSD
+LBN,Lebanon,Middle East & North Africa,2012,81,300,371,17323,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2004,100,426,426,19526,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2005,100,429,429,19304,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2006,100,432,432,20354,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2007,100,465,465,20560,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2008,100,444,444,21443,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2009,100,447,447,20707,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2010,100,445,445,20649,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2011,100,396,396,21430,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2012,100,400,400,21309,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2013,100,415,415,20827,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2014,100,402,402,21011,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2015,100,423,423,20940,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2016,100,473,473,21566,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2017,100,425,425,22207,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2018,100,407,407,22761,UNSD
+LCA,St. Lucia,Latin America & Caribbean,2019,100,445,445,22445,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2002,0,0,163,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2003,0,0,162,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2004,0,0,155,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2005,0,0,191,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2006,0,0,155,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2007,0,0,170,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2008,0,0,193,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2009,0,0,147,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2010,0,0,143,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2011,0,0,165,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2012,0,0,175,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2013,0,0,175,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2014,0,0,162,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2015,0,0,143,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2016,0,0,147,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2017,0,0,147,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2018,0,0,118,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2019,0,0,152,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2020,0,0,172,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2021,0,0,168,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2022,0,0,140,,UNSD
+LIE,Liechtenstein,Europe & Central Asia,2023,0,0,134,,UNSD
+LTU,Lithuania,Europe & Central Asia,2000,100,364,365,15777,OECD
+LTU,Lithuania,Europe & Central Asia,2001,100,378,378,16939,OECD
+LTU,Lithuania,Europe & Central Asia,2002,100,405,405,18223,OECD
+LTU,Lithuania,Europe & Central Asia,2003,100,389,389,20311,OECD
+LTU,Lithuania,Europe & Central Asia,2004,98,366,373,21876,OECD
+LTU,Lithuania,Europe & Central Asia,2005,97.9,380,387,23954,OECD
+LTU,Lithuania,Europe & Central Asia,2006,97.9,397,405,26139,OECD
+LTU,Lithuania,Europe & Central Asia,2007,92.4,387,419,29382,OECD
+LTU,Lithuania,Europe & Central Asia,2008,91.4,391,428,30457,OECD
+LTU,Lithuania,Europe & Central Asia,2009,91.4,348,381,26228,OECD
+LTU,Lithuania,Europe & Central Asia,2010,94.3,381,404,26898,OECD
+LTU,Lithuania,Europe & Central Asia,2011,79,349,442,29252,OECD
+LTU,Lithuania,Europe & Central Asia,2012,75.6,337,445,30932,OECD
+LTU,Lithuania,Europe & Central Asia,2013,64,277,433,32487,OECD
+LTU,Lithuania,Europe & Central Asia,2014,59.9,260,433,33988,OECD
+LTU,Lithuania,Europe & Central Asia,2015,54.7,245,447,35265,OECD
+LTU,Lithuania,Europe & Central Asia,2016,31.3,139,443,36632,OECD
+LTU,Lithuania,Europe & Central Asia,2017,33,150,455,38789,OECD
+LTU,Lithuania,Europe & Central Asia,2018,27.5,127,464,41035,OECD
+LTU,Lithuania,Europe & Central Asia,2019,24.5,116,472,43079,OECD
+LTU,Lithuania,Europe & Central Asia,2020,18.4,89,483,43108,OECD
+LTU,Lithuania,Europe & Central Asia,2021,16,77,481,45897,OECD
+LTU,Lithuania,Europe & Central Asia,2022,13.6,64,468,46643,OECD
+LTU,Lithuania,Europe & Central Asia,2023,7.9,36,449,46334,OECD
+LTU,Lithuania,Europe & Central Asia,2024,5.8,27,466,47462,OECD
+LUX,Luxembourg,Europe & Central Asia,2000,21,138,654,114148,OECD
+LUX,Luxembourg,Europe & Central Asia,2001,20.2,131,646,116265,OECD
+LUX,Luxembourg,Europe & Central Asia,2002,19.7,129,653,118764,OECD
+LUX,Luxembourg,Europe & Central Asia,2003,18.6,126,678,120403,OECD
+LUX,Luxembourg,Europe & Central Asia,2004,16.7,113,678,123726,OECD
+LUX,Luxembourg,Europe & Central Asia,2005,18.7,126,672,124872,OECD
+LUX,Luxembourg,Europe & Central Asia,2006,17.4,119,682,130290,OECD
+LUX,Luxembourg,Europe & Central Asia,2007,16.7,116,694,138683,OECD
+LUX,Luxembourg,Europe & Central Asia,2008,15.5,108,697,135815,OECD
+LUX,Luxembourg,Europe & Central Asia,2009,15.1,102,679,129005,OECD
+LUX,Luxembourg,Europe & Central Asia,2010,15.8,107,678,131434,OECD
+LUX,Luxembourg,Europe & Central Asia,2011,14.6,97,666,129888,OECD
+LUX,Luxembourg,Europe & Central Asia,2012,14.3,93,652,128897,OECD
+LUX,Luxembourg,Europe & Central Asia,2013,14.2,88,616,129947,OECD
+LUX,Luxembourg,Europe & Central Asia,2014,14.3,90,626,130250,OECD
+LUX,Luxembourg,Europe & Central Asia,2015,7.4,45,607,130097,OECD
+LUX,Luxembourg,Europe & Central Asia,2016,4.3,35,812,133662,OECD
+LUX,Luxembourg,Europe & Central Asia,2017,4.5,36,798,132170,OECD
+LUX,Luxembourg,Europe & Central Asia,2018,4.4,35,803,131734,OECD
+LUX,Luxembourg,Europe & Central Asia,2019,4.4,35,791,132725,OECD
+LUX,Luxembourg,Europe & Central Asia,2020,3.9,31,789,129866,OECD
+LUX,Luxembourg,Europe & Central Asia,2021,4,32,793,136772,OECD
+LUX,Luxembourg,Europe & Central Asia,2022,2.8,20,720,132571,OECD
+LUX,Luxembourg,Europe & Central Asia,2023,2.9,21,719,130049,OECD
+LUX,Luxembourg,Europe & Central Asia,2024,3,22,735,128475,OECD
+LVA,Latvia,Europe & Central Asia,2000,100,271,271,14554,OECD
+LVA,Latvia,Europe & Central Asia,2001,98.1,299,305,15696,OECD
+LVA,Latvia,Europe & Central Asia,2002,97.7,335,343,17097,OECD
+LVA,Latvia,Europe & Central Asia,2003,95.6,290,304,18718,OECD
+LVA,Latvia,Europe & Central Asia,2004,92.8,295,318,20574,OECD
+LVA,Latvia,Europe & Central Asia,2005,94.2,301,320,23213,OECD
+LVA,Latvia,Europe & Central Asia,2006,94.5,324,342,26432,OECD
+LVA,Latvia,Europe & Central Asia,2007,93.9,367,391,29424,OECD
+LVA,Latvia,Europe & Central Asia,2008,93.2,322,345,28727,OECD
+LVA,Latvia,Europe & Central Asia,2009,92.2,324,352,24521,OECD
+LVA,Latvia,Europe & Central Asia,2010,90.7,294,324,24120,OECD
+LVA,Latvia,Europe & Central Asia,2011,88.3,309,350,25309,OECD
+LVA,Latvia,Europe & Central Asia,2012,83.9,271,323,27497,OECD
+LVA,Latvia,Europe & Central Asia,2013,72.9,255,350,28375,OECD
+LVA,Latvia,Europe & Central Asia,2014,71.4,260,364,29244,OECD
+LVA,Latvia,Europe & Central Asia,2015,66.9,270,403,30600,OECD
+LVA,Latvia,Europe & Central Asia,2016,70,287,409,31669,OECD
+LVA,Latvia,Europe & Central Asia,2017,70.2,289,411,33036,OECD
+LVA,Latvia,Europe & Central Asia,2018,68.3,278,407,34730,OECD
+LVA,Latvia,Europe & Central Asia,2019,56.4,248,439,35208,OECD
+LVA,Latvia,Europe & Central Asia,2020,55.5,266,478,34226,OECD
+LVA,Latvia,Europe & Central Asia,2021,52.5,242,461,36912,OECD
+LVA,Latvia,Europe & Central Asia,2022,44.7,207,463,37719,OECD
+LVA,Latvia,Europe & Central Asia,2023,40.6,178,438,37278,OECD
+LVA,Latvia,Europe & Central Asia,2024,35.2,162,461,37615,OECD
+MAC,"Macao SAR, China",East Asia & Pacific,2002,20.8,110,530,61626,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2003,21.2,112,527,67995,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2004,21.8,115,527,84004,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2005,23.3,130,559,87186,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2006,23.2,130,559,93828,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2007,20.6,113,550,102880,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2008,20.5,114,558,102475,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2009,22.8,135,591,104911,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2010,21.6,124,573,130758,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2011,22.3,127,571,155385,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2012,22.1,138,624,164239,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2013,22.4,150,666,174570,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2014,24.2,183,757,162813,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2015,28.5,236,827,123194,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2016,25.9,211,815,120530,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2017,23.1,188,813,133323,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2018,22.7,180,796,139541,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2019,21.9,183,837,133454,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2020,27.5,183,664,59662,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2021,23.9,165,691,73374,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2022,24.3,163,671,59921,UNSD
+MAC,"Macao SAR, China",East Asia & Pacific,2023,20.4,152,746,104815,UNSD
+MAR,Morocco,Middle East & North Africa,2000,98,224,229,5100,UNSD
+MAR,Morocco,Middle East & North Africa,2014,90,149,166,7952,UNSD
+MAR,Morocco,Middle East & North Africa,2015,90,151,168,8199,UNSD
+MCO,Monaco,Europe & Central Asia,2003,0,0,1883,,UNSD
+MCO,Monaco,Europe & Central Asia,2004,0,0,1758,,UNSD
+MCO,Monaco,Europe & Central Asia,2005,0,0,1713,,UNSD
+MCO,Monaco,Europe & Central Asia,2006,0,0,1452,,UNSD
+MCO,Monaco,Europe & Central Asia,2007,0,0,1702,,UNSD
+MCO,Monaco,Europe & Central Asia,2008,0,0,1648,,UNSD
+MCO,Monaco,Europe & Central Asia,2009,0,0,1502,,UNSD
+MCO,Monaco,Europe & Central Asia,2010,0,0,1599,,UNSD
+MCO,Monaco,Europe & Central Asia,2011,0,0,1656,,UNSD
+MCO,Monaco,Europe & Central Asia,2012,0,0,1702,,UNSD
+MCO,Monaco,Europe & Central Asia,2013,0,0,1256,,UNSD
+MCO,Monaco,Europe & Central Asia,2014,0,0,1227,,UNSD
+MCO,Monaco,Europe & Central Asia,2015,0,0,1153,,UNSD
+MCO,Monaco,Europe & Central Asia,2016,0,0,1124,,UNSD
+MCO,Monaco,Europe & Central Asia,2017,0,0,1089,,UNSD
+MCO,Monaco,Europe & Central Asia,2018,0,0,1130,,UNSD
+MCO,Monaco,Europe & Central Asia,2019,0,0,1122,,UNSD
+MCO,Monaco,Europe & Central Asia,2020,0,0,926,,UNSD
+MCO,Monaco,Europe & Central Asia,2021,0,0,1112,,UNSD
+MCO,Monaco,Europe & Central Asia,2022,0,0,993,,UNSD
+MCO,Monaco,Europe & Central Asia,2023,0,0,936,,UNSD
+MDA,Moldova,Europe & Central Asia,2000,100,50,50,5727,OECD
+MDA,Moldova,Europe & Central Asia,2001,100,49,49,6090,OECD
+MDA,Moldova,Europe & Central Asia,2002,100,51,51,6580,OECD
+MDA,Moldova,Europe & Central Asia,2003,100,51,51,7034,OECD
+MDA,Moldova,Europe & Central Asia,2004,100,54,54,7574,OECD
+MDA,Moldova,Europe & Central Asia,2005,100,58,58,8161,OECD
+MDA,Moldova,Europe & Central Asia,2006,100,63,63,8577,OECD
+MDA,Moldova,Europe & Central Asia,2007,100,85,85,8855,OECD
+MDA,Moldova,Europe & Central Asia,2008,100,103,103,9564,OECD
+MDA,Moldova,Europe & Central Asia,2009,100,110,110,9001,OECD
+MDA,Moldova,Europe & Central Asia,2010,100,117,117,9650,OECD
+MDA,Moldova,Europe & Central Asia,2011,100,122,122,10217,OECD
+MDA,Moldova,Europe & Central Asia,2012,100,125,125,10158,OECD
+MDA,Moldova,Europe & Central Asia,2013,100,140,140,11080,OECD
+MDA,Moldova,Europe & Central Asia,2014,100,152,152,11641,OECD
+MDA,Moldova,Europe & Central Asia,2015,100,155,155,11691,OECD
+MDA,Moldova,Europe & Central Asia,2016,100,175,175,12377,OECD
+MDA,Moldova,Europe & Central Asia,2017,100,185,185,13119,OECD
+MDA,Moldova,Europe & Central Asia,2018,100,181,181,13896,OECD
+MDA,Moldova,Europe & Central Asia,2019,100,199,199,14621,OECD
+MDA,Moldova,Europe & Central Asia,2020,95.3,217,227,13559,OECD
+MDA,Moldova,Europe & Central Asia,2021,93.8,238,254,15682,OECD
+MDG,Madagascar,Sub-Saharan Africa,2004,100,18,18,1620,UNSD
+MDG,Madagascar,Sub-Saharan Africa,2007,96.5,20,21,1732,UNSD
+MEX,Mexico,Latin America & Caribbean,2000,47.1,147,312,20470,OECD
+MEX,Mexico,Latin America & Caribbean,2001,48.4,152,315,20078,OECD
+MEX,Mexico,Latin America & Caribbean,2002,48.4,153,317,19745,OECD
+MEX,Mexico,Latin America & Caribbean,2003,53,169,320,19701,OECD
+MEX,Mexico,Latin America & Caribbean,2004,53.7,178,331,20127,OECD
+MEX,Mexico,Latin America & Caribbean,2005,53.2,178,335,20277,OECD
+MEX,Mexico,Latin America & Caribbean,2006,54.7,184,337,20966,OECD
+MEX,Mexico,Latin America & Caribbean,2007,56.5,192,339,21102,OECD
+MEX,Mexico,Latin America & Caribbean,2008,58,198,341,20993,OECD
+MEX,Mexico,Latin America & Caribbean,2009,57.9,198,342,19386,OECD
+MEX,Mexico,Latin America & Caribbean,2010,62.2,219,353,20058,OECD
+MEX,Mexico,Latin America & Caribbean,2011,63.6,227,356,20458,OECD
+MEX,Mexico,Latin America & Caribbean,2012,66.5,240,360,20899,OECD
+MEX,Mexico,Latin America & Caribbean,2016,100,313,313,21578,OECD
+MEX,Mexico,Latin America & Caribbean,2018,100,314,314,21998,OECD
+MEX,Mexico,Latin America & Caribbean,2020,100,307,307,19728,OECD
+MEX,Mexico,Latin America & Caribbean,2022,100,307,307,21392,OECD
+MHL,Marshall Islands,East Asia & Pacific,2007,63.2,316,500,4223,UNSD
+MKD,North Macedonia,Europe & Central Asia,2008,100,345,345,16038,OECD
+MKD,North Macedonia,Europe & Central Asia,2011,100,360,360,17201,OECD
+MKD,North Macedonia,Europe & Central Asia,2022,100,466,466,22822,OECD
+MKD,North Macedonia,Europe & Central Asia,2023,100,479,479,23455,OECD
+MLT,Malta,Middle East & North Africa,2000,90.2,469,520,31068,OECD
+MLT,Malta,Middle East & North Africa,2001,91.1,480,527,30602,OECD
+MLT,Malta,Middle East & North Africa,2002,95.1,502,528,31207,OECD
+MLT,Malta,Middle East & North Africa,2003,93.3,528,566,32148,OECD
+MLT,Malta,Middle East & North Africa,2004,93.7,579,618,32063,OECD
+MLT,Malta,Middle East & North Africa,2005,90.9,555,611,32777,OECD
+MLT,Malta,Middle East & North Africa,2006,86.5,563,651,33421,OECD
+MLT,Malta,Middle East & North Africa,2007,95.5,630,660,34982,OECD
+MLT,Malta,Middle East & North Africa,2008,95.1,639,672,36288,OECD
+MLT,Malta,Middle East & North Africa,2009,93.2,613,658,35513,OECD
+MLT,Malta,Middle East & North Africa,2010,90.8,555,611,37529,OECD
+MLT,Malta,Middle East & North Africa,2011,83.4,509,610,37741,OECD
+MLT,Malta,Middle East & North Africa,2012,84.6,509,602,38937,OECD
+MLT,Malta,Middle East & North Africa,2013,86.5,518,599,40921,OECD
+MLT,Malta,Middle East & North Africa,2014,87,546,628,43163,OECD
+MLT,Malta,Middle East & North Africa,2015,90.4,580,642,46172,OECD
+MLT,Malta,Middle East & North Africa,2016,85.5,549,642,46967,OECD
+MLT,Malta,Middle East & North Africa,2017,87.4,582,666,51628,OECD
+MLT,Malta,Middle East & North Africa,2018,88.9,597,672,53419,OECD
+MLT,Malta,Middle East & North Africa,2019,90.9,634,697,53393,OECD
+MLT,Malta,Middle East & North Africa,2020,88.3,565,639,50390,OECD
+MLT,Malta,Middle East & North Africa,2021,82.9,501,604,56824,OECD
+MLT,Malta,Middle East & North Africa,2022,86,535,622,56874,OECD
+MLT,Malta,Middle East & North Africa,2023,78.9,493,625,60460,OECD
+MLT,Malta,Middle East & North Africa,2024,79.5,521,656,62398,OECD
+MMR,Myanmar,East Asia & Pacific,2012,100,4,4,4341,UNSD
+MMR,Myanmar,East Asia & Pacific,2013,100,6,6,4667,UNSD
+MMR,Myanmar,East Asia & Pacific,2014,100,6,6,5007,UNSD
+MMR,Myanmar,East Asia & Pacific,2015,100,7,7,5314,UNSD
+MMR,Myanmar,East Asia & Pacific,2016,100,7,7,5581,UNSD
+MMR,Myanmar,East Asia & Pacific,2017,100,7,7,5878,UNSD
+MMR,Myanmar,East Asia & Pacific,2018,100,8,8,6201,UNSD
+MMR,Myanmar,East Asia & Pacific,2019,100,8,8,6563,UNSD
+MMR,Myanmar,East Asia & Pacific,2020,100,7,7,5927,UNSD
+MMR,Myanmar,East Asia & Pacific,2021,100,7,7,5178,UNSD
+MNE,Montenegro,Europe & Central Asia,2011,99.7,513,515,20110,OECD
+MNE,Montenegro,Europe & Central Asia,2012,96.4,468,486,19576,OECD
+MNE,Montenegro,Europe & Central Asia,2013,96.6,473,490,20201,OECD
+MNE,Montenegro,Europe & Central Asia,2014,94.3,445,472,20642,OECD
+MNE,Montenegro,Europe & Central Asia,2015,93.1,459,493,21132,OECD
+MNE,Montenegro,Europe & Central Asia,2016,92.9,456,491,21834,OECD
+MNE,Montenegro,Europe & Central Asia,2017,96.1,473,492,22514,OECD
+MNE,Montenegro,Europe & Central Asia,2018,94.1,490,521,23562,OECD
+MNE,Montenegro,Europe & Central Asia,2019,93.5,518,554,24585,OECD
+MNE,Montenegro,Europe & Central Asia,2020,94.2,468,497,20905,OECD
+MNE,Montenegro,Europe & Central Asia,2021,95.3,503,528,23690,OECD
+MNE,Montenegro,Europe & Central Asia,2022,95.7,516,539,25583,OECD
+MNE,Montenegro,Europe & Central Asia,2023,96.3,537,558,27243,OECD
+MNE,Montenegro,Europe & Central Asia,2024,96.5,551,571,28106,OECD
+MSR,Montserrat,,2010,100,143,143,,UNSD
+MTQ,Martinique,,2004,67.4,566,840,,UNSD
+MTQ,Martinique,,2005,63.2,512,811,,UNSD
+MTQ,Martinique,,2006,58.5,455,778,,UNSD
+MTQ,Martinique,,2007,55.5,400,720,,UNSD
+MTQ,Martinique,,2008,52.1,345,662,,UNSD
+MTQ,Martinique,,2009,38.6,175,453,,UNSD
+MTQ,Martinique,,2010,41.9,199,476,,UNSD
+MTQ,Martinique,,2011,44.8,224,501,,UNSD
+MTQ,Martinique,,2012,43.7,219,500,,UNSD
+MTQ,Martinique,,2013,42.6,213,499,,UNSD
+MTQ,Martinique,,2014,36,180,499,,UNSD
+MTQ,Martinique,,2015,29.3,146,499,,UNSD
+MTQ,Martinique,,2016,33.2,171,514,,UNSD
+MTQ,Martinique,,2017,37,197,533,,UNSD
+MTQ,Martinique,,2018,36.7,200,544,,UNSD
+MTQ,Martinique,,2019,36.4,201,550,,UNSD
+MTQ,Martinique,,2020,29.5,154,523,,UNSD
+MTQ,Martinique,,2021,21.6,107,496,,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2002,97,261,269,13838,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2003,100,289,289,14552,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2004,100,298,298,15087,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2005,100,299,299,15265,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2006,100,322,322,15933,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2007,97.8,305,312,16775,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2008,97.8,313,320,17627,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2009,97.2,325,335,18172,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2010,100,334,334,18926,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2011,100,326,326,19679,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2012,91.8,301,328,20313,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2013,95.7,333,348,20952,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2014,91.1,323,355,21721,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2015,92.2,347,376,22499,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2016,92.1,344,374,23357,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2017,97.1,374,385,24259,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2018,100,421,421,25244,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2019,97,405,418,25958,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2020,98.1,386,394,22273,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2021,97.2,381,392,23010,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2022,100,387,387,25005,UNSD
+MUS,Mauritius,Sub-Saharan Africa,2023,95,404,425,26471,UNSD
+MYS,Malaysia,East Asia & Pacific,2002,95,280,294,18709,UNSD
+MYS,Malaysia,East Asia & Pacific,2003,95,288,303,19329,UNSD
+MYS,Malaysia,East Asia & Pacific,2004,95,297,313,20169,UNSD
+MYS,Malaysia,East Asia & Pacific,2005,95,306,322,20768,UNSD
+MYS,Malaysia,East Asia & Pacific,2006,95,316,332,21444,UNSD
+MYS,Malaysia,East Asia & Pacific,2007,95,326,343,22305,UNSD
+MYS,Malaysia,East Asia & Pacific,2008,95,337,354,22898,UNSD
+MYS,Malaysia,East Asia & Pacific,2009,95,348,366,22107,UNSD
+MYS,Malaysia,East Asia & Pacific,2018,55.1,44,79,30460,UNSD
+MYS,Malaysia,East Asia & Pacific,2019,48.6,38,79,31301,UNSD
+MYS,Malaysia,East Asia & Pacific,2020,75.4,55,73,29200,UNSD
+MYS,Malaysia,East Asia & Pacific,2021,81.1,61,75,29823,UNSD
+MYS,Malaysia,East Asia & Pacific,2022,96.4,62,64,32129,UNSD
+MYS,Malaysia,East Asia & Pacific,2023,97.8,64,65,32858,UNSD
+NLD,Netherlands,Europe & Central Asia,2000,8.1,48,593,56017,OECD
+NLD,Netherlands,Europe & Central Asia,2001,6.9,41,590,56887,OECD
+NLD,Netherlands,Europe & Central Asia,2002,7,42,595,56664,OECD
+NLD,Netherlands,Europe & Central Asia,2003,2.3,13,581,56453,OECD
+NLD,Netherlands,Europe & Central Asia,2004,1.4,8,593,57391,OECD
+NLD,Netherlands,Europe & Central Asia,2005,1.5,9,593,58422,OECD
+NLD,Netherlands,Europe & Central Asia,2006,2.1,12,592,60392,OECD
+NLD,Netherlands,Europe & Central Asia,2007,1.7,10,600,62602,OECD
+NLD,Netherlands,Europe & Central Asia,2008,1.6,9,595,63678,OECD
+NLD,Netherlands,Europe & Central Asia,2009,1.6,9,584,61030,OECD
+NLD,Netherlands,Europe & Central Asia,2010,1.5,9,565,61519,OECD
+NLD,Netherlands,Europe & Central Asia,2011,1.6,9,563,62318,OECD
+NLD,Netherlands,Europe & Central Asia,2012,1.5,8,544,61481,OECD
+NLD,Netherlands,Europe & Central Asia,2013,1.5,8,521,61281,OECD
+NLD,Netherlands,Europe & Central Asia,2014,1.4,8,522,62046,OECD
+NLD,Netherlands,Europe & Central Asia,2015,1.4,7,518,63081,OECD
+NLD,Netherlands,Europe & Central Asia,2016,1.4,7,515,64268,OECD
+NLD,Netherlands,Europe & Central Asia,2017,1.4,7,508,65666,OECD
+NLD,Netherlands,Europe & Central Asia,2018,1.4,7,505,66758,OECD
+NLD,Netherlands,Europe & Central Asia,2019,1.4,7,502,67848,OECD
+NLD,Netherlands,Europe & Central Asia,2020,1.4,7,527,64862,OECD
+NLD,Netherlands,Europe & Central Asia,2021,1.3,7,508,68574,OECD
+NLD,Netherlands,Europe & Central Asia,2022,1.4,7,467,71324,OECD
+NLD,Netherlands,Europe & Central Asia,2023,1.4,7,460,70199,OECD
+NLD,Netherlands,Europe & Central Asia,2024,1.5,7,467,70494,OECD
+NOR,Norway,Europe & Central Asia,2000,54.7,336,613,76776,OECD
+NOR,Norway,Europe & Central Asia,2001,25.4,92,361,78041,OECD
+NOR,Norway,Europe & Central Asia,2002,23.8,93,392,78753,OECD
+NOR,Norway,Europe & Central Asia,2003,21.4,86,402,79150,OECD
+NOR,Norway,Europe & Central Asia,2004,19.7,82,414,82091,OECD
+NOR,Norway,Europe & Central Asia,2005,18,77,426,83955,OECD
+NOR,Norway,Europe & Central Asia,2006,18.2,84,459,85653,OECD
+NOR,Norway,Europe & Central Asia,2007,18.7,92,491,87671,OECD
+NOR,Norway,Europe & Central Asia,2008,17.9,87,487,87297,OECD
+NOR,Norway,Europe & Central Asia,2009,14.3,67,470,84813,OECD
+NOR,Norway,Europe & Central Asia,2010,6,28,469,84605,OECD
+NOR,Norway,Europe & Central Asia,2011,2.3,11,485,84671,OECD
+NOR,Norway,Europe & Central Asia,2012,1.8,9,477,85926,OECD
+NOR,Norway,Europe & Central Asia,2013,2.1,10,496,85974,OECD
+NOR,Norway,Europe & Central Asia,2014,2.8,12,423,86791,OECD
+NOR,Norway,Europe & Central Asia,2015,3.4,14,421,87688,OECD
+NOR,Norway,Europe & Central Asia,2016,4.2,32,754,88042,OECD
+NOR,Norway,Europe & Central Asia,2017,3.5,26,748,89665,OECD
+NOR,Norway,Europe & Central Asia,2018,3.1,23,739,90064,OECD
+NOR,Norway,Europe & Central Asia,2019,3.7,29,776,90773,OECD
+NOR,Norway,Europe & Central Asia,2020,2.3,17,726,89012,OECD
+NOR,Norway,Europe & Central Asia,2021,3.1,25,799,92206,OECD
+NOR,Norway,Europe & Central Asia,2022,3.1,24,768,95110,OECD
+NOR,Norway,Europe & Central Asia,2023,5.4,39,724,94365,OECD
+NOR,Norway,Europe & Central Asia,2024,2.8,20,716,94804,OECD
+NPL,Nepal,South Asia,2012,80,0,0,3317,UNSD
+NZL,New Zealand,East Asia & Pacific,2002,100,765,765,38072,OECD
+NZL,New Zealand,East Asia & Pacific,2003,100,764,764,39092,OECD
+NZL,New Zealand,East Asia & Pacific,2004,100,780,780,40091,OECD
+NZL,New Zealand,East Asia & Pacific,2006,100,755,755,41597,OECD
+NZL,New Zealand,East Asia & Pacific,2010,100,690,690,41395,OECD
+NZL,New Zealand,East Asia & Pacific,2011,100,687,687,41962,OECD
+NZL,New Zealand,East Asia & Pacific,2012,100,648,648,42693,OECD
+NZL,New Zealand,East Asia & Pacific,2013,100,682,682,43453,OECD
+NZL,New Zealand,East Asia & Pacific,2014,100,719,719,44370,OECD
+NZL,New Zealand,East Asia & Pacific,2015,100,780,780,45097,OECD
+NZL,New Zealand,East Asia & Pacific,2016,100,796,796,45746,OECD
+NZL,New Zealand,East Asia & Pacific,2017,100,790,790,46286,OECD
+NZL,New Zealand,East Asia & Pacific,2018,100,799,799,46975,OECD
+NZL,New Zealand,East Asia & Pacific,2019,100,745,745,47392,OECD
+NZL,New Zealand,East Asia & Pacific,2020,100,710,710,46326,OECD
+NZL,New Zealand,East Asia & Pacific,2021,100,767,767,48202,OECD
+NZL,New Zealand,East Asia & Pacific,2022,100,781,781,49843,OECD
+NZL,New Zealand,East Asia & Pacific,2023,100,751,751,49593,OECD
+NZL,New Zealand,East Asia & Pacific,2024,100,642,642,48325,OECD
+PAN,Panama,Latin America & Caribbean,2000,100,118,118,14573,UNSD
+PAN,Panama,Latin America & Caribbean,2001,100,121,121,14428,UNSD
+PAN,Panama,Latin America & Caribbean,2002,100,118,118,14507,UNSD
+PAN,Panama,Latin America & Caribbean,2003,100,120,120,14958,UNSD
+PAN,Panama,Latin America & Caribbean,2004,100,121,121,15875,UNSD
+PAN,Panama,Latin America & Caribbean,2005,100,116,116,16868,UNSD
+PAN,Panama,Latin America & Caribbean,2006,100,118,118,18190,UNSD
+PAN,Panama,Latin America & Caribbean,2007,100,150,150,20209,UNSD
+PAN,Panama,Latin America & Caribbean,2008,100,142,142,21868,UNSD
+PAN,Panama,Latin America & Caribbean,2009,100,155,155,21823,UNSD
+PAN,Panama,Latin America & Caribbean,2010,100,175,175,22739,UNSD
+PAN,Panama,Latin America & Caribbean,2011,100,183,183,24999,UNSD
+PAN,Panama,Latin America & Caribbean,2012,100,178,178,26927,UNSD
+PAN,Panama,Latin America & Caribbean,2013,100,177,177,28135,UNSD
+PAN,Panama,Latin America & Caribbean,2014,100,177,177,28932,UNSD
+PAN,Panama,Latin America & Caribbean,2015,100,177,177,29933,UNSD
+PAN,Panama,Latin America & Caribbean,2016,100,207,207,30765,UNSD
+PAN,Panama,Latin America & Caribbean,2017,100,191,191,31980,UNSD
+PAN,Panama,Latin America & Caribbean,2018,100,189,189,32681,UNSD
+PAN,Panama,Latin America & Caribbean,2019,100,187,187,33164,UNSD
+PER,Peru,Latin America & Caribbean,2014,49.1,113,229,14243,OECD
+PER,Peru,Latin America & Caribbean,2015,49.9,115,230,14541,OECD
+PER,Peru,Latin America & Caribbean,2016,49.9,113,227,14915,OECD
+PER,Peru,Latin America & Caribbean,2017,50.3,114,226,15067,OECD
+PER,Peru,Latin America & Caribbean,2018,49,115,234,15384,OECD
+PER,Peru,Latin America & Caribbean,2019,53.4,128,240,15461,OECD
+PER,Peru,Latin America & Caribbean,2020,54.9,132,241,13608,OECD
+PER,Peru,Latin America & Caribbean,2021,61.3,152,248,15286,OECD
+PER,Peru,Latin America & Caribbean,2022,61.2,155,253,15567,OECD
+PER,Peru,Latin America & Caribbean,2023,61,157,257,15342,OECD
+PER,Peru,Latin America & Caribbean,2024,63.2,166,263,15709,OECD
+POL,Poland,Europe & Central Asia,2000,97.9,313,320,18566,OECD
+POL,Poland,Europe & Central Asia,2001,95.8,278,290,18801,OECD
+POL,Poland,Europe & Central Asia,2002,96.5,265,275,19167,OECD
+POL,Poland,Europe & Central Asia,2003,96.8,252,260,19856,OECD
+POL,Poland,Europe & Central Asia,2004,94.6,242,256,20879,OECD
+POL,Poland,Europe & Central Asia,2005,92.2,294,319,21569,OECD
+POL,Poland,Europe & Central Asia,2006,91,292,321,22921,OECD
+POL,Poland,Europe & Central Asia,2007,90.2,291,323,24484,OECD
+POL,Poland,Europe & Central Asia,2008,86.8,279,321,25554,OECD
+POL,Poland,Europe & Central Asia,2009,83.8,266,317,26204,OECD
+POL,Poland,Europe & Central Asia,2010,80,253,316,27112,OECD
+POL,Poland,Europe & Central Asia,2011,85.5,271,317,28522,OECD
+POL,Poland,Europe & Central Asia,2012,84.4,267,316,28953,OECD
+POL,Poland,Europe & Central Asia,2013,73.9,218,295,29169,OECD
+POL,Poland,Europe & Central Asia,2014,58.4,158,270,30335,OECD
+POL,Poland,Europe & Central Asia,2015,54.3,154,284,31700,OECD
+POL,Poland,Europe & Central Asia,2016,45.7,139,305,32675,OECD
+POL,Poland,Europe & Central Asia,2017,41.8,131,313,34355,OECD
+POL,Poland,Europe & Central Asia,2018,41.6,136,326,36500,OECD
+POL,Poland,Europe & Central Asia,2019,43,144,334,38182,OECD
+POL,Poland,Europe & Central Asia,2020,39.8,137,344,37853,OECD
+POL,Poland,Europe & Central Asia,2021,38.7,139,359,41060,OECD
+POL,Poland,Europe & Central Asia,2022,38.1,133,350,43405,OECD
+POL,Poland,Europe & Central Asia,2023,38.5,134,347,43673,OECD
+POL,Poland,Europe & Central Asia,2024,36.2,133,367,45153,OECD
+PRT,Portugal,Europe & Central Asia,2000,68.5,313,457,35070,OECD
+PRT,Portugal,Europe & Central Asia,2001,67.5,307,455,35500,OECD
+PRT,Portugal,Europe & Central Asia,2002,71.8,317,441,35579,OECD
+PRT,Portugal,Europe & Central Asia,2003,67.7,304,449,35115,OECD
+PRT,Portugal,Europe & Central Asia,2004,65.3,290,445,35658,OECD
+PRT,Portugal,Europe & Central Asia,2005,62.6,283,452,35870,OECD
+PRT,Portugal,Europe & Central Asia,2006,64.2,299,465,36388,OECD
+PRT,Portugal,Europe & Central Asia,2007,63.8,301,471,37226,OECD
+PRT,Portugal,Europe & Central Asia,2008,64.5,334,518,37292,OECD
+PRT,Portugal,Europe & Central Asia,2009,60.8,316,520,36093,OECD
+PRT,Portugal,Europe & Central Asia,2010,62,320,516,36703,OECD
+PRT,Portugal,Europe & Central Asia,2011,58.9,289,490,36127,OECD
+PRT,Portugal,Europe & Central Asia,2012,54.4,247,453,34805,OECD
+PRT,Portugal,Europe & Central Asia,2013,50.5,222,440,34652,OECD
+PRT,Portugal,Europe & Central Asia,2014,49,222,453,35097,OECD
+PRT,Portugal,Europe & Central Asia,2015,48.4,223,460,35803,OECD
+PRT,Portugal,Europe & Central Asia,2016,46.5,220,473,36636,OECD
+PRT,Portugal,Europe & Central Asia,2017,48.8,237,485,37943,OECD
+PRT,Portugal,Europe & Central Asia,2018,50.5,255,505,39124,OECD
+PRT,Portugal,Europe & Central Asia,2019,49.8,254,511,40188,OECD
+PRT,Portugal,Europe & Central Asia,2020,54.2,276,509,36852,OECD
+PRT,Portugal,Europe & Central Asia,2021,49.5,253,511,38658,OECD
+PRT,Portugal,Europe & Central Asia,2022,52.2,267,511,41071,OECD
+PRT,Portugal,Europe & Central Asia,2023,53.7,275,512,41768,OECD
+PRT,Portugal,Europe & Central Asia,2024,48.5,258,533,42228,OECD
+PSE,West Bank and Gaza,Middle East & North Africa,2002,29,99,341,3409,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2003,29,99,343,3789,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2004,29,100,345,4503,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2005,29,101,347,4885,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2006,29,101,349,4714,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2007,29,102,350,4770,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2008,29,102,352,4985,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2009,29,103,353,5271,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2010,29,103,355,5432,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2011,29,104,357,5805,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2012,29,104,359,6009,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2013,30,108,361,6142,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2014,30,109,363,5990,UNSD
+PSE,West Bank and Gaza,Middle East & North Africa,2015,30,110,365,6073,UNSD
+PYF,French Polynesia,East Asia & Pacific,2011,29.8,117,393,,UNSD
+PYF,French Polynesia,East Asia & Pacific,2012,30.8,130,424,,UNSD
+PYF,French Polynesia,East Asia & Pacific,2013,31.6,143,454,,UNSD
+PYF,French Polynesia,East Asia & Pacific,2014,21.7,82,376,,UNSD
+PYF,French Polynesia,East Asia & Pacific,2015,7,21,300,,UNSD
+REU,Reunion,,2004,89.8,519,578,,UNSD
+REU,Reunion,,2005,88,568,645,,UNSD
+REU,Reunion,,2006,86.6,613,708,,UNSD
+REU,Reunion,,2007,85.6,582,679,,UNSD
+REU,Reunion,,2008,84.6,551,652,,UNSD
+REU,Reunion,,2009,63.4,354,557,,UNSD
+REU,Reunion,,2010,60.7,359,591,,UNSD
+REU,Reunion,,2011,58.4,366,627,,UNSD
+REU,Reunion,,2012,58.3,361,619,,UNSD
+REU,Reunion,,2013,58.2,354,609,,UNSD
+REU,Reunion,,2014,57.9,339,586,,UNSD
+REU,Reunion,,2015,57.7,327,566,,UNSD
+REU,Reunion,,2016,51.5,316,613,,UNSD
+REU,Reunion,,2017,46.3,306,662,,UNSD
+REU,Reunion,,2018,47.6,299,627,,UNSD
+REU,Reunion,,2019,49.2,291,592,,UNSD
+REU,Reunion,,2020,48.7,297,609,,UNSD
+REU,Reunion,,2021,48.3,302,624,,UNSD
+ROU,Romania,Europe & Central Asia,2000,100,361,361,14854,OECD
+ROU,Romania,Europe & Central Asia,2001,98,337,344,15848,OECD
+ROU,Romania,Europe & Central Asia,2002,97.5,375,384,17062,OECD
+ROU,Romania,Europe & Central Asia,2003,99.7,351,352,17587,OECD
+ROU,Romania,Europe & Central Asia,2004,98.6,345,350,19532,OECD
+ROU,Romania,Europe & Central Asia,2005,97.8,377,385,20571,OECD
+ROU,Romania,Europe & Central Asia,2006,99.4,396,399,22355,OECD
+ROU,Romania,Europe & Central Asia,2007,99.4,389,391,24328,OECD
+ROU,Romania,Europe & Central Asia,2008,98.9,403,407,27040,OECD
+ROU,Romania,Europe & Central Asia,2009,98.7,373,377,25762,OECD
+ROU,Romania,Europe & Central Asia,2010,79.8,248,310,24903,OECD
+ROU,Romania,Europe & Central Asia,2011,78.2,201,257,26151,OECD
+ROU,Romania,Europe & Central Asia,2012,75.2,188,250,26767,OECD
+ROU,Romania,Europe & Central Asia,2013,71.6,181,253,26942,OECD
+ROU,Romania,Europe & Central Asia,2014,71.9,178,248,28156,OECD
+ROU,Romania,Europe & Central Asia,2015,71.9,177,247,29182,OECD
+ROU,Romania,Europe & Central Asia,2016,78.6,204,260,30189,OECD
+ROU,Romania,Europe & Central Asia,2017,79.9,216,271,32853,OECD
+ROU,Romania,Europe & Central Asia,2018,82.6,223,270,34829,OECD
+ROU,Romania,Europe & Central Asia,2019,82.3,229,278,36399,OECD
+ROU,Romania,Europe & Central Asia,2020,80.5,233,290,35284,OECD
+ROU,Romania,Europe & Central Asia,2021,79.6,239,300,37534,OECD
+ROU,Romania,Europe & Central Asia,2022,78.5,236,301,39257,OECD
+ROU,Romania,Europe & Central Asia,2023,80.4,245,305,40117,OECD
+SGP,Singapore,East Asia & Pacific,2000,7.7,88,1153,68904,UNSD
+SGP,Singapore,East Asia & Pacific,2001,5,61,1223,66352,UNSD
+SGP,Singapore,East Asia & Pacific,2002,4.2,49,1160,68329,UNSD
+SGP,Singapore,East Asia & Pacific,2003,4.1,47,1143,72498,UNSD
+SGP,Singapore,East Asia & Pacific,2004,4.6,53,1148,78713,UNSD
+SGP,Singapore,East Asia & Pacific,2005,5.4,63,1176,82547,UNSD
+SGP,Singapore,East Asia & Pacific,2006,4.5,53,1185,87210,UNSD
+SGP,Singapore,East Asia & Pacific,2007,3.3,41,1219,91198,UNSD
+SGP,Singapore,East Asia & Pacific,2008,3,37,1242,88083,UNSD
+SGP,Singapore,East Asia & Pacific,2009,2.4,30,1231,85576,UNSD
+SGP,Singapore,East Asia & Pacific,2010,2.7,34,1284,96280,UNSD
+SGP,Singapore,East Asia & Pacific,2011,3,39,1331,100154,UNSD
+SGP,Singapore,East Asia & Pacific,2012,2.7,37,1373,102061,UNSD
+SGP,Singapore,East Asia & Pacific,2013,2.6,37,1458,105260,UNSD
+SGP,Singapore,East Asia & Pacific,2014,2.3,31,1377,107991,UNSD
+SGP,Singapore,East Asia & Pacific,2015,2.5,34,1389,109894,UNSD
+SGP,Singapore,East Asia & Pacific,2016,2.8,39,1401,112720,UNSD
+SGP,Singapore,East Asia & Pacific,2017,2.9,40,1375,117493,UNSD
+SGP,Singapore,East Asia & Pacific,2018,3,40,1366,120669,UNSD
+SGP,Singapore,East Asia & Pacific,2019,3.3,42,1276,120678,UNSD
+SGP,Singapore,East Asia & Pacific,2020,3.7,39,1046,116684,UNSD
+SGP,Singapore,East Asia & Pacific,2021,3.3,42,1252,133990,UNSD
+SLV,El Salvador,Latin America & Caribbean,2011,100,168,167,8946,UNSD
+SLV,El Salvador,Latin America & Caribbean,2012,85.8,165,193,9163,UNSD
+SLV,El Salvador,Latin America & Caribbean,2013,68.6,121,176,9329,UNSD
+SLV,El Salvador,Latin America & Caribbean,2014,100,180,180,9452,UNSD
+SLV,El Salvador,Latin America & Caribbean,2015,100,184,184,9646,UNSD
+SLV,El Salvador,Latin America & Caribbean,2016,100,171,171,9864,UNSD
+SLV,El Salvador,Latin America & Caribbean,2017,100,184,184,10065,UNSD
+SLV,El Salvador,Latin America & Caribbean,2018,100,188,188,10297,UNSD
+SLV,El Salvador,Latin America & Caribbean,2019,100,199,199,10544,UNSD
+SRB,Serbia,Europe & Central Asia,2006,100,230,230,15727,OECD
+SRB,Serbia,Europe & Central Asia,2007,100,276,276,17028,OECD
+SRB,Serbia,Europe & Central Asia,2008,100,342,342,17983,OECD
+SRB,Serbia,Europe & Central Asia,2009,100,355,355,17488,OECD
+SRB,Serbia,Europe & Central Asia,2010,100,358,358,17841,OECD
+SRB,Serbia,Europe & Central Asia,2011,100,368,368,17987,OECD
+SRB,Serbia,Europe & Central Asia,2012,100,358,358,17994,OECD
+SRB,Serbia,Europe & Central Asia,2013,98.7,327,331,18163,OECD
+SRB,Serbia,Europe & Central Asia,2014,99.1,292,295,17922,OECD
+SRB,Serbia,Europe & Central Asia,2015,99,254,256,18248,OECD
+SRB,Serbia,Europe & Central Asia,2016,99.7,264,265,18889,OECD
+SRB,Serbia,Europe & Central Asia,2017,99.7,303,304,19439,OECD
+SRB,Serbia,Europe & Central Asia,2018,99.7,317,318,20454,OECD
+SRB,Serbia,Europe & Central Asia,2019,99.8,337,337,21541,OECD
+SRB,Serbia,Europe & Central Asia,2020,83.1,354,427,21479,OECD
+SRB,Serbia,Europe & Central Asia,2021,81.5,360,442,23406,OECD
+SRB,Serbia,Europe & Central Asia,2022,80.7,378,468,24652,OECD
+SRB,Serbia,Europe & Central Asia,2023,83.1,380,457,25735,OECD
+SUR,Suriname,Latin America & Caribbean,2013,0.3,1,375,24624,UNSD
+SUR,Suriname,Latin America & Caribbean,2014,0.4,1,342,24414,UNSD
+SUR,Suriname,Latin America & Caribbean,2015,0.9,3,352,23328,UNSD
+SUR,Suriname,Latin America & Caribbean,2016,0.7,2,345,21950,UNSD
+SUR,Suriname,Latin America & Caribbean,2017,2.2,7,329,22071,UNSD
+SUR,Suriname,Latin America & Caribbean,2018,2.6,8,321,22939,UNSD
+SUR,Suriname,Latin America & Caribbean,2019,3.9,13,326,22967,UNSD
+SUR,Suriname,Latin America & Caribbean,2020,2,8,389,19091,UNSD
+SUR,Suriname,Latin America & Caribbean,2021,2.1,8,369,18458,UNSD
+SUR,Suriname,Latin America & Caribbean,2022,1.2,5,428,18743,UNSD
+SUR,Suriname,Latin America & Caribbean,2023,1.5,7,504,19021,UNSD
+SVK,Slovakia,Europe & Central Asia,2000,78.6,200,254,18336,OECD
+SVK,Slovakia,Europe & Central Asia,2001,83,198,239,18907,OECD
+SVK,Slovakia,Europe & Central Asia,2002,81.5,220,269,19749,OECD
+SVK,Slovakia,Europe & Central Asia,2003,82.1,231,281,20722,OECD
+SVK,Slovakia,Europe & Central Asia,2004,80.2,209,260,21843,OECD
+SVK,Slovakia,Europe & Central Asia,2005,82.8,226,273,23257,OECD
+SVK,Slovakia,Europe & Central Asia,2006,81.2,230,283,25332,OECD
+SVK,Slovakia,Europe & Central Asia,2007,79.5,234,294,28064,OECD
+SVK,Slovakia,Europe & Central Asia,2008,80.1,251,313,29544,OECD
+SVK,Slovakia,Europe & Central Asia,2009,78.3,241,307,27880,OECD
+SVK,Slovakia,Europe & Central Asia,2010,77.5,247,319,29746,OECD
+SVK,Slovakia,Europe & Central Asia,2011,73.9,230,311,30469,OECD
+SVK,Slovakia,Europe & Central Asia,2012,73.1,224,306,30894,OECD
+SVK,Slovakia,Europe & Central Asia,2013,71.2,216,304,31078,OECD
+SVK,Slovakia,Europe & Central Asia,2014,68,218,320,31889,OECD
+SVK,Slovakia,Europe & Central Asia,2015,69,227,329,33508,OECD
+SVK,Slovakia,Europe & Central Asia,2016,65.9,230,348,34116,OECD
+SVK,Slovakia,Europe & Central Asia,2017,60.6,229,379,35043,OECD
+SVK,Slovakia,Europe & Central Asia,2018,55.4,229,414,36416,OECD
+SVK,Slovakia,Europe & Central Asia,2019,52.2,220,422,37194,OECD
+SVK,Slovakia,Europe & Central Asia,2020,46.6,223,479,36201,OECD
+SVK,Slovakia,Europe & Central Asia,2021,41.3,205,497,38330,OECD
+SVK,Slovakia,Europe & Central Asia,2022,40.4,192,475,38649,OECD
+SVK,Slovakia,Europe & Central Asia,2023,39.6,184,464,39502,OECD
+SVK,Slovakia,Europe & Central Asia,2024,39,188,481,40302,OECD
+SVN,Slovenia,Europe & Central Asia,2000,92.9,477,513,30061,OECD
+SVN,Slovenia,Europe & Central Asia,2001,96.5,462,479,30863,OECD
+SVN,Slovenia,Europe & Central Asia,2002,90.1,367,408,31837,OECD
+SVN,Slovenia,Europe & Central Asia,2003,86.3,361,419,32834,OECD
+SVN,Slovenia,Europe & Central Asia,2004,74.6,363,486,34305,OECD
+SVN,Slovenia,Europe & Central Asia,2005,78.1,386,495,35565,OECD
+SVN,Slovenia,Europe & Central Asia,2006,81.8,423,517,37546,OECD
+SVN,Slovenia,Europe & Central Asia,2007,74.7,393,526,40003,OECD
+SVN,Slovenia,Europe & Central Asia,2008,75.7,409,541,41286,OECD
+SVN,Slovenia,Europe & Central Asia,2009,73.8,387,525,37809,OECD
+SVN,Slovenia,Europe & Central Asia,2010,60.3,296,491,38063,OECD
+SVN,Slovenia,Europe & Central Asia,2011,57.4,239,416,38233,OECD
+SVN,Slovenia,Europe & Central Asia,2012,44.3,161,362,37041,OECD
+SVN,Slovenia,Europe & Central Asia,2013,27,112,415,36686,OECD
+SVN,Slovenia,Europe & Central Asia,2014,24,104,433,37662,OECD
+SVN,Slovenia,Europe & Central Asia,2015,24.1,109,449,38535,OECD
+SVN,Slovenia,Europe & Central Asia,2016,9.9,45,457,39675,OECD
+SVN,Slovenia,Europe & Central Asia,2017,12.8,61,472,41701,OECD
+SVN,Slovenia,Europe & Central Asia,2018,12.2,59,487,43369,OECD
+SVN,Slovenia,Europe & Central Asia,2019,12.4,63,505,44578,OECD
+SVN,Slovenia,Europe & Central Asia,2020,8.5,41,487,42472,OECD
+SVN,Slovenia,Europe & Central Asia,2021,7.7,39,510,45923,OECD
+SVN,Slovenia,Europe & Central Asia,2022,9.4,46,487,47059,OECD
+SVN,Slovenia,Europe & Central Asia,2023,11.4,59,518,47986,OECD
+SVN,Slovenia,Europe & Central Asia,2024,11.7,62,528,48658,OECD
+SWE,Sweden,Europe & Central Asia,2000,22.9,97,425,47869,OECD
+SWE,Sweden,Europe & Central Asia,2001,22.5,99,439,48390,OECD
+SWE,Sweden,Europe & Central Asia,2002,19.9,92,465,49331,OECD
+SWE,Sweden,Europe & Central Asia,2003,13.8,64,464,50072,OECD
+SWE,Sweden,Europe & Central Asia,2004,9.2,42,461,51961,OECD
+SWE,Sweden,Europe & Central Asia,2005,4.9,23,478,53199,OECD
+SWE,Sweden,Europe & Central Asia,2006,5.1,25,491,55374,OECD
+SWE,Sweden,Europe & Central Asia,2007,4.2,20,488,56737,OECD
+SWE,Sweden,Europe & Central Asia,2008,3.1,15,485,55777,OECD
+SWE,Sweden,Europe & Central Asia,2009,1.3,6,472,52951,OECD
+SWE,Sweden,Europe & Central Asia,2010,0.9,4,441,55520,OECD
+SWE,Sweden,Europe & Central Asia,2011,0.8,3,453,56846,OECD
+SWE,Sweden,Europe & Central Asia,2012,0.6,3,454,56193,OECD
+SWE,Sweden,Europe & Central Asia,2013,0.6,3,455,56353,OECD
+SWE,Sweden,Europe & Central Asia,2014,0.6,3,443,57078,OECD
+SWE,Sweden,Europe & Central Asia,2015,0.8,4,451,58956,OECD
+SWE,Sweden,Europe & Central Asia,2016,0.6,3,447,59460,OECD
+SWE,Sweden,Europe & Central Asia,2017,0.5,2,452,59769,OECD
+SWE,Sweden,Europe & Central Asia,2018,0.7,3,434,60125,OECD
+SWE,Sweden,Europe & Central Asia,2019,0.7,3,449,61071,OECD
+SWE,Sweden,Europe & Central Asia,2020,0.4,2,431,59458,OECD
+SWE,Sweden,Europe & Central Asia,2021,0.5,2,418,62191,OECD
+SWE,Sweden,Europe & Central Asia,2022,0.5,2,395,62545,OECD
+SWE,Sweden,Europe & Central Asia,2023,1,4,392,62123,OECD
+SWE,Sweden,Europe & Central Asia,2024,0.6,2,425,62558,OECD
+SYC,Seychelles,Sub-Saharan Africa,2019,100,438,438,34346,UNSD
+SYC,Seychelles,Sub-Saharan Africa,2020,100,362,362,30056,UNSD
+SYC,Seychelles,Sub-Saharan Africa,2021,100,349,349,29980,UNSD
+THA,Thailand,East Asia & Pacific,2014,35.9,100,280,18327,UNSD
+THA,Thailand,East Asia & Pacific,2015,33.6,97,290,18814,UNSD
+THA,Thailand,East Asia & Pacific,2016,70.8,270,382,19373,OECD
+THA,Thailand,East Asia & Pacific,2017,62.8,241,385,20097,OECD
+THA,Thailand,East Asia & Pacific,2018,57.4,224,391,20882,OECD
+THA,Thailand,East Asia & Pacific,2019,54.6,219,401,21280,OECD
+THA,Thailand,East Asia & Pacific,2020,62.4,221,354,19950,OECD
+THA,Thailand,East Asia & Pacific,2021,61.2,213,348,20237,OECD
+THA,Thailand,East Asia & Pacific,2022,29.6,106,358,20768,UNSD
+TTO,Trinidad and Tobago,Latin America & Caribbean,2023,99.9,490,490,31197,UNSD
+TUN,Tunisia,Middle East & North Africa,2002,99.9,120,120,9408,UNSD
+TUN,Tunisia,Middle East & North Africa,2003,100,120,120,9752,UNSD
+TUN,Tunisia,Middle East & North Africa,2004,99.9,129,129,10264,UNSD
+TUR,Türkiye,Europe & Central Asia,2000,96.8,453,468,14857,OECD
+TUR,Türkiye,Europe & Central Asia,2001,97.4,456,468,13872,OECD
+TUR,Türkiye,Europe & Central Asia,2002,96.8,448,462,14588,OECD
+TUR,Türkiye,Europe & Central Asia,2003,96.9,444,458,15256,OECD
+TUR,Türkiye,Europe & Central Asia,2004,97.6,423,434,16584,OECD
+TUR,Türkiye,Europe & Central Asia,2005,97.5,441,452,17903,OECD
+TUR,Türkiye,Europe & Central Asia,2006,97.7,420,429,18972,OECD
+TUR,Türkiye,Europe & Central Asia,2007,97.8,420,429,19909,OECD
+TUR,Türkiye,Europe & Central Asia,2008,97.7,388,398,19840,OECD
+TUR,Türkiye,Europe & Central Asia,2009,98,408,417,18612,OECD
+TUR,Türkiye,Europe & Central Asia,2010,98.5,399,405,19897,OECD
+TUR,Türkiye,Europe & Central Asia,2011,98.3,409,416,21760,OECD
+TUR,Türkiye,Europe & Central Asia,2012,98.9,405,409,22518,OECD
+TUR,Türkiye,Europe & Central Asia,2013,98.8,400,405,24117,OECD
+TUR,Türkiye,Europe & Central Asia,2014,99.5,398,400,24889,OECD
+TUR,Türkiye,Europe & Central Asia,2015,99.4,389,391,25985,OECD
+TUR,Türkiye,Europe & Central Asia,2016,90.2,373,413,26490,OECD
+TUR,Türkiye,Europe & Central Asia,2017,90.2,371,411,28195,OECD
+TUR,Türkiye,Europe & Central Asia,2018,87.7,359,409,28780,OECD
+TUR,Türkiye,Europe & Central Asia,2019,87.7,360,410,28741,OECD
+TUR,Türkiye,Europe & Central Asia,2020,86.8,349,402,28977,OECD
+TUR,Türkiye,Europe & Central Asia,2021,86.8,351,404,32106,OECD
+TZA,Tanzania,Sub-Saharan Africa,2004,14.8,1,5,2155,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2005,16.2,1,5,2253,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2006,16.3,1,5,2334,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2007,16.6,1,5,2424,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2008,17.2,1,5,2493,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2009,17.6,1,5,2561,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2010,12.1,1,7,2655,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2011,11.7,1,7,2780,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2012,12.9,1,7,2822,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2013,9.2,1,10,2925,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2014,9,1,10,3028,UNSD
+TZA,Tanzania,Sub-Saharan Africa,2015,17.6,2,10,3111,UNSD
+UKR,Ukraine,Europe & Central Asia,2007,95.6,237,248,18374,UNSD
+UKR,Ukraine,Europe & Central Asia,2008,92.8,226,243,18884,UNSD
+UKR,Ukraine,Europe & Central Asia,2010,97.5,205,210,16812,OECD
+UKR,Ukraine,Europe & Central Asia,2011,96.9,217,224,17784,OECD
+UKR,Ukraine,Europe & Central Asia,2012,97.8,294,300,17849,OECD
+UKR,Ukraine,Europe & Central Asia,2013,98.3,309,314,17889,OECD
+UKR,Ukraine,Europe & Central Asia,2014,97.5,228,234,16979,OECD
+UKR,Ukraine,Europe & Central Asia,2015,96,241,251,15404,OECD
+UKR,Ukraine,Europe & Central Asia,2016,95.8,243,253,15857,OECD
+UKR,Ukraine,Europe & Central Asia,2017,96,238,248,16310,OECD
+UKR,Ukraine,Europe & Central Asia,2018,96.9,254,262,16979,OECD
+UKR,Ukraine,Europe & Central Asia,2019,97.3,255,262,17637,OECD
+UKR,Ukraine,Europe & Central Asia,2020,97.8,277,283,17093,OECD
+UKR,Ukraine,Europe & Central Asia,2021,97.9,290,296,17846,OECD
+UKR,Ukraine,Europe & Central Asia,2022,97.4,227,233,13787,OECD
+UKR,Ukraine,Europe & Central Asia,2023,97.2,247,255,15917,OECD
+USA,United States,North America,2000,57.6,452,785,55046,OECD
+USA,United States,North America,2001,57.1,439,768,55024,OECD
+USA,United States,North America,2002,57.5,446,775,55443,OECD
+USA,United States,North America,2003,56.1,432,771,56505,OECD
+USA,United States,North America,2004,56.7,446,787,58139,OECD
+USA,United States,North America,2005,56.1,437,778,59612,OECD
+USA,United States,North America,2006,55.4,433,781,60684,OECD
+USA,United States,North America,2007,54.5,420,771,61314,OECD
+USA,United States,North America,2008,54.2,408,752,60806,OECD
+USA,United States,North America,2009,54.4,392,721,58722,OECD
+USA,United States,North America,2010,54.3,398,732,59797,OECD
+USA,United States,North America,2011,52.6,383,728,60253,OECD
+USA,United States,North America,2012,52.7,380,722,61142,OECD
+USA,United States,North America,2013,52.7,381,723,61967,OECD
+USA,United States,North America,2014,52.6,382,725,63027,OECD
+USA,United States,North America,2015,52.5,383,729,64368,OECD
+USA,United States,North America,2016,52.3,387,739,65026,OECD
+USA,United States,North America,2017,52.3,384,734,66164,OECD
+USA,United States,North America,2018,50,396,792,67728,OECD
+UZB,Uzbekistan,Europe & Central Asia,2017,91,201,221,8413,UNSD
+UZB,Uzbekistan,Europe & Central Asia,2018,80.8,179,221,8743,UNSD
+UZB,Uzbekistan,Europe & Central Asia,2021,77.6,171,221,9706,UNSD
+VCT,St. Vincent and the Grenadines,Latin America & Caribbean,2002,84.9,283,333,10736,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2000,0,0,1409,,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2001,0,0,1434,,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2002,0,0,1162,,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2003,0,0,1067,,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2004,0,0,1442,,UNSD
+VGB,British Virgin Islands,Latin America & Caribbean,2005,0,0,1549,,UNSD
+WSM,Samoa,East Asia & Pacific,2015,96.3,24,25,6433,UNSD
+WSM,Samoa,East Asia & Pacific,2016,95.3,65,69,6888,UNSD
+WSM,Samoa,East Asia & Pacific,2017,93.4,70,75,6920,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2000,100,65,65,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2001,100,41,41,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2002,100,63,63,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2003,100,51,51,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2004,100,53,53,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2005,100,56,56,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2006,100,59,59,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2007,100,60,60,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2008,100,55,55,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2009,100,54,54,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2010,100,54,54,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2011,100,53,53,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2012,100,54,54,,UNSD
+YEM,"Yemen, Rep.",Middle East & North Africa,2013,100,54,54,,UNSD
+ZWE,Zimbabwe,Sub-Saharan Africa,2016,0,0,54,5070,UNSD
+ZWE,Zimbabwe,Sub-Saharan Africa,2017,0,0,49,5234,UNSD
+ZWE,Zimbabwe,Sub-Saharan Africa,2018,0,0,36,5415,UNSD
