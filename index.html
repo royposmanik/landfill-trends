@@ -370,8 +370,8 @@
         <div class="lf-chart lf-short" data-draw="il-rank" data-source="il_methane"></div>
       </div>
     </div>
-    <h3 class="lf-h3" id="il-share"><span class="lf-en">Share of all reported landfill methane, five largest sites, 2012–2025</span><span class="lf-he-t" lang="he">חלקו של כל אתר מכלל מתאן ההטמנה המדווח, חמשת האתרים הגדולים, 2012–2025</span></h3>
-    <p class="lf-sub"><span class="lf-en">Each line is one landfill's share, in percent, of all the methane Israel's landfills reported that year. Efeh's line climbing from about a tenth in 2012 to half in 2025 shows landfilling concentrating there; the dashed line marks the year shown on the map.</span><span class="lf-he-t" lang="he">כל קו הוא החלק, באחוזים, של אתר הטמנה אחד מכל המתאן שדיווחו אתרי ההטמנה בישראל באותה שנה. הקו של אפעה, שעולה מכעשירית ב-2012 למחצית ב-2025, מראה שההטמנה מתרכזת שם; הקו המקווקו מסמן את השנה המוצגת במפה.</span></p>
+    <h3 class="lf-h3" id="il-share"><span class="lf-en">Methane reported by the five largest landfills, tonnes per year, 2012–2025</span><span class="lf-he-t" lang="he">מתאן שדיווחו חמשת אתרי ההטמנה הגדולים, טונות בשנה, 2012–2025</span></h3>
+    <p class="lf-sub"><span class="lf-en">Each line is the methane one landfill reported each year, in tonnes. Efeh's line rising far above the others shows landfilling concentrating there. The jump in 2023 at most sites reflects a change in how operators estimate methane, not three times more waste. The dashed line marks the year shown on the map.</span><span class="lf-he-t" lang="he">כל קו הוא המתאן שדיווח אתר הטמנה אחד בכל שנה, בטונות. הקו של אפעה, שמתנשא הרבה מעל האחרים, מראה שההטמנה מתרכזת שם. הקפיצה ב-2023 ברוב האתרים משקפת שינוי בשיטת ההערכה של המפעילים, ולא פי שלושה יותר פסולת. הקו המקווקו מסמן את השנה המוצגת במפה.</span></p>
     <div class="lf-chart lf-short" data-draw="il-share" data-source="il_methane"></div>
     <p class="lf-note"><span class="lf-en">Reported landfill methane roughly tripled in 2023, most likely because operators changed how they estimate it rather than because three times more waste arrived, so compare sites within a year rather than totals across years. Methane also lags: a landfill keeps releasing it for years after it closes. A hollow ring is a site that reported methane below the reporting threshold. Dudaim combines the old site with the new cells opened in 2021 and 2025. Site names are English renderings of the register's Hebrew names.</span><span class="lf-he-t" lang="he">המתאן המדווח מאתרי הטמנה גדל בערך פי שלושה ב-2023, ככל הנראה משום שהמפעילים שינו את שיטת ההערכה ולא משום שהגיעה פי שלושה פסולת, ולכן כדאי להשוות בין אתרים באותה שנה ולא סכומים בין שנים. מתאן גם מגיע באיחור: אתר ממשיך לפלוט אותו שנים אחרי שנסגר. טבעת חלולה היא אתר שדיווח על מתאן מתחת לסף הדיווח. דודאים כולל את האתר הישן ואת התאים החדשים שנפתחו ב-2021 וב-2025.</span></p>
   </section>
@@ -1560,8 +1560,8 @@ lfReg('rank', {
   unmount(el, k) { if (k && k.tip) k.tip.hide(); }
 });
 
-// Each large landfill's share of all reported landfill methane, one line per site.
 lfReg('il-share', (el) => {
+  // Methane each of the five largest landfills reported, in tonnes a year, one line per site.
   if (LF.ready(el, ['il_methane']) !== 'ok') return;
   const bc = LF.il.byComplex(dash.data('il_methane').data);
   const years = [...bc.out.keys()].sort((a, b) => a - b);
@@ -1572,37 +1572,39 @@ lfReg('il-share', (el) => {
   const keys = [...sum].sort((a, b) => b[1] - a[1]).slice(0, 5).map((d) => d[0]);
   const series = keys.map((k2, i) => ({
     name: k2, color: LF.C(i),
-    pts: years.map((y) => { const m = bc.out.get(y), t = bc.totals.get(y) || 0, e = m.get(k2); return { year: y, v: t && e ? e.v / t * 100 : 0 }; })
+    pts: years.map((y) => { const e = bc.out.get(y).get(k2); return { year: y, v: e && e.any ? e.v : null }; })
   }));
   const W = Math.max(260, el.clientWidth), H = 300;
   const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('role', 'img')
-    .attr('aria-label', 'Share of all reported landfill methane for the five largest landfills, ' + years[0] + ' to ' + years[years.length - 1]);
-  const f0 = d3.format('.0f');
-  const mt = 10, mb = 22, ml = LF.textW(svg, ['100%']) + 10;
-  const mr = Math.min(W * 0.34, LF.textW(svg, series.map((s) => s.name + ' 100%'), 'lf-lab-strong') + 14);
-  const x = d3.scaleLinear().domain([years[0], years[years.length - 1]]).range([ml, W - mr]);
-  const yS = d3.scaleLinear().domain([0, Math.max(60, d3.max(series, (s) => d3.max(s.pts, (p) => p.v)))]).nice().range([H - mb, mt]);
+    .attr('aria-label', 'Methane reported by the five largest landfills, tonnes per year, ' + years[0] + ' to ' + years[years.length - 1]);
+  const f0 = d3.format(',.0f');
+  const vmax = d3.max(series, (s) => d3.max(s.pts, (p) => p.v || 0)) || 1;
+  const yS = d3.scaleLinear().domain([0, vmax * 1.05]).nice();
   const yt = yS.ticks(5);
+  const mt = 10, mb = 22, ml = LF.textW(svg, yt.map(f0)) + 10;
+  const last = (s) => { for (let i = s.pts.length - 1; i >= 0; i--) if (s.pts[i].v != null) return s.pts[i]; return null; };
+  const mr = Math.min(W * 0.34, LF.textW(svg, series.map((s) => s.name + ' ' + f0((last(s) || { v: 0 }).v)), 'lf-lab-strong') + 14);
+  const x = d3.scaleLinear().domain([years[0], years[years.length - 1]]).range([ml, W - mr]);
+  yS.range([H - mb, mt]);
   svg.append('g').selectAll('line').data(yt).join('line').attr('x1', ml).attr('x2', W - mr).attr('y1', yS).attr('y2', yS).style('stroke', 'var(--cds-chart-grid)');
-  svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', yS).attr('dy', '0.32em').attr('text-anchor', 'end').text((d) => d + '%');
+  svg.append('g').selectAll('text').data(yt).join('text').attr('class', 'lf-tick').attr('x', ml - 6).attr('y', yS).attr('dy', '0.32em').attr('text-anchor', 'end').text(f0);
   svg.append('g').selectAll('text').data(x.ticks(W < 480 ? 4 : 7).filter(Number.isInteger)).join('text').attr('class', 'lf-tick').attr('x', x).attr('y', H - 5).attr('text-anchor', 'middle').text((d) => d);
   const sy = LF.st.ilYear;
   svg.append('line').attr('x1', x(sy)).attr('x2', x(sy)).attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--color-fg-muted)').style('stroke-dasharray', '3 3');
-  const line = d3.line().x((p) => x(p.year)).y((p) => yS(p.v));
+  const line = d3.line().defined((p) => p.v != null).x((p) => x(p.year)).y((p) => yS(p.v));
   for (const s of series) {
     svg.append('path').attr('d', line(s.pts)).style('fill', 'none').style('stroke', s.color).style('stroke-width', s === series[0] ? 3 : 2);
     const p = s.pts.find((q) => q.year === sy);
-    if (p) svg.append('circle').attr('cx', x(sy)).attr('cy', yS(p.v)).attr('r', 3.5).style('fill', s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5);
-    s.ly = yS(s.pts[s.pts.length - 1].v);
+    if (p && p.v != null) svg.append('circle').attr('cx', x(sy)).attr('cy', yS(p.v)).attr('r', 3.5).style('fill', s.color).style('stroke', 'var(--color-bg)').style('stroke-width', 1.5);
+    const lp = last(s); s.ly = lp ? yS(lp.v) : H - mb; s.lv = lp ? lp.v : 0;
   }
-  // Direct labels at the right end, nudged apart.
   const lab = series.slice().sort((a, b) => a.ly - b.ly);
   for (let i = 1; i < lab.length; i++) if (lab[i].ly - lab[i - 1].ly < 15) lab[i].ly = lab[i - 1].ly + 15;
   const over = lab.length ? lab[lab.length - 1].ly - (H - mb) : 0;
   if (over > 0) lab.forEach((l) => { l.ly -= over; });
   svg.append('g').selectAll('text').data(lab).join('text').attr('class', (s) => s === series[0] ? 'lf-lab-strong' : 'lf-lab')
     .attr('x', W - mr + 8).attr('y', (s) => s.ly).attr('dy', '0.32em').style('fill', (s) => s.color)
-    .text((s) => s.name + ' ' + f0(s.pts[s.pts.length - 1].v) + '%');
+    .text((s) => s.name + ' ' + f0(s.lv));
   const tip = LF.tooltip(el);
   const rule = svg.append('line').attr('y1', mt).attr('y2', H - mb).style('stroke', 'var(--cds-chart-reference)').attr('visibility', 'hidden');
   svg.append('rect').attr('x', ml).attr('y', mt).attr('width', Math.max(0, W - ml - mr)).attr('height', H - mt - mb).style('fill', 'transparent')
@@ -1610,10 +1612,11 @@ lfReg('il-share', (el) => {
       const [mx] = d3.pointer(ev, svg.node());
       const yr = Math.max(years[0], Math.min(years[years.length - 1], Math.round(x.invert(mx))));
       rule.attr('x1', x(yr)).attr('x2', x(yr)).attr('visibility', 'visible');
-      const rows = series.map((s) => [s.name, f0(s.pts.find((p) => p.year === yr).v) + '%', s.color]).sort((a, b) => parseFloat(b[1]) - parseFloat(a[1]));
-      const t = bc.totals.get(yr) || 0, top = series.reduce((a, s) => a + s.pts.find((p) => p.year === yr).v, 0);
-      rows.push(['All other sites', f0(Math.max(0, 100 - top)) + '%', null]);
-      tip.show(yr + ' · share of landfill methane', rows, x(yr), mt + 30);
+      const rows = series.map((s) => { const p = s.pts.find((q) => q.year === yr); return [s.name, p && p.v != null ? f0(p.v) + ' t' : '—', s.color, p && p.v != null ? p.v : -1]; })
+        .sort((a, b) => b[3] - a[3]).map((r) => r.slice(0, 3));
+      const t = bc.totals.get(yr) || 0, top = series.reduce((a, s) => { const p = s.pts.find((q) => q.year === yr); return a + (p && p.v ? p.v : 0); }, 0);
+      rows.push(['All other sites', f0(Math.max(0, t - top)) + ' t', null]);
+      tip.show(yr + ' · Methane released', rows, x(yr), mt + 30);
     })
     .on('pointerleave', () => { tip.hide(); rule.attr('visibility', 'hidden'); });
 });
