@@ -111,6 +111,18 @@
 .lf.lf-he .lf-gif { direction: rtl; }
 .lf-selwrap { display: inline-flex; align-items: center; gap: 6px; }
 .lf-sel-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lf-counter { background: #17332E; color: #EAF1EA; border-radius: 16px; padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; }
+.lf-counter p { margin: 0; }
+.lf-counter-kicker { text-transform: uppercase; letter-spacing: .08em; font-size: var(--cds-font-size-caption); color: #B9CDBF; }
+.lf-counter-big { font-size: clamp(2.5rem, 8vw, 4.4rem); font-weight: 700; line-height: 1.05; font-variant-numeric: tabular-nums; color: #F2B544; }
+.lf-counter-cap { max-width: 60ch; line-height: 1.4; }
+.lf-counter-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); gap: 12px; margin-top: 12px; }
+.lf-counter-stats > div { display: flex; flex-direction: column; gap: 2px; border-top: 1px solid rgba(234, 241, 234, .22); padding-top: 8px; min-width: 0; }
+.lf-counter-stats b { font-size: 1.35rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.lf-counter-stats > div > span { font-size: var(--cds-font-size-caption); color: #B9CDBF; line-height: 1.35; }
+.lf-counter-day { height: 6px; background: rgba(234, 241, 234, .15); border-radius: 3px; overflow: hidden; margin-top: 12px; }
+.lf-counter-day i { display: block; height: 100%; background: #F2B544; }
+.lf-counter-note { font-size: var(--cds-font-size-caption); color: #B9CDBF; max-width: 90ch; line-height: 1.45; margin-top: 4px !important; }
 </style>
 
 <div class="lf">
@@ -144,6 +156,8 @@
 </svg><div class="lf-titles"><h1><span class="lf-en">Landfill trends: the world and Israel</span><span class="lf-he-t" lang="he">מגמות הטמנת פסולת: העולם וישראל</span></h1><p class="lf-course"><span class="lf-en">Technion · Solid Waste Management (0160338) · 2026-7</span><span class="lf-he-t" lang="he">הטכניון · ניהול פסולת מוצקה (0160338) · 2026-7</span></p></div></div>
     <p class="lf-lede"><span class="lf-en">The first part looks at landfilling around the world: how it has changed over time, how regions differ and how it relates to income. The second part zooms in on Israel, which buries far more of its waste than most rich countries, and on where in Israel that waste ends up.</span><span class="lf-he-t" lang="he">החלק הראשון עוסק בהטמנת פסולת ברחבי העולם: איך היא השתנתה לאורך השנים, במה האזורים נבדלים זה מזה ומה הקשר שלה להכנסה. החלק השני מתמקד בישראל, שמטמינה הרבה יותר מהפסולת שלה מרוב המדינות העשירות, ובשאלה איפה בישראל הפסולת הזו נקברת.</span></p>
   </header>
+
+  <section class="lf-counter" id="counter" data-draw="waste-counter" data-source="oecd"></section>
 
   <div class="lf-part" id="part-world">
     <p class="lf-eyebrow"><span class="lf-en">Part 1</span><span class="lf-he-t" lang="he">חלק 1</span></p>
@@ -1941,6 +1955,60 @@ lfReg('gif-ctl', (el) => {
     drawn().forEach((n) => dash.draw(n));
   }));
 })();
+
+// Live counter of the world's municipal solid waste, at the top of the page.
+// Estimate: UNEP Global Waste Management Outlook 2024, 2.1 billion tonnes in 2023 rising to 3.8 billion in 2050
+// (a steady 2.2% a year between the two), placed at today's date. Israel: latest OECD figure per person.
+LF.wasteRate = function (now) {
+  const y0 = Date.UTC(2023, 6, 1), yrMs = 365.2425 * 864e5;
+  const g = Math.pow(3.8 / 2.1, 1 / 27) - 1;
+  const perYear = 2.1e9 * Math.pow(1 + g, (now - y0) / yrMs);
+  return { perYear, perDay: perYear / 365.2425, perSec: perYear / (365.2425 * 86400), growth: g };
+};
+dash.draw('waste-counter', {
+  mount(el) {
+    const T = (en, he) => '<span class="lf-en">' + en + '</span><span class="lf-he-t" lang="he">' + he + '</span>';
+    el.innerHTML =
+      '<p class="lf-counter-kicker">' + T('Right now, around the world', 'ברגע זה, ברחבי העולם') + '</p>' +
+      '<p class="lf-counter-big"><span data-k="since">0</span></p>' +
+      '<p class="lf-counter-cap">' + T('tonnes of municipal solid waste generated worldwide since you opened this page', 'טונות של פסולת עירונית מוצקה נוצרו בעולם מאז שפתחתם את הדף') + '</p>' +
+      '<div class="lf-counter-stats">' +
+        '<div><b data-k="today">—</b><span>' + T('tonnes so far today', 'טונות מתחילת היום') + '</span></div>' +
+        '<div><b><span data-k="day">—</span>' + T(' million', ' מיליון') + '</b><span>' + T('tonnes every day', 'טונות בכל יום') + '</span></div>' +
+        '<div><b data-k="trucks">—</b><span>' + T('garbage trucks a day, 10 tonnes each', 'משאיות זבל ביום, 10 טון כל אחת') + '</span></div>' +
+        '<div><b data-k="il">—</b><span>' + T('tonnes a day in Israel, <span data-k="ilpct">—</span>% of it landfilled', 'טונות ביום בישראל, <span data-k="ilpct">—</span>% מהן מוטמנות') + '</span></div>' +
+      '</div>' +
+      '<div class="lf-counter-day" aria-hidden="true"><i data-k="bar"></i></div>' +
+      '<p class="lf-counter-note">' + T('Estimate from the UN Environment Programme\'s Global Waste Management Outlook 2024: 2.1 billion tonnes in 2023, growing about 2.2% a year towards 3.8 billion in 2050. The bar shows how much of today has passed. Israel: latest OECD figure per person times a population of 10 million.',
+        'הערכה לפי דוח Global Waste Management Outlook 2024 של תוכנית הסביבה של האו"ם: 2.1 מיליארד טונות ב-2023, עם צמיחה של כ-2.2% בשנה לקראת 3.8 מיליארד ב-2050. הפס מראה איזה חלק מהיום כבר עבר. ישראל: הנתון העדכני של OECD לנפש כפול אוכלוסייה של 10 מיליון.') + '</p>';
+    const k = { el, t0: performance.now(), q: (n) => el.querySelectorAll('[data-k="' + n + '"]') };
+    const f0 = d3.format(',.0f'), f1 = d3.format('.1f');
+    const set = (n, v) => k.q(n).forEach((s) => { if (s.textContent !== v) s.textContent = v; });
+    const tick = () => {
+      const now = Date.now(), r = LF.wasteRate(now);
+      const mid = new Date(); mid.setHours(0, 0, 0, 0);
+      const sinceMid = (now - mid.getTime()) / 1000;
+      set('since', f0(r.perSec * (performance.now() - k.t0) / 1000));
+      set('today', f0(r.perSec * sinceMid));
+      set('day', f1(r.perDay / 1e6));
+      set('trucks', f0(r.perDay / 10));
+      k.q('bar').forEach((b) => { b.style.width = (sinceMid / 864).toFixed(2) + '%'; });
+    };
+    tick();
+    k.timer = setInterval(tick, 100);
+    return k;
+  },
+  update(el, k) {
+    const d = dash.data('oecd');
+    if (d.status !== 'ok') return;
+    const isr = d.data.filter((r) => r.iso3 === 'ISR' && LF.num(r.msw_kg_per_capita) != null).sort((a, b) => b.year - a.year)[0];
+    if (!isr) return;
+    const perDay = LF.num(isr.msw_kg_per_capita) * 10e6 / 1000 / 365.2425;
+    k.q('il').forEach((s) => { s.textContent = d3.format(',')(Math.round(perDay / 100) * 100); });
+    k.q('ilpct').forEach((s) => { s.textContent = d3.format('.0f')(LF.num(isr.landfill_pct)); });
+  },
+  unmount(el, k) { if (k && k.timer) clearInterval(k.timer); }
+});
 </script>
 
 </main>
