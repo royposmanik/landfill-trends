@@ -2,6 +2,9 @@
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap");
 .lf { display: flex; flex-direction: column; gap: var(--cds-gap-xl); --font-anthropic-sans: "Google Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; --font-anthropic-serif: "Google Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; font-family: var(--font-anthropic-sans); }
+/* lf-dark: the page is always dark */
+.lf { --color-bg: #15171a; --color-fg: #ecebe6; --color-fg-muted: #a5a29a; --color-panel: #202327; --color-border-line: #353a40; --color-ok: #6cc08b; --color-bad: #e27a62; --cds-chart-muted: #5e6268; --cds-chart-grid: #2a2e33; --cds-chart-axis: #757a80; --cds-chart-reference: #8d9096; --cds-chart-status-critical: #e05a4a; --cds-text-secondary: #a5a29a; --cds-surface-popover: #262a2f; --cds-border: #43484f; --cds-shadow-popover: 0 4px 14px rgba(0, 0, 0, .5); color-scheme: dark; background: var(--color-bg); color: var(--color-fg); padding: 24px 20px; border-radius: 16px; }
+.lf-counter { border: 1px solid #2c5a4f; }
 .lf button, .lf select, .lf input, .lf .dash-select { font-family: var(--font-anthropic-sans); }
 .lf-head { display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
 .lf-eyebrow { text-transform: uppercase; letter-spacing: .07em; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
@@ -1823,7 +1826,7 @@ LF.GIF = {
     const btns = document.querySelectorAll('[data-gif-btn="' + id + '"]');
     btns.forEach((b) => { b.disabled = true; });
     const orig = S[c.key];
-    const css = getComputedStyle(document.body);
+    const css = getComputedStyle(document.querySelector('.lf') || document.body);
     const bg = css.backgroundColor && css.backgroundColor !== 'rgba(0, 0, 0, 0)' ? css.backgroundColor : '#ffffff';
     const fg = getComputedStyle(host).color || '#111';
     const years = d3.range(c.min, c.max + 1);
