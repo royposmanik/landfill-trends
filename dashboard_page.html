@@ -158,14 +158,10 @@
 .lf-eu-years span { flex: 1 1 0; text-align: center; font-size: var(--cds-font-size-caption); color: var(--cds-text-secondary); font-variant-numeric: tabular-nums; min-width: 0; overflow: visible; white-space: nowrap; }
 @media (max-width: 560px) { .lf-eu-n { display: none; } .lf-eu-years .lf-eu-y2 { visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) { .lf-eu-stack { transition: none; } }
-.lf-eu-country { display: flex; flex-direction: column; gap: 6px; }
-.lf-eu-title { margin: 0 0 4px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
-.lf-eu-row { display: grid; grid-template-columns: minmax(90px, 150px) 1fr minmax(110px, 150px); gap: 10px; align-items: center; font-size: var(--cds-font-size-caption); }
-.lf-eu-track { height: 16px; }
-.lf-eu-bar { display: flex; height: 100%; border-radius: 2px; overflow: hidden; min-width: 2px; transition: width .4s ease; }
-.lf-eu-bar i { display: block; height: 100%; }
-.lf-eu-val { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lf-eu-val small { color: var(--color-fg-muted); font-size: inherit; }
+.lf-eu-country { direction: ltr; }
+.lf-eu-country svg { display: block; overflow: visible; }
+.lf-eu-country text { fill: var(--color-fg); font-variant-numeric: tabular-nums; }
+.lf-eu-country .lf-eu-svgtitle, .lf-eu-country .lf-eu-v, .lf-eu-country .lf-eu-empty { fill: var(--color-fg-muted); }
 .lf-gem { display: grid; grid-template-columns: minmax(230px, 290px) minmax(0, 1fr); gap: var(--cds-gap-md); }
 .lf-gem-in, .lf-gem-out { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 14px 16px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
 .lf-gem-c { display: flex; flex-direction: column; gap: 3px; font-size: var(--cds-font-size-caption); }
@@ -193,7 +189,6 @@
 .lf-gem-how summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
 .lf-gem-how p { margin: 8px 0 0; font-size: var(--cds-font-size-caption); line-height: 1.6; color: var(--color-fg-muted); max-width: 90ch; }
 @media (max-width: 760px) { .lf-gem { grid-template-columns: 1fr; } .lf-gem-m { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .lf-eu-row { grid-template-columns: 84px 1fr 80px; gap: 6px; } .lf-eu-val small { display: none; } }
 </style>
 
 <div class="lf">
@@ -377,9 +372,12 @@
       <li><span class="lf-en"><span class="lf-sw lf-eu-sw-w"></span>Released straight to rivers, lakes or the sea</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-eu-sw-w"></span>משוחרר ישירות לנהרות, לאגמים או לים</span></li>
     </ul>
     <div class="lf-eu-time" id="eu-leach-time" data-draw="eu-leach-time"></div>
-    <p class="lf-note"><span class="lf-en">The number above each bar is how many landfill reports it adds up (a landfill that sends some to a sewage plant and some to water counts twice). Click a bar to see that year by country below.</span><span class="lf-he-t" lang="he">המספר מעל כל עמודה הוא מספר הדיווחים של מטמנות שהיא מסכמת (מטמנה ששולחת חלק למכון טיהור וחלק למים נספרת פעמיים). לחצו על עמודה כדי לראות את השנה לפי מדינה למטה.</span></p>
+    <p class="lf-note"><span class="lf-en">The number above each bar is how many landfill reports it adds up (a landfill that sends some to a sewage plant and some to water counts twice). Click a bar to see that year by country below, or press Play to watch the years go by. The country bars keep one scale for all years, so you can see them grow and shrink; ⤓ GIF saves the animation to your computer.</span><span class="lf-he-t" lang="he">המספר מעל כל עמודה הוא מספר הדיווחים של מטמנות שהיא מסכמת (מטמנה ששולחת חלק למכון טיהור וחלק למים נספרת פעמיים). לחצו על עמודה כדי לראות את השנה לפי מדינה למטה, או על "הפעל" כדי לראות את השנים מתחלפות. לעמודות של המדינות יש קנה מידה אחד לכל השנים, כך שרואים אותן גדלות וקטנות; ⤓ GIF שומר את האנימציה במחשב.</span></p>
 
     <div class="lf-player">
+      <button type="button" class="lf-btn" id="eu-leach-play"><span class="lf-en">▶ Play</span><span class="lf-he-t" lang="he">▶ הפעל</span></button>
+      <button type="button" class="lf-btn" id="eu-leach-pause" hidden><span class="lf-en">❚❚ Pause</span><span class="lf-he-t" lang="he">❚❚ השהה</span></button>
+      <div class="lf-gif-ctl" data-draw="gif-ctl" data-gif="euleach"></div>
       <input type="range" id="eu-leach-year" min="2007" max="2024" step="1" value="2024" aria-label="Year">
       <span class="lf-year" data-draw="eu-leach-year-label">—</span>
     </div>

@@ -102,22 +102,71 @@ dash.draw('eu-leach-time', (el) => {
   }));
 });
 dash.draw('eu-leach-year-label', (el) => { el.textContent = String(LF.st.euLeachY || 2024); });
+// By country, as SVG so it can play year by year and be saved as a GIF. One scale for every year of a pollutant.
 dash.draw('eu-leach-country', (el) => {
   const E = LF.euLeach, p = LF.st.euLeachP || 'n', y = LF.st.euLeachY || 2024, info = E.P[p];
-  const rows = E.rows.filter((r) => r[0] === p && r[2] === y && r[3] + r[4] > 0).sort((a, b) => (b[3] + b[4]) - (a[3] + a[4]));
-  if (!rows.length) { el.innerHTML = '<p class="lf-note">' + E.T('No landfill reported ' + info.en.toLowerCase() + ' above the threshold in ' + y + '.', 'אף מטמנה לא דיווחה על ' + info.he + ' מעל הסף ב-' + y + '.') + '</p>'; return; }
-  const max = rows[0][3] + rows[0][4];
-  let h = '<p class="lf-eu-title">' + E.T(info.en + ' leaving landfills in leachate, by country, ' + y, info.he + ' שיוצא ממטמנות בתשטיפים, לפי מדינה, ' + y) + '</p>';
-  for (const r of rows) {
-    const tot = r[3] + r[4];
-    h += '<div class="lf-eu-row"><span class="lf-eu-name">' + E.T(E.name(r[1], 'en'), E.name(r[1], 'he')) + '</span>' +
-      '<span class="lf-eu-track"><span class="lf-eu-bar" style="width:' + (tot / max * 100).toFixed(2) + '%"><i class="lf-eu-t" style="flex:' + r[4] + ' 1 0"></i><i class="lf-eu-w" style="flex:' + r[3] + ' 1 0"></i></span></span>' +
-      '<span class="lf-eu-val">' + E.fmt(tot, info.t) + ' ' + E.unit(info.t) + ' <small>' + (r[5] + r[6] === 1 ? E.T('1 report', 'דיווח אחד') : E.T((r[5] + r[6]) + ' reports', (r[5] + r[6]) + ' דיווחים')) + '</small></span></div>';
+  const he = window.LF_LANG === 'he', lang = he ? 'he' : 'en';
+  const all = E.rows.filter((r) => r[0] === p && r[3] + r[4] > 0);
+  const nMax = d3.max(d3.rollup(all, (v) => v.length, (r) => r[2]).values()) || 1;
+  const gmax = d3.max(all, (r) => r[3] + r[4]) || 1;
+  const rows = all.filter((r) => r[2] === y).sort((a, b) => (b[3] + b[4]) - (a[3] + a[4]));
+  const W = Math.max(300, Math.round(el.clientWidth || 670)), narrow = W < 520;
+  const nameW = narrow ? 96 : 150, valW = narrow ? 74 : 180, rowH = 24, head = 30, H = head + nMax * rowH + 4;
+  const bw = Math.max(40, W - nameW - valW - 8), x = (v) => v / gmax * bw;
+  const key = p + '|' + W + '|' + lang;
+  let svg = d3.select(el).select('svg');
+  const fresh = svg.empty() || svg.attr('data-key') !== key;
+  if (fresh) {
+    el.innerHTML = '';
+    svg = d3.select(el).append('svg').attr('data-key', key).attr('width', W).attr('height', H).attr('viewBox', '0 0 ' + W + ' ' + H)
+      .attr('font-size', 13).attr('role', 'img');
+    svg.append('text').attr('class', 'lf-eu-svgtitle').attr('y', 16);
+    svg.append('text').attr('class', 'lf-eu-empty').attr('x', W / 2).attr('y', head + 40).attr('text-anchor', 'middle');
+    svg.append('g').attr('class', 'lf-eu-rows');
   }
-  el.innerHTML = h;
+  const anim = !fresh && !window.LF_NOANIM && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  const tr = (s) => (anim ? s.transition().duration(500).ease(d3.easeCubicOut) : s);
+  const title = he ? info.he + ' שיוצא ממטמנות בתשטיפים, לפי מדינה, ' + y : info.en + ' leaving landfills in leachate, by country, ' + y;
+  svg.attr('aria-label', title);
+  svg.select('.lf-eu-svgtitle').text(title).attr('x', he ? W : 0).attr('direction', he ? 'rtl' : 'ltr').attr('text-anchor', 'start');
+  svg.select('.lf-eu-empty').text(rows.length ? '' : (he ? 'אף מטמנה לא דיווחה על ' + info.he + ' מעל הסף ב-' + y + '.' : 'No landfill reported ' + info.en.toLowerCase() + ' above the threshold in ' + y + '.'))
+    .attr('direction', he ? 'rtl' : 'ltr');
+  const unit = info.t ? (he ? 'טון' : 't') : (he ? 'ק"ג' : 'kg');
+  const val = (r) => {
+    const n = r[5] + r[6], v = E.fmt(r[3] + r[4], info.t) + ' ' + unit;
+    if (narrow) return v;
+    return v + ' · ' + (he ? (n === 1 ? 'דיווח אחד' : n + ' דיווחים') : (n === 1 ? '1 report' : n + ' reports'));
+  };
+  const pos = (r, i) => 'translate(0,' + (head + i * rowH) + ')';
+  const g = svg.select('.lf-eu-rows').selectAll('g.lf-eu-r').data(rows, (r) => r[1]).join(
+    (enter) => {
+      const e = enter.append('g').attr('class', 'lf-eu-r').attr('transform', pos).attr('opacity', anim ? 0 : 1);
+      e.append('text').attr('class', 'lf-eu-nm').attr('x', nameW - 8).attr('y', 16).attr('text-anchor', 'end');
+      e.append('rect').attr('class', 'lf-eu-rt').attr('x', nameW).attr('y', 4).attr('height', 16).attr('fill', '#2a78b5').attr('width', 0);
+      e.append('rect').attr('class', 'lf-eu-rw').attr('x', nameW).attr('y', 4).attr('height', 16).attr('fill', 'var(--color-bad)').attr('width', 0);
+      e.append('text').attr('class', 'lf-eu-v').attr('x', nameW + 6).attr('y', 16);
+      return e;
+    },
+    (update) => update,
+    (exit) => tr(exit).attr('opacity', 0).remove()
+  );
+  g.select('.lf-eu-nm').text((r) => E.name(r[1], lang));
+  g.select('.lf-eu-v').text(val).attr('direction', he ? 'rtl' : 'ltr').attr('text-anchor', he ? 'end' : 'start');
+  tr(g).attr('transform', pos).attr('opacity', 1);
+  tr(g.select('.lf-eu-rt')).attr('width', (r) => x(r[4]));
+  tr(g.select('.lf-eu-rw')).attr('x', (r) => nameW + x(r[4])).attr('width', (r) => Math.max(r[3] + r[4] > 0 && x(r[3] + r[4]) < 2 ? 2 : 0, x(r[3])));
+  tr(g.select('.lf-eu-v')).attr('x', (r) => nameW + Math.max(2, x(r[3] + r[4])) + 6);
 });
 document.querySelectorAll('#eu-leach-p').forEach((s) => s.addEventListener('change', () => { LF.st.euLeachP = lfVal(s); dash.draw('eu-leach-time'); dash.draw('eu-leach-country'); }));
-document.querySelectorAll('#eu-leach-year').forEach((r) => r.addEventListener('input', () => { LF.st.euLeachY = +r.value; dash.draw('eu-leach-time'); dash.draw('eu-leach-country'); dash.draw('eu-leach-year-label'); }));
+// Play through the years and save the animation as a GIF (the page's own player and GIF maker).
+LF.st.euLeachY = LF.st.euLeachY || 2024;
+if (LF.player) LF.player('eu-leach', 2007, 2024, 'euLeachY', ['eu-leach-time', 'eu-leach-country', 'eu-leach-year-label'], 900);
+if (LF.GIF) LF.GIF.euleach = {
+  chart: '#eu-leach-country', key: 'euLeachY', min: 2007, max: 2024, draws: ['eu-leach-country'], labels: ['eu-leach-time', 'eu-leach-year-label'], range: '#eu-leach-year',
+  title: () => { const i = LF.euLeach.P[LF.st.euLeachP || 'n']; return window.LF_LANG === 'he' ? 'מטמנות באירופה: ' + i.he + ' בתשטיפים, לפי מדינה' : 'European landfills: ' + i.en.toLowerCase() + ' in leachate, by country'; }
+};
+let euW = 0;
+window.addEventListener('resize', () => { const e = document.getElementById('eu-leach-country'); if (e && Math.abs(e.clientWidth - euW) > 20) { euW = e.clientWidth; dash.draw('eu-leach-country'); } });
 
 // Landfill gas: LandGEM-style simulator (US EPA first-order decay model, each year's waste split into tenths).
 LF.gem = {
