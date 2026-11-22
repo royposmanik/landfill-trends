@@ -1,43 +1,9 @@
 // Leachate, leachate around the world and landfill gas: drawings and controls for these sections of dashboard_page.html.
 // Loaded after the page's main script (kept separate so the page stays under the dashboard store's size limit).
-// Leachate section: how strong leachate is against drinking water, and a rain-to-leachate calculator.
-// Concentrations in mg/L: S. Earle, Environmental Geology (open textbook), table 14.3.1.
+// Leachate section: a rain-to-leachate calculator.
 LF.leach = {
-  params: [
-    { en: 'COD (organic load)', he: 'COD (עומס אורגני)', recent: 23800, aged: 1160, typical: 18000, dw: 10 },
-    { en: 'BOD₅ (biodegradable organics)', he: 'BOD₅ (חומר אורגני מתכלה)', recent: 11900, aged: 260, typical: 1000, dw: 3 },
-    { en: 'Ammonia nitrogen', he: 'חנקן אמוניה', recent: 790, aged: 370, typical: 225, dw: 0.1 },
-    { en: 'Chloride', he: 'כלוריד', recent: 1315, aged: 2080, typical: 500, dw: 10 },
-    { en: 'Sodium', he: 'נתרן', recent: 960, aged: 1300, typical: 500, dw: 15 },
-    { en: 'Calcium', he: 'סידן', recent: 1820, aged: 250, typical: 1000, dw: 10 },
-    { en: 'Potassium', he: 'אשלגן', recent: 780, aged: 590, typical: 300, dw: 1 },
-    { en: 'Magnesium', he: 'מגנזיום', recent: 252, aged: 185, typical: 250, dw: 5 },
-    { en: 'Iron', he: 'ברזל', recent: 540, aged: 23, typical: 60, dw: 0.2 },
-    { en: 'Manganese', he: 'מנגן', recent: 27, aged: 2.1, typical: null, dw: 0.03 },
-    { en: 'Zinc', he: 'אבץ', recent: 21.5, aged: 0.4, typical: null, dw: 0.01 },
-    { en: 'Copper', he: 'נחושת', recent: 0.12, aged: 0.03, typical: null, dw: 0.02 }
-  ],
-  T: (en, he) => '<span class="lf-en">' + en + '</span><span class="lf-he-t" lang="he">' + he + '</span>',
-  mg: (v) => v >= 10 ? d3.format(',.0f')(v) : v >= 1 ? d3.format('.1~f')(v) : d3.format('.2~f')(v)
+  T: (en, he) => '<span class="lf-en">' + en + '</span><span class="lf-he-t" lang="he">' + he + '</span>'
 };
-dash.draw('leach-comp', (el) => {
-  const L = LF.leach, key = LF.st.leachProfile || 'recent';
-  const lo = -2, hi = 5; // 0.01 to 100,000 mg/L
-  const pos = (v) => Math.max(0, Math.min(100, (Math.log10(v) - lo) / (hi - lo) * 100));
-  const times = (r) => { const t = r / 1; return t >= 10 ? d3.format(',.0f')(t) : d3.format('.1~f')(t); };
-  let h = '<div class="lf-lc-axis" aria-hidden="true"><span></span><span class="lf-lc-track">';
-  for (const t of [0.01, 1, 100, 10000]) h += '<i' + (t === 100 ? ' class="lf-lc-mid"' : '') + ' style="inset-inline-start:' + pos(t).toFixed(2) + '%">' + d3.format(',')(t) + '</i>';
-  h += '</span><span></span></div>';
-  for (const p of L.params) {
-    const v = p[key];
-    h += '<div class="lf-lc-row"><span class="lf-lc-name">' + L.T(p.en, p.he) + '</span><span class="lf-lc-track">';
-    for (const t of [0.01, 1, 100, 10000]) h += '<u style="inset-inline-start:' + pos(t).toFixed(2) + '%"></u>';
-    if (v != null) h += '<em class="lf-lc-bar" style="width:' + pos(v).toFixed(2) + '%"></em>';
-    h += '<b class="lf-lc-dw" style="inset-inline-start:' + pos(p.dw).toFixed(2) + '%" title="Drinking water: ' + L.mg(p.dw) + ' mg/L"></b></span>';
-    h += '<span class="lf-lc-val">' + (v == null ? '—' : L.mg(v) + ' <small>' + L.T('mg/L', 'מ"ג/ל') + '</small> <span class="lf-lc-x">×' + times(v / p.dw) + '</span>') + '</span></div>';
-  }
-  el.innerHTML = h;
-});
 dash.draw('leach-calc', (el) => {
   const L = LF.leach, num = (id, d) => { const e = document.getElementById(id); return e ? +lfVal(e) : d; };
   const rain = num('leach-rain', 500), ha = num('leach-area', 10), share = num('leach-share', 0.25);
@@ -54,7 +20,6 @@ dash.draw('leach-calc', (el) => {
       '<div><b>' + (efeh < 10 ? f1(efeh) : f0(efeh)) + '%</b><span>' + L.T("of the 450 m³ a day Efeh made in late 2024", 'מ-450 המ"ק ביום שאפעה ייצרה בסוף 2024') + '</span></div>' +
     '</div>';
 });
-document.querySelectorAll('#leach-profile').forEach((s) => s.addEventListener('change', () => { LF.st.leachProfile = lfVal(s); dash.draw('leach-comp'); }));
 document.querySelectorAll('#leach-rain, #leach-area').forEach((s) => s.addEventListener('input', () => dash.draw('leach-calc')));
 document.querySelectorAll('#leach-share').forEach((s) => s.addEventListener('change', () => dash.draw('leach-calc')));
 
@@ -421,7 +386,7 @@ LF.gem.wire = function () {
   G.redraw();
 };
 dash.draw('lfg-ui');
-['leach-comp', 'leach-calc', 'oecd-leach-time', 'oecd-leach-country', 'oecd-leach-year-label'].forEach((n) => dash.draw(n));
+['leach-calc', 'oecd-leach-time', 'oecd-leach-country', 'oecd-leach-year-label'].forEach((n) => dash.draw(n));
 
 // Landfill gas in Israel: what collecting more of it would do (2022 national inventory, our collected-share estimate).
 LF.ilGas = { made: 304400, released: 288100, collected: 16300 }; // tonnes of methane, 2022

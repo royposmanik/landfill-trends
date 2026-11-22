@@ -108,24 +108,6 @@
 .lf-risk { background: var(--color-panel); border: 1px solid var(--color-border-line); border-inline-start: 3px solid var(--color-bad); border-radius: var(--cds-radius); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
 .lf-risk b { font-weight: var(--cds-font-weight-medium); }
 .lf-risk p { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); }
-.lf-lc { display: flex; flex-direction: column; gap: 6px; }
-.lf-lc-row, .lf-lc-axis { display: grid; grid-template-columns: minmax(110px, 190px) 1fr minmax(120px, 150px); gap: 10px; align-items: center; font-size: var(--cds-font-size-caption); }
-.lf-lc-name { line-height: 1.25; }
-.lf-lc-track { position: relative; height: 16px; }
-.lf-lc-track u { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--cds-chart-grid); }
-.lf-lc-bar { position: absolute; inset-inline-start: 0; top: 2px; bottom: 2px; background: var(--lf-leach, #d9822b); border-radius: 2px; transition: width .5s ease; }
-.lf-lc-dw { position: absolute; top: -3px; bottom: -3px; width: 3px; margin-inline-start: -1px; background: var(--color-fg); border-radius: 1px; }
-.lf-lc-axis { color: var(--cds-text-secondary); }
-.lf-lc-axis .lf-lc-track { height: 14px; }
-.lf-lc-axis i { position: absolute; transform: translateX(-50%); font-style: normal; white-space: nowrap; font-variant-numeric: tabular-nums; }
-.lf.lf-he .lf-lc-axis i { transform: translateX(50%); }
-.lf-lc-val { font-variant-numeric: tabular-nums; white-space: nowrap; }
-.lf-lc-val small { color: var(--color-fg-muted); font-size: inherit; }
-.lf-lc-x { font-weight: 600; color: var(--color-bad); }
-.lf-lc-sw { background: var(--lf-leach, #d9822b); }
-.lf-lc-dwsw { background: var(--color-fg); width: 3px; height: 12px; border-radius: 1px; }
-@media (max-width: 560px) { .lf-lc-row, .lf-lc-axis { grid-template-columns: 92px 1fr 88px; gap: 6px; } .lf-lc-val small, .lf-lc-axis .lf-lc-mid { display: none; } }
-@media (prefers-reduced-motion: reduce) { .lf-lc-bar { transition: none; } }
 .lf-flow { display: flex; flex-direction: column; gap: 8px; }
 .lf-flow-bar { display: flex; height: 38px; border-radius: var(--cds-radius); overflow: hidden; font-size: var(--cds-font-size-caption); font-weight: 600; }
 .lf-flow-bar > span { display: flex; align-items: center; padding: 0 10px; color: #15171a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
@@ -626,24 +608,6 @@
       <div class="lf-risk"><b><span class="lf-en">Less food waste, less leachate</span><span class="lf-he-t" lang="he">פחות פסולת מזון, פחות תשטיפים</span></b><p><span class="lf-en">Wet organic waste is the main source. Draft regulations from the Ministry of Environmental Protection would bar sending untreated organic waste straight to landfill, partly to prevent leachate and soil and groundwater pollution.</span><span class="lf-he-t" lang="he">פסולת אורגנית רטובה היא המקור העיקרי. טיוטת תקנות של המשרד להגנת הסביבה תאסור להעביר פסולת אורגנית ישירות להטמנה בלי טיפול מקדים, בין היתר כדי למנוע תשטיפים וזיהום קרקע ומי תהום.</span></p></div>
     </div>
 
-    <h3 class="lf-h3" id="il-leachate-strength"><span class="lf-en">How strong is leachate? Concentrations against typical drinking water</span><span class="lf-he-t" lang="he">כמה חזקים התשטיפים? ריכוזים לעומת מי שתייה טיפוסיים</span></h3>
-    <div class="lf-controls">
-      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Leachate</span><span class="lf-he-t" lang="he">תשטיף</span></span><select class="dash-select" id="leach-profile" aria-label="Leachate">
-        <option value="recent">From recent waste (UK)</option>
-        <option value="aged">From aged waste (UK)</option>
-        <option value="typical">Typical values (textbook)</option>
-        <option value="he:recent" lang="he">מפסולת טרייה (בריטניה)</option>
-        <option value="he:aged" lang="he">מפסולת ישנה (בריטניה)</option>
-        <option value="he:typical" lang="he">ערכים טיפוסיים (ספר לימוד)</option>
-      </select></label>
-    </div>
-    <ul class="lf-legend" aria-hidden="true">
-      <li><span class="lf-en"><span class="lf-sw lf-lc-sw"></span>Leachate</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-lc-sw"></span>תשטיף</span></li>
-      <li><span class="lf-en"><span class="lf-sw lf-lc-dwsw"></span>Typical drinking water</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-lc-dwsw"></span>מי שתייה טיפוסיים</span></li>
-    </ul>
-    <div class="lf-lc" id="leach-comp" data-draw="leach-comp"></div>
-    <p class="lf-note"><span class="lf-en">Milligrams per litre on a log scale: each gridline is 100 times the one before. The figure after each bar is how many times the drinking-water level it is. Switch between recent and aged waste to see the organic load (COD, BOD₅) drop by about 95%, while ammonia stays thousands of times above drinking water and chloride and sodium rise.</span><span class="lf-he-t" lang="he">מיליגרם לליטר בסקאלה לוגריתמית: כל קו רשת גדול פי 100 מהקודם. המספר אחרי כל עמודה מראה פי כמה הריכוז גבוה מאשר במי שתייה. החליפו בין פסולת טרייה לישנה וראו שהעומס האורגני (COD,‏ BOD₅) יורד בכ-95%, בעוד שהאמוניה נשארת גבוהה פי אלפים ממי שתייה, והכלוריד והנתרן אף עולים.</span></p>
-
     <h3 class="lf-h3" id="il-leachate-where"><span class="lf-en">Where each landfill's leachate goes, 2025</span><span class="lf-he-t" lang="he">לאן הולכים התשטיפים של כל מטמנה, 2025</span></h3>
     <div class="lf-table-wrap">
       <table class="lf-table">
@@ -689,7 +653,7 @@
     <div class="lf-calc" id="leach-calc" data-draw="leach-calc" aria-live="polite"></div>
     <p class="lf-note"><span class="lf-en">Leachate from rain = rain × open area × the share that soaks through instead of running off or evaporating. Engineers commonly assume up to about 25% for well-compacted waste and 50–60% for poorly compacted waste. Average rain in Israel ranges roughly from 500–700 mm on the coast and in the north to about 200 mm at Be'er Sheva and under 50 mm at Eilat. Covering finished areas keeps rain out; liquid from the waste itself comes on top of this, which is why Efeh, in a dry area, still makes so much.</span><span class="lf-he-t" lang="he">תשטיפים מגשם = גשם × שטח חשוף × החלק שמחלחל במקום לזרום או להתאדות. מהנדסים מניחים בדרך כלל עד כ-25% בפסולת דחוסה היטב ו-50–60% בפסולת דחוסה בצורה גרועה. כמות הגשם הממוצעת בישראל נעה בערך בין 500–700 מ"מ בשפלת החוף ובצפון לכ-200 מ"מ בבאר שבע ופחות מ-50 מ"מ באילת. כיסוי של שטחים שהסתיימה בהם ההטמנה מונע כניסת גשם; הנוזל מהפסולת עצמה מתווסף לכך, ולכן אפעה, באזור יבש, עדיין מייצרת כמות גדולה כל כך.</span></p>
 
-    <p class="lf-note"><span class="lf-en">Sources: State Comptroller, follow-up audit on municipal waste disposal, July 2025 (Efeh); Efeh landfill request for information on leachate treatment, November 2023; State Comptroller annual report 72A, 2021 (groundwater salinity); Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register, 2025 reports (data.gov.il); S. Earle, Environmental Geology, open textbook, table 14.3.1 (concentrations); Modeling leachate generation: practical scenarios for municipal solid waste landfills in Poland, Environmental Science and Pollution Research, 2023 (share of rain that soaks through).</span><span class="lf-he-t" lang="he">מקורות: מבקר המדינה, ביקורת מעקב על סילוק פסולת עירונית, יולי 2025 (אפעה); בקשת מידע של מטמנת אפעה על טיפול בתשטיפים, נובמבר 2023; מבקר המדינה, דוח שנתי 72א, 2021 (המלחת מי תהום); המשרד להגנת הסביבה, המרשם לפליטות ולהעברות של מזהמים, דיווחי 2025 (data.gov.il); S. Earle, Environmental Geology, ספר לימוד פתוח, טבלה 14.3.1 (ריכוזים); מאמר על מידול היווצרות תשטיפים במטמנות בפולין, Environmental Science and Pollution Research, 2023 (החלק מהגשם שמחלחל).</span></p>
+    <p class="lf-note"><span class="lf-en">Sources: State Comptroller, follow-up audit on municipal waste disposal, July 2025 (Efeh); Efeh landfill request for information on leachate treatment, November 2023; State Comptroller annual report 72A, 2021 (groundwater salinity); Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register, 2025 reports (data.gov.il); Modeling leachate generation: practical scenarios for municipal solid waste landfills in Poland, Environmental Science and Pollution Research, 2023 (share of rain that soaks through).</span><span class="lf-he-t" lang="he">מקורות: מבקר המדינה, ביקורת מעקב על סילוק פסולת עירונית, יולי 2025 (אפעה); בקשת מידע של מטמנת אפעה על טיפול בתשטיפים, נובמבר 2023; מבקר המדינה, דוח שנתי 72א, 2021 (המלחת מי תהום); המשרד להגנת הסביבה, המרשם לפליטות ולהעברות של מזהמים, דיווחי 2025 (data.gov.il); מאמר על מידול היווצרות תשטיפים במטמנות בפולין, Environmental Science and Pollution Research, 2023 (החלק מהגשם שמחלחל).</span></p>
   </section>
 
   <section class="lf-section" id="il-gas">
