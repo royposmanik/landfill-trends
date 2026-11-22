@@ -29,8 +29,8 @@ Every animated chart can be downloaded as a GIF.
 | `data/il_landfill_methane.csv` | Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il) |
 | `data/il_landfill_capacity.csv` | State Comptroller of Israel, follow-up audit on municipal waste disposal (July 2025, table 3); Knesset Research and Information Center (January 2026, table 1) |
 | `data/il_landfill_leachate.csv` | Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il): leachate destinations by site and year, and leachate pollutants reported to wastewater and land. Efeh volumes: State Comptroller (July 2025). |
-| `data/eu_landfill_leachate.csv`, `data/eu_landfills_reporting.csv` | European Environment Agency, industrial reporting under the IED and E-PRTR (discodata, IED database): pollutants landfills (activity 5(d)) released to water or transferred in wastewater, by country and year, and the number of landfills reporting |
-| `data/eu.js` | The same European leachate figures as `data/eu_landfill_leachate.csv`, packed for the page (`window.LF_EU`) |
+| `data/eu_landfill_leachate.csv`, `data/eu_landfills_reporting.csv` | No longer shown on the page. European Environment Agency, industrial reporting under the IED and E-PRTR (discodata, IED database): pollutants landfills (activity 5(d)) released to water or transferred in wastewater, by country and year, and the number of landfills reporting |
+| `data/oecdl.js` | Inputs for the OECD leachate estimate (`window.LF_OECDL`): landfilled kg per person by country and year (OECD DF_MUNW), population in thousands (World Bank SP.POP.TOTL) and average rain in mm a year (World Bank AG.LND.PRCP.MM), plus the US reference (61.1 million m³ of leachate in 2013, Lang et al. 2017) |
 | `site/sections.js` | Drawings and controls for the leachate, leachate-around-the-world and landfill gas sections (world LandGEM simulator and Israel collection calculator), loaded after the page's main script to keep the page under the dashboard store's size limit |
 | `data/world.js`, `data/il.js` | Country outlines (Natural Earth, public domain) |
 
