@@ -30,6 +30,7 @@ Every animated chart can be downloaded as a GIF.
 | `data/il_landfill_capacity.csv` | State Comptroller of Israel, follow-up audit on municipal waste disposal (July 2025, table 3); Knesset Research and Information Center (January 2026, table 1) |
 | `data/il_landfill_leachate.csv` | Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il): leachate destinations by site and year, and leachate pollutants reported to wastewater and land. Efeh volumes: State Comptroller (July 2025). |
 | `data/eu_landfill_leachate.csv`, `data/eu_landfills_reporting.csv` | European Environment Agency, industrial reporting under the IED and E-PRTR (discodata, IED database): pollutants landfills (activity 5(d)) released to water or transferred in wastewater, by country and year, and the number of landfills reporting |
+| `data/eu.js` | The same European leachate figures as `data/eu_landfill_leachate.csv`, packed for the page (`window.LF_EU`) |
 | `data/world.js`, `data/il.js` | Country outlines (Natural Earth, public domain) |
 
 Figures are as reported by each source; see the "Definitions and caveats" section on the page for how they were combined and their limits.
