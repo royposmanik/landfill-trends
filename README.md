@@ -28,6 +28,7 @@ Every animated chart can be downloaded as a GIF.
 | `data/waw_country_landfill.csv` | World Bank, *What a Waste 2.0* country-level data |
 | `data/il_landfill_methane.csv` | Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il) |
 | `data/il_landfill_capacity.csv` | State Comptroller of Israel, follow-up audit on municipal waste disposal (July 2025, table 3); Knesset Research and Information Center (January 2026, table 1) |
+| `data/il_landfill_leachate.csv` | Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il): leachate destinations by site and year, and leachate pollutants reported to wastewater and land. Efeh volumes: State Comptroller (July 2025). |
 | `data/world.js`, `data/il.js` | Country outlines (Natural Earth, public domain) |
 
 Figures are as reported by each source; see the "Definitions and caveats" section on the page for how they were combined and their limits.

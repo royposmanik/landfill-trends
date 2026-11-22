@@ -126,6 +126,42 @@
 .lf-counter-day { height: 6px; background: rgba(234, 241, 234, .15); border-radius: 3px; overflow: hidden; margin-top: 12px; }
 .lf-counter-day i { display: block; height: 100%; background: #F2B544; }
 .lf-counter-note { font-size: var(--cds-font-size-caption); color: #B9CDBF; max-width: 90ch; line-height: 1.45; margin-top: 4px !important; }
+.lf-risks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: var(--cds-gap-md); }
+.lf-risk { background: var(--color-panel); border: 1px solid var(--color-border-line); border-inline-start: 3px solid var(--color-bad); border-radius: var(--cds-radius); padding: 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+.lf-risk b { font-weight: var(--cds-font-weight-medium); }
+.lf-risk p { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.5; color: var(--color-fg-muted); }
+.lf-lc { display: flex; flex-direction: column; gap: 6px; }
+.lf-lc-row, .lf-lc-axis { display: grid; grid-template-columns: minmax(110px, 190px) 1fr minmax(120px, 150px); gap: 10px; align-items: center; font-size: var(--cds-font-size-caption); }
+.lf-lc-name { line-height: 1.25; }
+.lf-lc-track { position: relative; height: 16px; }
+.lf-lc-track u { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--cds-chart-grid); }
+.lf-lc-bar { position: absolute; inset-inline-start: 0; top: 2px; bottom: 2px; background: var(--lf-leach, #d9822b); border-radius: 2px; transition: width .5s ease; }
+.lf-lc-dw { position: absolute; top: -3px; bottom: -3px; width: 3px; margin-inline-start: -1px; background: var(--color-fg); border-radius: 1px; }
+.lf-lc-axis { color: var(--cds-text-secondary); }
+.lf-lc-axis .lf-lc-track { height: 14px; }
+.lf-lc-axis i { position: absolute; transform: translateX(-50%); font-style: normal; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lf.lf-he .lf-lc-axis i { transform: translateX(50%); }
+.lf-lc-val { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lf-lc-val small { color: var(--color-fg-muted); font-size: inherit; }
+.lf-lc-x { font-weight: 600; color: var(--color-bad); }
+.lf-lc-sw { background: var(--lf-leach, #d9822b); }
+.lf-lc-dwsw { background: var(--color-fg); width: 3px; height: 12px; border-radius: 1px; }
+@media (max-width: 560px) { .lf-lc-row, .lf-lc-axis { grid-template-columns: 92px 1fr 88px; gap: 6px; } .lf-lc-val small, .lf-lc-axis .lf-lc-mid { display: none; } }
+@media (prefers-reduced-motion: reduce) { .lf-lc-bar { transition: none; } }
+.lf-flow { display: flex; flex-direction: column; gap: 8px; }
+.lf-flow-bar { display: flex; height: 38px; border-radius: var(--cds-radius); overflow: hidden; font-size: var(--cds-font-size-caption); font-weight: 600; }
+.lf-flow-bar > span { display: flex; align-items: center; padding: 0 10px; color: #15171a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.lf-flow-ok { background: var(--color-ok); }
+.lf-flow-bad { background: var(--color-bad); }
+.lf-flow-cap { margin: 0; max-width: 78ch; line-height: 1.5; }
+.lf-calc-in input[type=range] { width: min(220px, 60vw); accent-color: var(--lf-leach, #d9822b); }
+.lf-rangewrap { flex-wrap: wrap; }
+.lf-calc { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.lf-calc-set { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+.lf-calc-out { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 12px; }
+.lf-calc-out > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lf-calc-out b { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 1.7rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.lf-calc-out span { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.35; }
 </style>
 
 <div class="lf">
@@ -406,6 +442,108 @@
     <p class="lf-note"><span class="lf-en">Space is in tonnes; the Comptroller treats one tonne of waste as roughly one cubic metre. Bars compare each site's remaining space with what it had at the end of 2020. Avlaim, Hagal and Ganei Hadas have no estimate for 2025, so their bars stop at the end of 2023. Landfills re-measure their remaining space every year and buried waste settles as it breaks down, so Haruvit and Tovlan reported more space in 2023 than in 2020 without being expanded. Years left assume each site keeps taking what it took in 2023. These figures predate the expansions in the table above. Avlaim and Tovlan don't report to the pollutant register, so they don't appear on the map. Sources: State Comptroller, follow-up audit on municipal waste disposal, July 2025 (table 3); Knesset Research and Information Center, January 2026 (table 1).</span><span class="lf-he-t" lang="he">המקום נמדד בטונות; המבקר מתייחס לטון פסולת כשווה בקירוב למטר מעוקב. כל עמודה משווה את המקום שנותר באתר למה שהיה בו בסוף 2020. לאבליים, חגל וגני הדס אין הערכה ל-2025, ולכן העמודות שלהם נעצרות בסוף 2023. אתרי ההטמנה מודדים מחדש את המקום הפנוי בכל שנה, והפסולת הקבורה שוקעת כשהיא מתפרקת, ולכן חרובית וטובלן דיווחו על יותר מקום ב-2023 מאשר ב-2020 בלי שהורחבו. השנים שנותרו מניחות שכל אתר ממשיך לקלוט כמו ב-2023. הנתונים קודמים להרחבות שבטבלה. אבליים וטובלן אינם מדווחים למפל"ס, ולכן אינם מופיעים במפה. מקורות: מבקר המדינה, ביקורת מעקב על פינוי פסולת ברשויות המקומיות והטמנתה, יולי 2025 (לוח 3); מרכז המחקר והמידע של הכנסת, ינואר 2026 (טבלה 1).</span></p>
   </section>
 
+  <section class="lf-section" id="il-leachate">
+    <h2><span class="lf-en">Leachate: the polluted liquid landfills make</span><span class="lf-he-t" lang="he">תשטיפים: הנוזל המזוהם שמטמנות מייצרות</span></h2>
+    <p class="lf-sub" data-read><span class="lf-en">Leachate is the liquid that drains out of buried waste. Efeh's operator says its leachate forms as organic waste is squeezed and breaks down, and from rain and floods; truck-washing water adds more. On the way through the waste it picks up dissolved organic matter, ammonia, salts and metals. Modern landfills seal the ground under the waste and collect the leachate in pipes. If it escapes, it can seep down to groundwater or run off to streams.</span><span class="lf-he-t" lang="he">תשטיפים הם הנוזל שמתנקז מתוך הפסולת הקבורה. לפי מפעילת אפעה, התשטיפים נוצרים מסחיטה ופירוק של הפסולת האורגנית ומגשמים ושיטפונות, ומי שטיפת המשאיות מוסיפים עוד. בדרכם דרך הפסולת הם סופגים חומר אורגני מומס, אמוניה, מלחים ומתכות. במטמנות מודרניות אוטמים את הקרקע מתחת לפסולת ואוספים את התשטיפים בצנרת. אם הם בורחים, הם עלולים לחלחל למי התהום או לזרום לנחלים.</span></p>
+
+    <div class="lf-tiles">
+      <div class="lf-tile">
+        <span class="lf-tile-label"><span class="lf-en">Leachate made each day at Efeh, Israel's largest landfill</span><span class="lf-he-t" lang="he">תשטיפים שנוצרים בכל יום באפעה, המטמנה הגדולה בישראל</span></span>
+        <span><span class="lf-big">450</span><span class="lf-unit"><span class="lf-en">m³ a day</span><span class="lf-he-t" lang="he">מ"ק ביום</span></span></span>
+        <p class="lf-cmp"><span class="lf-en">November 2024; about 164,000 m³ a year</span><span class="lf-he-t" lang="he">נובמבר 2024; כ-164,000 מ"ק בשנה</span></p>
+      </div>
+      <div class="lf-tile">
+        <span class="lf-tile-label"><span class="lf-en">Treated by Efeh's on-site plant</span><span class="lf-he-t" lang="he">מטופלים במתקן באתר אפעה</span></span>
+        <span><span class="lf-big">135</span><span class="lf-unit"><span class="lf-en">m³ a day</span><span class="lf-he-t" lang="he">מ"ק ביום</span></span></span>
+        <p class="lf-cmp"><span class="lf-en">The rest goes to evaporation ponds, which were full in December 2024</span><span class="lf-he-t" lang="he">השאר עובר לבריכות אידוי, שהיו מלאות בדצמבר 2024</span></p>
+      </div>
+      <div class="lf-tile">
+        <span class="lf-tile-label"><span class="lf-en">Organic load (COD) of typical leachate, compared with drinking water</span><span class="lf-he-t" lang="he">העומס האורגני (COD) בתשטיף טיפוסי, בהשוואה למי שתייה</span></span>
+        <span><span class="lf-big">1,800×</span></span>
+        <p class="lf-cmp"><span class="lf-en">18,000 mg/L against about 10 mg/L</span><span class="lf-he-t" lang="he">18,000 מ"ג לליטר לעומת כ-10 מ"ג לליטר</span></p>
+      </div>
+      <div class="lf-tile">
+        <span class="lf-tile-label"><span class="lf-en">Large landfills that send their leachate to a sewage treatment plant</span><span class="lf-he-t" lang="he">מטמנות גדולות ששולחות את התשטיפים למכון טיהור שפכים</span></span>
+        <span><span class="lf-big"><span class="lf-en">3 of 9</span><span class="lf-he-t" lang="he">3 מתוך 9</span></span></span>
+        <p class="lf-cmp"><span class="lf-en">Evron, Haruvit and Naser, in 2025. The others keep it on site, release it to the ground or don't say.</span><span class="lf-he-t" lang="he">עברון, חרובית ונאסר, ב-2025. האחרות מחזיקות אותם באתר, משחררות לקרקע או לא מדווחות.</span></p>
+      </div>
+    </div>
+
+    <h3 class="lf-h3" id="il-leachate-risks"><span class="lf-en">The risks</span><span class="lf-he-t" lang="he">הסיכונים</span></h3>
+    <div class="lf-risks">
+      <div class="lf-risk"><b><span class="lf-en">Groundwater</span><span class="lf-he-t" lang="he">מי תהום</span></b><p><span class="lf-en">Leachate that gets past a damaged or missing liner carries ammonia (which turns into nitrate), chloride, salts and metals into aquifers. The State Comptroller names seepage of leachates as one cause of the growing salinity of Israel's groundwater.</span><span class="lf-he-t" lang="he">תשטיפים שעוברים איטום פגום או חסר נושאים אמוניה (שהופכת לחנקה), כלוריד, מלחים ומתכות אל האקוויפרים. מבקר המדינה מונה את חלחול התשטיפים כאחד הגורמים להמלחה הגוברת של מי התהום בישראל.</span></p></div>
+      <div class="lf-risk"><b><span class="lf-en">Streams and floods</span><span class="lf-he-t" lang="he">נחלים ושיטפונות</span></b><p><span class="lf-en">Leachate can run over the liner and out to wadis. In late 2024 Efeh's ponds were full, and leachate was pumped into an empty landfill cell for fear it would overflow into Nahal Efeh.</span><span class="lf-he-t" lang="he">תשטיפים יכולים לזרום מעל שכבת האיטום אל הוואדיות. בסוף 2024 בריכות התשטיפים באפעה היו מלאות, והתשטיפים הוזרמו לתא הטמנה ריק מחשש שיגלשו לנחל אפעה.</span></p></div>
+      <div class="lf-risk"><b><span class="lf-en">Sewage treatment plants</span><span class="lf-he-t" lang="he">מכוני טיהור שפכים</span></b><p><span class="lf-en">Leachate is far stronger than household sewage in ammonia, organic matter and salt, so landfills pre-treat it before piping it to a plant. Ordinary sewage treatment does not remove salt, and Israel reuses most of its treated wastewater for irrigation.</span><span class="lf-he-t" lang="he">תשטיפים חזקים בהרבה משפכים ביתיים באמוניה, בחומר אורגני ובמלח, ולכן המטמנות מטפלות בהם לפני שהם מוזרמים למכון. טיפול רגיל בשפכים אינו מרחיק מלח, וישראל משתמשת ברוב השפכים המטוהרים להשקיה.</span></p></div>
+      <div class="lf-risk"><b><span class="lf-en">Decades after closing</span><span class="lf-he-t" lang="he">עשרות שנים אחרי הסגירה</span></b><p><span class="lf-en">As waste ages, the organic load falls but ammonia and salts stay high (see the chart below). A closed landfill keeps making leachate for decades, so collection and monitoring must continue long after the last truck.</span><span class="lf-he-t" lang="he">ככל שהפסולת מזדקנת העומס האורגני יורד, אבל האמוניה והמלחים נשארים גבוהים (ראו בגרף למטה). מטמנה סגורה ממשיכה לייצר תשטיפים במשך עשרות שנים, ולכן צריך להמשיך לאסוף ולנטר הרבה אחרי המשאית האחרונה.</span></p></div>
+      <div class="lf-risk"><b><span class="lf-en">Less food waste, less leachate</span><span class="lf-he-t" lang="he">פחות פסולת מזון, פחות תשטיפים</span></b><p><span class="lf-en">Wet organic waste is the main source. Draft regulations from the Ministry of Environmental Protection would bar sending untreated organic waste straight to landfill, partly to prevent leachate and soil and groundwater pollution.</span><span class="lf-he-t" lang="he">פסולת אורגנית רטובה היא המקור העיקרי. טיוטת תקנות של המשרד להגנת הסביבה תאסור להעביר פסולת אורגנית ישירות להטמנה בלי טיפול מקדים, בין היתר כדי למנוע תשטיפים וזיהום קרקע ומי תהום.</span></p></div>
+    </div>
+
+    <h3 class="lf-h3" id="il-leachate-strength"><span class="lf-en">How strong is leachate? Concentrations against typical drinking water</span><span class="lf-he-t" lang="he">כמה חזקים התשטיפים? ריכוזים לעומת מי שתייה טיפוסיים</span></h3>
+    <div class="lf-controls">
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Leachate</span><span class="lf-he-t" lang="he">תשטיף</span></span><select class="dash-select" id="leach-profile" aria-label="Leachate">
+        <option value="recent">From recent waste (UK)</option>
+        <option value="aged">From aged waste (UK)</option>
+        <option value="typical">Typical values (textbook)</option>
+        <option value="he:recent" lang="he">מפסולת טרייה (בריטניה)</option>
+        <option value="he:aged" lang="he">מפסולת ישנה (בריטניה)</option>
+        <option value="he:typical" lang="he">ערכים טיפוסיים (ספר לימוד)</option>
+      </select></label>
+    </div>
+    <ul class="lf-legend" aria-hidden="true">
+      <li><span class="lf-en"><span class="lf-sw lf-lc-sw"></span>Leachate</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-lc-sw"></span>תשטיף</span></li>
+      <li><span class="lf-en"><span class="lf-sw lf-lc-dwsw"></span>Typical drinking water</span><span class="lf-he-t" lang="he"><span class="lf-sw lf-lc-dwsw"></span>מי שתייה טיפוסיים</span></li>
+    </ul>
+    <div class="lf-lc" id="leach-comp" data-draw="leach-comp"></div>
+    <p class="lf-note"><span class="lf-en">Milligrams per litre on a log scale: each gridline is 100 times the one before. The figure after each bar is how many times the drinking-water level it is. Switch between recent and aged waste to see the organic load (COD, BOD₅) drop by about 95%, while ammonia stays thousands of times above drinking water and chloride and sodium rise.</span><span class="lf-he-t" lang="he">מיליגרם לליטר בסקאלה לוגריתמית: כל קו רשת גדול פי 100 מהקודם. המספר אחרי כל עמודה מראה פי כמה הריכוז גבוה מאשר במי שתייה. החליפו בין פסולת טרייה לישנה וראו שהעומס האורגני (COD,‏ BOD₅) יורד בכ-95%, בעוד שהאמוניה נשארת גבוהה פי אלפים ממי שתייה, והכלוריד והנתרן אף עולים.</span></p>
+
+    <h3 class="lf-h3" id="il-leachate-where"><span class="lf-en">Where each landfill's leachate goes, 2025</span><span class="lf-he-t" lang="he">לאן הולכים התשטיפים של כל מטמנה, 2025</span></h3>
+    <div class="lf-table-wrap">
+      <table class="lf-table">
+        <thead><tr>
+          <th scope="col"><span class="lf-en">Landfill site</span><span class="lf-he-t" lang="he">אתר הטמנה</span></th>
+          <th scope="col"><span class="lf-en">Methane, t (size)</span><span class="lf-he-t" lang="he">מתאן, טון (גודל)</span></th>
+          <th scope="col"><span class="lf-en">Where the leachate goes</span><span class="lf-he-t" lang="he">לאן הולכים התשטיפים</span></th>
+          <th scope="col"><span class="lf-en">Leachate pollutants reported</span><span class="lf-he-t" lang="he">מזהמים בתשטיפים שדווחו</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><span class="lf-en">Efeh</span><span class="lf-he-t" lang="he">אפעה</span></td><td class="lf-num">79,291</td><td><span class="lf-en">Kept on site: evaporation ponds, mechanical evaporators and a treatment plant</span><span class="lf-he-t" lang="he">נשארים באתר: בריכות אידוי, מתקני אידוי מכניים ומתקן טיפול</span></td><td><span class="lf-en">None in the register; about 450 m³ a day (November 2024)</span><span class="lf-he-t" lang="he">אין במרשם; כ-450 מ"ק ביום (נובמבר 2024)</span></td></tr>
+          <tr><td><span class="lf-en">Ganei Hadas</span><span class="lf-he-t" lang="he">גני הדס</span></td><td class="lf-num">19,344</td><td><span class="lf-en">Evaporation pond (last stated for 2023)</span><span class="lf-he-t" lang="he">בריכת אידוי (דווח לאחרונה ל-2023)</span></td><td>—</td></tr>
+          <tr><td><span class="lf-en">Evron</span><span class="lf-he-t" lang="he">עברון</span></td><td class="lf-num">18,218</td><td><span class="lf-en">Nahariya sewage treatment plant, after on-site physical and chemical treatment (since 2014)</span><span class="lf-he-t" lang="he">מכון טיהור השפכים של נהריה, אחרי טיפול פיזיקלי-כימי באתר (מאז 2014)</span></td><td><span class="lf-en">Measured: ammonia 8.8 t, organic carbon 6.9 t, phenols 58 kg, boron 38 kg</span><span class="lf-he-t" lang="he">נמדד: אמוניה 8.8 טון, פחמן אורגני 6.9 טון, פנולים 58 ק"ג, בורון 38 ק"ג</span></td></tr>
+          <tr><td><span class="lf-en">Talia</span><span class="lf-he-t" lang="he">טליה</span></td><td class="lf-num">13,920</td><td><span class="lf-en">Not stated</span><span class="lf-he-t" lang="he">לא צוין</span></td><td>—</td></tr>
+          <tr><td><span class="lf-en">Dudaim</span><span class="lf-he-t" lang="he">דודאים</span></td><td class="lf-num">13,113</td><td><span class="lf-en">Not stated</span><span class="lf-he-t" lang="he">לא צוין</span></td><td>—</td></tr>
+          <tr><td><span class="lf-en">Haruvit</span><span class="lf-he-t" lang="he">חרובית</span></td><td class="lf-num">5,508</td><td><span class="lf-en">Shimshon sewage treatment plant, Beit Shemesh (since 2016)</span><span class="lf-he-t" lang="he">מכון טיהור השפכים שמשון, בית שמש (מאז 2016)</span></td><td><span class="lf-en">All below reporting thresholds</span><span class="lf-he-t" lang="he">הכול מתחת לסף הדיווח</span></td></tr>
+          <tr><td><span class="lf-en">Naser Recycling</span><span class="lf-he-t" lang="he">נאסר מיחזור</span></td><td class="lf-num">4,958</td><td><span class="lf-en">Haifa sewage treatment plant (since 2013)</span><span class="lf-he-t" lang="he">מכון טיהור השפכים של חיפה (מאז 2013)</span></td><td><span class="lf-en">All below reporting thresholds</span><span class="lf-he-t" lang="he">הכול מתחת לסף הדיווח</span></td></tr>
+          <tr><td><span class="lf-en">Nimra</span><span class="lf-he-t" lang="he">נימרה</span></td><td class="lf-num">2,078</td><td><span class="lf-en">A reservoir; Eilat sewage treatment plant until 2024</span><span class="lf-he-t" lang="he">מאגר; מכון טיהור השפכים של אילת עד 2024</span></td><td><span class="lf-en">All below reporting thresholds</span><span class="lf-he-t" lang="he">הכול מתחת לסף הדיווח</span></td></tr>
+          <tr><td><span class="lf-en">Zohar</span><span class="lf-he-t" lang="he">זוהר</span></td><td class="lf-num">1,051</td><td><span class="lf-en">Not stated; reports releases to land</span><span class="lf-he-t" lang="he">לא צוין; מדווחת על שחרור לקרקע</span></td><td><span class="lf-en">To land, by model: chloride 6.3 t, sodium 5.1 t, ammonia 3.5 t, organic carbon 2.8 t, phosphorus 36 kg</span><span class="lf-he-t" lang="he">לקרקע, לפי מודל: כלוריד 6.3 טון, נתרן 5.1 טון, אמוניה 3.5 טון, פחמן אורגני 2.8 טון, זרחן 36 ק"ג</span></td></tr>
+          <tr><td><span class="lf-en">Smaller sites</span><span class="lf-he-t" lang="he">אתרים קטנים</span></td><td>—</td><td><span class="lf-en">Eichut Yeruka and Avivit to Hadera; Tut (Shfeya) to Ma'ayan Tsvi; Gush Halav quarry to Ramat Dalton</span><span class="lf-he-t" lang="he">איכות ירוקה ואביבית לחדרה; תות (שפיה) למעיין צבי; מחצבת גוש חלב לרמת דלתון</span></td><td><span class="lf-en">All below reporting thresholds</span><span class="lf-he-t" lang="he">הכול מתחת לסף הדיווח</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="lf-note"><span class="lf-en">From the 2025 reports to the Pollutant Release and Transfer Register. Methane shows each site's size, as on the map above. "Since" is the first year the site named that plant. Most leachate pollutants are reported only when they pass a threshold, so "below threshold" doesn't mean none. Efeh's daily volume is from the State Comptroller.</span><span class="lf-he-t" lang="he">לפי הדיווחים של 2025 למרשם לפליטות ולהעברות של מזהמים. המתאן מראה את גודל האתר, כמו במפה למעלה. "מאז" היא השנה הראשונה שבה האתר ציין את המכון. רוב המזהמים בתשטיפים מדווחים רק כשהם עוברים סף, ולכן "מתחת לסף" אינו אומר שאין. הכמות היומית באפעה לפי מבקר המדינה.</span></p>
+
+    <h3 class="lf-h3" id="il-leachate-efeh"><span class="lf-en">Efeh's leachate, late 2024: why the ponds fill up</span><span class="lf-he-t" lang="he">התשטיפים באפעה, סוף 2024: למה הבריכות מתמלאות</span></h3>
+    <div class="lf-flow" role="img" aria-label="Efeh makes about 450 cubic metres of leachate a day; its plant treats 135; about 315 a day go to ponds that hold about 13,500 cubic metres, enough for about 43 days.">
+      <div class="lf-flow-bar"><span class="lf-flow-ok" style="flex: 135 1 0"><span class="lf-en">135 treated</span><span class="lf-he-t" lang="he">135 מטופלים</span></span><span class="lf-flow-bad" style="flex: 315 1 0"><span class="lf-en">315 m³ a day left over, to the ponds</span><span class="lf-he-t" lang="he">315 מ"ק ביום עודפים, לבריכות</span></span></div>
+      <p class="lf-flow-cap"><span class="lf-en">450 m³ of leachate a day. Efeh's two leachate ponds hold about <b>13,500 m³</b>, so 315 m³ a day would fill empty ponds in about <b>43 days</b>. Evaporation in the hot, dry Negev drains them, but not fast enough: in December 2024 they were full.</span><span class="lf-he-t" lang="he">450 מ"ק תשטיפים ביום. שתי בריכות התשטיפים באפעה מכילות כ-<b>13,500 מ"ק</b>, כך ש-315 מ"ק ביום ימלאו בריכות ריקות בתוך כ-<b>43 ימים</b>. האידוי בנגב החם והיבש מרוקן אותן, אבל לא מהר מספיק: בדצמבר 2024 הן היו מלאות.</span></p>
+    </div>
+
+    <h3 class="lf-h3" id="il-leachate-calc"><span class="lf-en">Calculator: how much leachate does rain make?</span><span class="lf-he-t" lang="he">מחשבון: כמה תשטיפים יוצרים הגשמים?</span></h3>
+    <div class="lf-controls lf-calc-in">
+      <label class="lf-selwrap lf-rangewrap"><span class="lf-sel-label"><span class="lf-en">Rain a year</span><span class="lf-he-t" lang="he">גשם בשנה</span></span><input type="range" id="leach-rain" min="25" max="900" step="25" value="500" aria-label="Rain a year, millimetres"></label>
+      <label class="lf-selwrap lf-rangewrap"><span class="lf-sel-label"><span class="lf-en">Open waste area</span><span class="lf-he-t" lang="he">שטח פסולת חשוף</span></span><input type="range" id="leach-area" min="1" max="40" step="1" value="10" aria-label="Open waste area, hectares"></label>
+      <label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Waste</span><span class="lf-he-t" lang="he">פסולת</span></span><select class="dash-select" id="leach-share" aria-label="Waste compaction">
+        <option value="0.25">Well compacted (about 25% of rain soaks through)</option>
+        <option value="0.55">Poorly compacted (about 55%)</option>
+        <option value="he:0.25" lang="he">דחוסה היטב (כ-25% מהגשם מחלחל)</option>
+        <option value="he:0.55" lang="he">דחוסה בצורה גרועה (כ-55%)</option>
+      </select></label>
+    </div>
+    <div class="lf-calc" id="leach-calc" data-draw="leach-calc" aria-live="polite"></div>
+    <p class="lf-note"><span class="lf-en">Leachate from rain = rain × open area × the share that soaks through instead of running off or evaporating. Engineers commonly assume up to about 25% for well-compacted waste and 50–60% for poorly compacted waste. Average rain in Israel ranges roughly from 500–700 mm on the coast and in the north to about 200 mm at Be'er Sheva and under 50 mm at Eilat. Covering finished areas keeps rain out; liquid from the waste itself comes on top of this, which is why Efeh, in a dry area, still makes so much.</span><span class="lf-he-t" lang="he">תשטיפים מגשם = גשם × שטח חשוף × החלק שמחלחל במקום לזרום או להתאדות. מהנדסים מניחים בדרך כלל עד כ-25% בפסולת דחוסה היטב ו-50–60% בפסולת דחוסה בצורה גרועה. כמות הגשם הממוצעת בישראל נעה בערך בין 500–700 מ"מ בשפלת החוף ובצפון לכ-200 מ"מ בבאר שבע ופחות מ-50 מ"מ באילת. כיסוי של שטחים שהסתיימה בהם ההטמנה מונע כניסת גשם; הנוזל מהפסולת עצמה מתווסף לכך, ולכן אפעה, באזור יבש, עדיין מייצרת כמות גדולה כל כך.</span></p>
+
+    <p class="lf-note"><span class="lf-en">Sources: State Comptroller, follow-up audit on municipal waste disposal, July 2025 (Efeh); Efeh landfill request for information on leachate treatment, November 2023; State Comptroller annual report 72A, 2021 (groundwater salinity); Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register, 2025 reports (data.gov.il); S. Earle, Environmental Geology, open textbook, table 14.3.1 (concentrations); Modeling leachate generation: practical scenarios for municipal solid waste landfills in Poland, Environmental Science and Pollution Research, 2023 (share of rain that soaks through).</span><span class="lf-he-t" lang="he">מקורות: מבקר המדינה, ביקורת מעקב על סילוק פסולת עירונית, יולי 2025 (אפעה); בקשת מידע של מטמנת אפעה על טיפול בתשטיפים, נובמבר 2023; מבקר המדינה, דוח שנתי 72א, 2021 (המלחת מי תהום); המשרד להגנת הסביבה, המרשם לפליטות ולהעברות של מזהמים, דיווחי 2025 (data.gov.il); S. Earle, Environmental Geology, ספר לימוד פתוח, טבלה 14.3.1 (ריכוזים); מאמר על מידול היווצרות תשטיפים במטמנות בפולין, Environmental Science and Pollution Research, 2023 (החלק מהגשם שמחלחל).</span></p>
+  </section>
+
   <details class="lf-details" id="notes">
     <summary><span class="lf-en">Definitions and caveats</span><span class="lf-he-t" lang="he">הגדרות והסתייגויות</span></summary>
     <ul>
@@ -415,12 +553,13 @@
       <li><span class="lf-en">Israel reported only total disposal to the OECD before 2013, so those years show 100% landfilled. The true share was likely a little lower.</span><span class="lf-he-t" lang="he">עד 2013 ישראל דיווחה ל-OECD רק על סך הפסולת שסולקה, ולכן בשנים אלה מוצגת הטמנה של 100%. השיעור האמיתי היה כנראה מעט נמוך יותר.</span></li>
       <li><span class="lf-en">What a Waste 2.0 (World Bank, 2018) gathers each country's latest available figures. "Landfill" combines sanitary, controlled and unspecified landfills. Many countries don't report recycling, so recycling shares there are understated and the remainder shows as other or unreported.</span><span class="lf-he-t" lang="he">What a Waste 2.0 (הבנק העולמי, 2018) מרכז את הנתונים העדכניים של כל מדינה. "הטמנה" כוללת אתרים תקניים, מבוקרים ולא מסווגים. מדינות רבות אינן מדווחות על מיחזור, ולכן שיעורי המיחזור שלהן מוערכים בחסר והיתרה מוצגת כאחר או לא מדווח.</span></li>
       <li><span class="lf-en">Landfill space (Israel): remaining space at each landfill from the State Comptroller's July 2025 follow-up audit, with planned expansions from the Knesset Research and Information Center (January 2026). Israel does not publish each site's total permitted volume.</span><span class="lf-he-t" lang="he">מקום בהטמנה (ישראל): המקום שנותר בכל אתר לפי ביקורת המעקב של מבקר המדינה מיולי 2025, וההרחבות המתוכננות לפי מרכז המחקר והמידע של הכנסת (ינואר 2026). ישראל אינה מפרסמת את הנפח המאושר הכולל של כל אתר.</span></li>
+      <li><span class="lf-en">Leachate (Israel): Efeh's volumes from the State Comptroller (July 2025) and Efeh's November 2023 request for information; destinations and pollutant amounts from the 2025 reports to the Pollutant Release and Transfer Register, where amounts below a threshold are not given. Concentrations are examples from published leachate analyses, not Israeli measurements.</span><span class="lf-he-t" lang="he">תשטיפים (ישראל): הכמויות באפעה לפי מבקר המדינה (יולי 2025) ובקשת המידע של אפעה מנובמבר 2023; היעדים וכמויות המזהמים לפי הדיווחים של 2025 למרשם לפליטות ולהעברות של מזהמים, שבו כמויות מתחת לסף אינן מפורטות. הריכוזים הם דוגמאות מניתוחי תשטיפים שפורסמו, ולא מדידות מישראל.</span></li>
       <li><span class="lf-en">GDP per person: World Bank, PPP in constant 2021 international dollars (via Our World in Data) for the OECD charts. The world chart uses the GDP figure published in the What a Waste dataset.</span><span class="lf-he-t" lang="he">תוצר לנפש: הבנק העולמי, בשווי כוח קנייה בדולרים בינלאומיים קבועים של 2021 (דרך Our World in Data) בגרפי ה-OECD. הגרף העולמי משתמש בנתון התוצר שפורסם במאגר What a Waste.</span></li>
     </ul>
   </details>
 
 <footer class="site-foot">
-  <p><span class="lf-en">Sources: OECD municipal waste statistics (DF_MUNW); World Bank, What a Waste 2.0; UN Statistics Division environment statistics (waste questionnaires); Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il); State Comptroller of Israel, July 2025; Knesset Research and Information Center, January 2026; World Bank GDP and population via Our World in Data.</span><span class="lf-he-t" lang="he">מקורות: סטטיסטיקת הפסולת העירונית של OECD; הבנק העולמי, What a Waste 2.0; החטיבה הסטטיסטית של האו"ם (שאלוני פסולת); המשרד להגנת הסביבה, המרשם לפליטות ולהעברות של מזהמים (data.gov.il); מבקר המדינה, יולי 2025; מרכז המחקר והמידע של הכנסת, ינואר 2026; תוצר ואוכלוסייה של הבנק העולמי דרך Our World in Data.</span></p>
+  <p><span class="lf-en">Sources: OECD municipal waste statistics (DF_MUNW); World Bank, What a Waste 2.0; UN Statistics Division environment statistics (waste questionnaires); Israel Ministry of Environmental Protection, Pollutant Release and Transfer Register (data.gov.il); State Comptroller of Israel, July 2025; State Comptroller annual report 72A, 2021; Efeh landfill request for information, November 2023; S. Earle, Environmental Geology (open textbook); Knesset Research and Information Center, January 2026; World Bank GDP and population via Our World in Data.</span><span class="lf-he-t" lang="he">מקורות: סטטיסטיקת הפסולת העירונית של OECD; הבנק העולמי, What a Waste 2.0; החטיבה הסטטיסטית של האו"ם (שאלוני פסולת); המשרד להגנת הסביבה, המרשם לפליטות ולהעברות של מזהמים (data.gov.il); מבקר המדינה, יולי 2025; מבקר המדינה, דוח שנתי 72א, 2021; בקשת מידע של מטמנת אפעה, נובמבר 2023; S. Earle, Environmental Geology (ספר לימוד פתוח); מרכז המחקר והמידע של הכנסת, ינואר 2026; תוצר ואוכלוסייה של הבנק העולמי דרך Our World in Data.</span></p>
   <p><a href="https://github.com/royposmanik/landfill-trends"><span class="lf-en">Code and data on GitHub</span><span class="lf-he-t" lang="he">הקוד והנתונים ב-GitHub</span></a></p>
 </footer>
 </div>
@@ -2012,6 +2151,64 @@ dash.draw('waste-counter', {
   },
   unmount(el, k) { if (k && k.timer) clearInterval(k.timer); }
 });
+
+// Leachate section: how strong leachate is against drinking water, and a rain-to-leachate calculator.
+// Concentrations in mg/L: S. Earle, Environmental Geology (open textbook), table 14.3.1.
+LF.leach = {
+  params: [
+    { en: 'COD (organic load)', he: 'COD (עומס אורגני)', recent: 23800, aged: 1160, typical: 18000, dw: 10 },
+    { en: 'BOD₅ (biodegradable organics)', he: 'BOD₅ (חומר אורגני מתכלה)', recent: 11900, aged: 260, typical: 1000, dw: 3 },
+    { en: 'Ammonia nitrogen', he: 'חנקן אמוניה', recent: 790, aged: 370, typical: 225, dw: 0.1 },
+    { en: 'Chloride', he: 'כלוריד', recent: 1315, aged: 2080, typical: 500, dw: 10 },
+    { en: 'Sodium', he: 'נתרן', recent: 960, aged: 1300, typical: 500, dw: 15 },
+    { en: 'Calcium', he: 'סידן', recent: 1820, aged: 250, typical: 1000, dw: 10 },
+    { en: 'Potassium', he: 'אשלגן', recent: 780, aged: 590, typical: 300, dw: 1 },
+    { en: 'Magnesium', he: 'מגנזיום', recent: 252, aged: 185, typical: 250, dw: 5 },
+    { en: 'Iron', he: 'ברזל', recent: 540, aged: 23, typical: 60, dw: 0.2 },
+    { en: 'Manganese', he: 'מנגן', recent: 27, aged: 2.1, typical: null, dw: 0.03 },
+    { en: 'Zinc', he: 'אבץ', recent: 21.5, aged: 0.4, typical: null, dw: 0.01 },
+    { en: 'Copper', he: 'נחושת', recent: 0.12, aged: 0.03, typical: null, dw: 0.02 }
+  ],
+  T: (en, he) => '<span class="lf-en">' + en + '</span><span class="lf-he-t" lang="he">' + he + '</span>',
+  mg: (v) => v >= 10 ? d3.format(',.0f')(v) : v >= 1 ? d3.format('.1~f')(v) : d3.format('.2~f')(v)
+};
+dash.draw('leach-comp', (el) => {
+  const L = LF.leach, key = LF.st.leachProfile || 'recent';
+  const lo = -2, hi = 5; // 0.01 to 100,000 mg/L
+  const pos = (v) => Math.max(0, Math.min(100, (Math.log10(v) - lo) / (hi - lo) * 100));
+  const times = (r) => { const t = r / 1; return t >= 10 ? d3.format(',.0f')(t) : d3.format('.1~f')(t); };
+  let h = '<div class="lf-lc-axis" aria-hidden="true"><span></span><span class="lf-lc-track">';
+  for (const t of [0.01, 1, 100, 10000]) h += '<i' + (t === 100 ? ' class="lf-lc-mid"' : '') + ' style="inset-inline-start:' + pos(t).toFixed(2) + '%">' + d3.format(',')(t) + '</i>';
+  h += '</span><span></span></div>';
+  for (const p of L.params) {
+    const v = p[key];
+    h += '<div class="lf-lc-row"><span class="lf-lc-name">' + L.T(p.en, p.he) + '</span><span class="lf-lc-track">';
+    for (const t of [0.01, 1, 100, 10000]) h += '<u style="inset-inline-start:' + pos(t).toFixed(2) + '%"></u>';
+    if (v != null) h += '<em class="lf-lc-bar" style="width:' + pos(v).toFixed(2) + '%"></em>';
+    h += '<b class="lf-lc-dw" style="inset-inline-start:' + pos(p.dw).toFixed(2) + '%" title="Drinking water: ' + L.mg(p.dw) + ' mg/L"></b></span>';
+    h += '<span class="lf-lc-val">' + (v == null ? '—' : L.mg(v) + ' <small>' + L.T('mg/L', 'מ"ג/ל') + '</small> <span class="lf-lc-x">×' + times(v / p.dw) + '</span>') + '</span></div>';
+  }
+  el.innerHTML = h;
+});
+dash.draw('leach-calc', (el) => {
+  const L = LF.leach, num = (id, d) => { const e = document.getElementById(id); return e ? +lfVal(e) : d; };
+  const rain = num('leach-rain', 500), ha = num('leach-area', 10), share = num('leach-share', 0.25);
+  const perYear = rain / 1000 * ha * 1e4 * share, perDay = perYear / 365;
+  const f0 = d3.format(',.0f'), f1 = d3.format(',.1f');
+  const efeh = perDay / 450 * 100;
+  el.innerHTML =
+    '<p class="lf-calc-set">' + L.T(f0(rain) + ' mm of rain a year · ' + ha + ' hectares open · ' + Math.round(share * 100) + '% soaks through',
+      f0(rain) + ' מ"מ גשם בשנה · ' + ha + ' הקטאר חשופים · ' + Math.round(share * 100) + '% מחלחל') + '</p>' +
+    '<div class="lf-calc-out">' +
+      '<div><b>' + f0(perYear) + '</b><span>' + L.T('m³ of leachate a year', 'מ"ק תשטיפים בשנה') + '</span></div>' +
+      '<div><b>' + (perDay < 10 ? f1(perDay) : f0(perDay)) + '</b><span>' + L.T('m³ a day on average', 'מ"ק ביום בממוצע') + '</span></div>' +
+      '<div><b>' + f1(perYear / 2500) + '</b><span>' + L.T('Olympic swimming pools a year (2,500 m³ each)', 'בריכות אולימפיות בשנה (2,500 מ"ק כל אחת)') + '</span></div>' +
+      '<div><b>' + (efeh < 10 ? f1(efeh) : f0(efeh)) + '%</b><span>' + L.T("of the 450 m³ a day Efeh made in late 2024", 'מ-450 המ"ק ביום שאפעה ייצרה בסוף 2024') + '</span></div>' +
+    '</div>';
+});
+document.querySelectorAll('#leach-profile').forEach((s) => s.addEventListener('change', () => { LF.st.leachProfile = lfVal(s); dash.draw('leach-comp'); }));
+document.querySelectorAll('#leach-rain, #leach-area').forEach((s) => s.addEventListener('input', () => dash.draw('leach-calc')));
+document.querySelectorAll('#leach-share').forEach((s) => s.addEventListener('change', () => dash.draw('leach-calc')));
 </script>
 
 </main>
