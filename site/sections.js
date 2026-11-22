@@ -168,6 +168,45 @@ if (LF.GIF) LF.GIF.euleach = {
 let euW = 0;
 window.addEventListener('resize', () => { const e = document.getElementById('eu-leach-country'); if (e && Math.abs(e.clientWidth - euW) > 20) { euW = e.clientWidth; dash.draw('eu-leach-country'); } });
 
+
+// PFAS in landfill leachate against drinking water limits (US EPA research review 2024; EPA and EU limits). ng per litre, log scale.
+LF.pfas = {
+  lim: [
+    [4, 1, 'US drinking water limit for PFOA, and for PFOS', 'הגבול האמריקאי במי שתייה ל-PFOA, וגם ל-PFOS'],
+    [100, 1, 'EU drinking water limit, sum of 20 PFAS', 'הגבול האירופי במי שתייה, סכום של 20 תרכובות PFAS'],
+    [500, 1, 'EU drinking water limit, all PFAS', 'הגבול האירופי במי שתייה, כל ה-PFAS'],
+    [1400, 0, 'US landfill leachate, average PFOA', 'תשטיפים ממטמנות בארצות הברית, ממוצע PFOA'],
+    [12300, 0, 'US landfill leachate, average of all PFAS measured', 'תשטיפים ממטמנות בארצות הברית, ממוצע כל ה-PFAS שנמדדו'],
+    [104000, 0, 'US landfill leachate, highest total reported', 'תשטיפים ממטמנות בארצות הברית, הסך הגבוה ביותר שדווח']
+  ],
+  cmp: [[3500, '5:3 FTCA'], [2800, 'PFHxA'], [1400, 'PFOA'], [800, 'PFBS'], [550, 'PFHxS'], [260, 'PFOS'], [67, 'PFNA']]
+};
+dash.draw('pfas', (el) => {
+  const T = LF.euLeach.T, f = d3.format(','), s = document.getElementById('pfas-view'), view = s ? lfVal(s) : 'lim';
+  const top = view === 'lim' ? 200000 : 10000, k = (v) => (Math.log10(v) / Math.log10(top)).toFixed(4);
+  const pos = (v) => 'calc((100% - 64px) * ' + k(v) + ')';
+  const rows = view === 'lim' ? LF.pfas.lim.map((r) => ({ v: r[0], lim: r[1], en: r[2], he: r[3] })) : LF.pfas.cmp.map((r) => ({ v: r[0], lim: 0, en: r[1], he: '<bdi dir="ltr">' + r[1] + '</bdi>' }));
+  let h = '<p class="lf-note">' + (view === 'lim'
+    ? T('Nanograms per litre, log scale: each step is ten times the one before. Blue: drinking water limits. Orange: landfill leachate.', 'ננוגרם לליטר, סקאלה לוגריתמית: כל שנת מידה גדולה פי עשרה מהקודמת. כחול: הגבולות למי שתייה. כתום: תשטיפים ממטמנות.')
+    : T('Average in US municipal landfill leachate, nanograms per litre, log scale. Short-chain compounds lead.', 'ממוצע בתשטיפים ממטמנות עירוניות בארצות הברית, ננוגרם לליטר, סקאלה לוגריתמית. התרכובות בעלות השרשרת הקצרה מובילות.')) + '</p><div class="lf-pfas-chart">';
+  for (const r of rows) {
+    h += '<div class="lf-pfas-row"><span class="lf-pfas-name">' + T(r.en, r.he) + '</span><span class="lf-pfas-track"><span class="lf-pfas-bar' + (r.lim ? ' lf-pfas-lim' : '') + '" style="width:max(2px, ' + pos(r.v) + ')"></span><span class="lf-pfas-v">' + f(r.v) + '</span></span></div>';
+  }
+  h += '<div class="lf-pfas-axis"><span></span><div>';
+  for (let t = 1, i = 0; t <= top; t *= 10, i++) h += '<span' + (i % 2 ? ' class="lf-pfas-odd"' : '') + ' style="left:' + pos(t) + '">' + (t >= 1000 ? d3.format('~s')(t).replace('k', 'K') : t) + '</span>';
+  h += '</div></div></div>';
+  h += '<ul class="lf-note">' +
+    '<li>' + T('PFAS are thousands of man-made compounds that repel water and grease, used in non-stick pans, waterproof clothing, food packaging and firefighting foam. They barely break down, and some are linked to cancer and to harm to the liver and immune system. Products that contain them end up in landfills, and the PFAS wash out into the leachate.', 'PFAS הן אלפי תרכובות מלאכותיות שדוחות מים ושומן, ומשמשות במחבתות נון-סטיק, בבגדים עמידים למים, באריזות מזון ובקצף לכיבוי אש. הן כמעט אינן מתפרקות, וחלקן קשורות לסרטן ולנזק לכבד ולמערכת החיסון. מוצרים שמכילים אותן מגיעים למטמנות, וה-PFAS נשטפות לתשטיפים.') + '</li>' +
+    '<li>' + T('Leachate from an average US landfill holds about 350 times the US drinking water limit for PFOA (1,400 against 4). The review covered 10 US studies with 330 samples, and PFAS were also found in leachate from construction waste, incinerator ash and hazardous waste landfills. Active landfills have far more than closed ones.', 'בתשטיפים של מטמנה ממוצעת בארצות הברית יש בערך פי 350 מהגבול האמריקאי במי שתייה ל-PFOA (1,400 מול 4). הסקירה כללה 10 מחקרים בארצות הברית עם 330 דגימות, ו-PFAS נמצאו גם בתשטיפים ממטמנות של פסולת בניין, אפר משריפת פסולת ופסולת מסוכנת. במטמנות פעילות יש הרבה יותר מאשר במטמנות סגורות.') + '</li>' +
+    '<li>' + T('Ordinary leachate treatment does not remove PFAS. Biological treatment and oxidation can even turn some of them into the regulated kinds, so the measured amount may rise. Reverse osmosis removes 90 to 100% but leaves a concentrate that still has to go somewhere. Gas flares, at 650 to 850 °C, are probably too cool to destroy PFAS, which takes about 1,000 °C.', 'טיפול רגיל בתשטיפים אינו מסלק PFAS. טיפול ביולוגי וחמצון יכולים אפילו להפוך חלק מהן לסוגים שיש להם תקן, כך שהכמות הנמדדת עשויה לעלות. אוסמוזה הפוכה מסלקת 90 עד 100%, אבל משאירה תרכיז שעדיין צריך לטפל בו. לפידי גז, ב-650 עד 850 מעלות, כנראה קרים מדי כדי להשמיד PFAS, שדורשות כ-1,000 מעלות.') + '</li>' +
+    '<li>' + T('Israel: we found no published measurements of PFAS in Israeli landfill leachate. Some of Israel\'s landfills send their leachate to sewage treatment plants, which do not remove PFAS, and most treated wastewater in Israel is reused for irrigation (see the Israel section below).', 'ישראל: לא מצאנו מדידות שפורסמו של PFAS בתשטיפים ממטמנות בישראל. חלק מהמטמנות בישראל שולחות את התשטיפים למכוני טיהור שפכים, שאינם מסלקים PFAS, ורוב השפכים המטוהרים בישראל משמשים להשקיה (ראו בחלק של ישראל בהמשך).') + '</li>' +
+    '</ul><p class="lf-note">' + T('Limits: US EPA 2024 drinking water rule, 4 ng/L each for PFOA and PFOS, which EPA kept when it proposed in May 2026 to drop its limits for four other PFAS; EU Drinking Water Directive, from 12 January 2026, 0.1 µg/L (100 ng/L) for the sum of 20 PFAS or 0.5 µg/L (500 ng/L) for all PFAS, each country choosing one or both. Leachate: T. Tolaymat and N. Robey, US EPA Office of Research and Development, "Landfill disposal of PFAS: state of the science", April 2024 (US municipal landfill leachate; the compound averages are means across the studies that measured each one). Treatment: the same review, and M. Zhang et al., Waste Management, 2023.',
+      'הגבולות: התקנה האמריקאית למי שתייה מ-2024, 4 ננוגרם לליטר ל-PFOA ול-PFOS כל אחד, שהסוכנות להגנת הסביבה השאירה כשהציעה במאי 2026 לבטל את הגבולות לארבע תרכובות PFAS אחרות; הדירקטיבה האירופית למי שתייה, מ-12 בינואר 2026, 0.1 מיקרוגרם לליטר (100 ננוגרם) לסכום של 20 תרכובות PFAS, או 0.5 מיקרוגרם לליטר (500 ננוגרם) לכל ה-PFAS, וכל מדינה בוחרת אחד מהם או את שניהם. תשטיפים: T. Tolaymat ו-N. Robey, המשרד למחקר ופיתוח של הסוכנות האמריקאית להגנת הסביבה, "סילוק PFAS במטמנות: מצב הידע", אפריל 2024 (תשטיפים ממטמנות עירוניות בארצות הברית; הממוצעים לפי תרכובת הם ממוצעים של המחקרים שמדדו כל אחת). טיפול: אותה סקירה, ו-M. Zhang ואחרים, Waste Management,‏ 2023.') + '</p>';
+  el.innerHTML = h;
+});
+document.querySelectorAll('#pfas-view').forEach((s) => s.addEventListener('change', () => dash.draw('pfas')));
+dash.draw('pfas');
+
 // Landfill gas: LandGEM-style simulator (US EPA first-order decay model, each year's waste split into tenths).
 LF.gem = {
   ids: { k: 'lfg-k', l0: 'lfg-l0', m: 'lfg-m', d: 'lfg-d' },

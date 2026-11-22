@@ -158,6 +158,20 @@
 .lf-eu-years span { flex: 1 1 0; text-align: center; font-size: var(--cds-font-size-caption); color: var(--cds-text-secondary); font-variant-numeric: tabular-nums; min-width: 0; overflow: visible; white-space: nowrap; }
 @media (max-width: 560px) { .lf-eu-n { display: none; } .lf-eu-years .lf-eu-y2 { visibility: hidden; } }
 @media (prefers-reduced-motion: reduce) { .lf-eu-stack { transition: none; } }
+.lf-pfas { display: flex; flex-direction: column; gap: 10px; }
+.lf-pfas-chart { display: flex; flex-direction: column; gap: 6px; direction: ltr; }
+.lf-pfas-row, .lf-pfas-axis { display: grid; grid-template-columns: minmax(130px, 280px) 1fr; gap: 10px; align-items: center; font-size: var(--cds-font-size-caption); }
+.lf-pfas-name { text-align: right; line-height: 1.3; }
+.lf.lf-he .lf-pfas-name { direction: rtl; text-align: left; }
+.lf-pfas-track { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.lf-pfas-bar { height: 16px; border-radius: 2px; flex: none; background: var(--lf-leach, #d9822b); }
+.lf-pfas-bar.lf-pfas-lim { background: #2a78b5; }
+.lf-pfas-v { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--color-fg-muted); }
+.lf-pfas-axis { color: var(--cds-text-secondary); align-items: start; }
+.lf-pfas-axis > div { position: relative; height: 18px; border-top: 1px solid var(--cds-chart-axis); }
+.lf-pfas-axis > div span { position: absolute; transform: translateX(-50%); top: 2px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.lf-pfas ul { margin: 0; padding-inline-start: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 90ch; line-height: 1.55; }
+@media (max-width: 560px) { .lf-pfas-row, .lf-pfas-axis { grid-template-columns: 104px 1fr; gap: 6px; } .lf-pfas-axis .lf-pfas-odd { display: none; } }
 .lf-eu-country { direction: ltr; }
 .lf-eu-country svg { display: block; overflow: visible; }
 .lf-eu-country text { fill: var(--color-fg); font-variant-numeric: tabular-nums; }
@@ -383,6 +397,14 @@
     </div>
     <div class="lf-eu-country" id="eu-leach-country" data-draw="eu-leach-country"></div>
     <p class="lf-note"><span class="lf-en">European Pollutant Release and Transfer Register (E-PRTR), via the European Environment Agency's industrial reporting database: landfills (activity 5(d)) in the EU, Iceland, Norway, Serbia, Switzerland and, until 2019, the United Kingdom. A landfill reports a pollutant only if it passes a yearly threshold (nitrogen and organic carbon 50 t, nickel 20 kg, arsenic 5 kg), so these are the largest sources, not national totals. One or two big sites can swing a country's figure from year to year.</span><span class="lf-he-t" lang="he">המרשם האירופי לפליטות ולהעברות של מזהמים (E-PRTR), דרך מאגר הדיווח התעשייתי של הסוכנות האירופית לאיכות הסביבה: מטמנות (פעילות 5(d)) באיחוד האירופי, איסלנד, נורווגיה, סרביה, שווייץ ועד 2019 גם בריטניה. מטמנה מדווחת על מזהם רק אם עברה סף שנתי (חנקן ופחמן אורגני 50 טון, ניקל 20 ק"ג, ארסן 5 ק"ג), ולכן אלה המקורות הגדולים ולא סך לאומי. אתר גדול אחד או שניים יכולים לשנות את הנתון של מדינה משנה לשנה.</span></p>
+    <h3 class="lf-h3" id="pfas"><span class="lf-en">PFAS: "forever chemicals" in leachate</span><span class="lf-he-t" lang="he">PFAS: "כימיקלים לנצח" בתשטיפים</span></h3>
+    <div class="lf-controls"><label class="lf-selwrap"><span class="lf-sel-label"><span class="lf-en">Show</span><span class="lf-he-t" lang="he">הצג</span></span><select class="dash-select" id="pfas-view" aria-label="Show">
+      <option value="lim">Leachate against drinking water limits</option>
+      <option value="cmp">Average by compound</option>
+      <option value="he:lim" lang="he">תשטיפים מול הגבולות למי שתייה</option>
+      <option value="he:cmp" lang="he">ממוצע לפי תרכובת</option>
+    </select></label></div>
+    <div class="lf-pfas" data-draw="pfas"></div>
     <p class="lf-note"><span class="lf-en">Sources: J. R. Lang et al., National estimate of per- and polyfluoroalkyl substance (PFAS) release to U.S. municipal landfill leachate, Environmental Science &amp; Technology, 2017 (United States); a review of activated-sludge treatment of landfill leachate, International Journal of Environmental Research and Public Health, 2018, and a study in Science of the Total Environment, 2023 (China); European Environment Agency, industrial reporting under the Industrial Emissions Directive and E-PRTR (Europe).</span><span class="lf-he-t" lang="he">מקורות: J. R. Lang ואחרים, הערכה לאומית של שחרור PFAS בתשטיפי מטמנות בארצות הברית, Environmental Science &amp; Technology,‏ 2017 (ארצות הברית); סקירה על טיפול בתשטיפים בבוצה משופעלת, International Journal of Environmental Research and Public Health,‏ 2018, ומחקר ב-Science of the Total Environment,‏ 2023 (סין); הסוכנות האירופית לאיכות הסביבה, דיווח תעשייתי לפי הדירקטיבה לפליטות תעשייתיות ו-E-PRTR (אירופה).</span></p>
   </section>
 
