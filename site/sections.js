@@ -194,110 +194,233 @@ dash.draw('pfas', (el) => {
 document.querySelectorAll('#pfas-view').forEach((s) => s.addEventListener('change', () => dash.draw('pfas')));
 dash.draw('pfas');
 
-// Landfill gas: LandGEM-style simulator (US EPA first-order decay model, each year's waste split into tenths).
+// Landfill gas simulator following US EPA LandGEM version 3.1 (July 2025), both of its modes:
+// A, NSPS applicability: first-order decay, each year's waste in tenths, Q = Σ Σ k·L0·(M/10)·e^(−k·t), t = age of each tenth.
+// B, emissions inventory (40 CFR 98 equation HH-1): decomposable carbon mass balance, CH4 = DDOCm decomposed × F × MCF × 16/12.
+// Gas and pollutant concentrations, molecular weights and constants are those in the LandGEM workbook (AP-42 section 2.4).
 LF.gem = {
-  ids: { k: 'lfg-k', l0: 'lfg-l0', m: 'lfg-m', d: 'lfg-d' },
-  defaults: { k: 0.04, l0: 100, m: 100000, d: 20 },
   T: (en, he) => '<span class="lf-en">' + en + '</span><span class="lf-he-t" lang="he">' + he + '</span>',
-  he: () => !!document.querySelector('.lf.lf-he'),
-  fmt: (v, digits) => new Intl.NumberFormat(LF.gem.he() ? 'he-IL' : 'en-US', { maximumFractionDigits: digits == null ? 3 : digits }).format(v),
-  get() {
-    const s = {};
-    for (const [key, id] of Object.entries(LF.gem.ids)) { const e = document.getElementById(id); s[key] = e ? +e.value : LF.gem.defaults[key]; }
-    return s;
-  },
-  // Methane generation in m³ a year, `year` years after the landfill opens.
-  rate(year, s) {
-    let sum = 0;
-    for (let dep = 0; dep < Math.min(year, s.d); dep++) {
-      for (let part = 0; part < 10; part++) sum += s.k * s.l0 * (s.m / 10) * Math.exp(-s.k * (year - dep - part / 10));
-    }
-    return sum;
-  },
-  series() {
-    const G = LF.gem, cur = G.get(), ref = LF.st.lfgRef || null;
-    const horizon = Math.max(cur.d, ref ? ref.d : 0) + 40;
-    const yrs = d3.range(horizon + 1);
-    return { cur, ref, horizon, values: yrs.map((y) => G.rate(y, cur)), comp: ref ? yrs.map((y) => G.rate(y, ref)) : null };
-  },
-  probe(horizon) {
-    const p = document.getElementById('lfg-y');
-    return p ? Math.min(+p.value, horizon) : 20;
-  },
-  DENSITY: 0.656 / 1000 // tonnes of methane per m³ at 25 °C
+  he: () => window.LF_LANG === 'he' || !!document.querySelector('.lf.lf-he'),
+  fmt: (v, d) => new Intl.NumberFormat(LF.gem.he() ? 'he-IL' : 'en-US', { maximumFractionDigits: d == null ? 3 : d }).format(v),
+  P: 101.325, TK: 293, R: 8.3144, // standard pressure kPa, temperature K, gas constant: LandGEM DEFAULTS
+  mgPerM3: (mw) => mw * LF.gem.P / (LF.gem.TK * LF.gem.R * 1000),
+  kA: [[0.05, 'Conventional NSPS', 'רגיל, NSPS'], [0.02, 'Arid NSPS', 'אזור צחיח, NSPS'], [0.098, 'Faster decay', 'פירוק מהיר'], [0.067, 'Moderate decay', 'פירוק בינוני'], [0.033, 'Slower decay', 'פירוק איטי']],
+  kB: [[0.057, 'Faster (wet), waste before 2010', 'מהיר (גשום), פסולת לפני 2010'], [0.098, 'Faster (wet), waste from 2010', 'מהיר (גשום), פסולת מ-2010'], [0.038, 'Moderate, waste before 2010', 'בינוני, פסולת לפני 2010'], [0.067, 'Moderate, waste from 2010', 'בינוני, פסולת מ-2010'], [0.02, 'Slower (dry), waste before 2010', 'איטי (יבש), פסולת לפני 2010'], [0.033, 'Slower (dry), waste from 2010', 'איטי (יבש), פסולת מ-2010'], [0.04, 'Construction and demolition waste', 'פסולת בניין והריסה']],
+  doc: [[0.2, 'Bulk waste, before 2010', 'פסולת מעורבת, לפני 2010'], [0.17, 'Bulk waste, from 2010', 'פסולת מעורבת, מ-2010'], [0.31, 'Bulk MSW without inert and C&D waste, before 2010', 'פסולת עירונית בלי פסולת אינרטית ובניין, לפני 2010'], [0.27, 'Bulk MSW without inert and C&D waste, from 2010', 'פסולת עירונית בלי פסולת אינרטית ובניין, מ-2010'], [0.08, 'Construction and demolition waste', 'פסולת בניין והריסה'], [0.32, 'Uncharacterized MSW', 'פסולת עירונית לא מאופיינת'], [0.15, 'Food waste', 'פסולת מזון'], [0.2, 'Garden waste', 'גזם'], [0.4, 'Paper', 'נייר'], [0.43, 'Wood and straw', 'עץ וקש'], [0.24, 'Textiles', 'טקסטיל'], [0.24, 'Diapers', 'חיתולים'], [0.05, 'Sewage sludge', 'בוצת שפכים']],
+  nmocB: [[550, 'No or unknown co-disposal, from 1992', 'בלי הטמנה משותפת (או לא ידוע), מ-1992'], [600, 'No or unknown co-disposal, before 1992', 'בלי הטמנה משותפת (או לא ידוע), לפני 1992'], [2400, 'Hazardous waste co-disposed', 'עם פסולת מסוכנת']],
+  // [name, ppmv in mode A, ppmv in mode B, molecular weight]
+  pol: [
+    ['1,1,1-Trichloroethane (methyl chloroform)', 0.48, 0.48, 133.41], ['1,1,2,2-Tetrachloroethane', 1.1, 1.1, 167.85], ['1,1-Dichloroethane (ethylidene dichloride)', 2.4, 2.4, 98.97], ['1,1-Dichloroethene (vinylidene chloride)', 0.2, 0.2, 96.94],
+    ['1,2-Dichloroethane (ethylene dichloride)', 0.41, 0.41, 98.96], ['1,2-Dichloropropane (propylene dichloride)', 0.18, 0.18, 112.99], ['2-Propanol (isopropyl alcohol)', 50, 50, 60.11], ['Acetone', 7, 7, 58.08], ['Acrylonitrile', 6.3, 6.3, 53.06],
+    ['Benzene, no or unknown co-disposal', 1.9, 1.9, 78.11], ['Benzene, co-disposal', 11, 11, 78.11], ['Bromodichloromethane', 3.1, 3.1, 163.83], ['Butane', 5, 5, 58.12], ['Carbon disulfide', 0.58, 0.58, 76.13], ['Carbon monoxide', 110, 105, 28.01],
+    ['Carbon tetrachloride', 0.004, 0.004, 153.84], ['Carbonyl sulfide', 0.49, 0.49, 60.07], ['Chlorobenzene', 0.25, 0.25, 112.56], ['Chlorodifluoromethane', 1.3, 1.3, 86.47], ['Chloroethane (ethyl chloride)', 1.3, 1.3, 64.52], ['Chloroform', 0.03, 0.03, 119.39],
+    ['Chloromethane', 1.2, 1.2, 50.49], ['Dichlorobenzene', 0.21, 0.21, 147], ['Dichlorodifluoromethane', 16, 16, 120.91], ['Dichlorofluoromethane', 2.6, 2.6, 102.92], ['Dichloromethane (methylene chloride)', 14, 14, 84.94], ['Dimethyl sulfide (methyl sulfide)', 7.8, 7.8, 62.13],
+    ['Ethane', 890, 890, 30.07], ['Ethanol', 27, 27, 46.08], ['Ethyl mercaptan (ethanethiol)', 2.3, 2.3, 62.13], ['Ethylbenzene', 4.6, 4.6, 106.16], ['Ethylene dibromide', 0.001, 0.001, 187.88], ['Fluorotrichloromethane', 0.76, 0.76, 137.38], ['Hexane', 6.6, 6.6, 86.18],
+    ['Hydrogen sulfide', 36, 36, 34.08], ['Mercury (total)', 0.00029, 0.00029, 200.61], ['Methyl ethyl ketone', 7.1, 7.1, 72.11], ['Methyl isobutyl ketone', 1.9, 1.9, 100.16], ['Methyl mercaptan', 2.5, 2.5, 48.11], ['Pentane', 3.3, 3.3, 72.15],
+    ['Perchloroethylene (tetrachloroethylene)', 3.7, 3.7, 165.83], ['Propane', 11, 11, 44.09], ['t-1,2-Dichloroethene', 2.8, 2.8, 96.94], ['Toluene, no or unknown co-disposal', 39, 39, 92.13], ['Toluene, co-disposal', 170, 170, 92.13],
+    ['Trichloroethylene (trichloroethene)', 2.8, 2.8, 131.4], ['Vinyl chloride', 7.3, 7.3, 62.5], ['Xylenes', 12, 12, 106.16]
+  ],
+  defaults: { mode: 'A', open: 2000, d: 20, m: 100000, kA: 0.05, l0: 170, kB: 0.098, doc: 0.17, mcf: 1, f: 0.5, nmocB: 550 }
 };
-dash.draw('lfg-v-k', (el) => { el.textContent = LF.gem.fmt(LF.gem.get().k); });
-dash.draw('lfg-v-l0', (el) => { el.textContent = LF.gem.fmt(LF.gem.get().l0); });
-dash.draw('lfg-v-m', (el) => { el.textContent = LF.gem.fmt(LF.gem.get().m); });
-dash.draw('lfg-v-d', (el) => { el.textContent = LF.gem.fmt(LF.gem.get().d); });
-dash.draw('lfg-v-y', (el) => { el.textContent = String(LF.gem.probe(LF.gem.series().horizon)); });
-dash.draw('lfg-metrics', (el) => {
-  const G = LF.gem, S = G.series(), peak = d3.max(S.values), peakYear = S.values.indexOf(peak);
-  const total = S.cur.m * S.cur.d * S.cur.l0, t = peak * G.DENSITY;
-  const box = (v, en, he, en2, he2) => '<div><span>' + G.T(en, he) + '</span><b>' + v + '</b><span>' + G.T(en2, he2) + '</span></div>';
+LF.st.lfgMode = LF.st.lfgMode || 'A';
+
+// The controls are built once from here, to keep the dashboard page small.
+dash.draw('lfg-ui', (el) => {
+  if (el.dataset.built) return;
+  el.dataset.built = '1';
+  const G = LF.gem, T = G.T, D = G.defaults;
+  const opts = (list, val, fmtv) => list.map(([v, en]) => '<option value="' + v + '"' + (v === val ? ' selected' : '') + '>' + en + ' (' + (fmtv ? fmtv(v) : v) + ')</option>').join('') +
+    list.map(([v, , he]) => '<option value="he:' + v + '" lang="he">' + he + ' (' + (fmtv ? fmtv(v) : v) + ')</option>').join('');
+  const range = (id, en, he, min, max, step, val, unitEn, unitHe) => '<label class="lf-gem-c"><span class="lf-gem-cap"><span>' + T(en, he) + '</span><output data-draw="lfg-v-' + id + '"></output></span>' +
+    (unitEn ? '<small>' + T(unitEn, unitHe) + '</small>' : '') + '<input type="range" id="lfg-' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" value="' + val + '"></label>';
+  const sel = (id, en, he, html) => '<label class="lf-gem-c"><span class="lf-gem-cap"><span>' + T(en, he) + '</span></span><select class="dash-select" id="lfg-' + id + '">' + html + '</select></label>';
+  const gasOpts = ['<option value="lfg">Total landfill gas</option>', '<option value="ch4" selected>Methane</option>', '<option value="co2">Carbon dioxide</option>', '<option value="nmoc">NMOC (non-methane organic compounds)</option>',
+    '<option value="he:lfg" lang="he">סך גז המטמנות</option>', '<option value="he:ch4" lang="he">מתאן</option>', '<option value="he:co2" lang="he">פחמן דו-חמצני</option>', '<option value="he:nmoc" lang="he">NMOC (תרכובות אורגניות שאינן מתאן)</option>']
+    .concat(G.pol.map((p, i) => '<option value="p' + i + '">' + p[0] + '</option>'), G.pol.map((p, i) => '<option value="he:p' + i + '" lang="he">' + p[0] + '</option>')).join('');
   el.innerHTML =
-    box(G.fmt(peak / 1e6), 'Peak rate', 'קצב בשיא', 'million m³ a year', 'מיליון מ"ק לשנה') +
-    box(peakYear, 'Peak year', 'שנת השיא', 'after opening', 'מתחילת ההטמנה') +
-    box(G.fmt(total / 1e6, 1), 'Total potential', 'פוטנציאל כולל', 'million m³', 'מיליון מ"ק') +
-    box(G.fmt(t, 0), 'Peak in tonnes', 'השיא בטונות', 'methane a year, ≈ ' + G.fmt(t * 28 / 1e6, 2) + ' million t CO₂e', 'מתאן בשנה, ≈ ' + G.fmt(t * 28 / 1e6, 2) + ' מיליון טון CO₂e');
+    '<div class="lf-gem">' +
+    '<div class="lf-gem-in">' +
+      '<div class="lf-gem-pre"><span class="lf-sel-label">' + T('LandGEM mode', 'מצב LandGEM') + '</span><div class="lf-gem-btns lf-gem-modes">' +
+        '<button type="button" class="lf-btn lf-gem-mode" data-mode="A">' + T('A: NSPS (US air rules)', 'A: NSPS (תקנות אוויר בארה"ב)') + '</button>' +
+        '<button type="button" class="lf-btn lf-gem-mode" data-mode="B">' + T('B: Emissions inventory', 'B: מצאי פליטות') + '</button></div></div>' +
+      range('open', 'Year the landfill opens', 'שנת פתיחת המטמנה', 1950, 2030, 1, D.open) +
+      range('d', 'Years accepting waste', 'משך קליטת הפסולת', 1, 80, 1, D.d, 'years (LandGEM allows up to 80)', 'שנים (LandGEM מאפשר עד 80)') +
+      range('m', 'Waste a year', 'כמות פסולת שנתית', 10000, 2000000, 10000, D.m, 'tonnes a year', 'טונות בשנה') +
+      '<div class="lf-gem-box" data-gem-mode="A">' +
+        sel('ka', 'Methane generation rate k, preset', 'קבוע קצב הייצור k, ברירת מחדל', opts(G.kA, D.kA)) +
+        range('k', 'k', 'k', 0.005, 0.3, 0.001, D.kA, 'per year', 'לשנה') +
+        range('l0', 'Methane generation potential L₀', 'פוטנציאל ייצור המתאן L₀', 20, 250, 1, D.l0, 'm³ of methane per tonne (NSPS default 170)', 'מ"ק מתאן לטון (ברירת המחדל של NSPS היא 170)') +
+        '<p class="lf-gem-fix">' + T('Methane 50% of the gas and NMOC 4,000 ppmv (NSPS Tier 1), as the rules require.', 'מתאן 50% מהגז ו-<bdi dir="ltr">NMOC 4,000 ppmv</bdi> (<bdi dir="ltr">NSPS Tier 1</bdi>), כפי שהתקנות דורשות.') + '</p>' +
+      '</div>' +
+      '<div class="lf-gem-box" data-gem-mode="B" hidden>' +
+        sel('kb', 'Decay rate k (by rain and when the waste was buried)', 'קצב הפירוק k (לפי הגשם ומתי הפסולת נקברה)', opts(G.kB, D.kB)) +
+        sel('doc', 'Degradable organic carbon, DOC', 'פחמן אורגני מתפרק, DOC', opts(G.doc, D.doc)) +
+        range('mcf', 'Methane correction factor, MCF', 'מקדם תיקון למתאן, MCF', 0, 1, 0.05, D.mcf, '1 for a managed landfill (inventory default)', '1 למטמנה מנוהלת (ברירת המחדל במצאי)') +
+        range('f', 'Methane share of landfill gas, F', 'חלק המתאן בגז המטמנה, F', 0.4, 0.6, 0.01, D.f, 'default 0.5', 'ברירת מחדל 0.5') +
+        sel('nmoc', 'NMOC concentration', 'ריכוז NMOC', opts(G.nmocB, D.nmocB, (v) => G.fmt(v) + ' ppmv')) +
+        '<p class="lf-gem-fix" data-draw="lfg-l0b"></p>' +
+      '</div>' +
+      '<div class="lf-gem-btns">' +
+        '<button type="button" class="lf-btn" id="lfg-capture">' + T('Set as comparison', 'קבע תרחיש להשוואה') + '</button>' +
+        '<button type="button" class="lf-btn" id="lfg-clear" hidden>' + T('Remove comparison', 'הסר השוואה') + '</button>' +
+        '<button type="button" class="lf-btn" id="lfg-reset">' + T('Reset', 'איפוס') + '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="lf-gem-out">' +
+      '<div class="lf-gem-outsel">' + sel('gas', 'Show', 'הצג', gasOpts) +
+        sel('unit', 'Units', 'יחידות', '<option value="m3">m³ a year</option><option value="mg">tonnes (Mg) a year</option><option value="he:m3" lang="he">מ"ק בשנה</option><option value="he:mg" lang="he">טונות בשנה</option>') + '</div>' +
+      '<div class="lf-gem-m" data-draw="lfg-metrics"></div>' +
+      '<ul class="lf-legend" aria-hidden="true">' +
+        '<li>' + T('<span class="lf-gem-k"></span>Current scenario', '<span class="lf-gem-k"></span>תרחיש נוכחי') + '</li>' +
+        '<li class="lf-gem-refkey" hidden>' + T('<span class="lf-gem-k lf-gem-k-ref"></span>Comparison scenario', '<span class="lf-gem-k lf-gem-k-ref"></span>תרחיש להשוואה') + '</li>' +
+        '<li>' + T('<span class="lf-gem-k lf-gem-k-close"></span>Landfill stops taking waste', '<span class="lf-gem-k lf-gem-k-close"></span>סיום קליטת פסולת') + '</li>' +
+      '</ul>' +
+      '<div class="lf-gem-chart" data-draw="lfg-chart"></div>' +
+      '<label class="lf-gem-c lf-gem-probe"><span class="lf-gem-cap"><span>' + T('Year to check', 'שנה לבדיקה') + '</span><output data-draw="lfg-v-y"></output></span><input type="range" id="lfg-y" min="1950" max="2200" step="1" value="2020"></label>' +
+      '<p class="lf-gem-read" data-draw="lfg-read" aria-live="polite"></p>' +
+      '<details class="lf-gem-snap"><summary>' + T('All gases and pollutants in that year (LandGEM snapshot)', 'כל הגזים והמזהמים באותה שנה (תמונת מצב של LandGEM)') + '</summary><div data-draw="lfg-snap"></div></details>' +
+    '</div></div>' +
+    '<details class="lf-gem-how"><summary>' + T('How is it calculated?', 'איך זה מחושב?') + '</summary><p>' +
+      T('Mode A (NSPS, used to decide whether US air rules apply) splits each year\'s waste into ten equal parts. Each part makes k × L₀ × its mass × e<sup>−k × its age</sup> m³ of methane a year, starting the year after it is buried. Mode B (the emissions inventory, 40 CFR 98 equation HH-1) tracks the decomposable carbon: each year\'s waste adds DOC × DOCf of it (DOCf = 0.5), a share 1 − e<sup>−k</sup> of what has built up decomposes each year, and methane = decomposed carbon × F × MCF × 16/12. Mode B\'s L₀ works out to DOC × DOCf × F × MCF × 16/12 ÷ 0.667, so the default DOC of 0.2 gives 100 m³ per tonne. Landfill gas = methane ÷ its share; carbon dioxide is the rest. Each pollutant = landfill gas × its concentration (AP-42 defaults, built into LandGEM). Masses use the ideal gas law at 293 K and 101.325 kPa, so a tonne of methane is about 1,499 m³.',
+        'מצב A ‏(NSPS, משמש לקבוע אם תקנות האוויר בארה"ב חלות) מחלק את הפסולת של כל שנה לעשרה חלקים שווים. כל חלק מייצר k × L₀ × המסה שלו × e<sup>−k × הגיל שלו</sup> מ"ק מתאן בשנה, החל מהשנה שאחרי ההטמנה. מצב B (מצאי הפליטות, משוואה HH-1 בתקנה 40 CFR 98) עוקב אחרי הפחמן המתפרק: הפסולת של כל שנה מוסיפה DOC × DOCf ממנו (DOCf = 0.5), בכל שנה מתפרק חלק 1 − e<sup>−k</sup> ממה שהצטבר, והמתאן = הפחמן שהתפרק × F × MCF × 16/12. ה-L₀ של מצב B יוצא DOC × DOCf × F × MCF × 16/12 ÷ 0.667, כך ש-DOC של 0.2 נותן 100 מ"ק לטון. גז המטמנה = המתאן ÷ החלק שלו; פחמן דו-חמצני הוא השאר. כל מזהם = גז המטמנה × הריכוז שלו (ערכי ברירת המחדל של AP-42 שבתוך LandGEM). המסות מחושבות לפי חוק הגזים האידיאליים ב-293 קלווין ו-101.325 קילופסקל, כך שטון מתאן הוא כ-1,499 מ"ק.') + '</p></details>';
+  const he = window.LF_LANG === 'he';
+  el.querySelectorAll('select').forEach((s) => { const v = lfVal(s); for (const o of s.options) o.hidden = o.value.startsWith('he:') !== he; s.value = (he ? 'he:' : '') + v; });
+  if (LF.gem.wire) LF.gem.wire();
+});
+
+LF.gem.get = () => {
+  const G = LF.gem, D = G.defaults, num = (id, dv) => { const e = document.getElementById('lfg-' + id); return e ? +lfVal(e) : dv; };
+  return { mode: LF.st.lfgMode, open: num('open', D.open), d: num('d', D.d), m: num('m', D.m), k: num('k', D.kA), l0: num('l0', D.l0), kB: num('kb', D.kB), doc: num('doc', D.doc), mcf: num('mcf', D.mcf), f: num('f', D.f), nmocB: num('nmoc', D.nmocB) };
+};
+LF.gem.l0B = (s) => s.doc * 0.5 * s.f * s.mcf * 16 / 12 / 0.667 * 1000;
+// Methane generated each year (m³), from the opening year to `n` years later.
+LF.gem.methane = (s, n) => {
+  const G = LF.gem, out = new Array(n + 1).fill(0);
+  if (s.mode === 'A') {
+    for (let t = 1; t <= n; t++) {
+      let q = 0;
+      for (let dep = 0; dep < Math.min(t, s.d); dep++) for (let j = 0; j < 10; j++) q += s.k * s.l0 * (s.m / 10) * Math.exp(-s.k * (t - dep - 1 + j / 10));
+      out[t] = q;
+    }
+  } else {
+    let J = 0;
+    for (let t = 0; t <= n; t++) {
+      const I = J * (1 - Math.exp(-s.kB));
+      J = J - I + (t < s.d ? s.m * s.doc * 0.5 : 0);
+      out[t] = I * s.f * s.mcf * 16 / 12 / G.mgPerM3(16.04);
+    }
+  }
+  return out;
+};
+// Converts methane (m³) to the chosen gas, in m³ or tonnes.
+LF.gem.conv = (s, gas, unit) => {
+  const G = LF.gem, F = s.mode === 'A' ? 0.5 : s.f;
+  let vol, mw;
+  if (gas === 'ch4') { vol = 1; mw = 16.04; }
+  else if (gas === 'lfg') { vol = 1 / F; mw = F * 16.04 + (1 - F) * 44.01; }
+  else if (gas === 'co2') { vol = (1 - F) / F; mw = 44.01; }
+  else if (gas === 'nmoc') { vol = (s.mode === 'A' ? 4000 : s.nmocB) / 1e6 / F; mw = 86.18; }
+  else { const p = G.pol[+gas.slice(1)]; vol = (s.mode === 'A' ? p[1] : p[2]) / 1e6 / F; mw = p[3]; }
+  return unit === 'mg' ? vol * G.mgPerM3(mw) : vol;
+};
+LF.gem.series = () => {
+  const G = LF.gem, cur = G.get(), ref = LF.st.lfgRef || null;
+  const gs = document.getElementById('lfg-gas'), us = document.getElementById('lfg-unit');
+  const gas = gs ? lfVal(gs) : 'ch4', unit = us ? lfVal(us) : 'm3';
+  const start = Math.min(cur.open, ref ? ref.open : cur.open);
+  const end = Math.min(Math.max(cur.open + cur.d, ref ? ref.open + ref.d : 0) + 50, start + 140);
+  const n = end - start, years = d3.range(start, end + 1);
+  const line = (s) => { const q = G.methane(s, end - s.open), c = G.conv(s, gas, unit); return years.map((y) => (y < s.open ? 0 : q[y - s.open] * c)); };
+  return { cur, ref, gas, unit, years, n, values: line(cur), comp: ref ? line(ref) : null, ch4: (() => { const q = G.methane(cur, end - cur.open); return years.map((y) => (y < cur.open ? 0 : q[y - cur.open])); })() };
+};
+LF.gem.gasName = (gas) => {
+  const G = LF.gem, he = G.he();
+  if (gas[0] === 'p') return G.pol[+gas.slice(1)][0];
+  return { lfg: he ? 'גז מטמנות' : 'landfill gas', ch4: he ? 'מתאן' : 'methane', co2: he ? 'פחמן דו-חמצני' : 'carbon dioxide', nmoc: 'NMOC' }[gas];
+};
+LF.gem.unitName = (unit) => (unit === 'mg' ? (LF.gem.he() ? 'טונות בשנה' : 'tonnes a year') : (LF.gem.he() ? 'מ"ק בשנה' : 'm³ a year'));
+LF.gem.probe = (S) => { const p = document.getElementById('lfg-y'); const v = p ? +p.value : S.years[0] + 20; return Math.max(S.years[0], Math.min(S.years[S.years.length - 1], v)); };
+// Numbers of very different sizes: millions get a suffix, small ones keep three significant digits.
+LF.gem.big = (v) => { const G = LF.gem, he = G.he(); if (v >= 1e6) return G.fmt(v / 1e6, 2) + (he ? ' מיליון' : ' million'); if (v >= 1000) return G.fmt(v, 0); if (v === 0) return '0'; return new Intl.NumberFormat(he ? 'he-IL' : 'en-US', { maximumSignificantDigits: 3 }).format(v); };
+
+['open', 'd', 'm', 'k', 'l0', 'mcf', 'f'].forEach((id) => dash.draw('lfg-v-' + id, (el) => {
+  const e = document.getElementById('lfg-' + id);
+  if (e) el.textContent = id === 'open' ? e.value : LF.gem.fmt(+e.value);
+}));
+dash.draw('lfg-v-y', (el) => { el.textContent = String(LF.gem.probe(LF.gem.series())); });
+dash.draw('lfg-l0b', (el) => { const s = LF.gem.get(); el.innerHTML = LF.gem.T('This gives L₀ = ' + LF.gem.fmt(LF.gem.l0B(s), 0) + ' m³ of methane per tonne (DOCf = 0.5).', 'מתקבל L₀ = ' + LF.gem.fmt(LF.gem.l0B(s), 0) + ' מ"ק מתאן לטון (DOCf = 0.5).'); });
+dash.draw('lfg-metrics', (el) => {
+  const G = LF.gem, S = G.series(), T = G.T, peak = d3.max(S.values) || 0, py = S.years[S.values.indexOf(peak)];
+  const ch4Peak = d3.max(S.ch4) || 0, ch4t = ch4Peak * G.mgPerM3(16.04), total = d3.sum(S.ch4);
+  const box = (lab, v, sub) => '<div><span>' + lab + '</span><b>' + v + '</b><span>' + sub + '</span></div>';
+  const name = G.gasName(S.gas), unit = G.unitName(S.unit);
+  el.innerHTML =
+    box(T('Peak', 'שיא'), G.big(peak), (G.he() ? name + ', ' + unit : name + ', ' + unit)) +
+    box(T('Peak year', 'שנת השיא'), py || '—', T('closes ' + (S.cur.open + S.cur.d - 1), 'נסגרת ב-' + (S.cur.open + S.cur.d - 1))) +
+    box(T('Methane over the run', 'מתאן לאורך התקופה'), G.fmt(total / 1e6, 1), T('million m³, ' + S.years[0] + '–' + S.years[S.years.length - 1], 'מיליון מ"ק, ' + S.years[0] + '–' + S.years[S.years.length - 1])) +
+    box(T('Methane at its peak', 'מתאן בשיא'), G.fmt(ch4t, 0), T('tonnes a year, ≈ ' + G.fmt(ch4t * 28 / 1e6, 2) + ' million t CO₂e', 'טונות בשנה, ≈ ' + G.fmt(ch4t * 28 / 1e6, 2) + ' מיליון טון CO₂e'));
 });
 dash.draw('lfg-chart', (el) => {
-  const G = LF.gem, S = G.series(), he = G.he(), sel = G.probe(S.horizon);
+  const G = LF.gem, S = G.series(), he = G.he(), sel = G.probe(S);
   const ceiling = Math.max(d3.max(S.values), S.comp ? d3.max(S.comp) : 0) || 1;
-  const decade = 10 ** Math.floor(Math.log10(ceiling / 5));
-  const step = ([1, 2, 2.5, 5, 10].find((n) => n * decade >= ceiling / 5) || 10) * decade;
-  const scaleMax = Math.ceil(ceiling / step) * step;
-  const L = 61, R = 650, Tp = 29, B = 289;
-  const x = (yr) => L + yr / S.horizon * (R - L), y = (q) => B - q / scaleMax * (B - Tp);
-  const line = (pts, cls) => '<polyline points="' + pts.map((q, yr) => x(yr).toFixed(1) + ',' + y(q).toFixed(1)).join(' ') + '" class="' + cls + '"/>';
-  let ax = '';
-  for (let i = 0; i <= Math.round(scaleMax / step); i++) {
-    const q = i * step;
-    ax += '<path d="M' + L + ' ' + y(q) + 'H' + R + '" stroke="var(--cds-chart-grid)"/><text x="' + (L - 8) + '" y="' + (y(q) + 4) + '" text-anchor="end">' + G.fmt(q / 1e6) + '</text>';
-  }
-  for (let yr = 0; yr <= S.horizon; yr += 10) ax += '<text x="' + x(yr) + '" y="311" text-anchor="middle">' + yr + '</text>';
-  const label = he ? 'קצב ייצור מתאן לפי שנה' : 'Methane generation rate by year';
+  const div = ceiling >= 1e6 ? 1e6 : 1, ticks = d3.ticks(0, ceiling / div, 5), scaleMax = Math.max(ceiling / div, ticks[ticks.length - 1] || 1) * div;
   const fs = Math.min(24, Math.max(13, 13 * 480 / (el.clientWidth || 670)));
-  el.innerHTML = '<svg viewBox="0 0 670 345" role="img" aria-label="' + label + '" font-size="' + fs.toFixed(1) + '">' +
+  const L = 64, R = 650, Tp = 29, B = 289, y0 = S.years[0], span = S.years[S.years.length - 1] - y0 || 1;
+  const x = (yr) => L + (yr - y0) / span * (R - L), y = (q) => B - q / scaleMax * (B - Tp);
+  const line = (pts, cls) => '<polyline points="' + pts.map((q, i) => x(S.years[i]).toFixed(1) + ',' + y(q).toFixed(1)).join(' ') + '" class="' + cls + '"/>';
+  let ax = '';
+  for (const t of ticks) ax += '<path d="M' + L + ' ' + y(t * div) + 'H' + R + '" stroke="var(--cds-chart-grid)"/><text x="' + (L - 8) + '" y="' + (y(t * div) + 4) + '" text-anchor="end">' + G.fmt(t) + '</text>';
+  const step = span > 100 ? 20 : 10;
+  for (let yr = Math.ceil(y0 / step) * step; yr <= y0 + span; yr += step) ax += '<text x="' + x(yr) + '" y="311" text-anchor="middle">' + yr + '</text>';
+  const unitLab = (div === 1e6 ? (he ? 'מיליוני ' : 'million ') : '') + G.unitName(S.unit);
+  const close = S.cur.open + S.cur.d - 1;
+  el.innerHTML = '<svg viewBox="0 0 670 345" font-size="' + fs.toFixed(1) + '" role="img" aria-label="' + G.gasName(S.gas) + ', ' + unitLab + '">' +
     '<style>.lfg-cur{fill:none;stroke:var(--lf-gas,#7fd0a8);stroke-width:3.2;stroke-linejoin:round}.lfg-ref{fill:none;stroke:var(--color-fg-muted);stroke-width:2.6;stroke-dasharray:7 6}</style>' +
-    '<text x="' + L + '" y="17" text-anchor="start">' + (he ? 'מיליון מ"ק מתאן לשנה' : 'million m³ of methane a year') + '</text>' + ax +
-    '<text x="' + ((L + R) / 2) + '" y="337" text-anchor="middle">' + (he ? 'שנים מתחילת ההטמנה' : 'years after the landfill opens') + '</text>' +
+    '<text x="' + L + '" y="17" text-anchor="start">' + G.gasName(S.gas) + ', ' + unitLab + '</text>' + ax +
     '<path d="M' + L + ' ' + Tp + 'V' + B + 'H' + R + '" fill="none" stroke="var(--cds-chart-axis)"/>' +
-    '<path d="M' + x(S.cur.d) + ' ' + Tp + 'V' + B + '" stroke="#d9a441" stroke-width="2" stroke-dasharray="2 4"/>' +
+    '<path d="M' + x(close) + ' ' + Tp + 'V' + B + '" stroke="#d9a441" stroke-width="2" stroke-dasharray="2 4"/>' +
     '<path d="M' + x(sel) + ' ' + Tp + 'V' + B + '" stroke="var(--color-fg-muted)" stroke-dasharray="4 5"/>' +
     (S.comp ? line(S.comp, 'lfg-ref') : '') + line(S.values, 'lfg-cur') +
-    '<circle cx="' + x(sel) + '" cy="' + y(S.values[sel]) + '" r="5" fill="var(--lf-gas,#7fd0a8)" stroke="var(--color-panel)" stroke-width="2"/></svg>';
+    '<circle cx="' + x(sel) + '" cy="' + y(S.values[sel - y0]) + '" r="5" fill="var(--lf-gas,#7fd0a8)" stroke="var(--color-panel)" stroke-width="2"/></svg>';
 });
 dash.draw('lfg-read', (el) => {
-  const G = LF.gem, S = G.series(), sel = G.probe(S.horizon);
-  const v = G.fmt(Math.round(S.values[sel]), 0), t = G.fmt(S.values[sel] * G.DENSITY, 0);
-  const r = S.comp ? G.fmt(Math.round(S.comp[sel]), 0) : null;
-  el.innerHTML = G.T('Year ' + sel + ' · current scenario ' + v + ' m³ of methane a year (' + t + ' t)' + (r ? ' · comparison ' + r + ' m³' : ''),
-    'שנה ' + sel + ' · תרחיש נוכחי ' + v + ' מ"ק מתאן לשנה (' + t + ' טון)' + (r ? ' · תרחיש להשוואה ' + r + ' מ"ק' : ''));
+  const G = LF.gem, S = G.series(), sel = G.probe(S), i = sel - S.years[0];
+  const v = G.big(S.values[i]), r = S.comp ? G.big(S.comp[i]) : null, u = G.unitName(S.unit), n = G.gasName(S.gas);
+  el.innerHTML = G.T(sel + ' · current scenario ' + v + ' ' + u + ' of ' + n + (r ? ' · comparison ' + r : ''), sel + ' · תרחיש נוכחי ' + v + ' ' + u + ' ' + n + (r ? ' · תרחיש להשוואה ' + r : ''));
+});
+dash.draw('lfg-snap', (el) => {
+  const G = LF.gem, S = G.series(), s = S.cur, sel = G.probe(S), q = sel < s.open ? 0 : G.methane(s, sel - s.open)[sel - s.open], he = G.he();
+  const rows = [['lfg', he ? 'סך גז המטמנות' : 'Total landfill gas'], ['ch4', he ? 'מתאן' : 'Methane'], ['co2', he ? 'פחמן דו-חמצני' : 'Carbon dioxide'], ['nmoc', 'NMOC']].concat(G.pol.map((p, i) => ['p' + i, p[0]]));
+  const ppm = (g) => { const F = s.mode === 'A' ? 0.5 : s.f; if (g === 'ch4') return F * 1e6; if (g === 'co2') return (1 - F) * 1e6; if (g === 'lfg') return 1e6; if (g === 'nmoc') return s.mode === 'A' ? 4000 : s.nmocB; const p = G.pol[+g.slice(1)]; return s.mode === 'A' ? p[1] : p[2]; };
+  let h = '<table class="lf-table lf-gem-tab"><thead><tr><th scope="col">' + G.T('Gas or pollutant', 'גז או מזהם') + '</th><th scope="col">ppmv</th><th scope="col">' + G.T('tonnes a year', 'טונות בשנה') + '</th><th scope="col">' + G.T('m³ a year', 'מ"ק בשנה') + '</th></tr></thead><tbody>';
+  for (const [g, n] of rows) h += '<tr><td>' + n + '</td><td class="lf-num">' + G.big(ppm(g)) + '</td><td class="lf-num">' + G.big(q * G.conv(s, g, 'mg')) + '</td><td class="lf-num">' + G.big(q * G.conv(s, g, 'm3')) + '</td></tr>';
+  el.innerHTML = '<p class="lf-note">' + G.T('Year ' + sel + ', mode ' + s.mode + '.', 'שנת ' + sel + ', מצב ' + s.mode + '.') + '</p>' + h + '</tbody></table>';
 });
 LF.gem.redraw = () => {
   const G = LF.gem, S = G.series(), p = document.getElementById('lfg-y');
-  if (p) { p.max = S.horizon; if (+p.value > S.horizon) p.value = S.horizon; }
+  if (p) { p.min = S.years[0]; p.max = S.years[S.years.length - 1]; }
   document.querySelectorAll('#lfg-clear, .lf-gem-refkey').forEach((e) => { e.hidden = !LF.st.lfgRef; });
-  ['lfg-v-k', 'lfg-v-l0', 'lfg-v-m', 'lfg-v-d', 'lfg-v-y', 'lfg-metrics', 'lfg-chart', 'lfg-read'].forEach((n) => dash.draw(n));
+  document.querySelectorAll('.lf-gem-box').forEach((b) => { b.hidden = b.dataset.gemMode !== LF.st.lfgMode; });
+  document.querySelectorAll('.lf-gem-mode').forEach((b) => { b.setAttribute('aria-pressed', String(b.dataset.mode === LF.st.lfgMode)); });
+  ['lfg-v-open', 'lfg-v-d', 'lfg-v-m', 'lfg-v-k', 'lfg-v-l0', 'lfg-v-mcf', 'lfg-v-f', 'lfg-v-y', 'lfg-l0b', 'lfg-metrics', 'lfg-chart', 'lfg-read', 'lfg-snap'].forEach((n) => dash.draw(n));
 };
-document.querySelectorAll('#lfg-k, #lfg-l0, #lfg-m, #lfg-d, #lfg-y').forEach((e) => e.addEventListener('input', LF.gem.redraw));
-document.querySelectorAll('.lf-gem-p').forEach((b) => b.addEventListener('click', () => {
-  const k = document.getElementById('lfg-k'), l0 = document.getElementById('lfg-l0');
-  if (k) k.value = b.dataset.k; if (l0) l0.value = 100;
-  LF.gem.redraw();
-}));
-document.querySelectorAll('#lfg-capture').forEach((b) => b.addEventListener('click', () => { LF.st.lfgRef = LF.gem.get(); LF.gem.redraw(); }));
-document.querySelectorAll('#lfg-clear').forEach((b) => b.addEventListener('click', () => {
-  LF.st.lfgRef = null; LF.gem.redraw();
-  const c = document.getElementById('lfg-capture'); if (c) c.focus();
-}));
-document.querySelectorAll('#lfg-reset').forEach((b) => b.addEventListener('click', () => {
-  for (const [key, id] of Object.entries(LF.gem.ids)) { const e = document.getElementById(id); if (e) e.value = LF.gem.defaults[key]; }
-  const p = document.getElementById('lfg-y'); if (p) p.value = LF.gem.defaults.d;
-  LF.st.lfgRef = null; LF.gem.redraw();
-}));
-LF.gem.redraw();
+LF.gem.wire = function () {
+  const G = LF.gem, D = G.defaults, $ = (id) => document.getElementById('lfg-' + id);
+  document.querySelectorAll('#lfg-open, #lfg-d, #lfg-m, #lfg-k, #lfg-l0, #lfg-mcf, #lfg-f, #lfg-y').forEach((e) => e.addEventListener('input', G.redraw));
+  document.querySelectorAll('#lfg-kb, #lfg-doc, #lfg-nmoc, #lfg-gas, #lfg-unit').forEach((e) => e.addEventListener('change', G.redraw));
+  document.querySelectorAll('#lfg-ka').forEach((e) => e.addEventListener('change', () => { const k = $('k'); if (k) k.value = lfVal(e); G.redraw(); }));
+  document.querySelectorAll('.lf-gem-mode').forEach((b) => b.addEventListener('click', () => { LF.st.lfgMode = b.dataset.mode; G.redraw(); }));
+  document.querySelectorAll('#lfg-capture').forEach((b) => b.addEventListener('click', () => { LF.st.lfgRef = G.get(); G.redraw(); }));
+  document.querySelectorAll('#lfg-clear').forEach((b) => b.addEventListener('click', () => { LF.st.lfgRef = null; G.redraw(); const c = $('capture'); if (c) c.focus(); }));
+  document.querySelectorAll('#lfg-reset').forEach((b) => b.addEventListener('click', () => {
+    const he = window.LF_LANG === 'he', setSel = (id, v) => { const e = $(id); if (e) e.value = (he ? 'he:' : '') + v; };
+    for (const [id, v] of [['open', D.open], ['d', D.d], ['m', D.m], ['k', D.kA], ['l0', D.l0], ['mcf', D.mcf], ['f', D.f], ['y', D.open + 20]]) { const e = $(id); if (e) e.value = v; }
+    setSel('ka', D.kA); setSel('kb', D.kB); setSel('doc', D.doc); setSel('nmoc', D.nmocB); setSel('gas', 'ch4'); setSel('unit', 'm3');
+    LF.st.lfgRef = null; LF.st.lfgMode = 'A'; G.redraw();
+  }));
+  G.redraw();
+};
+dash.draw('lfg-ui');
 ['leach-comp', 'leach-calc', 'oecd-leach-time', 'oecd-leach-country', 'oecd-leach-year-label'].forEach((n) => dash.draw(n));
 
 // Landfill gas in Israel: what collecting more of it would do (2022 national inventory, our collected-share estimate).
